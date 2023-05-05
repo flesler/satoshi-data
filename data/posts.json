@@ -206,8 +206,74 @@
 	{
 		"date": "December 10, 2009, 08:49:02 PM",
 		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
-		"q": "Hi, yesterday I stumbled upon this great payment option.\nI read my way through many sites but now I have some questions that couldn't get answered.\n1. Is Bitcoin really anonymous? I mean totally and completely? Is my ISP able to detect, that I have sent or received a Bitcoin payment? Maybe he is even able to see that I am running Bitcoin right now?\n2. If I understood this correctly, my payment partners are not able to see who I am. Does this mean, they can not see my real IP adress? Only the Bitcoin-adress? Even if they monitors their network connections and stuff?\n3. If there is a way for my ISP to tell that I am running Bitcoin or for my payment partners to find out my IP, would it be more safe to tunnel the network traffic through a VPN (payed with Paysafecard for example)? Could this be dangerous, because the VPN provider will be able to capture my payment?\n4. What files need to be backed up for not losing my \"money\"? Only the wallet.dat or the whole Bitcoin AppData directory ?\n5. Isn`t it possible to multiply a wallet and use it on different machines? This way you would double your money without doing anything for it.\nAre there security measures for this case?\n6. When someone loses his wallet, will there be a way to recreate the lost coins in the system ? Else the 21 million maximum will not be correct.\n(I mean not to recover the lost coins for one person, but if all the 21mio coins were created, and someone loses his wallet with 1mio coins, will the the others be able to create these 1mio coins now or are they totally lost for the bitcoin network?)\n7. I have read that there currently are about 130k blocks out there. At my pc it only shows me about 24k. Is there something wrong or is this a normal behaviour ?\n8. I`m afraid I didn`t understand everything about the bitcoin creation. How many coins are created by a machine in 24h in average?\n9. I know that port 8333 should be forwarded to the bitcoin-running machine. Now I ask myself if this goes for the TCP or the UDP.\nAnd is this port required for generating coins? Or only for payment transactions?\n10. I`ve seen that the source code for bitcoin is open for everybody. Can this be an actual danger? If the code is manipulated people can create more bitcoins than others, can`t they? This would be a massive leak of security.\n11. I`ve seen a formular to clalculate the coins that will be created in a certain amount of time. It had something to do with the maximum cpu speed and the availabe. Can`t find it anymore, so I`m asking you to explain me the coin creating. Do slow machines produce as much coins as high-end ones?\n12. Are there any other exchanging systems or potential payment partners except for new liberty standard?\n13. What happens when my system crashes? Is the wallet saved automatically or only when bitcoin gets closed manually? (Maybe even real-time saving when a coint is created or payment is made?)\n14. Is there a way to see how many bitcoins have been generated this far? And how old is Bitcoin already?\nI know .... Many many questions but I am really interested in your service and want to know everything before I start using it more frequently.\n(Sorry for my bad English...)\nEDIT 2014-10-31: grammar and typos",
-		"a": "1-3:\nFor that level of anonymity you need to connect through TOR, which will be possible with version 0.2, which is only a few weeks away. I'll post TOR instructions at that time.\n4:\nVersion 0.1.5: backup the whole %appdata%\\Bitcoin directory.\nVersion 0.2: you can backup just wallet.dat.\n5:\nNope. The whole design is all about preventing that from working.\n6:\nThose coins can never be recovered, and the total circulation is less. Since the effective circulation is reduced, all the remaining coins are worth slightly more. It's the opposite of when a government prints money and the value of existing money goes down.\n7:\nIt's currently 29,296 blocks. The circulation is the number of blocks times 50, so the current circulation is 1,464,800 bc.\nIf you only have 24k blocks, it must not have finished the initial block download. Exit bitcoin and start it again. Version 0.2 is better/faster at the initial block download.\n8:\nTypically a few hundred right now. It's easy now but it'll get harder as the network grows.\n9:\nGood question, it's TCP. The website needs to be updated to say TCP port 8333.\nThe port forwarding is so other nodes can connect to you, so it helps you stay connected because you are able to be connected with more nodes. You also need it to receive payments by IP address.\n10:\nNo, the other nodes won't accept that.\nBeing open source means anyone can independently review the code. If it was closed source, nobody could verify the security. I think it's essential for a program of this nature to be open source.\n11:\nSlower machines produce fewer coins. It's proportional to CPU speed.\n12:\nThere are more coming.\n13:\nIt uses a transactional database called Berkeley DB. It will not lose data in a system crash. Transactions are written to the database immediately when they're received.\n14:\nFor now, you can just multiply the total blocks by 50. The Bitcoin network has been running for almost a year now. The design and coding started in 2007."
+		"q": "Hi, yesterday I stumbled upon this great payment option.\nI read my way through many sites but now I have some questions that couldn't get answered.\n1. Is Bitcoin really anonymous? I mean totally and completely? Is my ISP able to detect, that I have sent or received a Bitcoin payment? Maybe he is even able to see that I am running Bitcoin right now?\n2. If I understood this correctly, my payment partners are not able to see who I am. Does this mean, they can not see my real IP adress? Only the Bitcoin-adress? Even if they monitors their network connections and stuff?\n3. If there is a way for my ISP to tell that I am running Bitcoin or for my payment partners to find out my IP, would it be more safe to tunnel the network traffic through a VPN (payed with Paysafecard for example)? Could this be dangerous, because the VPN provider will be able to capture my payment?",
+		"a": "1-3: For that level of anonymity you need to connect through TOR, which will be possible with version 0.2, which is only a few weeks away. I'll post TOR instructions at that time.\n"
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "4. What files need to be backed up for not losing my \"money\"? Only the wallet.dat or the whole Bitcoin AppData directory ?",
+		"a": "4: Version 0.1.5: backup the whole %appdata%\\Bitcoin directory.\nVersion 0.2: you can backup just wallet.dat."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "5. Isn`t it possible to multiply a wallet and use it on different machines? This way you would double your money without doing anything for it.\nAre there security measures for this case?",
+		"a": "5: Nope. The whole design is all about preventing that from working."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "6. When someone loses his wallet, will there be a way to recreate the lost coins in the system ? Else the 21 million maximum will not be correct.\n(I mean not to recover the lost coins for one person, but if all the 21mio coins were created, and someone loses his wallet with 1mio coins, will the the others be able to create these 1mio coins now or are they totally lost for the bitcoin network?)",
+		"a": "6: Those coins can never be recovered, and the total circulation is less. Since the effective circulation is reduced, all the remaining coins are worth slightly more. It's the opposite of when a government prints money and the value of existing money goes down."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "7. I have read that there currently are about 130k blocks out there. At my pc it only shows me about 24k. Is there something wrong or is this a normal behaviour ?",
+		"a": "7: It's currently 29,296 blocks. The circulation is the number of blocks times 50, so the current circulation is 1,464,800 bc.\nIf you only have 24k blocks, it must not have finished the initial block download. Exit bitcoin and start it again. Version 0.2 is better/faster at the initial block download."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "8. I`m afraid I didn`t understand everything about the bitcoin creation. How many coins are created by a machine in 24h in average?",
+		"a": "8: Typically a few hundred right now. It's easy now but it'll get harder as the network grows."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "9. I know that port 8333 should be forwarded to the bitcoin-running machine. Now I ask myself if this goes for the TCP or the UDP.\nAnd is this port required for generating coins? Or only for payment transactions?",
+		"a": "9: Good question, it's TCP. The website needs to be updated to say TCP port 8333.\nThe port forwarding is so other nodes can connect to you, so it helps you stay connected because you are able to be connected with more nodes. You also need it to receive payments by IP address."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "10. I`ve seen that the source code for bitcoin is open for everybody. Can this be an actual danger? If the code is manipulated people can create more bitcoins than others, can`t they? This would be a massive leak of security.",
+		"a": "10: No, the other nodes won't accept that.\nBeing open source means anyone can independently review the code. If it was closed source, nobody could verify the security. I think it's essential for a program of this nature to be open source."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "11. I`ve seen a formula to calculate the coins that will be created in a certain amount of time. It had something to do with the maximum cpu speed and the availabe. Can`t find it anymore, so I`m asking you to explain me the coin creating. Do slow machines produce as much coins as high-end ones?",
+		"a": "11: Slower machines produce fewer coins. It's proportional to CPU speed."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "12. Are there any other exchanging systems or potential payment partners except for new liberty standard?",
+		"a": "12: There are more coming."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "13. What happens when my system crashes? Is the wallet saved automatically or only when bitcoin gets closed manually? (Maybe even real-time saving when a coint is created or payment is made?)",
+		"a": "13: It uses a transactional database called Berkeley DB. It will not lose data in a system crash. Transactions are written to the database immediately when they're received."
+	},
+	{
+		"date": "December 10, 2009, 08:49:02 PM",
+		"src": "https://bitcointalk.org/index.php?topic=13.msg46#msg46",
+		"q": "14. Is there a way to see how many bitcoins have been generated this far? And how old is Bitcoin already?\nI know .... Many many questions but I am really interested in your service and want to know everything before I start using it more frequently.",
+		"a": "14: For now, you can just multiply the total blocks by 50. The Bitcoin network has been running for almost a year now. The design and coding started in 2007."
 	},
 	{
 		"date": "December 11, 2009, 05:58:57 PM",

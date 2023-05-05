@@ -1,5 +1,6 @@
 const fs = require('fs')
 const cheerio = require('cheerio')
+const overrides = require('./nakamotoinstitute.org/overrides.json')
 
 const QUOTE = '<|>'
 const SATOSHI = 'Satoshi Nakamoto'
@@ -67,7 +68,7 @@ const parseEmails = () => {
       continue
     }
 
-    const [first, ...parts] = splitEmail(email.text)
+    const [first, ...parts] = overrides[email.url] || splitEmail(email.text)
     if (first) {
       const prev = emails.find(p => p.id === email.parent && p.sender !== SATOSHI)
       const prevParts = prev && splitEmail(prev.text)
@@ -140,7 +141,7 @@ const parsePosts = () => {
       continue
     }
     
-    const [first, ...parts] = splitPost(post.content)
+    const [first, ...parts] = overrides[post.url] || splitPost(post.content)
     if (first) {
       // Should be using nested_level for some, but seems like satoshi replied without nesting correctly (?)
       // Example: https://p2pfoundation.ning.com/forum/topics/bitcoin-open-source?commentId=2003008%3AComment%3A9562
