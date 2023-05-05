@@ -175,7 +175,7 @@ const items = parsePosts().concat(parseEmails())
 fs.writeFileSync('./data/all.json', JSON.stringify(items, null, '\t'))
 
 const toHTML = (text) => {
-  return text.replace(/\n/g, BR)
+  return text.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, BR)
 }
 
 fs.writeFileSync('./data/all.html', `
