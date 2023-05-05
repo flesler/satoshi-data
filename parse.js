@@ -4,7 +4,7 @@ const cheerio = require('cheerio')
 const QUOTE = '<|>'
 const SATOSHI = 'Satoshi Nakamoto'
 const BR = '<br/>'
-const IGNORE_LINES = [SATOSHI, 'http://www.bitcoin.org']
+const IGNORE_LINES = [SATOSHI, 'Satoshi', 'http://www.bitcoin.org']
 const IGNORE_EMAIL = ['>>', 'From:', ' wrote:', ' writes:']
 // The rest are ignored
 const ACCEPTED_UNICODES = ['0e3f', '00e9', '00e0', '00e8', '00e7']
@@ -179,13 +179,15 @@ const toHTML = (text) => {
 }
 
 fs.writeFileSync('./data/all.html', `
-  <html><head /><body><ul>
+  <html>
+  <head />
+  <body>
     ${items.map(i => `
-      <li>
-        <p>${i.date} - <a href="${i.src}">${i.src}</a></p>
-        <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
-        <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
-      </li>
+      <p>${i.date} - <a href="${i.src}">${i.src}</a></p>
+      <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
+      <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
+      <hr />
     `).join('\n')}
-  </ul></body></html>
+  </body>
+  </html>
 `)

@@ -15,7 +15,7 @@
 		"date": "2008-11-06 20:15:40",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014823.html",
 		"q": "[Lengthy exposition of vulnerability of a systm to use-of-force monopolies ellided.]\n\nYou will not find a solution to political problems in cryptography.",
-		"a": "Yes, but we can win a major battle in the arms race and gain a new territory of freedom for several years.\n\nGovernments are good at cutting off the heads of a centrally controlled networks like Napster, but pure P2P networks like Gnutella and Tor seem to be holding their own.\n\nSatoshi"
+		"a": "Yes, but we can win a major battle in the arms race and gain a new territory of freedom for several years.\n\nGovernments are good at cutting off the heads of a centrally controlled networks like Napster, but pure P2P networks like Gnutella and Tor seem to be holding their own."
 	},
 	{
 		"date": "2008-11-08 18:54:38",
@@ -261,7 +261,7 @@
 		"date": "2009-02-22 17:47:52",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21646307/",
 		"q": "What's next?",
-		"a": "The next thing for v0.1.6 is to take advantage of multiple\n\nprocessors to generate blocks. Currently it only starts one\n\nthread. If you have a multi-core processor like a Core Duo or\n\nQuad this will double or quadruple your production.\n\nLater I want to add interfaces to make it really easy to integrate\n\ninto websites from any server side language.\n\nSatoshi"
+		"a": "The next thing for v0.1.6 is to take advantage of multiple\n\nprocessors to generate blocks. Currently it only starts one\n\nthread. If you have a multi-core processor like a Core Duo or\n\nQuad this will double or quadruple your production.\n\nLater I want to add interfaces to make it really easy to integrate\n\ninto websites from any server side language."
 	},
 	{
 		"date": "2009-03-04 16:59:12",
@@ -297,6 +297,6 @@
 		"date": "2009-10-23 23:57:51",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "I previously wasn't starting Bitcoin from the terminal, so I don't know what gets printed out when it crashes, but I'll reply with the results the next time it crashes.\n\nWhile Bitcoin first downloads previously completed blocks, the file debug.log grows grows to 17.4 MB and then stops growing. I imagine it will continue to grow as more bitcoins are completed.",
-		"a": "You can delete debug.log occasionally if you don't want to take the disk\n\nspace. It's just status messages that help with debugging.\n\nbitcoin.sourceforge.net looks fine now. Maybe sourceforge was doing\n\nsome maintenance.\n\nSatoshi"
+		"a": "You can delete debug.log occasionally if you don't want to take the disk\n\nspace. It's just status messages that help with debugging.\n\nbitcoin.sourceforge.net looks fine now. Maybe sourceforge was doing\n\nsome maintenance."
 	}
 ]
