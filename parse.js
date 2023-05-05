@@ -5,6 +5,8 @@ const QUOTE = '<|>'
 const SATOSHI = 'Satoshi Nakamoto'
 const IGNORE_LINES = [SATOSHI, 'http://www.bitcoin.org']
 const IGNORE_EMAIL = ['>>', 'From:', ' wrote:', ' writes:']
+// The rest are ignored
+const ACCEPTED_UNICODES = ['0e3f', '00e9', '00e0', '00e8', '00e7']
 
 const splitEmail = (email) => {
   if (!email) {
@@ -103,8 +105,17 @@ const splitPost = (html) => {
   })
   return $.text()
     .replace(/EDIT: ?/g, '')
-    .replace(/\\u\w+/g, '')
-    .replace(/ /g, ' ').replace(/  +/g, ' ')
+    // Clear a weird white-space
+    .replace(/ /g, ' ')
+    .replace(/  +/g, ' ')
+    .replace(/\\u([a-z0-9]{4})/g, (_, code) => {
+      if (!ACCEPTED_UNICODES.includes(code)) {
+        return ''
+      }
+      // FIXME: There are 2 ocurrences of a \u0000ame replacement, now yields "ame" at the end
+      return String.fromCharCode(parseInt(code, 16))
+    })
+    // .replace(/\u0000ame/g, '')
     .split('\n').map(p => p.trim()).filter(p =>
       !!p &&
       !p.includes('Posted:') &&
@@ -126,7 +137,9 @@ const parsePosts = () => {
     }
     const [first, ...parts] = splitPost(post.content)
     if (first) {
-      const prev = posts.find(p => p.thread_id === post.thread_id && p.nested_level === post.nested_level - 1)
+      // Should be using nested_level for some, but seems like satoshi replied without nesting correctly (?)
+      // Example: https://p2pfoundation.ning.com/forum/topics/bitcoin-open-source?commentId=2003008%3AComment%3A9562
+      const prev = posts.find(p => p.thread_id === post.thread_id && p.post_num === post.post_num - 1)
       if (prev) {
         const prevParts = splitPost(prev.content)
         const q = prevParts.pop() || prevParts[0]
