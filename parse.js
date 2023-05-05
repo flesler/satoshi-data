@@ -114,8 +114,10 @@ const splitPost = (html) => {
     .split('\n').map(p => p.trim()).filter(p =>
       !!p &&
       !p.includes('Posted:') &&
+      !p.includes('Re: ') &&
+      !p.includes('Regards,') &&
       !p.includes('-------------') &&
-      !/^[a-z]+:$/.test(p) &&
+      !/^[a-z-]+:$/i.test(p) &&
       !IGNORE_LINES.includes(p)
     ).join('\n')
     .split(QUOTE)
