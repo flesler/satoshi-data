@@ -20,13 +20,13 @@
 	{
 		"date": "November 22, 2009, 06:34:21 PM",
 		"src": "https://bitcointalk.org/index.php?topic=6.msg31#msg31",
-		"q": "Bitcoin Maturation\nFrom the user's perspective the bitcoin maturation process can be broken down into 8 stages.\n1. The initial network transaction that occurs when you first click Generate Coins.\n2. The time between that initial network transaction and when the bitcoin entry is ready to appear in the All Transactions list.\n3. The change of the bitcoin entry from outside the All Transaction field to inside it.\n4. The time between when the bitcoin appears in the All Transfers list and when the Description is ready to change to Generated (50.00 matures in x more blocks).\n5. The change of the Description to Generated (50.00 matures in x more blocks).\n6. The time between when the Description says Generated (50.00 matures in x more blocks) to when it is ready to change to Generated.\n7 The change of the Description to Generated.\n8. The time after the Description has changed to Generated.\nWhich stages require network connectivity, significant local CPU usage and or significant remote CPU usage? Do any of these stages have names?\nsirius-m:\nRe: Bitcoin Maturation\nAs far as I know, there's no network transaction when you click Generate Coins - your computer just starts calculating the next proof-of-work. The CPU usage is 100% when you're generating coins.\nIn this example, the network connection is used when you broadcast the information about the proof-of-work block you've created (that which entitles you to the new coin). Generating coins successfully requires constant connectivity, so that you can start working on the next block when someone gets the current block before you.",
+		"q": "From the user's perspective the bitcoin maturation process can be broken down into 8 stages.\n1. The initial network transaction that occurs when you first click Generate Coins.\n2. The time between that initial network transaction and when the bitcoin entry is ready to appear in the All Transactions list.\n3. The change of the bitcoin entry from outside the All Transaction field to inside it.\n4. The time between when the bitcoin appears in the All Transfers list and when the Description is ready to change to Generated (50.00 matures in x more blocks).\n5. The change of the Description to Generated (50.00 matures in x more blocks).\n6. The time between when the Description says Generated (50.00 matures in x more blocks) to when it is ready to change to Generated.\n7 The change of the Description to Generated.\n8. The time after the Description has changed to Generated.\nWhich stages require network connectivity, significant local CPU usage and or significant remote CPU usage? Do any of these stages have names?\nsirius-m:\nRe: Bitcoin Maturation\nAs far as I know, there's no network transaction when you click Generate Coins - your computer just starts calculating the next proof-of-work. The CPU usage is 100% when you're generating coins.\nIn this example, the network connection is used when you broadcast the information about the proof-of-work block you've created (that which entitles you to the new coin). Generating coins successfully requires constant connectivity, so that you can start working on the next block when someone gets the current block before you.",
 		"a": "It's important to have network connectivity while you're trying to generate a coin (block) and at the moment it is successfully generated.\n1) During generation (when the status bar says \"Generating\" and you're using CPU to find a proof-of-work), you must constantly keep in contact with the network to receive the latest block. If your block does not link to the latest block, it may not be accepted.\n2) When you successfully generate a block, it is immediately broadcast to the network. Other nodes must receive it and link to it for it to be accepted as the new latest block.\nThink of it as a cooperative effort to make a chain. When you add a link, you must first find the current end of the chain. If you were to locate the last link, then go off for an hour and forge your link, come back and link it to the link that was the end an hour ago, others may have added several links since then and they're not going to want to use your link that now branches off the middle.\nAfter a block is created, the maturation time of 120 blocks is to make absolutely sure the block is part of the main chain before it can be spent. Your node isn't doing anything with the block during that time, just waiting for other blocks to be added after yours. You don't have to be online during that time."
 	},
 	{
 		"date": "November 22, 2009, 06:35:15 PM",
 		"src": "https://bitcointalk.org/index.php?topic=7.msg32#msg32",
-		"q": "anonguy54:\nRequest: Make this anonymous?\nAre there any plans to make this service anonymous?\ne.g; Being able to route BitCoin through Tor.",
+		"q": "Are there any plans to make this service anonymous?\ne.g; Being able to route BitCoin through Tor.",
 		"a": "There will be a proxy setting in version 0.2 so you can connect through TOR. I've done a careful scrub to make sure it doesn't use DNS or do anything that would leak your IP while in proxy mode."
 	},
 	{
@@ -44,13 +44,13 @@
 	{
 		"date": "November 25, 2009, 06:17:23 PM",
 		"src": "https://bitcointalk.org/index.php?topic=8.msg34#msg34",
-		"q": "How anonymous are bitcoins?\nCan nodes on the network tell from which and or to which bitcoin address coins are being sent? Do blocks contain a history of where bitcoins have been transfered to and from? Can nodes tell which bitcoin addresses belong to which IP addresses? Is there a command line option to enable the sock proxy the first time that bitcoin starts? What happens if you send bitcoins to an IP address that has multiple clients connected through network address translation (NAT)?",
+		"q": "Can nodes on the network tell from which and or to which bitcoin address coins are being sent? Do blocks contain a history of where bitcoins have been transfered to and from? Can nodes tell which bitcoin addresses belong to which IP addresses? Is there a command line option to enable the sock proxy the first time that bitcoin starts? What happens if you send bitcoins to an IP address that has multiple clients connected through network address translation (NAT)?",
 		"a": "> Can nodes on the network tell from which and or to which bitcoin\n> address coins are being sent? Do blocks contain a history of where\n> bitcoins have been transfered to and from?\nBitcoins are sent to and from bitcoin addresses, which are essentially random numbers with no identifying information.\nWhen you send to an IP address, the transaction is still written to a bitcoin address. The IP address is only used to connect to the recipient's computer to request a fresh bitcoin address, give the transaction directly to the recipient and get a confirmation.\nBlocks contain a history of the bitcoin addresses that a coin has been transferred to. If the identities of the people using the bitcoin addresses are not known and each address is used only once, then this information only reveals that some unknown person transferred some amount to someone else.\nThe possibility to be anonymous or pseudonymous relies on you not revealing any identifying information about yourself in connection with the bitcoin addresses you use. If you post your bitcoin address on the web, then you're associating that address and any transactions with it with the name you posted under. If you posted under a handle that you haven't associated with your real identity, then you're still pseudonymous.\nFor greater privacy, it's best to use bitcoin addresses only once. You can change addresses as often as you want using Options->Change Your Address. Transfers by IP address automatically use a new bitcoin address each time.\n> Can nodes tell which bitcoin addresses belong to which IP addresses?\nNo.\n> Is there a command line option to enable the sock proxy the first\n> time that bitcoin starts?\nIn the next release (version 0.2), the command line to run it through a proxy from the first time is:\nbitcoin -proxy=127.0.0.1:9050\nThe problem for TOR is that the IRC server which Bitcoin uses to initially discover other nodes bans the TOR exit nodes, as all IRC servers do. If you've already connected once before then you're already seeded, but for the first time, you'd need to provide the address of a node as such:\nbitcoin -proxy=127.0.0.1:9050 -addnode=<someipaddress>\nIf someone running a node with a static IP address that can accept incoming connections could post their IP to use for -addnode, that would be great.\n> What happens if you send bitcoins to an IP address that has multiple\n> clients connected through network address translation (NAT)?\nWhichever one you've set your NAT to forward port 8333 to will receive it. If your router can change the port number when it forwards, you could allow more than one client to receive. For instance, if port 8334 forwards to a computer's port 8333, then senders could send to \"x.x.x.x:8334\"\nIf your NAT can't translate port numbers, there currently isn't a command line option to change the incoming port that bitcoin binds to, but I'll look into it."
 	},
 	{
 		"date": "November 27, 2009, 05:27:09 PM",
 		"src": "https://bitcointalk.org/index.php?topic=9.msg37#msg37",
-		"q": "Linux/UNIX compile\nCan we get instructions or modifications to compile and install BitCoin on Linux? A command line version would be great.",
+		"q": "Can we get instructions or modifications to compile and install BitCoin on Linux? A command line version would be great.",
 		"a": "The Linux version is on its way. Martti's Linux port was merged into the main code branch and New Liberty Standard has been testing it. It'll be in the next release, version 0.2.\nCommand line is on the to-do list after 0.2."
 	},
 	{
@@ -282,12 +282,6 @@
 		"a": "The resync idea would go through your wallet and check it against the block index to find any transactions that your current computer doesn't realize are already spent. That could happen if they were spent on another computer with a copy of the wallet file, or you had to restore the wallet to a backup from before they were spent. Currently, the software just assumes it always knows whether its transactions are spent because it marks them spent in wallet.dat when it spends them.\nA wallet merge tool is possible to implement but much less in demand once resync solves most of the problem. With resync, you could do about the same thing by sending all the money from one wallet to the other. The receiver would resync and discover all its overlapping coins were spent, then receive them in the new transaction."
 	},
 	{
-		"date": "February 03, 2010, 11:29:57 PM",
-		"src": "https://bitcointalk.org/index.php?topic=27.msg219#msg219",
-		"q": "The resync idea would go through your wallet and check it against the block index to find any transactions that your current computer doesn't realize are already spent. That could happen if they were spent on another computer with a copy of the wallet file, or you had to restore the wallet to a backup from before they were spent. Currently, the software just assumes it always knows whether its transactions are spent because it marks them spent in wallet.dat when it spends them.\nA wallet merge tool is possible to implement but much less in demand once resync solves most of the problem. With resync, you could do about the same thing by sending all the money from one wallet to the other. The receiver would resync and discover all its overlapping coins were spent, then receive them in the new transaction.",
-		"a": "I uploaded this fix to the SVN. It watches for spent coins and updates your wallet on load and also continuously as blocks come in. I also put a better error message, but it should never hit it because it always finds spent coins ahead of time, unless you spent the same money at the same time on two computers at once.\nIf you want to try it, PM or e-mail me your e-mail address where I can send it as an attachment and also what OS (win, linux 32-bit, linux 64-bit)."
-	},
-	{
 		"date": "January 28, 2010, 01:08:33 AM",
 		"src": "https://bitcointalk.org/index.php?topic=28.msg160#msg160",
 		"q": "Yes it will.\nImportance is relative. You can use the number of blocks to calculate some statistics. Also, if you press ctrl+[numpad+], you will see the serial number and hash of the blocks. (At least on windows).",
@@ -322,12 +316,6 @@
 		"src": "https://bitcointalk.org/index.php?topic=35.msg220#msg220",
 		"q": "I wanted to document an issue I encountered when first installing and using the Bitcoin software.\nDespite a correct installation and port forward settings I noticed that Bitcoin was not generating any coins or 'blocks' despite having 20+ connections for the first 24hrs. The block count just remained at 0. After realizing that Bitcoin was not 'catching up' with the collective network block download or generation I opened up the Task Manager to investigate the issue further.\nI noticed that the bitcoin.exe process seemed to be 'fighting' for CPU usage against MsMpEng.exe (Microsoft Security Essentials). I hadn't noticed any system slowdown due to having a fairly high spec. PC. After adding bitcoin.exe and the appropriate program folder locations to Exclude 'Files and Locations' and 'Exclude Processes' - Bitcoin instantly started generating blocks and the CPU processes returned to normal.\nI did not have any virus alerts or even 'false positive' identifications for Bitcoin. I know that the software is 100% OK. I'm assuming that the 'Live Protection' engine in Microsoft Security Essentials just doesn't 'play well' with some aspect of the CPU hungry cycles used in 'block' generation.\nI have yet to do more testing, however I also encountered the same issue when using Comodo Internet Security (free version).\nThis is obviously going to be an issue for lots of new Bitcoin users who will perhaps be less 'tech savvy'. Has anyone else encountered any similar issues ?",
 		"a": "Thanks for that. Which version of Windows?"
-	},
-	{
-		"date": "February 15, 2010, 06:28:38 AM",
-		"src": "https://bitcointalk.org/index.php?topic=43.msg346#msg346",
-		"q": "We had our first automatic adjustment of the proof-of-work difficulty on 30 Dec 2009.\nThe minimum difficulty is 32 zero bits, so even if only one person was running a node, the difficulty doesn't get any easier than that. For most of last year, we were hovering below the minimum. On 30 Dec we broke above it and the algorithm adjusted to more difficulty. It's been getting more difficult at each adjustment since then.\nThe adjustment on 04 Feb took it up from 1.34 times last year's difficulty to 1.82 times more difficult than last year. That means you generate only 55% as many coins for the same amount of work.\nThe difficulty adjusts proportionally to the total effort across the network. If the number of nodes doubles, the difficulty will also double, returning the total generated to the target rate.\nFor those technically inclined, the proof-of-work difficulty can be seen by searching on \"target:\" in debug.log. It's a 256-bit unsigned hex number, which the SHA-256 value has to be less than to successfully generate a block. It gets adjusted every 2016 blocks, typically two weeks. That's when it prints \"GetNextWorkRequired RETARGET\" in debug.log.\nminimum 00000000ffff0000000000000000000000000000000000000000000000000000\n30/12/2009 00000000d86a0000000000000000000000000000000000000000000000000000\n11/01/2010 00000000c4280000000000000000000000000000000000000000000000000000\n25/01/2010 00000000be710000000000000000000000000000000000000000000000000000\n04/02/2010 000000008cc30000000000000000000000000000000000000000000000000000\n14/02/2010 0000000065465700000000000000000000000000000000000000000000000000\n24/02/2010 0000000043b3e500000000000000000000000000000000000000000000000000\n08/03/2010 00000000387f6f00000000000000000000000000000000000000000000000000\n21/03/2010 0000000038137500000000000000000000000000000000000000000000000000\n01/04/2010 000000002a111500000000000000000000000000000000000000000000000000\n12/04/2010 0000000020bca700000000000000000000000000000000000000000000000000\n21/04/2010 0000000016546f00000000000000000000000000000000000000000000000000\n04/05/2010 0000000013ec5300000000000000000000000000000000000000000000000000\n19/05/2010 00000000159c2400000000000000000000000000000000000000000000000000\n29/05/2010 000000000f675c00000000000000000000000000000000000000000000000000\n11/06/2010 000000000eba6400000000000000000000000000000000000000000000000000\n24/06/2010 000000000d314200000000000000000000000000000000000000000000000000\n06/07/2010 000000000ae49300000000000000000000000000000000000000000000000000\n13/07/2010 0000000005a3f400000000000000000000000000000000000000000000000000\n16/07/2010 000000000168fd00000000000000000000000000000000000000000000000000\n27/07/2010 00000000010c5a00000000000000000000000000000000000000000000000000\n05/08/2010 0000000000ba1800000000000000000000000000000000000000000000000000\n15/08/2010 0000000000800e00000000000000000000000000000000000000000000000000\n26/08/2010 0000000000692000000000000000000000000000000000000000000000000000\ndate, difficulty factor, % change\n2009 1.00\n30/12/2009 1.18 +18%\n11/01/2010 1.31 +11%\n25/01/2010 1.34 +2%\n04/02/2010 1.82 +36%\n14/02/2010 2.53 +39%\n24/02/2010 3.78 +49%\n08/03/2010 4.53 +20%\n21/03/2010 4.57 +9%\n01/04/2010 6.09 +33%\n12/04/2010 7.82 +28%\n21/04/2010 11.46 +47%\n04/05/2010 12.85 +12%\n19/05/2010 11.85 -8%\n29/05/2010 16.62 +40%\n11/06/2010 17.38 +5%\n24/06/2010 19.41 +12%\n06/07/2010 23.50 +21%\n13/07/2010 45.38 +93%\n16/07/2010 181.54 +300%\n27/07/2010 244.21 +35%\n05/08/2010 352.17 +44%\n15/08/2010 511.77 +45%\n26/08/2010 623.39 +22%",
-		"a": "14/02/2010 0000000065465700000000000000000000000000000000000000000000000000\n2009 1.00\n30/12/2009 1.18 +18%\n11/01/2010 1.31 +11%\n25/01/2010 1.34 +2%\n04/02/2010 1.82 +36%\n14/02/2010 2.53 +39%\nAnother big jump in difficulty yesterday from 1.82 times to 2.53 times, a 39% increase since 10 days ago. It was 10 days apart not 14 because more nodes joined and generated the 2016 blocks in less time."
 	},
 	{
 		"date": "February 16, 2010, 05:36:40 PM",
@@ -684,12 +672,6 @@
 		"a": "Title changed.\nIt helps that we have someone with actual experience running a proxy service. Do you think Psiphon is the best one currently? (sometimes the one you run was the best when you started but you found better ones later)"
 	},
 	{
-		"date": "March 24, 2010, 06:02:55 PM",
-		"src": "https://bitcointalk.org/index.php?topic=83.msg810#msg810",
-		"q": "Title changed.\nIt helps that we have someone with actual experience running a proxy service. Do you think Psiphon is the best one currently? (sometimes the one you run was the best when you started but you found better ones later)",
-		"a": "Mihalism Multi Host is a popular open source PHP file hosting server.\nIt's geared toward image hosting, but I think by increasing the file size limit and liberalising the allowed file extensions, it could just as easily be used for general file upload hosting. They need the limits to keep it reasonable as a free service, but if we bolt on a Bitcoin payment mechanism, the limits could be relaxed.\nIt doesn't have a bunch of client side scripting or anti-embedding junk to rip out. It generates standard links that work normally.\nThere's a turnover churn in these free hosting sites. Small sites can give free image hosting, but once one starts getting popular, it gets too swamped with moochers using them for free bandwidth. Any site that gets well known has to become more aggressively pay-naggy to cover bandwidth costs. It's a perfect example of a service where the needed price point is in the no-man's-land between just a little too expensive to be free, but too cheap for most users to take the trouble of a conventional payment. It's in the gap between 0 and 19.95. The best they can do is try to maybe get 1 out of 1000 users to pay 9.95, but that has 999/1000 users treated like freeloaders. It can't really be advertising supported because the images are embedded in other sites and downloaded without going to the hosting site.\nAn example of a site running the software:\nhttp://www.imagez.ws/\nForum:\nhttp://www.mihalism.net/\nDownload:\nhttp://code.google.com/p/mihalismmh/\nWhat do you think? If I made a Bitcoin payment integration for this, would anyone be interested in running it? It might be the first fully automated service available to buy with Bitcoins. The advantage it could offer over the free services is general file upload hosting of large files without making downloading users go to the upload site and jump through hoops. It would give a normal link directly to the file."
-	},
-	{
 		"date": "March 16, 2010, 07:48:47 PM",
 		"src": "https://bitcointalk.org/index.php?topic=84.msg729#msg729",
 		"q": "I vote for the I2P method, myself. It works great.",
@@ -858,22 +840,10 @@
 		"a": "Many of the strings are in code automatically generated from uiproject.fbp where nothing can be done about these things. I have a program I use to find all the spacing inconsistencies at the beginning and ending of strings in your .po file and manually fix them up before I upload them to SVN."
 	},
 	{
-		"date": "July 15, 2010, 06:37:13 PM",
-		"src": "https://bitcointalk.org/index.php?topic=151.msg3242#msg3242",
-		"q": "Many of the strings are in code automatically generated from uiproject.fbp where nothing can be done about these things. I have a program I use to find all the spacing inconsistencies at the beginning and ending of strings in your .po file and manually fix them up before I upload them to SVN.",
-		"a": "I uploaded an updated bitcoin.po for 0.3.1 attached to this message:\nhttp://bitcointalk.org/index.php?topic=151.msg1259#msg1259\nplease use it if you're starting a new translation.\nIf you already have a po file, poedit can update it.\n- Get the src directory from the 0.3.1 release candidate posted in the development forum, any version will do:\nhttp://bitcointalk.org/index.php?topic=383.0\n- Make a subdirectory under src: locale/??/LC_MESSAGES\n(?? could be anything really, \"en\" or your language 2-letter code)\n- Put your .po file there\n- Open it with poedit\n- In poedit, Catalog->Update from sources\nThe key is that the src directory with the sourcefiles needs to be 3 directories up from the .po file."
-	},
-	{
 		"date": "July 15, 2010, 06:43:54 PM",
 		"src": "https://bitcointalk.org/index.php?topic=151.msg3247#msg3247",
 		"q": "I recommend to remove the download links at the bottom of the main page.\nAs you can see the links on the English page points to the new 0.3 release, but the other languages only contain links for the old 0.2 version.\nThere's a download box with the current releases on the right anyway, so why not remove the links from the translated pages.",
 		"a": "I updated them to 0.3.0.\nI am tempted to remove the download links from the other languages and only keep it on English.\nThey will need to be updated for 0.3.1 soon. Perhaps there's a way for someone to manage the updating of the translated drupal pages."
-	},
-	{
-		"date": "July 15, 2010, 07:12:14 PM",
-		"src": "https://bitcointalk.org/index.php?topic=151.msg3257#msg3257",
-		"q": "I updated them to 0.3.0.\nI am tempted to remove the download links from the other languages and only keep it on English.\nThey will need to be updated for 0.3.1 soon. Perhaps there's a way for someone to manage the updating of the translated drupal pages.",
-		"a": "Thanks for the Spanish and French translations! The edited and updated .po files are attached.\nI uploaded these to the SVN."
 	},
 	{
 		"date": "October 04, 2010, 01:44:41 AM",
@@ -1026,12 +996,6 @@
 		"a": "My fear is too many programmers would latch onto that for checking for received payments. It can never be reliable that way. The list/getreceivedbyaddress/label functions are the only way to do it reliably.\nWe shouldn't delay forever until every possible feature is done. There's always going to be one more thing to do."
 	},
 	{
-		"date": "June 22, 2010, 05:37:08 PM",
-		"src": "https://bitcointalk.org/index.php?topic=199.msg1671#msg1671",
-		"q": "My fear is too many programmers would latch onto that for checking for received payments. It can never be reliable that way. The list/getreceivedbyaddress/label functions are the only way to do it reliably.\nWe shouldn't delay forever until every possible feature is done. There's always going to be one more thing to do.",
-		"a": "Here's RC1 for windows for testing:\n(removed, see RC2 below)\nPlease only download this if you're going to test and report back whether everything seems fine or not. Make sure to look through the files in \"c:\\program files\bitcoin\""
-	},
-	{
 		"date": "June 22, 2010, 07:11:41 PM",
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1675#msg1675",
 		"q": "EXCEPTION: 22DbRunRecoveryException\nDBENv::open: DB_RUNRECOVERY: Fatal error, run database recovery\nC:\\Program Files\\Bitcoin\bitcoin.exe in OnInit()",
@@ -1074,22 +1038,10 @@
 		"a": "Thanks virtualcoin, that's a perfect comparison.\nThe 8% speedup from 32-bit Windows (2310k) to 32-bit Linux (2500k) is probably from the newer version of GCC on Linux (4.4.3 vs 3.4.5).\nThe 15% speedup from 32-bit to 64-bit Linux is more of a mystery. The code is completely 32-bit.\nHmm, I think the 8 extra registers added by x86-64 must be what's helping. That would make a significant difference to SHA if it could hold most of the 16 state variables in registers."
 	},
 	{
-		"date": "June 26, 2010, 12:32:09 AM",
-		"src": "https://bitcointalk.org/index.php?topic=199.msg1787#msg1787",
-		"q": "Thanks virtualcoin, that's a perfect comparison.\nThe 8% speedup from 32-bit Windows (2310k) to 32-bit Linux (2500k) is probably from the newer version of GCC on Linux (4.4.3 vs 3.4.5).\nThe 15% speedup from 32-bit to 64-bit Linux is more of a mystery. The code is completely 32-bit.\nHmm, I think the 8 extra registers added by x86-64 must be what's helping. That would make a significant difference to SHA if it could hold most of the 16 state variables in registers.",
-		"a": "Lets try using Laszlo's irc.lfnet.org instead of freenode. Here's RC2, that's the only change in it:\n(see below for download links)"
-	},
-	{
 		"date": "June 26, 2010, 03:10:10 PM",
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1800#msg1800",
 		"q": "It looks good! The number of hashes per second intermittently disappears for a few seconds at a time. I think it might be triggered by clicking on the file menu multiple times. I'm using the Linux 64-bit build.",
 		"a": "The first panel of the status bar is shared with the help description of menu items as you hover over them. Since all our menu item descriptions are blank, it replaces it with blank when you're hovering in a menu."
-	},
-	{
-		"date": "June 26, 2010, 07:21:05 PM",
-		"src": "https://bitcointalk.org/index.php?topic=199.msg1806#msg1806",
-		"q": "The first panel of the status bar is shared with the help description of menu items as you hover over them. Since all our menu item descriptions are blank, it replaces it with blank when you're hovering in a menu.",
-		"a": "Changed the version number to 1.3 and removed \"Beta\".\n(links removed, see below)\nUses irc.lfnet.org."
 	},
 	{
 		"date": "June 27, 2010, 03:30:13 PM",
@@ -1102,12 +1054,6 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1926#msg1926",
 		"q": "On a related note, is the thing compilable by Visual C++? I'm inclined to give it a try when I get around to it.",
 		"a": "It is, but generating is more than twice as slow."
-	},
-	{
-		"date": "July 02, 2010, 09:57:45 PM",
-		"src": "https://bitcointalk.org/index.php?topic=199.msg1927#msg1927",
-		"q": "It is, but generating is more than twice as slow.",
-		"a": "(reverted to rc2)\nLinks removed, 0.3 is now released, so go to http://www.bitcoin.org to download it."
 	},
 	{
 		"date": "July 04, 2010, 09:52:28 PM",
@@ -1210,18 +1156,6 @@
 		"src": "https://bitcointalk.org/index.php?topic=246.msg2068#msg2068",
 		"q": "I know it's not the smartest move to name my user account using non-latin characters. Anyway, 0.2 has no problems with this.\nVerified as follows... created a 'normal' new user and 0.3 opened the data folder. Created new, fresh data folder and copied it to the non-standard user - 0.3 fails with DB_RUN_RECOVERY.",
 		"a": "Thanks for finding that. We switched from ANSI in 0.2 to UTF-8 in version 0.3, so it must be related to that.\nJust to confirm, if you log in with the non-latin character username, not having an appdata/Bitcoin directory yet, and run Bitcoin and let it create the database from scratch, does it work or not?"
-	},
-	{
-		"date": "July 09, 2010, 03:01:35 AM",
-		"src": "https://bitcointalk.org/index.php?topic=246.msg2077#msg2077",
-		"q": "Thanks for finding that. We switched from ANSI in 0.2 to UTF-8 in version 0.3, so it must be related to that.\nJust to confirm, if you log in with the non-latin character username, not having an appdata/Bitcoin directory yet, and run Bitcoin and let it create the database from scratch, does it work or not?",
-		"a": "I think I see where the problem is. Coincidentally, I recently coded a replacement for the function in question which should fix it. It's not enabled yet, but in the SVN version it prints a debug message in debug.log showing the new directory value and old value for comparison."
-	},
-	{
-		"date": "July 09, 2010, 03:37:05 PM",
-		"src": "https://bitcointalk.org/index.php?topic=246.msg2092#msg2092",
-		"q": "I think I see where the problem is. Coincidentally, I recently coded a replacement for the function in question which should fix it. It's not enabled yet, but in the SVN version it prints a debug message in debug.log showing the new directory value and old value for comparison.",
-		"a": "I tested this with a non-lower-ASCII account name on XP and confirmed the bug, then tested that the new GetDefaultDataDir fixed it. This change is revision 102 of the SVN."
 	},
 	{
 		"date": "July 14, 2010, 09:10:52 PM",
@@ -1662,12 +1596,6 @@
 		"a": "Thanks for that survey!\nI find \"key value\" a little unnatural. There ought to be a more definite separator between key and value that suggests assignment. The space people may just be getting lazy using their language's split function.\nkey=some full sentence with spaces in it. # seems more clear\nkey some full sentence with spaces in it. # than this\nAllright then, lets go with self-parsed mapConfig, syntax:\n# comment\nkey=value\nfile extension .conf. What's the filename, is it ~/.bitcoin/settings.conf or ~/.bitcoin/bitcoin.conf or what?\nI think we better strip whitespace at the beginning and end of the key and the value.\n# user who likes column formatted\nk = value\nkey = value\nlongerkey = this sentence would be this # \"this sentence would be this\"\nkey = value # guess this is ok too\nnextkey = value\nright = justified\nThe normal syntax should be \"key=value\", but you can't blame people for the occasional \"key = value\"."
 	},
 	{
-		"date": "July 21, 2010, 05:31:09 PM",
-		"src": "https://bitcointalk.org/index.php?topic=461.msg4775#msg4775",
-		"q": "Thanks for that survey!\nI find \"key value\" a little unnatural. There ought to be a more definite separator between key and value that suggests assignment. The space people may just be getting lazy using their language's split function.\nkey=some full sentence with spaces in it. # seems more clear\nkey some full sentence with spaces in it. # than this\nAllright then, lets go with self-parsed mapConfig, syntax:\n# comment\nkey=value\nfile extension .conf. What's the filename, is it ~/.bitcoin/settings.conf or ~/.bitcoin/bitcoin.conf or what?\nI think we better strip whitespace at the beginning and end of the key and the value.\n# user who likes column formatted\nk = value\nkey = value\nlongerkey = this sentence would be this # \"this sentence would be this\"\nkey = value # guess this is ok too\nnextkey = value\nright = justified\nThe normal syntax should be \"key=value\", but you can't blame people for the occasional \"key = value\".",
-		"a": "boost::program_options has the same \"key=value\" format. Gavin pointed out we can use it in a simple way as a parser without getting into all the esoteric c++ syntax like typed value extraction. We can use more features if we want later.\nLets go ahead with HTTP basic authentication instead of password as a parameter."
-	},
-	{
 		"date": "July 22, 2010, 02:34:23 AM",
 		"src": "https://bitcointalk.org/index.php?topic=461.msg4928#msg4928",
 		"q": "TODO: dialog box or debug.log warning if no rpc.user/rpc.password is set, explaining how to set.",
@@ -1678,12 +1606,6 @@
 		"src": "https://bitcointalk.org/index.php?topic=461.msg5337#msg5337",
 		"q": "Question for everybody: should I add a section to the wiki page describing, in detail, how to do HTTP Basic authentication? PHP and Python make is really easy-- just use the http://user:pass@host:port/ URL syntax.",
 		"a": "Yes, I think that would be really good so each dev doesn't have to figure it out themselves. We need a simple example for each of Python, PHP and Java importing the json-rpc library and using it to do a getinfo or something, including doing the http authentication part."
-	},
-	{
-		"date": "July 23, 2010, 05:14:31 PM",
-		"src": "https://bitcointalk.org/index.php?topic=461.msg5338#msg5338",
-		"q": "Yes, I think that would be really good so each dev doesn't have to figure it out themselves. We need a simple example for each of Python, PHP and Java importing the json-rpc library and using it to do a getinfo or something, including doing the http authentication part.",
-		"a": "Gavin's changes look good. I think everything is complete. Here's a test build, please test it!\nhttp://www.bitcoin.org/download/bitcoin-0.3.2.5-win32.zip\nhttp://www.bitcoin.org/download/bitcoin-0.3.2.5-linux.tar.gz"
 	},
 	{
 		"date": "July 23, 2010, 08:39:03 PM",
@@ -1890,12 +1812,6 @@
 		"a": "Haven't had time to update the SVN yet. Wait for 0.3.6, I'm building it now. You can shut down your node in the meantime."
 	},
 	{
-		"date": "July 29, 2010, 08:30:15 PM",
-		"src": "https://bitcointalk.org/index.php?topic=626.msg6480#msg6480",
-		"q": "Haven't had time to update the SVN yet. Wait for 0.3.6, I'm building it now. You can shut down your node in the meantime.",
-		"a": "SVN is updated with version 0.3.6.\nUploading Windows build of 0.3.6 to Sourceforge now, then will rebuild linux."
-	},
-	{
 		"date": "July 29, 2010, 09:20:38 PM",
 		"src": "https://bitcointalk.org/index.php?topic=626.msg6490#msg6490",
 		"q": "Tested the Windows build across XP, 2003, Vista, 7 (both 32 and 64bit builds), no issues installing or running client. So far so good, looking forward to the Linux client.",
@@ -2014,18 +1930,6 @@
 		"src": "https://bitcointalk.org/index.php?topic=648.msg9159#msg9159",
 		"q": "Looks like we're triggering a compiler bug in the tree optimizer. Can you try to compile it -O0?",
 		"a": "No help from -O0, same error.\nMinGW is GCC 3.4.5. Probably the problem.\nI'll see if I can get a newer version of MinGW."
-	},
-	{
-		"date": "August 14, 2010, 05:55:37 PM",
-		"src": "https://bitcointalk.org/index.php?topic=648.msg9228#msg9228",
-		"q": "No help from -O0, same error.\nMinGW is GCC 3.4.5. Probably the problem.\nI'll see if I can get a newer version of MinGW.",
-		"a": "Got the test working on 32-bit with MinGW GCC 4.5. Exactly 50% slower than stock with Core 2."
-	},
-	{
-		"date": "August 14, 2010, 10:06:13 PM",
-		"src": "https://bitcointalk.org/index.php?topic=648.msg9278#msg9278",
-		"q": "Got the test working on 32-bit with MinGW GCC 4.5. Exactly 50% slower than stock with Core 2.",
-		"a": "MinGW GCC 4.5.0:\nCrypto++ doesn't work, X86_SHA256_HashBlocks() never returns\nI only got 4-way working with test.cpp but not when called by BitcoinMiner\nMinGW GCC 4.4.1:\nCrypto++ works\n4-way SIGSEGV\nGCC is definitely not aligning __m128i.\nEven if we align our own __m128i variables, the compiler may decide to use a __m128i behind the scenes as a temporary variable.\nBy making our __m128i variables aligned and changing these inlines to defines, I was able to get it to work on 4.4.1 with -O0 only:\n#define Ch(b, c, d) ((b & c) ^ (~b & d))\n#define Maj(b, c, d) ((b & c) ^ (b & d) ^ (c & d))\n#define ROTR(x, n) (_mm_srli_epi32(x, n) | _mm_slli_epi32(x, 32 - n))\n#define SHR(x, n) _mm_srli_epi32(x, n)\nBut that's with -O0."
 	},
 	{
 		"date": "August 15, 2010, 03:40:29 AM",
@@ -2406,12 +2310,6 @@
 		"a": "Here's the preliminary change. Look right? I have more changes to make, this isn't all of it. Will SVN shortly.\nbool CheckTransaction() const\n{\n// Basic checks that don't depend on any context\nif (vin.empty() || vout.empty())\nreturn error(\"CTransaction::CheckTransaction() : vin or vout empty\");\n// Check for negative and overflow values\nint64 nTotal = 0;\nforeach(const CTxOut& txout, vout)\n{\nif (txout.nValue < 0)\nreturn error(\"CTransaction::CheckTransaction() : txout.nValue negative\");\nif (txout.nValue > 21000000 * COIN)\nreturn error(\"CTransaction::CheckTransaction() : txout.nValue too high\");\nnTotal += txout.nValue;\nif (nTotal > 21000000 * COIN)\nreturn error(\"CTransaction::CheckTransaction() : txout total too high\");\n}\nif (IsCoinBase())\n{\nif (vin[0].scriptSig.size() < 2 || vin[0].scriptSig.size() > 100)\nreturn error(\"CTransaction::CheckTransaction() : coinbase script size\");\n}\nelse\n{\nforeach(const CTxIn& txin, vin)\nif (txin.prevout.IsNull())\nreturn error(\"CTransaction::CheckTransaction() : prevout is null\");\n}\nreturn true;\n}\nDon't sticky the topic, nobody looks up there. There'll be enough posts to bump."
 	},
 	{
-		"date": "August 15, 2010, 09:06:45 PM",
-		"src": "https://bitcointalk.org/index.php?topic=823.msg9531#msg9531",
-		"q": "Here's the preliminary change. Look right? I have more changes to make, this isn't all of it. Will SVN shortly.\nbool CheckTransaction() const\n{\n// Basic checks that don't depend on any context\nif (vin.empty() || vout.empty())\nreturn error(\"CTransaction::CheckTransaction() : vin or vout empty\");\n// Check for negative and overflow values\nint64 nTotal = 0;\nforeach(const CTxOut& txout, vout)\n{\nif (txout.nValue < 0)\nreturn error(\"CTransaction::CheckTransaction() : txout.nValue negative\");\nif (txout.nValue > 21000000 * COIN)\nreturn error(\"CTransaction::CheckTransaction() : txout.nValue too high\");\nnTotal += txout.nValue;\nif (nTotal > 21000000 * COIN)\nreturn error(\"CTransaction::CheckTransaction() : txout total too high\");\n}\nif (IsCoinBase())\n{\nif (vin[0].scriptSig.size() < 2 || vin[0].scriptSig.size() > 100)\nreturn error(\"CTransaction::CheckTransaction() : coinbase script size\");\n}\nelse\n{\nforeach(const CTxIn& txin, vin)\nif (txin.prevout.IsNull())\nreturn error(\"CTransaction::CheckTransaction() : prevout is null\");\n}\nreturn true;\n}\nDon't sticky the topic, nobody looks up there. There'll be enough posts to bump.",
-		"a": "It would help if people stop generating. We will probably need to re-do a branch around the current one, and the less you generate the faster that will be.\nA first patch will be in SVN rev 132. It's not uploaded yet. I'm pushing some other misc changes out of the way first, then I'll upload the patch for this."
-	},
-	{
 		"date": "August 15, 2010, 09:23:55 PM",
 		"src": "https://bitcointalk.org/index.php?topic=823.msg9539#msg9539",
 		"q": "Or just a quick re-verification of all blocks. After all, it is 5x faster than it used t be.",
@@ -2494,12 +2392,6 @@
 		"src": "https://bitcointalk.org/index.php?topic=828.msg9608#msg9608",
 		"q": "There are 74643 blocks as I write this. The split is causing some network problems. You should connect your computers to each other with the addnode parameter.",
 		"a": "I suspect there's some difficulty receiving blocks if all the nodes you're connected to are 0.3.9 or lower. We need enough of us so that at least one node you connect to will be 0.3.10. The problem will start to go away when we make up more than 1/8th of the network.\nIt'll help if you port forward so you can get lots of connections."
-	},
-	{
-		"date": "August 16, 2010, 12:37:20 AM",
-		"src": "https://bitcointalk.org/index.php?topic=828.msg9612#msg9612",
-		"q": "I suspect there's some difficulty receiving blocks if all the nodes you're connected to are 0.3.9 or lower. We need enough of us so that at least one node you connect to will be 0.3.10. The problem will start to go away when we make up more than 1/8th of the network.\nIt'll help if you port forward so you can get lots of connections.",
-		"a": "For now, can some people running 0.3.10 with static IP who can receive incoming connections post their IP? Then we can -addnode= them and make sure to connect to at least one 0.3.10 node."
 	},
 	{
 		"date": "August 16, 2010, 03:25:54 PM",
@@ -2616,22 +2508,10 @@
 		"a": "If you're so paranoid that you're getting hysterical over this, then surely you're paranoid enough that if a warning message displays on the status bar, you'll check the website and forum.\nI think if another bug like the overflow bug occurs, it's important that automated websites stop trading until their admins can check out what's going on and decide what to do. If you decide it's a false alarm and want to take your chances, you can use the \"-disablesafemode\" switch."
 	},
 	{
-		"date": "August 25, 2010, 12:06:36 AM",
-		"src": "https://bitcointalk.org/index.php?topic=898.msg11078#msg11078",
-		"q": "If you're so paranoid that you're getting hysterical over this, then surely you're paranoid enough that if a warning message displays on the status bar, you'll check the website and forum.\nI think if another bug like the overflow bug occurs, it's important that automated websites stop trading until their admins can check out what's going on and decide what to do. If you decide it's a false alarm and want to take your chances, you can use the \"-disablesafemode\" switch.",
-		"a": "This is in SVN rev 142 as version 0.3.11."
-	},
-	{
 		"date": "August 25, 2010, 03:17:37 PM",
 		"src": "https://bitcointalk.org/index.php?topic=898.msg11150#msg11150",
 		"q": "That's not the point, if I'm diligent enough to change a source code I'm also diligent enough to apply a -disablesafety switch which is much easier, the issue here is default behavior of the official client. Many people are going to just notice there is a new version, download and install it never realizing this new remote control was inserted there.\nSaying that they can examine the source code or that it was openly discussed on the forum is like Facebook saying \"but we have an option to delete your account, it's in terms of service, section 76, line 346, under link named so-appalling-that-nobody-would-ever-click-it, then on page 2, just solve the capcha, confirm the dialog, that will disable your account and if you do not log in in a week it will be deleted\". In short ... nobody actually does it ... that's how badware behaves and I do not want for Bitcoin to be badware.\nIf there is a remote safety disable function every user who has it enabled should consciously enable it knowing what it does. This can be easily accomplished by presenting a dialog urging user to enable it while explaining what it does in a GUI client and presenting a warning accomplishing the same task when daemon is run. Simple, efficient and everybody is happy. That's how software that respects its users and is working for them should behave. I'm sure most people would enable it when understanding what it does ... but sneaking this feature in without making sure the user specifically wants it there is making decisions for the user, I do not like decisions being made for me\nI'm aware of this because I read the forums but what in the future? (And what about people who do not read forums) Will there be another \"feature\" inserted and I'm not going to be even notified, explained what it does and asked if I want it enabled? I do not like that if you ask me ... I want to know what software on my CPU does, if it doesn't make reasonable effort to inform me of that and assure that I'm aware of it's behavior I would consider it badware.\nThat's at least my perspective ... and the fix is extremely easy",
 		"a": "It can't do arbitrary actions remotely. Maybe some of you are responding to other posters who suggested the alert system should do more?\nIf there is an alert, the following json-rpc methods return an error:\nsendtoaddress\ngetbalance\ngetreceivedbyaddress\ngetreceivedbylabel\nlistreceivedbyaddress\nlistreceivedbylabel\nThe remaining 14 methods function as normal.\nI believe the safer option should be enabled by default. If you want your server to keep trading and ignore an alert saying the money its receiving might be like the money from the overflow bug, then you can use the switch and not blame anyone else if you lose your money.\nWorst case if you leave alerts enabled, your site stops trading until you upgrade or add the -disablesafemode switch.\nGetting surprised by some temporary down time when your node would otherwise be at risk is better than getting surprised by a thief draining all your inventory.\nSomeday when we haven't found any new bugs for a long time and it has been thoroughly security reviewed without finding anything, this can be scaled back. I'm not arguing that this is the permanent way of things forever. It's still beta software."
-	},
-	{
-		"date": "August 25, 2010, 04:40:20 PM",
-		"src": "https://bitcointalk.org/index.php?topic=898.msg11151#msg11151",
-		"q": "It can't do arbitrary actions remotely. Maybe some of you are responding to other posters who suggested the alert system should do more?\nIf there is an alert, the following json-rpc methods return an error:\nsendtoaddress\ngetbalance\ngetreceivedbyaddress\ngetreceivedbylabel\nlistreceivedbyaddress\nlistreceivedbylabel\nThe remaining 14 methods function as normal.\nI believe the safer option should be enabled by default. If you want your server to keep trading and ignore an alert saying the money its receiving might be like the money from the overflow bug, then you can use the switch and not blame anyone else if you lose your money.\nWorst case if you leave alerts enabled, your site stops trading until you upgrade or add the -disablesafemode switch.\nGetting surprised by some temporary down time when your node would otherwise be at risk is better than getting surprised by a thief draining all your inventory.\nSomeday when we haven't found any new bugs for a long time and it has been thoroughly security reviewed without finding anything, this can be scaled back. I'm not arguing that this is the permanent way of things forever. It's still beta software.",
-		"a": "I changed the switch name to -disablesafemode."
 	},
 	{
 		"date": "August 25, 2010, 04:56:15 PM",
@@ -2710,12 +2590,6 @@
 		"src": "https://bitcointalk.org/index.php?topic=921.msg11399#msg11399",
 		"q": "The Windows version of mmap was mentioned in the message to which you replied: CreateFileMapping\nIn my earlier message, I mentioned how to use this from boost: Boost::Iostreams already has a mapped_file Source.",
 		"a": "Sorry, I've been so busy lately I've been skimming messages and I still can't keep up.\nWe want to avoid Windows API calls whenever possible. They usually take about 6-8 parameters and a lot of testing to get right, it takes a page of code to do something simple.\nI usually shy away from iostreams. Seems like I too often hit limitations. They kind of botched the C++ streams standard in the 90's, which is too bad, streams can be very powerful and useful when done right. Using it in rpc.cpp may still turn out to be a mistake.\nBottom line is I'd rather call an existing file copy function than make and test my own."
-	},
-	{
-		"date": "September 06, 2010, 09:45:10 PM",
-		"src": "https://bitcointalk.org/index.php?topic=921.msg12134#msg12134",
-		"q": "Sorry, I've been so busy lately I've been skimming messages and I still can't keep up.\nWe want to avoid Windows API calls whenever possible. They usually take about 6-8 parameters and a lot of testing to get right, it takes a page of code to do something simple.\nI usually shy away from iostreams. Seems like I too often hit limitations. They kind of botched the C++ streams standard in the 90's, which is too bad, streams can be very powerful and useful when done right. Using it in rpc.cpp may still turn out to be a mistake.\nBottom line is I'd rather call an existing file copy function than make and test my own.",
-		"a": "rpc backupwallet <destination> is in SVN rev 147."
 	},
 	{
 		"date": "August 27, 2010, 04:13:16 PM",
@@ -2850,12 +2724,6 @@
 		"a": "What version is the one where this happened? Release build, or built it yourself? Which operating system?\nWere you sending by IP or by Bitcoin Address?\nWhen you sent 49.99, did it prompt you to pay a 0.01 fee?\nThere was a change in GetMinFee, but I can't see how it would cause this. It only starts to apply when a block gets huge.\nThe reason for the difference in block number is the number displayed was reduced by 1 in 0.3.11 because it made more sense that way."
 	},
 	{
-		"date": "September 10, 2010, 12:46:37 AM",
-		"src": "https://bitcointalk.org/index.php?topic=1013.msg12342#msg12342",
-		"q": "What version is the one where this happened? Release build, or built it yourself? Which operating system?\nWere you sending by IP or by Bitcoin Address?\nWhen you sent 49.99, did it prompt you to pay a 0.01 fee?\nThere was a change in GetMinFee, but I can't see how it would cause this. It only starts to apply when a block gets huge.\nThe reason for the difference in block number is the number displayed was reduced by 1 in 0.3.11 because it made more sense that way.",
-		"a": "I think I know what happened. Doubleclick on the generated transaction. It probably has a sub-0.01 transaction fee in it.\nSomeone has been paying a 0.00000010 transaction fee. I don't think you can even set that with -paytxfee, I think you'd have to modify the code to do it. Your generated block is worth 50.00000010, so when you try to send the whole thing you have 0.00000010 left over for the change, which triggers the dust spam 0.01 fee.\nIt would normally be harmless except in this corner case. I should add a special case to CreateTransaction to handle this."
-	},
-	{
 		"date": "September 10, 2010, 05:12:33 PM",
 		"src": "https://bitcointalk.org/index.php?topic=1013.msg12368#msg12368",
 		"q": "You received a fee of 0.01. You didn't pay one.",
@@ -2934,12 +2802,6 @@
 		"a": "As you figured out, the root problem is we shouldn't be counting or spending transactions until they have at least 1 confirmation. 0/unconfirmed transactions are very much second class citizens. At most, they are advice that something has been received, but counting them as balance or spending them is premature.\nI made changes so they show up in lighter print, with the credit amount in square brackets like [+1.23], and the amount not counted towards your balance and not available for spending. This doesn't apply to transactions you sent, which you implicitly trust, since you wrote them.\nI didn't make it (+1.23) because parenthesis in accounting means negative. I hope square brackets is different enough to be clear what is meant.\nThe JSON-RPC interface can still see 0/unconfirmed if it wants by specifying 0 confirmations.\nI uploaded the changes to SVN rev 158. I will post a 0.3.13 RC shortly.\nIf you have any of these transactions in your wallet, do not send any payments until you've upgraded to 0.3.13, which will be coming soon.\nIf you've already sent any of these transactions, or you're the creator of them, then use theymos' patch or make the following change and use it to send your clean transactions to a new wallet to clean things up.\nif (pcoin->GetDepthInMainChain() < 1 && pcoin->GetDebit() <= 0)\ncontinue;\nif (pcoin->GetDepthInMainChain() < 1)\ncontinue;"
 	},
 	{
-		"date": "September 30, 2010, 04:59:00 PM",
-		"src": "https://bitcointalk.org/index.php?topic=1306.msg14720#msg14720",
-		"q": "As you figured out, the root problem is we shouldn't be counting or spending transactions until they have at least 1 confirmation. 0/unconfirmed transactions are very much second class citizens. At most, they are advice that something has been received, but counting them as balance or spending them is premature.\nI made changes so they show up in lighter print, with the credit amount in square brackets like [+1.23], and the amount not counted towards your balance and not available for spending. This doesn't apply to transactions you sent, which you implicitly trust, since you wrote them.\nI didn't make it (+1.23) because parenthesis in accounting means negative. I hope square brackets is different enough to be clear what is meant.\nThe JSON-RPC interface can still see 0/unconfirmed if it wants by specifying 0 confirmations.\nI uploaded the changes to SVN rev 158. I will post a 0.3.13 RC shortly.\nIf you have any of these transactions in your wallet, do not send any payments until you've upgraded to 0.3.13, which will be coming soon.\nIf you've already sent any of these transactions, or you're the creator of them, then use theymos' patch or make the following change and use it to send your clean transactions to a new wallet to clean things up.\nif (pcoin->GetDepthInMainChain() < 1 && pcoin->GetDebit() <= 0)\ncontinue;\nif (pcoin->GetDepthInMainChain() < 1)\ncontinue;",
-		"a": "0.3.13 release candidate, please test:\nhttp://www.bitcoin.org/download/bitcoin-0.3.13-rc1-win32-setup.exe"
-	},
-	{
 		"date": "October 06, 2010, 04:54:23 PM",
 		"src": "https://bitcointalk.org/index.php?topic=1306.msg15672#msg15672",
 		"q": "So in .13 1 confirm is good enough to pay someone with, but it takes 6 to display \"confirmed\" in the GUI. This is inconsistant. This coin is good enough to pay you with but not good enough for me to accept? I don't know the logic behind the 6, but whatever it is, if its only used to decide which word to display, then is it really representing anything at all?",
@@ -2968,12 +2830,6 @@
 		"src": "https://bitcointalk.org/index.php?topic=1327.msg15102#msg15102",
 		"q": "That's nice, however the automatic 4way detection is not working on my Gentoo AMD 64 version client.\nI still have to add the \"-4way\" switch.",
 		"a": "Forgot to say, I suspected the detect might not work on 64-bit AMD. I found it hard to believe but AMD reports a different model number in 64-bit mode.\nCould you grep CPUID your debug.log and tell me what it says? (and anyone else with 64-bit AMD) And what AMD chip do you have?\nDo all AMDs that support 64-bit have the better SSE2 hardware also?"
-	},
-	{
-		"date": "October 03, 2010, 07:39:06 PM",
-		"src": "https://bitcointalk.org/index.php?topic=1327.msg15110#msg15110",
-		"q": "Forgot to say, I suspected the detect might not work on 64-bit AMD. I found it hard to believe but AMD reports a different model number in 64-bit mode.\nCould you grep CPUID your debug.log and tell me what it says? (and anyone else with 64-bit AMD) And what AMD chip do you have?\nDo all AMDs that support 64-bit have the better SSE2 hardware also?",
-		"a": "Could a few people please run this special build? It'll amnesty the dust spam transactions, which will clear up the 0/unconfirmed problem for now. We really just need one block letting them through to clear up the previous transactions. Post if you generate a block with this.\nThese are binaries only. The linux version is 64-bit only.\nhttp://www.bitcoin.org/download/bitcoin-0.3.13.1-specialbuild-win32.zip\nhttp://www.bitcoin.org/download/bitcoin-0.3.13.1-specialbuild-linux64.tar.gz\nSHA1 fb7c66270281ed058c570627cf7baff0bdc16e5d bitcoin-0.3.13.1-specialbuild-win32.zip\nSHA1 9fc44ea5f2109618073e2cfd887e2cc266eb31a9 bitcoin-0.3.13.1-specialbuild-linux64.tar.gz\nThe linux 64-bit version includes a change to the cpuid 4-way 128-bit SSE2 autodetect for AMD in 64-bit mode, if you'd like to test that and see if that's better."
 	},
 	{
 		"date": "October 03, 2010, 07:49:32 PM",

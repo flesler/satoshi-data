@@ -3,6 +3,7 @@ const cheerio = require('cheerio')
 
 const QUOTE = '<|>'
 const SATOSHI = 'Satoshi Nakamoto'
+const BR = '<br/>'
 const IGNORE_LINES = [SATOSHI, 'http://www.bitcoin.org']
 const IGNORE_EMAIL = ['>>', 'From:', ' wrote:', ' writes:']
 // The rest are ignored
@@ -62,13 +63,13 @@ const parseEmails = () => {
   const emails = require('./nakamotoinstitute.org/emails.json')
   const out = []
   for (const email of emails) {
-    if (email.sender !== 'Satoshi Nakamoto') {
+    if (email.sender !== SATOSHI) {
       continue
     }
 
     const [first, ...parts] = splitEmail(email.text)
     if (first) {
-      const prev = emails.find(p => p.id === email.parent)
+      const prev = emails.find(p => p.id === email.parent && p.sender !== SATOSHI)
       const prevParts = prev && splitEmail(prev.text)
       if (prevParts) {
         const q = prevParts.pop() || prevParts[0]
@@ -82,11 +83,6 @@ const parseEmails = () => {
         out.push({ date: email.date, src: email.url, q: parts[j], a: parts[j + 1] })
       }
     }
-    // TEMP
-    // if (out.length >= 2) {
-    //   console.log(first, '\n\nPARTS: ', parts.join('\n\n'), '\n\nTEXT:', email.text)
-    //   break
-    // }
   }
   
   fs.writeFileSync('./data/emails.json', JSON.stringify(out, null, '\t'))
@@ -115,7 +111,6 @@ const splitPost = (html) => {
       // FIXME: There are 2 ocurrences of a \u0000ame replacement, now yields "ame" at the end
       return String.fromCharCode(parseInt(code, 16))
     })
-    // .replace(/\u0000ame/g, '')
     .split('\n').map(p => p.trim()).filter(p =>
       !!p &&
       !p.includes('Posted:') &&
@@ -135,11 +130,19 @@ const parsePosts = () => {
     if (!post.satoshi_id) {
       continue
     }
+    if (post.content.startsWith('<div class=\"post\">--------------------<br/>')) {
+      // Fix reposts from Satoshi, are not really his messages
+      const parts = post.content.split(BR)
+      post.content = parts[0].replace(/-+$/, '') + BR + parts.slice(4).join(BR)
+      delete post.satoshi_id
+      continue
+    }
+    
     const [first, ...parts] = splitPost(post.content)
     if (first) {
       // Should be using nested_level for some, but seems like satoshi replied without nesting correctly (?)
       // Example: https://p2pfoundation.ning.com/forum/topics/bitcoin-open-source?commentId=2003008%3AComment%3A9562
-      const prev = posts.find(p => p.thread_id === post.thread_id && p.post_num === post.post_num - 1)
+      const prev = posts.find(p => !p.satoshi_id && p.thread_id === post.thread_id && p.post_num === post.post_num - 1)
       if (prev) {
         const prevParts = splitPost(prev.content)
         const q = prevParts.pop() || prevParts[0]
@@ -170,7 +173,7 @@ const items = parsePosts().concat(parseEmails())
 fs.writeFileSync('./data/all.json', JSON.stringify(items, null, '\t'))
 
 const toHTML = (text) => {
-  return text.replace(/\n/g, '<br />')
+  return text.replace(/\n/g, BR)
 }
 
 fs.writeFileSync('./data/all.html', `
