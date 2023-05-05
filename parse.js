@@ -2,31 +2,58 @@ const fs = require('fs')
 const cheerio = require('cheerio')
 
 const QUOTE = '<|>'
+const SATOSHI = 'Satoshi Nakamoto'
+const IGNORE_LINES = [SATOSHI, 'http://www.bitcoin.org']
+const IGNORE_EMAIL = ['>>', 'From:', ' wrote:', ' writes:']
 
-const cleanupEmail = (str) => {
-  if (!str) {
+const splitEmail = (email) => {
+  if (!email) {
     return
   }
-  let lines = str
-    // .replace(/^> >.+\n/g, '')
-    // .replace(/^>\n/g, '')
-    .replace(/  +/g, ' ')
+  let lines = email
+    .replace(/> >/g, '>>')
     .split('\n')
     .map(l => l.trim())
   
-  lines = lines.filter(l =>
-    !!l &&
-    !l.startsWith('>') &&
-    !l.includes(' wrote:') &&
-    !/^[A-Z][A-Za-z. ]+:$/.test(l)
-  )
   const sig = lines.indexOf('---------------------------------------------------------------------')
   if (sig !== -1) {
+    const len = sig - 1
+    while (lines[len] === '\n') {
+      len--
+    }
     // Remove their name too
-    lines.length = sig - 1
+    lines.length = len - 1
   }
-  return lines.join('\n')
-    .replace(/([a-z0-9])\n([a-z0-9])/g, '$1 $2')
+  const out = []
+  let buf = ''
+  let inQuote = false
+  for (let line of lines) {
+    if (!line || IGNORE_EMAIL.some(s => line.includes(s)) || /^[A-Z][A-Za-z. ]+:$/.test(line) || IGNORE_LINES.includes(line)) {
+      continue
+    }
+    const isQuote = line.startsWith('>')
+    if (isQuote !== inQuote) {
+      inQuote = isQuote
+      out.push(buf)
+      buf = ''
+    }
+    if (isQuote) {
+      line = line.slice(1)
+    }
+    if (!line) {
+      // Empty quote lines are actually new lines
+      buf += '\n\n'
+    } else if (inQuote) {
+      buf += ' ' + line
+    } else {
+      buf += '\n\n' + line
+    }
+  }
+  if (buf) {
+    out.push(buf)
+  }
+
+  return out.map(l => l.replace(/\n +/g, '\n').replace(/  +/g, ' ').trim())
 }
 
 const parseEmails = () => {
@@ -36,15 +63,28 @@ const parseEmails = () => {
     if (email.sender !== 'Satoshi Nakamoto') {
       continue
     }
-    const q = cleanupEmail(emails.find(p => p.id === email.parent)?.text)
-    if (q) {
-      out.push({
-        date: email.date, src: email.url,
-        // TODO: It needs a logic like the other, he answers inline many times >>
-        q,
-        a: cleanupEmail(email.text),
-      })
+
+    const [first, ...parts] = splitEmail(email.text)
+    if (first) {
+      const prev = emails.find(p => p.id === email.parent)
+      const prevParts = prev && splitEmail(prev.text)
+      if (prevParts) {
+        const q = prevParts.pop() || prevParts[0]
+        if (q) {
+          parts.unshift(q.trim(), first)
+        }
+      }
     }
+    for (let j = 0; j < parts.length; j += 2) {
+      if (parts[j + 1]) {
+        out.push({ date: email.date, src: email.url, q: parts[j], a: parts[j + 1] })
+      }
+    }
+    // TEMP
+    // if (out.length >= 2) {
+    //   console.log(first, '\n\nPARTS: ', parts.join('\n\n'), '\n\nTEXT:', email.text)
+    //   break
+    // }
   }
   
   fs.writeFileSync('./data/emails.json', JSON.stringify(out, null, '\t'))
@@ -53,7 +93,7 @@ const parseEmails = () => {
 
 const splitPost = (html) => {
   const $ = cheerio.load(html)
-  $('.quoteheader,.codeheader,img,del').remove()
+  $('.quoteheader,.codeheader,img,del,.quote .quote').remove()
   $('br').replaceWith('\n')
   $('.code,a').each((_, e) => {
     $(e).replaceWith(e.childNodes)
@@ -69,14 +109,15 @@ const splitPost = (html) => {
       !!p &&
       !p.includes('Posted:') &&
       !p.includes('-------------') &&
-      !/^[a-z]+:$/.test(p)
+      !/^[a-z]+:$/.test(p) &&
+      !IGNORE_LINES.includes(p)
     ).join('\n')
     .split(QUOTE)
     .map(p => p.trim())
 }
 
 const parsePosts = () => {
-  const posts = require('./nakamotoinstitute.org/posts.json')  
+  const posts = require('./nakamotoinstitute.org/posts.json')
   const out = []
   for (let i = 0; i < posts.length; i++) {
     const post = posts[i]
@@ -85,7 +126,7 @@ const parsePosts = () => {
     }
     const [first, ...parts] = splitPost(post.content)
     if (first) {
-      const prev = posts.find(p => p.thread_id === post.thread_id && p.post_num === post.post_num - 1)
+      const prev = posts.find(p => p.thread_id === post.thread_id && p.nested_level === post.nested_level - 1)
       if (prev) {
         const prevParts = splitPost(prev.content)
         const q = prevParts.pop() || prevParts[0]
@@ -114,3 +155,19 @@ const items = parsePosts().concat(parseEmails())
   .map(e => ({ ...e, len: e.qlen + e.alen }))
 
 fs.writeFileSync('./data/all.json', JSON.stringify(items, null, '\t'))
+
+const toHTML = (text) => {
+  return text.replace(/\n/g, '<br />')
+}
+
+fs.writeFileSync('./data/all.html', `
+  <html><head /><body><ul>
+    ${items.map(i => `
+      <li>
+        <p>${i.date} - <a href="${i.src}">${i.src}</a></p>
+        <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
+        <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
+      </li>
+    `).join('\n')}
+  </ul></body></html>
+`)
