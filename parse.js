@@ -7,6 +7,7 @@ const SATOSHI = 'Satoshi Nakamoto'
 const BR = '<br/>'
 const IGNORE_LINES = [SATOSHI, 'Satoshi', 'http://www.bitcoin.org']
 const IGNORE_EMAIL = ['>>', 'From:', ' wrote:', ' writes:']
+const IGNORE_POST = ['Greetings,', 'foobar', 'Posted:', 'Re: ', 'Regards,', '-------------']
 // The rest are ignored
 const ACCEPTED_UNICODES = ['0e3f', '00e9', '00e0', '00e8', '00e7']
 
@@ -113,12 +114,9 @@ const splitPost = (html) => {
     })
     .split('\n').map(p => p.trim()).filter(p =>
       !!p &&
-      !p.includes('Posted:') &&
-      !p.includes('Re: ') &&
-      !p.includes('Regards,') &&
-      !p.includes('-------------') &&
-      !/^[a-z-]+:$/i.test(p) &&
-      !IGNORE_LINES.includes(p)
+      !IGNORE_LINES.includes(p) &&
+      !IGNORE_POST.some(i => p.includes(i)) &&
+      !/^[a-z-]+:$/i.test(p)
     ).join('\n')
     .split(QUOTE)
     .map(p => p.trim())
@@ -164,8 +162,8 @@ const parsePosts = () => {
 }
 
 const qas = parsePosts().concat(parseEmails())
-  .map(({ date, ...e }, id) => ({
-    id, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...e
+  .map(({ date, ...e }, i) => ({
+    id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...e
   }))
   .sort((a, b) => a.date - b.date)
   .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
@@ -182,7 +180,7 @@ fs.writeFileSync('./data/qa.html', `
   <head />
   <body>
     ${qas.map(i => `
-      <p>${i.date} - <a href="${i.src}">${i.src}</a></p>
+      <p>#${i.id} - ${i.date} - <a href="${i.src}">${i.src}</a></p>
       <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
       <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
       <hr />
