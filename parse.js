@@ -86,7 +86,6 @@ const parseEmails = () => {
     }
   }
   
-  fs.writeFileSync('./data/emails.json', JSON.stringify(out, null, '\t'))
   return out
 }
 
@@ -161,29 +160,28 @@ const parsePosts = () => {
     }
   }
   
-  fs.writeFileSync('./data/posts.json', JSON.stringify(out, null, '\t'))
   return out
 }
 
-const items = parsePosts().concat(parseEmails())
+const qas = parsePosts().concat(parseEmails())
   .map(({ date, ...e }, id) => ({
     id, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...e
   }))
   .sort((a, b) => a.date - b.date)
-  .map(e => ({ ...e, qlen: e.q.length, alen: e.a.length }))
-  .map(e => ({ ...e, len: e.qlen + e.alen }))
+  .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
+  .map(qa => ({ ...qa, len: qa.qlen + qa.alen }))
 
-fs.writeFileSync('./data/all.json', JSON.stringify(items, null, '\t'))
+fs.writeFileSync('./data/qa.json', JSON.stringify(qas, null, '\t'))
 
 const toHTML = (text) => {
   return text.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, BR)
 }
 
-fs.writeFileSync('./data/all.html', `
+fs.writeFileSync('./data/qa.html', `
   <html>
   <head />
   <body>
-    ${items.map(i => `
+    ${qas.map(i => `
       <p>${i.date} - <a href="${i.src}">${i.src}</a></p>
       <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
       <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
