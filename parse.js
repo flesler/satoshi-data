@@ -180,11 +180,11 @@ fs.writeFileSync('./data/qa.html', `
   <head />
   <body>
     ${qas.map(i => `
-      <p>#${i.id} - ${i.date} - <a href="${i.src}">${i.src}</a></p>
+      <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a></p>
       <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
       <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
       <hr />
-    `).join('\n')}
+    `).join('')}
   </body>
   </html>
 `)
