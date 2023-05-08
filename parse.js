@@ -10,6 +10,7 @@ const IGNORE_EMAIL = ['>>', 'From:', ' wrote:', ' writes:']
 const IGNORE_POST = ['Greetings,', 'foobar', 'Posted:', 'Re: ', 'Regards,', '-------------']
 // The rest are ignored
 const ACCEPTED_UNICODES = ['0e3f', '00e9', '00e0', '00e8', '00e7']
+const IS_CODE = /\b(const|char|\w+\.cpp|\w+\.h|getpid|addr)\b/
 
 const splitEmail = (email) => {
   if (!email) {
@@ -163,7 +164,9 @@ const parsePosts = () => {
 
 const qas = parsePosts().concat(parseEmails())
   .map(({ date, ...e }, i) => ({
-    id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...e
+    id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...e,
+    // Ignore Q&A's that are too technical
+    skip: IS_CODE.test(e.q + e.a),
   }))
   .sort((a, b) => a.date - b.date)
   .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
@@ -179,7 +182,7 @@ fs.writeFileSync('./data/qa.html', `
   <html>
   <head />
   <body>
-    ${qas.map(i => `
+    ${qas.filter(qa => !qa.skip).map(i => `
       <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a></p>
       <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
       <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
