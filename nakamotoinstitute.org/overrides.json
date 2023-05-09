@@ -1,73 +1,98 @@
 {
-  "https://bitcointalk.org/index.php?topic=13.msg46#msg46": [
-    "",
+  "https://bitcointalk.org/index.php?topic=13.msg46#msg46": {
+    "parts": [
+      "",
 
-    "Hi, yesterday I stumbled upon this great payment option.\nI read my way through many sites but now I have some questions that couldn't get answered.\n1. Is Bitcoin really anonymous? I mean totally and completely? Is my ISP able to detect, that I have sent or received a Bitcoin payment? Maybe he is even able to see that I am running Bitcoin right now?\n2. If I understood this correctly, my payment partners are not able to see who I am. Does this mean, they can not see my real IP adress? Only the Bitcoin-adress? Even if they monitors their network connections and stuff?\n3. If there is a way for my ISP to tell that I am running Bitcoin or for my payment partners to find out my IP, would it be more safe to tunnel the network traffic through a VPN (payed with Paysafecard for example)? Could this be dangerous, because the VPN provider will be able to capture my payment?",
-    "1-3: For that level of anonymity you need to connect through TOR, which will be possible with version 0.2, which is only a few weeks away. I'll post TOR instructions at that time.\n",
+      "Hi, yesterday I stumbled upon this great payment option.\nI read my way through many sites but now I have some questions that couldn't get answered.\n1. Is Bitcoin really anonymous? I mean totally and completely? Is my ISP able to detect, that I have sent or received a Bitcoin payment? Maybe he is even able to see that I am running Bitcoin right now?\n2. If I understood this correctly, my payment partners are not able to see who I am. Does this mean, they can not see my real IP adress? Only the Bitcoin-adress? Even if they monitors their network connections and stuff?\n3. If there is a way for my ISP to tell that I am running Bitcoin or for my payment partners to find out my IP, would it be more safe to tunnel the network traffic through a VPN (payed with Paysafecard for example)? Could this be dangerous, because the VPN provider will be able to capture my payment?",
+      "1-3: For that level of anonymity you need to connect through TOR, which will be possible with version 0.2, which is only a few weeks away. I'll post TOR instructions at that time.\n",
 
-    "What files need to be backed up for not losing my \"money\"? Only the wallet.dat or the whole Bitcoin AppData directory ?",
-    "Version 0.1.5: backup the whole %appdata%\\Bitcoin directory.\nVersion 0.2: you can backup just wallet.dat.",
+      "What files need to be backed up for not losing my \"money\"? Only the wallet.dat or the whole Bitcoin AppData directory ?",
+      "Version 0.1.5: backup the whole %appdata%\\Bitcoin directory.\nVersion 0.2: you can backup just wallet.dat.",
 
-    "Isn`t it possible to multiply a wallet and use it on different machines? This way you would double your money without doing anything for it.\nAre there security measures for this case?",
-    "Nope. The whole design is all about preventing that from working.",
+      "Isn`t it possible to multiply a wallet and use it on different machines? This way you would double your money without doing anything for it.\nAre there security measures for this case?",
+      "Nope. The whole design is all about preventing that from working.",
 
-    "When someone loses his wallet, will there be a way to recreate the lost coins in the system ? Else the 21 million maximum will not be correct.\n(I mean not to recover the lost coins for one person, but if all the 21mio coins were created, and someone loses his wallet with 1mio coins, will the the others be able to create these 1mio coins now or are they totally lost for the bitcoin network?)",
-    "Those coins can never be recovered, and the total circulation is less. Since the effective circulation is reduced, all the remaining coins are worth slightly more. It's the opposite of when a government prints money and the value of existing money goes down.",
+      "When someone loses his wallet, will there be a way to recreate the lost coins in the system ? Else the 21 million maximum will not be correct.\n(I mean not to recover the lost coins for one person, but if all the 21mio coins were created, and someone loses his wallet with 1mio coins, will the the others be able to create these 1mio coins now or are they totally lost for the bitcoin network?)",
+      "Those coins can never be recovered, and the total circulation is less. Since the effective circulation is reduced, all the remaining coins are worth slightly more. It's the opposite of when a government prints money and the value of existing money goes down.",
 
-    "I have read that there currently are about 130k blocks out there. At my pc it only shows me about 24k. Is there something wrong or is this a normal behaviour ?",
-    "It's currently 29,296 blocks. The circulation is the number of blocks times 50, so the current circulation is 1,464,800 bc.\nIf you only have 24k blocks, it must not have finished the initial block download. Exit bitcoin and start it again. Version 0.2 is better/faster at the initial block download.",
+      "I have read that there currently are about 130k blocks out there. At my pc it only shows me about 24k. Is there something wrong or is this a normal behaviour ?",
+      "It's currently 29,296 blocks. The circulation is the number of blocks times 50, so the current circulation is 1,464,800 bc.\nIf you only have 24k blocks, it must not have finished the initial block download. Exit bitcoin and start it again. Version 0.2 is better/faster at the initial block download.",
     
-    "I`m afraid I didn`t understand everything about the bitcoin creation. How many coins are created by a machine in 24h in average?",
-    "Typically a few hundred right now. It's easy now but it'll get harder as the network grows.",
+      "I`m afraid I didn`t understand everything about the bitcoin creation. How many coins are created by a machine in 24h in average?",
+      "Typically a few hundred right now. It's easy now but it'll get harder as the network grows.",
     
-    "I know that port 8333 should be forwarded to the bitcoin-running machine. Now I ask myself if this goes for the TCP or the UDP.\nAnd is this port required for generating coins? Or only for payment transactions?",
-    "Good question, it's TCP. The website needs to be updated to say TCP port 8333.\nThe port forwarding is so other nodes can connect to you, so it helps you stay connected because you are able to be connected with more nodes. You also need it to receive payments by IP address.",
+      "I know that port 8333 should be forwarded to the bitcoin-running machine. Now I ask myself if this goes for the TCP or the UDP.\nAnd is this port required for generating coins? Or only for payment transactions?",
+      "Good question, it's TCP. The website needs to be updated to say TCP port 8333.\nThe port forwarding is so other nodes can connect to you, so it helps you stay connected because you are able to be connected with more nodes. You also need it to receive payments by IP address.",
     
-    "I`ve seen that the source code for bitcoin is open for everybody. Can this be an actual danger? If the code is manipulated people can create more bitcoins than others, can`t they? This would be a massive leak of security.",
-    "No, the other nodes won't accept that.\nBeing open source means anyone can independently review the code. If it was closed source, nobody could verify the security. I think it's essential for a program of this nature to be open source.",
+      "I`ve seen that the source code for bitcoin is open for everybody. Can this be an actual danger? If the code is manipulated people can create more bitcoins than others, can`t they? This would be a massive leak of security.",
+      "No, the other nodes won't accept that.\nBeing open source means anyone can independently review the code. If it was closed source, nobody could verify the security. I think it's essential for a program of this nature to be open source.",
     
-    "I`ve seen a formula to calculate the coins that will be created in a certain amount of time. It had something to do with the maximum cpu speed and the availabe. Can`t find it anymore, so I`m asking you to explain me the coin creating. Do slow machines produce as much coins as high-end ones?",
-    "Slower machines produce fewer coins. It's proportional to CPU speed.",
+      "I`ve seen a formula to calculate the coins that will be created in a certain amount of time. It had something to do with the maximum cpu speed and the availabe. Can`t find it anymore, so I`m asking you to explain me the coin creating. Do slow machines produce as much coins as high-end ones?",
+      "Slower machines produce fewer coins. It's proportional to CPU speed.",
     
-    "Are there any other exchanging systems or potential payment partners except for new liberty standard?",
-    "There are more coming.",
+      "Are there any other exchanging systems or potential payment partners except for new liberty standard?",
+      "There are more coming.",
     
-    "What happens when my system crashes? Is the wallet saved automatically or only when bitcoin gets closed manually? (Maybe even real-time saving when a coint is created or payment is made?)",
-    "It uses a transactional database called Berkeley DB. It will not lose data in a system crash. Transactions are written to the database immediately when they're received.",
+      "What happens when my system crashes? Is the wallet saved automatically or only when bitcoin gets closed manually? (Maybe even real-time saving when a coint is created or payment is made?)",
+      "It uses a transactional database called Berkeley DB. It will not lose data in a system crash. Transactions are written to the database immediately when they're received.",
     
-    "Is there a way to see how many bitcoins have been generated this far? And how old is Bitcoin already?\nI know .... Many many questions but I am really interested in your service and want to know everything before I start using it more frequently.",
-    "For now, you can just multiply the total blocks by 50. The Bitcoin network has been running for almost a year now. The design and coding started in 2007."
-  ],
+      "Is there a way to see how many bitcoins have been generated this far? And how old is Bitcoin already?\nI know .... Many many questions but I am really interested in your service and want to know everything before I start using it more frequently.",
+      "For now, you can just multiply the total blocks by 50. The Bitcoin network has been running for almost a year now. The design and coding started in 2007."
+    ]
+  },
 
-  "https://bitcointalk.org/index.php?topic=6.msg31#msg31": [
-    "",
+  "https://bitcointalk.org/index.php?topic=6.msg31#msg31": {
+    "parts": [
+      "",
 
-    "the network connection is used when you broadcast the information about the proof-of-work block you've created (that which entitles you to the new coin). Generating coins successfully requires constant connectivity, so that you can start working on the next block when someone gets the current block before you.\nWhich stages require network connectivity, significant local CPU usage and or significant remote CPU usage? Do any of these stages have names?",
-    "1) During generation (when the status bar says \"Generating\" and you're using CPU to find a proof-of-work), you must constantly keep in contact with the network to receive the latest block. If your block does not link to the latest block, it may not be accepted.\nIt's important to have network connectivity while you're trying to generate a coin (block) and at the moment it is successfully generated.\n2) When you successfully generate a block, it is immediately broadcast to the network. Other nodes must receive it and link to it for it to be accepted as the new latest block.\nThink of it as a cooperative effort to make a chain. When you add a link, you must first find the current end of the chain. If you were to locate the last link, then go off for an hour and forge your link, come back and link it to the link that was the end an hour ago, others may have added several links since then and they're not going to want to use your link that now branches off the middle.\nAfter a block is created, the maturation time of 120 blocks is to make absolutely sure the block is part of the main chain before it can be spent. Your node isn't doing anything with the block during that time, just waiting for other blocks to be added after yours. You don't have to be online during that time."
-  ],
+      "the network connection is used when you broadcast the information about the proof-of-work block you've created (that which entitles you to the new coin). Generating coins successfully requires constant connectivity, so that you can start working on the next block when someone gets the current block before you.\nWhich stages require network connectivity, significant local CPU usage and or significant remote CPU usage? Do any of these stages have names?",
+      "1) During generation (when the status bar says \"Generating\" and you're using CPU to find a proof-of-work), you must constantly keep in contact with the network to receive the latest block. If your block does not link to the latest block, it may not be accepted.\nIt's important to have network connectivity while you're trying to generate a coin (block) and at the moment it is successfully generated.\n2) When you successfully generate a block, it is immediately broadcast to the network. Other nodes must receive it and link to it for it to be accepted as the new latest block.\nThink of it as a cooperative effort to make a chain. When you add a link, you must first find the current end of the chain. If you were to locate the last link, then go off for an hour and forge your link, come back and link it to the link that was the end an hour ago, others may have added several links since then and they're not going to want to use your link that now branches off the middle.\nAfter a block is created, the maturation time of 120 blocks is to make absolutely sure the block is part of the main chain before it can be spent. Your node isn't doing anything with the block during that time, just waiting for other blocks to be added after yours. You don't have to be online during that time."
+    ]
+  },
 
-  "https://bitcointalk.org/index.php?topic=8.msg34#msg34": [
-    "",
+  "https://bitcointalk.org/index.php?topic=8.msg34#msg34": {
+    "parts": [
+      "",
 
-    "Can nodes on the network tell from which and or to which bitcoin address coins are being sent? Do blocks contain a history of where bitcoins have been transfered to and from?",
-    "Bitcoins are sent to and from bitcoin addresses, which are essentially random numbers with no identifying information.\nWhen you send to an IP address, the transaction is still written to a bitcoin address. The IP address is only used to connect to the recipient's computer to request a fresh bitcoin address, give the transaction directly to the recipient and get a confirmation.\nBlocks contain a history of the bitcoin addresses that a coin has been transferred to. If the identities of the people using the bitcoin addresses are not known and each address is used only once, then this information only reveals that some unknown person transferred some amount to someone else.\nThe possibility to be anonymous or pseudonymous relies on you not revealing any identifying information about yourself in connection with the bitcoin addresses you use. If you post your bitcoin address on the web, then you're associating that address and any transactions with it with the name you posted under. If you posted under a handle that you haven't associated with your real identity, then you're still pseudonymous.\nFor greater privacy, it's best to use bitcoin addresses only once. You can change addresses as often as you want using Options->Change Your Address. Transfers by IP address automatically use a new bitcoin address each time.",
+      "Can nodes on the network tell from which and or to which bitcoin address coins are being sent? Do blocks contain a history of where bitcoins have been transfered to and from?",
+      "Bitcoins are sent to and from bitcoin addresses, which are essentially random numbers with no identifying information.\nWhen you send to an IP address, the transaction is still written to a bitcoin address. The IP address is only used to connect to the recipient's computer to request a fresh bitcoin address, give the transaction directly to the recipient and get a confirmation.\nBlocks contain a history of the bitcoin addresses that a coin has been transferred to. If the identities of the people using the bitcoin addresses are not known and each address is used only once, then this information only reveals that some unknown person transferred some amount to someone else.\nThe possibility to be anonymous or pseudonymous relies on you not revealing any identifying information about yourself in connection with the bitcoin addresses you use. If you post your bitcoin address on the web, then you're associating that address and any transactions with it with the name you posted under. If you posted under a handle that you haven't associated with your real identity, then you're still pseudonymous.\nFor greater privacy, it's best to use bitcoin addresses only once. You can change addresses as often as you want using Options->Change Your Address. Transfers by IP address automatically use a new bitcoin address each time.",
 
-    "Can nodes tell which bitcoin addresses belong to which IP addresses?",
-    "No.",
+      "Can nodes tell which bitcoin addresses belong to which IP addresses?",
+      "No.",
 
-    "Is there a command line option to enable the sock proxy the first time that bitcoin starts?",
-    "In the next release (version 0.2), the command line to run it through a proxy from the first time is:\nbitcoin -proxy=127.0.0.1:9050\nThe problem for TOR is that the IRC server which Bitcoin uses to initially discover other nodes bans the TOR exit nodes, as all IRC servers do. If you've already connected once before then you're already seeded, but for the first time, you'd need to provide the address of a node as such:\nbitcoin -proxy=127.0.0.1:9050 -addnode=<someipaddress>\nIf someone running a node with a static IP address that can accept incoming connections could post their IP to use for -addnode, that would be great.",
+      "Is there a command line option to enable the sock proxy the first time that bitcoin starts?",
+      "In the next release (version 0.2), the command line to run it through a proxy from the first time is:\nbitcoin -proxy=127.0.0.1:9050\nThe problem for TOR is that the IRC server which Bitcoin uses to initially discover other nodes bans the TOR exit nodes, as all IRC servers do. If you've already connected once before then you're already seeded, but for the first time, you'd need to provide the address of a node as such:\nbitcoin -proxy=127.0.0.1:9050 -addnode=<someipaddress>\nIf someone running a node with a static IP address that can accept incoming connections could post their IP to use for -addnode, that would be great.",
 
-    "What happens if you send bitcoins to an IP address that has multiple clients connected through network address translation (NAT)?",
-    "Whichever one you've set your NAT to forward port 8333 to will receive it. If your router can change the port number when it forwards, you could allow more than one client to receive. For instance, if port 8334 forwards to a computer's port 8333, then senders could send to \"x.x.x.x:8334\"\nIf your NAT can't translate port numbers, there currently isn't a command line option to change the incoming port that bitcoin binds to, but I'll look into it."
-  ],
+      "What happens if you send bitcoins to an IP address that has multiple clients connected through network address translation (NAT)?",
+      "Whichever one you've set your NAT to forward port 8333 to will receive it. If your router can change the port number when it forwards, you could allow more than one client to receive. For instance, if port 8334 forwards to a computer's port 8333, then senders could send to \"x.x.x.x:8334\"\nIf your NAT can't translate port numbers, there currently isn't a command line option to change the incoming port that bitcoin binds to, but I'll look into it."
+    ]
+  },
 
-  "https://bitcointalk.org/index.php?topic=25.msg132#msg132": [
-    "",
+  "https://bitcointalk.org/index.php?topic=25.msg132#msg132": {
+    "prev": 7
+  },
 
-    "You can't send messages to Bitcoin users unless it's the IP? That seems unnecessary. Any reasoning behind this? I think people will use Bitcoin addresses a lot more often than the IP address when sending or receiving coins.",
-    "it's a technical limitation. Sending by bitcoin address enters the transaction into the network and the recipient discovers it from the network. You don't connect directly with them and they don't have to be online at the time.\nI very much wanted to find some way to include a short message, but the problem is, the whole world would be able to see the message. As much as you may keep reminding people that the message is completely non-private, it would be an accident waiting to happen.\nUnfortunately, ECDSA can only sign signatures, it can't encrypt messages, and we need the small size of ECDSA. RSA can encrypt messages, but it's many times bigger than ECDSA."
-  ],
+  "https://bitcointalk.org/index.php?topic=179.msg1588#msg1588": {
+    "parts": [
+      "",
+    
+      "3) Which data exactly passed between 2 nodes during transaction? (or just show me place in source code where to look)",
+      "3) Nothing, if sending by bitcoin address",
 
-  "http://p2pfoundation.ning.com/xn/detail/2003008:Comment:52186": []
+      "5) Is there any any plans on decentralizing node list (i have figured out from irc that bitcoin is currently not really decentralized, because nodes getting in touch by joining irc channel on freenode).",
+      "5) It is decentralised. After you have connected to the network the first time, you no longer need IRC."
+    ]
+  },
+
+  "https://bitcointalk.org/index.php?topic=191.msg1585#msg1585": {
+    "prev": 4
+  },
+
+  "https://bitcointalk.org/index.php?topic=197.msg1656#msg1656": {
+    "prev": 6
+  },
+
+  "http://p2pfoundation.ning.com/xn/detail/2003008:Comment:52186": {
+    "parts": []
+  }
 }

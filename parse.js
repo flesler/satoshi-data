@@ -70,7 +70,7 @@ const parseEmails = () => {
       continue
     }
 
-    const [first, ...parts] = overrides[email.url] || splitEmail(email.text)
+    const [first, ...parts] = overrides[email.url]?.parts || splitEmail(email.text)
     if (first) {
       const prev = emails.find(p => p.id === email.parent && p.sender !== SATOSHI)
       const prevParts = prev && splitEmail(prev.text)
@@ -139,11 +139,12 @@ const parsePosts = () => {
       continue
     }
     
-    const [first, ...parts] = overrides[post.url] || splitPost(post.content)
+    const [first, ...parts] = overrides[post.url]?.parts || splitPost(post.content)
     if (first) {
       // Should be using nested_level for some, but seems like satoshi replied without nesting correctly (?)
       // Example: https://p2pfoundation.ning.com/forum/topics/bitcoin-open-source?commentId=2003008%3AComment%3A9562
-      const prev = posts.find(p => !p.satoshi_id && p.thread_id === post.thread_id && p.post_num === post.post_num - 1)
+      const prevNum = overrides[post.url]?.prev ?? post.post_num - 1
+      const prev = posts.find(p => !p.satoshi_id && p.thread_id === post.thread_id && p.post_num === prevNum)
       if (prev) {
         const prevParts = splitPost(prev.content)
         const q = prevParts.pop() || prevParts[0]
@@ -162,11 +163,15 @@ const parsePosts = () => {
   return out
 }
 
+const shouldSkip = (qa) => {
+  // Ignore Q&A's that are too technical
+  return IS_CODE.test(qa.q + qa.a)
+  // TODO: Skip if too long?
+}
+
 const qas = parsePosts().concat(parseEmails())
-  .map(({ date, ...e }, i) => ({
-    id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...e,
-    // Ignore Q&A's that are too technical
-    skip: IS_CODE.test(e.q + e.a),
+  .map(({ date, ...qa }, i) => ({
+    id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...qa, skip: shouldSkip(qa),
   }))
   .sort((a, b) => a.date - b.date)
   .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
