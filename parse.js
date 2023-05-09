@@ -10,7 +10,7 @@ const IGNORE_EMAIL = ['>>', 'From:', ' wrote:', ' writes:']
 const IGNORE_POST = ['Greetings,', 'foobar', 'Posted:', 'Re: ', 'Regards,', '-------------']
 // The rest are ignored
 const ACCEPTED_UNICODES = ['0e3f', '00e9', '00e0', '00e8', '00e7']
-const IS_CODE = /\b(const|char|\w+\.cpp|\w+\.h|getpid|addr)\b/
+const IS_CODE = /\b(const|char|\w+\.cpp|\w+\.h|getpid|addr|wxWidgets|ansi|htop)\b/
 
 const splitEmail = (email) => {
   if (!email) {
