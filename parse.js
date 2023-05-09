@@ -1,6 +1,6 @@
 const fs = require('fs')
 const cheerio = require('cheerio')
-const overrides = require('./nakamotoinstitute.org/overrides.json')
+const overrides = require('./inputs/overrides.json')
 
 const QUOTE = '<|>'
 const SATOSHI = 'Satoshi Nakamoto'
@@ -63,7 +63,7 @@ const splitEmail = (email) => {
 }
 
 const parseEmails = () => {
-  const emails = require('./nakamotoinstitute.org/emails.json')
+  const emails = require('./inputs/emails.json')
   const out = []
   for (const email of emails) {
     if (email.sender !== SATOSHI) {
@@ -124,7 +124,7 @@ const splitPost = (html) => {
 }
 
 const parsePosts = () => {
-  const posts = require('./nakamotoinstitute.org/posts.json')
+  const posts = require('./inputs/posts.json')
   const out = []
   for (let i = 0; i < posts.length; i++) {
     const post = posts[i]
