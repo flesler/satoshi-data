@@ -68,9 +68,7 @@
     ]
   },
 
-  "https://bitcointalk.org/index.php?topic=25.msg132#msg132": {
-    "prev": 7
-  },
+  "https://bitcointalk.org/index.php?topic=25.msg132#msg132": { "prev": 7 },
 
   "https://bitcointalk.org/index.php?topic=179.msg1588#msg1588": {
     "parts": [
@@ -84,14 +82,21 @@
     ]
   },
 
-  "https://bitcointalk.org/index.php?topic=191.msg1585#msg1585": {
-    "prev": 4
-  },
+  "https://bitcointalk.org/index.php?topic=191.msg1585#msg1585": { "prev": 4 },
 
-  "https://bitcointalk.org/index.php?topic=197.msg1656#msg1656": {
-    "prev": 6
-  },
+  "https://bitcointalk.org/index.php?topic=197.msg1656#msg1656": { "prev": 6 },
 
+  "https://bitcointalk.org/index.php?topic=291.msg2913#msg2913": { "prev": 1 },
+
+  "https://bitcointalk.org/index.php?topic=305.msg2895#msg2895": { "prev": 1 },
+
+  "https://bitcointalk.org/index.php?topic=378.msg3540#msg3540": { "prev": 1 },
+
+  "https://bitcointalk.org/index.php?topic=571.msg5712#msg5712": { "prev": 1 },
+  "https://bitcointalk.org/index.php?topic=571.msg5724#msg5724": { "prev": 4 },
+  
+  "https://bitcointalk.org/index.php?topic=845.msg11403#msg11403": { "prev": 1 },
+  
   "http://p2pfoundation.ning.com/xn/detail/2003008:Comment:52186": {
     "parts": []
   }

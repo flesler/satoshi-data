@@ -944,7 +944,7 @@
       <hr />
     
       <p><a id="216" href="#216">#216</a> - 2010-07-14 18:56:29 - <a href="https://bitcointalk.org/index.php?topic=291.msg2913#msg2913">https://bitcointalk.org/index.php?topic=291.msg2913#msg2913</a></p>
-      <p><b>User</b> (462 chars): u can't generate just 1coin,<br/>u'll get 50coins for completing 1block, or you dont get them if someone else was quicker.<br/>a few days ago i was able to generate 50coins in less than a day, but the difficulty to create a block tripled since slashdot and so did the time to generate coins.<br/>so yes, its pretty usual to take "forever" to generate a coin, at least expect it to take a few days, to get your first 50coins,<br/>depending on how much cpu-power u'v got to spare.</p>
+      <p><b>User</b> (420 chars): Just got started with bitcoin. I followed the directions. Forwarded the port. Had quite a few connections up to 40 at one time. I wake up this morning and I see I have 12 connections. ANd five errors saying this bitcoin was generated but not received by any other nodes. I gave bitcoin access through the firewall and allowed an exception. I am running Windows 7 64 bit. Any ideas?<br/>BC: 1KDwVb4udipVSYLgRPWg9GiFiKJpXBFPHg</p>
       <p><b>Satoshi</b> (733 chars): Microsoft Security Essentials Live Protection is blocking your communication with the network. You have connections, which tricks Bitcoin into thinking it's connected, but they are silent because the data is being blocked.<br/>You need to make bitcoin.exe an excluded process in Live Protection.<br/>This is becoming a common problem. Someone should write this up in a pegged thread.<br/>The message "Warning: This block was not received by any other nodes" occurs when Bitcoin broadcasts a block, but nobody confirms they received it. The warning is there just for this kind of situation, where for some reason you have connections, but they have gone dead and nobody can hear you. Your block will never become valid because nobody received it.</p>
       <hr />
     
@@ -984,7 +984,7 @@
       <hr />
     
       <p><a id="225" href="#225">#225</a> - 2010-07-14 18:02:28 - <a href="https://bitcointalk.org/index.php?topic=305.msg2895#msg2895">https://bitcointalk.org/index.php?topic=305.msg2895#msg2895</a></p>
-      <p><b>User</b> (20 chars): 513 is my area code.</p>
+      <p><b>User</b> (594 chars): When I started bitcoin (windows) It started adding blocks, everything was going well. Then i went and port forwarded (I don't knwo if that's related) and around then, probably a bit after, it stuck at 513 blocks. I left it on overnight, and generated 11 more (to be precise, the 513 is from today, idk if it was that before or not, it was low 500s though) They all say Generated (50.00 matures in [118-108] more blocks). Also, I did the 5 free bitcoins website thing, and it hasn't given me them. I currently have 10 connections, 11 transactions, 513 blocks, and 0.00 balance. What should I do?</p>
       <p><b>Satoshi</b> (468 chars): This is the second time I've seen this "Live Protection" problem reported.<br/>It must be blocking the program's network communication. It sounds like it's allowing connections to be made, hence the 10 connections shown, but not allowing any data to be sent or received on them.<br/>We need to understand this problem better.<br/>Can someone write some instructions on the wiki explaining how to turn off or add an exclusion to Live Protection or whatever its full proper name is.</p>
       <hr />
     
@@ -1044,7 +1044,7 @@
       <hr />
     
       <p><a id="238" href="#238">#238</a> - 2010-07-16 17:47:05 - <a href="https://bitcointalk.org/index.php?topic=378.msg3540#msg3540">https://bitcointalk.org/index.php?topic=378.msg3540#msg3540</a></p>
-      <p><b>User</b> (25 chars): I also wonder about this.</p>
+      <p><b>User</b> (207 chars): could there be a possible copyright thing here?<br/>did a search for bitcoin on twitter and came up with these links...<br/>http://twitter.com/bitcoin<br/>which leads to<br/>http://bitcoin.com/<br/>or are these somehow related?</p>
       <p><b>Satoshi</b> (23 chars): No, not related at all.</p>
       <hr />
     
@@ -1228,11 +1228,6 @@
       <p><b>Satoshi</b> (924 chars): Thanks for that survey!<br/>I find "key value" a little unnatural. There ought to be a more definite separator between key and value that suggests assignment. The space people may just be getting lazy using their language's split function.<br/>key=some full sentence with spaces in it. # seems more clear<br/>key some full sentence with spaces in it. # than this<br/>Allright then, lets go with self-parsed mapConfig, syntax:<br/># comment<br/>key=value<br/>file extension .conf. What's the filename, is it ~/.bitcoin/settings.conf or ~/.bitcoin/bitcoin.conf or what?<br/>I think we better strip whitespace at the beginning and end of the key and the value.<br/># user who likes column formatted<br/>k = value<br/>key = value<br/>longerkey = this sentence would be this # "this sentence would be this"<br/>key = value # guess this is ok too<br/>nextkey = value<br/>right = justified<br/>The normal syntax should be "key=value", but you can't blame people for the occasional "key = value".</p>
       <hr />
     
-      <p><a id="281" href="#281">#281</a> - 2010-07-22 02:34:23 - <a href="https://bitcointalk.org/index.php?topic=461.msg4928#msg4928">https://bitcointalk.org/index.php?topic=461.msg4928#msg4928</a></p>
-      <p><b>User</b> (96 chars): TODO: dialog box or debug.log warning if no rpc.user/rpc.password is set, explaining how to set.</p>
-      <p><b>Satoshi</b> (337 chars): In many of the contexts of this RPC stuff, you can print to the console with fprintf(stdout, like this:<br/>#if defined(__WXMSW__) && wxUSE_GUI<br/>MyMessageBox("Warning: rpc password is blank, use -rpcpw=&lt;password&gt;<br/>", "Bitcoin", wxOK | wxICON_EXCLAMATION);<br/>#else<br/>fprintf(stdout, "Warning: rpc password is blank, use -rpcpw=&lt;password&gt;<br/>");<br/>#endif</p>
-      <hr />
-    
       <p><a id="282" href="#282">#282</a> - 2010-07-23 17:07:40 - <a href="https://bitcointalk.org/index.php?topic=461.msg5337#msg5337">https://bitcointalk.org/index.php?topic=461.msg5337#msg5337</a></p>
       <p><b>User</b> (213 chars): Question for everybody: should I add a section to the wiki page describing, in detail, how to do HTTP Basic authentication? PHP and Python make is really easy-- just use the http://user:pass@host:port/ URL syntax.</p>
       <p><b>Satoshi</b> (270 chars): Yes, I think that would be really good so each dev doesn't have to figure it out themselves. We need a simple example for each of Python, PHP and Java importing the json-rpc library and using it to do a getinfo or something, including doing the http authentication part.</p>
@@ -1309,12 +1304,12 @@
       <hr />
     
       <p><a id="298" href="#298">#298</a> - 2010-07-25 17:45:22 - <a href="https://bitcointalk.org/index.php?topic=571.msg5712#msg5712">https://bitcointalk.org/index.php?topic=571.msg5712#msg5712</a></p>
-      <p><b>User</b> (159 chars): It's open source software, better to discuss it now than try to keep it a secret for someone else to discover and they may not be willing to share any details.</p>
+      <p><b>User</b> (646 chars): I think there is a pretty significant crypto flaw in Bitcoin as currently implemented. I'm not sure it is exploitable now (I'm not a real cryptohacker) but it is more than plausible that will be in the near future.<br/>The flaw would enable anonymous stealing of coins from arbitrary bitcoin addresses. And no it doesn't involve solving any of the hard problems that keep existing crypto systems secure. It is simply a *potential* correctable logic flaw in the implementation.<br/>I would like bitcoins to succeed, so I'd rather not jump up and down in public yelling about flaws in public. Is there an appropriate place to discuss these types of issues?</p>
       <p><b>Satoshi</b> (131 chars): It's best if you tell it to me privately so it can be fixed first.<br/>I just e-mailed you my e-mail address. (or you could PM me here)</p>
       <hr />
     
       <p><a id="299" href="#299">#299</a> - 2010-07-25 19:06:23 - <a href="https://bitcointalk.org/index.php?topic=571.msg5724#msg5724">https://bitcointalk.org/index.php?topic=571.msg5724#msg5724</a></p>
-      <p><b>User</b> (119 chars): I think I know what he means, but I was certain that the odds of doing it a bit too random to make an attack out of it.</p>
+      <p><b>User</b> (37 chars): You stopped my post just in time! :-)</p>
       <p><b>Satoshi</b> (372 chars): Red, thanks for telling me privately first! Please go ahead and post it (and relieve the suspense for everyone!)<br/>His point is that transactions paid to a Bitcoin Address are only as secure as the hash function. To make Bitcoin Addresses short, they are a hash of the public key, not the public key itself. An attacker would only have to break the hash function, not ECDSA.</p>
       <hr />
     
@@ -1819,7 +1814,7 @@
       <hr />
     
       <p><a id="420" href="#420">#420</a> - 2010-08-27 16:39:26 - <a href="https://bitcointalk.org/index.php?topic=845.msg11403#msg11403">https://bitcointalk.org/index.php?topic=845.msg11403#msg11403</a></p>
-      <p><b>User</b> (145 chars): OK, would one of y'all be so kind as to post a forum URL for the prior proposal?<br/>Re anonymity, many Bitcoin users seem far too unconcerned, IMHO.</p>
+      <p><b>User</b> (1749 chars): There has been a lot of debate about what Bitcoins are -- i.e. currency vs. commodity. Also there has been a lot of debate about inflation vs. deflation with respect to Bitcoins, whether people would lend them, at what rates, etc.<br/>I think the most apt description of Bitcoins is that they are shares of stock in this communal Bitcoin enterprise we are undertaking. It is a lot like being part of a company (right now a very small company) and being paid in stock shares. There are a fixed number of Bitcoins, as there are a fixed number of shares in a company (barring new issues/etc.).<br/>The primary value of Bitcoins right now is the hope that they will someday be worth significantly more than they are right now. For that to happen, the Bitcoin enterprise as a whole needs to gain collective value. We, as employee/owners of Bitcoin need to generate that added value. The most obvious way is to facilitate internet commerce by bartering shares of Bitcoin for other goods. The collective computational effort of all the employee/owners helps ensure that the barter is fair by keeping a record of each transaction. The individual efforts of some Bitcoiners are helping to make the barter of Bitcoins easier or more useful.<br/>Regarding lending/borrowing of Bitcoins, to me it is analogous to lending/borrowing stock. The primary reason to borrow Bitcoins would be because you think they are overvalued and will be worth less when you have to return them. When you borrow the Bitcoins, you can sell them now (barter them now) and hopefully it will cost you less to buy them back at a later date so that you can return them to your lender (probably plus a fee).<br/>In essence, Bitcoins are like a "direct public offering" of stock in the Bitcoin enterprise.</p>
       <p><b>Satoshi</b> (121 chars): Bitcoins have no dividend or potential future dividend, therefore not like a stock.<br/>More like a collectible or commodity.</p>
       <hr />
     

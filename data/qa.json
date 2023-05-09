@@ -2368,12 +2368,12 @@
 		"id": 216,
 		"date": "2010-07-14 18:56:29",
 		"src": "https://bitcointalk.org/index.php?topic=291.msg2913#msg2913",
-		"q": "u can't generate just 1coin,\nu'll get 50coins for completing 1block, or you dont get them if someone else was quicker.\na few days ago i was able to generate 50coins in less than a day, but the difficulty to create a block tripled since slashdot and so did the time to generate coins.\nso yes, its pretty usual to take \"forever\" to generate a coin, at least expect it to take a few days, to get your first 50coins,\ndepending on how much cpu-power u'v got to spare.",
+		"q": "Just got started with bitcoin. I followed the directions. Forwarded the port. Had quite a few connections up to 40 at one time. I wake up this morning and I see I have 12 connections. ANd five errors saying this bitcoin was generated but not received by any other nodes. I gave bitcoin access through the firewall and allowed an exception. I am running Windows 7 64 bit. Any ideas?\nBC: 1KDwVb4udipVSYLgRPWg9GiFiKJpXBFPHg",
 		"a": "Microsoft Security Essentials Live Protection is blocking your communication with the network. You have connections, which tricks Bitcoin into thinking it's connected, but they are silent because the data is being blocked.\nYou need to make bitcoin.exe an excluded process in Live Protection.\nThis is becoming a common problem. Someone should write this up in a pegged thread.\nThe message \"Warning: This block was not received by any other nodes\" occurs when Bitcoin broadcasts a block, but nobody confirms they received it. The warning is there just for this kind of situation, where for some reason you have connections, but they have gone dead and nobody can hear you. Your block will never become valid because nobody received it.",
 		"skip": false,
-		"qlen": 462,
+		"qlen": 420,
 		"alen": 733,
-		"len": 1195
+		"len": 1153
 	},
 	{
 		"id": 217,
@@ -2467,12 +2467,12 @@
 		"id": 225,
 		"date": "2010-07-14 18:02:28",
 		"src": "https://bitcointalk.org/index.php?topic=305.msg2895#msg2895",
-		"q": "513 is my area code.",
+		"q": "When I started bitcoin (windows) It started adding blocks, everything was going well. Then i went and port forwarded (I don't knwo if that's related) and around then, probably a bit after, it stuck at 513 blocks. I left it on overnight, and generated 11 more (to be precise, the 513 is from today, idk if it was that before or not, it was low 500s though) They all say Generated (50.00 matures in [118-108] more blocks). Also, I did the 5 free bitcoins website thing, and it hasn't given me them. I currently have 10 connections, 11 transactions, 513 blocks, and 0.00 balance. What should I do?",
 		"a": "This is the second time I've seen this \"Live Protection\" problem reported.\nIt must be blocking the program's network communication. It sounds like it's allowing connections to be made, hence the 10 connections shown, but not allowing any data to be sent or received on them.\nWe need to understand this problem better.\nCan someone write some instructions on the wiki explaining how to turn off or add an exclusion to Live Protection or whatever its full proper name is.",
 		"skip": false,
-		"qlen": 20,
+		"qlen": 594,
 		"alen": 468,
-		"len": 488
+		"len": 1062
 	},
 	{
 		"id": 226,
@@ -2610,12 +2610,12 @@
 		"id": 238,
 		"date": "2010-07-16 17:47:05",
 		"src": "https://bitcointalk.org/index.php?topic=378.msg3540#msg3540",
-		"q": "I also wonder about this.",
+		"q": "could there be a possible copyright thing here?\ndid a search for bitcoin on twitter and came up with these links...\nhttp://twitter.com/bitcoin\nwhich leads to\nhttp://bitcoin.com/\nor are these somehow related?",
 		"a": "No, not related at all.",
 		"skip": false,
-		"qlen": 25,
+		"qlen": 207,
 		"alen": 23,
-		"len": 48
+		"len": 230
 	},
 	{
 		"id": 239,
@@ -3085,7 +3085,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=461.msg4928#msg4928",
 		"q": "TODO: dialog box or debug.log warning if no rpc.user/rpc.password is set, explaining how to set.",
 		"a": "In many of the contexts of this RPC stuff, you can print to the console with fprintf(stdout, like this:\n#if defined(__WXMSW__) && wxUSE_GUI\nMyMessageBox(\"Warning: rpc password is blank, use -rpcpw=<password>\n\", \"Bitcoin\", wxOK | wxICON_EXCLAMATION);\n#else\nfprintf(stdout, \"Warning: rpc password is blank, use -rpcpw=<password>\n\");\n#endif",
-		"skip": false,
+		"skip": true,
 		"qlen": 96,
 		"alen": 337,
 		"len": 433
@@ -3270,23 +3270,23 @@
 		"id": 298,
 		"date": "2010-07-25 17:45:22",
 		"src": "https://bitcointalk.org/index.php?topic=571.msg5712#msg5712",
-		"q": "It's open source software, better to discuss it now than try to keep it a secret for someone else to discover and they may not be willing to share any details.",
+		"q": "I think there is a pretty significant crypto flaw in Bitcoin as currently implemented. I'm not sure it is exploitable now (I'm not a real cryptohacker) but it is more than plausible that will be in the near future.\nThe flaw would enable anonymous stealing of coins from arbitrary bitcoin addresses. And no it doesn't involve solving any of the hard problems that keep existing crypto systems secure. It is simply a *potential* correctable logic flaw in the implementation.\nI would like bitcoins to succeed, so I'd rather not jump up and down in public yelling about flaws in public. Is there an appropriate place to discuss these types of issues?",
 		"a": "It's best if you tell it to me privately so it can be fixed first.\nI just e-mailed you my e-mail address. (or you could PM me here)",
 		"skip": false,
-		"qlen": 159,
+		"qlen": 646,
 		"alen": 131,
-		"len": 290
+		"len": 777
 	},
 	{
 		"id": 299,
 		"date": "2010-07-25 19:06:23",
 		"src": "https://bitcointalk.org/index.php?topic=571.msg5724#msg5724",
-		"q": "I think I know what he means, but I was certain that the odds of doing it a bit too random to make an attack out of it.",
+		"q": "You stopped my post just in time! :-)",
 		"a": "Red, thanks for telling me privately first! Please go ahead and post it (and relieve the suspense for everyone!)\nHis point is that transactions paid to a Bitcoin Address are only as secure as the hash function. To make Bitcoin Addresses short, they are a hash of the public key, not the public key itself. An attacker would only have to break the hash function, not ECDSA.",
 		"skip": false,
-		"qlen": 119,
+		"qlen": 37,
 		"alen": 372,
-		"len": 491
+		"len": 409
 	},
 	{
 		"id": 300,
@@ -4612,12 +4612,12 @@
 		"id": 420,
 		"date": "2010-08-27 16:39:26",
 		"src": "https://bitcointalk.org/index.php?topic=845.msg11403#msg11403",
-		"q": "OK, would one of y'all be so kind as to post a forum URL for the prior proposal?\nRe anonymity, many Bitcoin users seem far too unconcerned, IMHO.",
+		"q": "There has been a lot of debate about what Bitcoins are -- i.e. currency vs. commodity. Also there has been a lot of debate about inflation vs. deflation with respect to Bitcoins, whether people would lend them, at what rates, etc.\nI think the most apt description of Bitcoins is that they are shares of stock in this communal Bitcoin enterprise we are undertaking. It is a lot like being part of a company (right now a very small company) and being paid in stock shares. There are a fixed number of Bitcoins, as there are a fixed number of shares in a company (barring new issues/etc.).\nThe primary value of Bitcoins right now is the hope that they will someday be worth significantly more than they are right now. For that to happen, the Bitcoin enterprise as a whole needs to gain collective value. We, as employee/owners of Bitcoin need to generate that added value. The most obvious way is to facilitate internet commerce by bartering shares of Bitcoin for other goods. The collective computational effort of all the employee/owners helps ensure that the barter is fair by keeping a record of each transaction. The individual efforts of some Bitcoiners are helping to make the barter of Bitcoins easier or more useful.\nRegarding lending/borrowing of Bitcoins, to me it is analogous to lending/borrowing stock. The primary reason to borrow Bitcoins would be because you think they are overvalued and will be worth less when you have to return them. When you borrow the Bitcoins, you can sell them now (barter them now) and hopefully it will cost you less to buy them back at a later date so that you can return them to your lender (probably plus a fee).\nIn essence, Bitcoins are like a \"direct public offering\" of stock in the Bitcoin enterprise.",
 		"a": "Bitcoins have no dividend or potential future dividend, therefore not like a stock.\nMore like a collectible or commodity.",
 		"skip": false,
-		"qlen": 145,
+		"qlen": 1749,
 		"alen": 121,
-		"len": 266
+		"len": 1870
 	},
 	{
 		"id": 421,
