@@ -732,6 +732,7 @@
 		"q": "Satoshi, I figured it will take my modern core 2 duo about 20 hours of nonstop work to create ฿50.00! With older PCs it will take forever. People like to feel that they \"own\" something as soon as possible, is there a way to make the generation more divisible? So say, instead of making ฿50 every 20 hours, make ฿5 every 2 hours?",
 		"a": "I thought about that but there wasn't a practical way to do smaller increments. The frequency of block generation is balanced between confirming transactions as fast as possible and the latency of the network.\nThe algorithm aims for an average of 6 blocks per hour. If it was 5 bc and 60 per hour, there would be 10 times as many blocks and the initial block download would take 10 times as long. It wouldn't work anyway because that would be only 1 minute average between blocks, too close to the broadcast latency when the network gets larger.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 328,
 		"alen": 545,
 		"len": 873
@@ -831,6 +832,7 @@
 		"q": "If I'm reading the source code correctly, it should go up and down based on how much CPU is being thrown at it. So if someone rented a super computer to drive up the difficulty for a week, then it vanished, the difficulty should float back down.",
 		"a": "It adjusted to 181.54 a few minutes ago. Typical time to get a block is about a week now.\nThe difficulty can adjust down as well as up.\nThe network should be generating close to 6 blocks per hour now.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 245,
 		"alen": 200,
 		"len": 445
@@ -1106,6 +1108,7 @@
 		"q": "Nothing to sweat people. Nobody ever died of a 'deflationary spiral.' I agree with \"I-am-not-anonymous.\" The market will choose the best bitcoin-like currency. I happen to believe, however, that the rules that Satoshi has founded bitcoin on will be more than adequate for the future of a thriving bitcoin economy.\nEverybody knows exactly how fast the supply of bitcoins will grow: it's set in stone in the rules of the programming and the bitcoin network. While it's true that there is not a currently existing fully-fleshed out market to truly price bitcoins, such markets and exchanges are being developed. As far as future would-be bitcoin generators are concerned, the question is not how much will he \"demand....to compensate for his costs.\" The question he'll be asking himself is \"given current market values and my ability to utilize electricity and CPU resources, is it worth it for me to generate bitcoins?\" If the answer is yes, he participates. If it's no, he stops trying to mine for bitcoins and focuses on trading tangible assets with bitcoins serving as an appropriate intermediary. If he's not sure, he tries his hand at it for a while and then makes a final decision.\nThe number of nodes and associated computational cpu power will be in flux, and that competitive flux will allow for costs to approximate value (not the other way around.) Value being set by the markets and the demand for use of bitcoin as a trade intermediary (a money). In the far future, the competition of transaction costs will play a more important role for the would-be node operator.\nContrary to the paradox of thrift argument you present, collecting bitcoins and saving them with hopes of earning purchasing power through deflation is not a bad thing. It will allow for the pooling of bitcoin capital and make purchases of larger capital investments possible. In the future, there might even be bitcoin banks that lend out saved bitcoins with market-set interest rates, thereby diminishing the effects of hoarding. All this wonderful saving, however, comes at a price: delayed gratification of present desires. From the perspective of the would-be saver, the question will always be denying present desires to purchase real tangible assets now versus the future possibilities of purchasing more later. This time preference naturally varies with people and in different circumstances.\nGiven the fact that bitcoins are by their electronic nature easily divisible, prices will be able to easily adjust to deflationary pressures. If too many are saving, prices will fall and the rate of interest will go down. This encourages demand (lower prices) and decreases the desire to save (less interest).\nXC",
 		"a": "Excellent analysis, xc.\nA rational market price for something that is expected to increase in value will already reflect the present value of the expected future increases. In your head, you do a probability estimate balancing the odds that it keeps increasing.\nIn the absence of a market to establish the price, NewLibertyStandard's estimate based on production cost is a good guess and a helpful service (thanks). The price of any commodity tends to gravitate toward the production cost. If the price is below cost, then production slows down. If the price is above cost, profit can be made by generating and selling more. At the same time, the increased production would increase the difficulty, pushing the cost of generating towards the price.\nIn later years, when new coin generation is a small percentage of the existing supply, market price will dictate the cost of production more than the other way around.\nAt the moment, generation effort is rapidly increasing, suggesting people are estimating the present value to be higher than the current cost of production.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 2691,
 		"alen": 1073,
 		"len": 3764
@@ -1887,6 +1890,7 @@
 		"q": "So it's possible to switch \"on the fly\" to a new hash function? Wouldn't all the old transactions then be compromised (because they could be trivially recomputed)?\nSHA-256 has already been weakened by a factor of 16 (according to my friend. I can't find documentation on that, but I trust him). That's 16 out of 2^256, so not a huge deal, but still.",
 		"a": "SHA-256 is very strong. It's not like the incremental step from MD5 to SHA1. It can last several decades unless there's some massive breakthrough attack.\nIf SHA-256 became completely broken, I think we could come to some agreement about what the honest block chain was before the trouble started, lock that in and continue from there with a new hash function.\nIf the hash breakdown came gradually, we could transition to a new hash in an orderly way. The software would be programmed to start using a new hash after a certain block number. Everyone would have to upgrade by that time. The software could save the new hash of all the old blocks to make sure a different block with the same old hash can't be used.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 349,
 		"alen": 712,
 		"len": 1061
@@ -1909,6 +1913,7 @@
 		"q": "Good idea or not, SOMEBODY will try to mess up the network (or co-opt it for their own use) sooner or later. They'll either hack the existing code or write their own version, and will be a menace to the network.\nI admire the flexibility of the scripts-in-a-transaction scheme, but my evil little mind immediately starts to think of ways I might abuse it. I could encode all sorts of interesting information in the TxOut script, and if non-hacked clients validated-and-then-ignored those transactions it would be a useful covert broadcast communication channel.\nThat's a cool feature until it gets popular and somebody decides it would be fun to flood the payment network with millions of transactions to transfer the latest Lady Gaga video to all their friends...",
 		"a": "A second version would be a massive development and maintenance hassle for me. It's hard enough maintaining backward compatibility while upgrading the network without a second version locking things in. If the second version screwed up, the user experience would reflect badly on both, although it would at least reinforce to users the importance of staying with the official version. If someone was getting ready to fork a second version, I would have to air a lot of disclaimers about the risks of using a minority version. This is a design where the majority version wins if there's any disagreement, and that can be pretty ugly for the minority version and I'd rather not go into it, and I don't have to as long as there's only one version.\nI know, most developers don't like their software forked, but I have real technical reasons in this case.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 763,
 		"alen": 850,
 		"len": 1613
@@ -1920,6 +1925,7 @@
 		"q": "I admire the flexibility of the scripts-in-a-transaction scheme, but my evil little mind immediately starts to think of ways I might abuse it. I could encode all sorts of interesting information in the TxOut script, and if non-hacked clients validated-and-then-ignored those transactions it would be a useful covert broadcast communication channel.\nThat's a cool feature until it gets popular and somebody decides it would be fun to flood the payment network with millions of transactions to transfer the latest Lady Gaga video to all their friends...",
 		"a": "That's one of the reasons for transaction fees. There are other things we can do if necessary.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 551,
 		"alen": 94,
 		"len": 645
@@ -1931,6 +1937,7 @@
 		"q": "How long have you been working on this design Satoshi? It seems very well thought out, not the kind of thing you just sit down and code up without doing a lot of brainstorming and discussion on it first. Everyone has the obvious questions looking for holes in it but it is holding up well",
 		"a": "Since 2007. At some point I became convinced there was a way to do this without any trust required at all and couldn't resist to keep thinking about it. Much more of the work was designing than coding.\nFortunately, so far all the issues raised have been things I previously considered and planned for.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 288,
 		"alen": 301,
 		"len": 589
@@ -2129,6 +2136,7 @@
 		"q": "However, if something happened and the signatures were compromised (perhaps integer factorization is solved, quantum computers?), then even agreeing upon the last valid block would be worthless.",
 		"a": "True, if it happened suddenly. If it happens gradually, we can still transition to something stronger. When you run the upgraded software for the first time, it would re-sign all your money with the new stronger signature algorithm. (by creating a transaction sending the money to yourself with the stronger sig)",
 		"skip": false,
+		"favorite": true,
 		"qlen": 194,
 		"alen": 312,
 		"len": 506
@@ -2261,6 +2269,7 @@
 		"q": "It is unnecessary to protect against an attack in which an attacker buys all Bitcoins and deletes their wallet.\nAssuming we were all willing to sell, the attacker would just give us large amounts of cash for our Bitcoins. We could then start another Bitcoin block chain and start over from square one (only with a much larger confidence in the market, since it worked once!) and reinvest that money if we wanted.\nEssentially, no matter what happens there is always the nuclear option of \"starting over.\"\nThere are much more dangerous and likely attacks to be worried about.",
 		"a": "What the OP described is called \"cornering the market\". When someone tries to buy all the world's supply of a scarce asset, the more they buy the higher the price goes. At some point, it gets too expensive for them to buy any more. It's great for the people who owned it beforehand because they get to sell it to the corner at crazy high prices. As the price keeps going up and up, some people keep holding out for yet higher prices and refuse to sell.\nThe Hunt brothers famously bankrupted themselves trying to corner the silver market in 1979:\n\"Brothers Nelson Bunker Hunt and Herbert Hunt attempted to corner the world silver markets in the late 1970s and early 1980s, at one stage holding the rights to more than half of the world's deliverable silver.[1] During Hunt's accumulation of the precious metal silver prices rose from $11 an ounce in September 1979 to nearly $50 an ounce in January 1980.[2] Silver prices ultimately collapsed to below $11 an ounce two months later,[2] much of the fall on a single day now known as Silver Thursday, due to changes made to exchange rules regarding the purchase of commodities on margin.[3]\"\nhttp://en.wikipedia.org/wiki/Cornering_the_market",
 		"skip": false,
+		"favorite": true,
 		"qlen": 573,
 		"alen": 1188,
 		"len": 1761
@@ -2294,6 +2303,7 @@
 		"q": "It seems to do more harm than good because it prevents micropayment implementations such as the one bytemaster is suggesting.",
 		"a": "Bitcoin isn't currently practical for very small micropayments. Not for things like pay per search or per page view without an aggregating mechanism, not things needing to pay less than 0.01. The dust spam limit is a first try at intentionally trying to prevent overly small micropayments like that.\nBitcoin is practical for smaller transactions than are practical with existing payment methods. Small enough to include what you might call the top of the micropayment range. But it doesn't claim to be practical for arbitrarily small micropayments.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 125,
 		"alen": 548,
 		"len": 673
@@ -2503,6 +2513,7 @@
 		"q": "So if your computer was only 1% towards solving block 68000",
 		"a": "This is a common point of confusion. There's no such thing as being 1% towards solving a block. You don't make progress towards solving it. After working on it for 24 hours, your chances of solving it are equal to what your chances were at the start or at any moment.\nIt's like trying to flip 37 coins at once and have them all come up heads. Each time you try, your chances of success are the same.\nThe RNG is the OpenSSL secure random number generator. On Windows it's seeded with the complete set of all hardware performance counters since your computer started, on Linux it's dev/random.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 59,
 		"alen": 591,
 		"len": 650
@@ -2580,6 +2591,7 @@
 		"q": "It's doubtful that SHA2 would be that broken before all coins have been minted. The issue is it then becomes a question of how much it costs to hijack someone's bank account.",
 		"a": "SHA256 is not like the step from 128 bit to 160 bit.\nTo use an analogy, it's more like the step from 32-bit to 64-bit address space. We quickly ran out of address space with 16-bit computers, we ran out of address space with 32-bit computers at 4GB, that doesn't mean we're going to run out again with 64-bit anytime soon.\nSHA256 is not going to be broken by Moore's law computational improvements in our lifetimes. If it's going to get broken, it'll be by some breakthrough cracking method. An attack that could so thoroughly vanquish SHA256 to bring it within computationally tractable range has a good chance of clobbering SHA512 too.\nIf we see a weakness in SHA256 coming gradually, we can transition to a new hash function after a certain block number. Everyone would have to upgrade their software by that block number. The new software would keep a new hash of all the old blocks to make sure they're not replaced with another block with the same old hash.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 174,
 		"alen": 963,
 		"len": 1137
@@ -2811,6 +2823,7 @@
 		"q": "I think of my machines running bitcoin as slot machines. I put in CPU time and energy costs in at a regular rate, and once in a while I get money back. If I'm to treat bitcoin as part of a business, then I need to be able to calculate my expected return on investment, just as a casino owner needs to be able to calculate how much money she's making off of her slot machines. I know that the bitcoin generation difficulty will stabilize at some point in the future, but at this point it would be useful to me to be able to calculate my ROI quickly and easily.\nSo, if nobody else is going to do it, I'll probably make a patch for this. Bitcoin donations appreciated, of course, and would help motivate me to make it available quickly.",
 		"a": "Many businesses are like that. For a car salesman, when will the next customer walk in the door?\nOn the OP's question, it's a good feature, but the question is, how would we word it so people don't expect to get something after that specific amount of time? \"it said 7 days and I waited more than a week and didn't get anything!\" Approx, average, but still they're going to think that way. It can't be a whole sentence, unless we think of somewhere else to put it, but where would that be? Suggestions?\nThe difficulty quadrupled a few minutes ago to 181.54. It's going to take typically about a week to generate now.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 733,
 		"alen": 616,
 		"len": 1349
@@ -2899,6 +2912,7 @@
 		"q": "If he was generating one block per minute before the difficulty increase that would mean he is actually representing more than 50% of bitcoin's CPU power. Actually, rather nearly all of it.",
 		"a": "0.3.2 has some security safeguards to lock in the block chain up to this point and limit the damage a little if someone gets 50%.\nBut if someone has 50%+ of the CPU power and malicious intent, they can prove what it already says in the design document.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 189,
 		"alen": 252,
 		"len": 441
@@ -3185,6 +3199,7 @@
 		"q": "I am convinced that bandwidth, disk space, and computation time necessary to distribute and \"finalize\" a transaction will be prohibitively expensive for micro-payments. Consider for a second that the current banking industry is unable to provide a reasonable micropayment solution that does not involve depositing a reasonable sum and only allowing a withdraw after a reasonable sum has been accumulated.\nBesides, 10 minutes is too long to verify that payment is good. It needs to be as fast as swiping a credit card is today.\nThus we need bit-banks that allow instant transfers among members and peer banks. Anyone can open a bit-bank but the system would, by necessity operate on some level of trust. Transfers in and out of the banks and peer-to-peer would still be possible but will be more costly. Thus, a bit bank could make money by enabling transfers cheaper and faster than the swarm with the added risk of trusting the bank. A bank has to maintain trust to make money.",
 		"a": "The current system where every user is a network node is not the intended configuration for large scale. That would be like every Usenet user runs their own NNTP server. The design supports letting users just be users. The more burden it is to run a node, the fewer nodes there will be. Those few nodes will be big server farms. The rest will be client nodes that only do transactions and don't generate.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 978,
 		"alen": 404,
 		"len": 1382
@@ -3196,6 +3211,7 @@
 		"q": "Besides, 10 minutes is too long to verify that payment is good. It needs to be as fast as swiping a credit card is today.",
 		"a": "See the snack machine thread, I outline how a payment processor could verify payments well enough, actually really well (much lower fraud rate than credit cards), in something like 10 seconds or less. If you don't believe me or don't get it, I don't have time to try to convince you, sorry.\nhttp://bitcointalk.org/index.php?topic=423.msg3819#msg3819",
 		"skip": false,
+		"favorite": true,
 		"qlen": 121,
 		"alen": 349,
 		"len": 470
@@ -3295,6 +3311,7 @@
 		"q": "If I figure out that Public Key 123456 generates Hash ABCD\nand\nPublic Key 654321 also generates Hash ABCD\nI'm still left without the Private Key.\nBut from what you are saying, all I need is Public Key 654321 and I can spend coin pretending to be Public Key 123456.",
 		"a": "You would still have to sign it with public key 654321. You need to find a collision using a public key for which you know the private key.\nWhen you claim a Bitcoin Address transaction, you give your public key that matches the hash, then you must sign it with that key.\nRed's point is that it's easy to quickly generate insecure public keys which you could break and find the private key after you find a collision.\nHe points out that if the public key was required to be a secure one, one which must have required significant work to find the prime numbers, that would increase the strength above that of the hash function alone. Someone trying to brute force would have to take time generating a key for each attempt.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 264,
 		"alen": 720,
 		"len": 984
@@ -3306,6 +3323,7 @@
 		"q": "Here is a paper that claims to find SHA-1 collisions in 2^52 crypto operations. And optimally secure hash would take 2^80 operations. 2^52 time is still large, but it is getting into cluster and botnet range.",
 		"a": "2^80 is if you can use a birthday attack. You can't use a birthday attack for this, so the difficulty is the full 2^160 bits. Although, if you were trying to crack any one of 1 million (2^20) transactions, you could do a partial birthday attack 2^160/2^20 = 2^140.\nBitcoin Addresses are the only place where 160-bit hash is used. Everything else is SHA-256. They're calculated as:\nbitcoinaddress = RIPEMD-160(SHA-256(publickey))\nCorrect me if I'm wrong (please, and I'll gladly eat crow) but I think it would be hard to use an analytical attack on RIPEMD-160 in this case. An analytical attack prescribes a certain range or pattern of inputs to try that will greatly increase your chance of finding a collision. Here, you don't have that kind of control over RIPEMD-160's input, because the input is the output of SHA-256. If an analytical attack helps you find an input to RIPEMD-160 that produces a collision, what are you going to do with it? You still have to get SHA-256 to output that value, so you would still have to break SHA-256 too.\nFor brute force, RIPEMD-160(SHA-256(x)) is no stronger than RIPEMD-160 alone. But for analytical attack, it seems like you must analytical attack both RIPEMD-160 and SHA-256. If I'm wrong, then the strength is the same as RIPEMD-160 and the SHA-256 only serves as one round of key strengthening.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 208,
 		"alen": 1339,
 		"len": 1547
@@ -3361,6 +3379,7 @@
 		"q": "This might just be semantics. But I'd say that the \"pre-existing value\" was the expectation of some people that it would be a good money.",
 		"a": "As a thought experiment, imagine there was a base metal as scarce as gold but with the following properties:\n- boring grey in colour\n- not a good conductor of electricity\n- not particularly strong, but not ductile or easily malleable either\n- not useful for any practical or ornamental purpose\nand one special, magical property:\n- can be transported over a communications channel\nIf it somehow acquired any value at all for whatever reason, then anyone wanting to transfer wealth over a long distance could buy some, transmit it, and have the recipient sell it.\nMaybe it could get an initial value circularly as you've suggested, by people foreseeing its potential usefulness for exchange. (I would definitely want some) Maybe collectors, any random reason could spark it.\nI think the traditional qualifications for money were written with the assumption that there are so many competing objects in the world that are scarce, an object with the automatic bootstrap of intrinsic value will surely win out over those without intrinsic value. But if there were nothing in the world with intrinsic value that could be used as money, only scarce but no intrinsic value, I think people would still take up something.\n(I'm using the word scarce here to only mean limited potential supply)",
 		"skip": false,
+		"favorite": true,
 		"qlen": 137,
 		"alen": 1281,
 		"len": 1418
@@ -3592,6 +3611,7 @@
 		"q": "if the buyer refuses to finalise the transaction and the seller refuses to permit a refund, they have 2 choices.\n1) be spiteful and nobody will get anything\n2) agree on a third party to send the money to. that third party will be an arbitrator who will weigh up both sides of the argument and come to a decision as to who should be returned the money, minus whatever fee they agreed with the two hurt parties.\nSubsequent to this, I also realised that my suggestion is open to trolling whereby a seller makes someone do an escrow transaction and then refuses to ship anything or arbitrate, my solution to this issue gives the following modification of the system:\nthe buyer makes an escrow transaction which is then presented to the seller, if the seller wants to go ahead, they must agree to be debited a sum stipulated by the buyer, the seller agrees and the escrow transaction then goes into the network for inclusion into the block chain, both parties are now down on their money.\nif everything goes to plan, the buyer OKs the release of the funds and the seller gets the payment + his \"trust deposit\" returned.\nif the buyer wishes to cancel, the seller authorises the cancellation and both parties get their original funds back.\nif nobody can agree on a release, both parties now have an incentive to go to an arbitrator, when the arbitrator is authorised to receive the transaction funds, the trust deposit gets immediately returned to the seller, the arbitrator doesn't get a say over those funds.",
 		"a": "A transaction can be written that requires two signatures to spend it next. You write a payment that requires the signature of both the recipient and the sender to spend it. To release the escrow, you give the recipient the signature for your half, or the payee can return it by giving you his signed half. There's no mediator in this simple case. The recourse is to refuse to ever release it, essentially burning the money.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 1503,
 		"alen": 424,
 		"len": 1927
@@ -3944,6 +3964,7 @@
 		"q": "I'd rather like to support a system like bitcoin, that i can use myself for value-transaction, than searching for E.T. to make some scientist save cash. That's a waste of energy and still people do it voluntarily without any benefits.\nAnd i really dont care if some botnet-ops make a profit or not, as long as they don't bother ME (or anyone else).",
 		"a": "It's the same situation as gold and gold mining. The marginal cost of gold mining tends to stay near the price of gold. Gold mining is a waste, but that waste is far less than the utility of having gold available as a medium of exchange.\nI think the case will be the same for Bitcoin. The utility of the exchanges made possible by Bitcoin will far exceed the cost of electricity used. Therefore, not having Bitcoin would be the net waste.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 348,
 		"alen": 438,
 		"len": 786
@@ -3955,6 +3976,7 @@
 		"q": "As an overall point, I also do not agree with the idea that the very high computational burden of coin generation is in fact a necessity of the current system. As I understand it, currency creation is fundamentally metered by TIME - and if that is the fundamental controlling variable, what is the need for everyone to \"roll as many dice as posible\" within that given time period? The \"chain of proof\" for coin ownership and transactions doesn't depend on the method for spawning coins.",
 		"a": "Each node's influence on the network is proportional to its CPU power. The only way to show the network how much CPU power you have is to actually use it.\nIf there's something else each person has a finite amount of that we could count for one-person-one-vote, I can't think of it. IP addresses... much easier to get lots of them than CPUs.\nI suppose it might be possible to measure CPU power at certain times. For instance, if the CPU power challenge was only run for an average of 1 minute every 10 minutes. You could still prove your total power at given times without running it all the time. I'm not sure how that could be implemented though. There's no way for a node that wasn't present at the time to know that a past chain was actually generated in a duty cycle with 9 minute breaks, not back to back.\nProof-of-work has the nice property that it can be relayed through untrusted middlemen. We don't have to worry about a chain of custody of communication. It doesn't matter who tells you a longest chain, the proof-of-work speaks for itself.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 486,
 		"alen": 1050,
 		"len": 1536
@@ -3966,6 +3988,7 @@
 		"q": "The power used is not wasteful. It is simply what the owner is willing to commit to the project. Even so, it may be used even as \"waste heat\". I am an electritian by trade, and years ago I had the following idea form, while installing a 'heat trace' network on insulated sprinkler lines inside an open air parking garage.\nThe 'heat trace' is a fairly expensive cable that has a continuous resistive core to produce low intensity electric heat along the length of the pipe that it's taped onto. Insulation is then wrapped around this assembly. The best, and most efficient, systems have a temp reactive core; so that the closer to the freezing point that the cable itself becomes at any given length, the lower the resistance across the core becomes, resulting in an increase in heat output along the colder and less well insulated sections.\nAt the time, I was playing with an early form of distributed computing called \"Condor\", which allowed single processes to be exported to other computers upon a network and their disk I/O shipped back across the network to a master server without the process being able to tell the difference. I thought then that a small \"computer on a chip\" wired upon a flat network cable would be able to effectively perform the same functions of keeping the pipes above freezing with local temp sensitivity while also crunching numbers in exactly the same way that bitcoin requires. Such an idea would require a network that permited quite a bit of power in order to not need an unacceptable number of power points along the pipe, but imagine the usefulness of such a system for companies that have such needs in very high (or very low) latitudes.\nWhat if such a system were retrofitted onto the Alaskan Oil Pipeline, for example, one mile at a time?",
 		"a": "The heat from your computer is not wasted if you need to heat your home. If you're using electric heat where you live, then your computer's heat isn't a waste. It's equal cost if you generate the heat with your computer.\nIf you have other cheaper heating than electric, then the waste is only the difference in cost.\nIf it's summer and you're using A/C, then it's twice.\nBitcoin generation should end up where it's cheapest. Maybe that will be in cold climates where there's electric heat, where it would be essentially free.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 1778,
 		"alen": 525,
 		"len": 2303
@@ -4197,6 +4220,7 @@
 		"q": "From what I understand a node will not include transactions in it's blocks unless the transaction includes a fee that meets the node's requirements. So in the case of a node setting the fee to 1,000 it would likely never include any transactions in blocks it generates, which means it will miss out on any transaction fees other nodes would have gotten. There really isn't a reason to set a nodes requirements higher then the rest of the network since you are basically just pricing yourself out of the market.",
 		"a": "No, that's not what it is.\n-paytxfee allows you to include a transaction fee with your transactions. If transaction confirmations become slow, you can get priority by using \"-paytxfee=0.01\". Any transactions you send would cost an extra 0.01. There's no reason to use more than 0.01.\nIt's just there in case we need it. It probably won't be needed, and it can be explained more if we do.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 510,
 		"alen": 387,
 		"len": 897
@@ -4615,6 +4639,7 @@
 		"q": "There has been a lot of debate about what Bitcoins are -- i.e. currency vs. commodity. Also there has been a lot of debate about inflation vs. deflation with respect to Bitcoins, whether people would lend them, at what rates, etc.\nI think the most apt description of Bitcoins is that they are shares of stock in this communal Bitcoin enterprise we are undertaking. It is a lot like being part of a company (right now a very small company) and being paid in stock shares. There are a fixed number of Bitcoins, as there are a fixed number of shares in a company (barring new issues/etc.).\nThe primary value of Bitcoins right now is the hope that they will someday be worth significantly more than they are right now. For that to happen, the Bitcoin enterprise as a whole needs to gain collective value. We, as employee/owners of Bitcoin need to generate that added value. The most obvious way is to facilitate internet commerce by bartering shares of Bitcoin for other goods. The collective computational effort of all the employee/owners helps ensure that the barter is fair by keeping a record of each transaction. The individual efforts of some Bitcoiners are helping to make the barter of Bitcoins easier or more useful.\nRegarding lending/borrowing of Bitcoins, to me it is analogous to lending/borrowing stock. The primary reason to borrow Bitcoins would be because you think they are overvalued and will be worth less when you have to return them. When you borrow the Bitcoins, you can sell them now (barter them now) and hopefully it will cost you less to buy them back at a later date so that you can return them to your lender (probably plus a fee).\nIn essence, Bitcoins are like a \"direct public offering\" of stock in the Bitcoin enterprise.",
 		"a": "Bitcoins have no dividend or potential future dividend, therefore not like a stock.\nMore like a collectible or commodity.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 1749,
 		"alen": 121,
 		"len": 1870
@@ -5063,12 +5088,12 @@
 		"id": 461,
 		"date": "2010-09-12 19:24:53",
 		"src": "https://bitcointalk.org/index.php?topic=989.msg12494#msg12494",
-		"q": "Ehh.... Macho, bitcoin IS open source. MIT license IS a open source license.\nNo closed source, proprietary software or DRM here.",
+		"q": "For a software like this, *only* GPL license makes any sense. It's not about an ideology but rather anyone who would trust proprietary software for their financial transactions and a system like bitcoin is a fool and deserves what's coming for them (which is a lot of stolen \"cash\"). Using proprietary software may even result in hijacking of the whole bitcoin network if significant portion of people would use such a client. There is no way to reliably test for backdoors or other nasty stuff, any closed-source software should be essentially banished by the bitcoin community. GPL allows you to make private in-house modification as much as you like so that's not an issue at all. The only situation that causes GPL to trigger is when you *distribute* the software to other people, in which case you have to provide sources along with it which is the only way anyone should accept any software dealing with bitcoin anyway.\nYou have to also realize that there are no legal consequences to any \"theft\" as using bitcoin from neutral point of view is essentially just moving some arbitrary bits around. So the bitcoin community is expected to self-regulate, which should come in a form of an enforced transparency (by all the users rejecting anything else). Considering any other license than GPL-like is playing with fire and is not going to end well.\nI did not realize current bitcoin client was released under MIT license,\nThis should be changed to GPL IMMEDIATELY!\nGPLv3 even protects you from said software to be locked up by DRM so even when it's open-source you would not have access to it. There is no disadvantage to using GPL license really. Anyone spreading FUD about GPL is either not appropriately informed/did not consider all the issues or has an ulterior motive as far as I'm concerned. I'm not going to trust any closed-source, that's for sure ... and if significant portion of the bitcoin community is, then I'm going to sell off all my bitcoins and get out as that's a prescription for disaster, sooner or later.\nAs much as adoption is concerned, I'm not interested in people who feel the need to keep the source closed and hidden from its users to \"adopt\" anything as I would hope anyone concerned about the success and reliability of the bitcoin network wouldn't either. To complain about weak adoption in that sphere is like complaining about weak adoption by criminals to me. If someone is honest, they should feel no interest in keeping the source closed ... and every sane person would accept ONLY open-sourced software anyway. It's a win-win situation",
 		"a": "If the only library is closed source, then there's a project to make an open source one.\nIf the only library is GPL, then there's a project to make a non-GPL one.\nIf the best library is MIT, Boost, new-BSD or public domain, then we can stop re-writing it.\nI don't question that GPL is a good license for operating systems, especially since non-GPL code is allowed to interface with the OS. For smaller projects, I think the fear of a closed-source takeover is overdone.",
 		"skip": false,
-		"qlen": 128,
+		"qlen": 2576,
 		"alen": 469,
-		"len": 597
+		"len": 3045
 	},
 	{
 		"id": 462,
@@ -5264,6 +5289,7 @@
 		"q": "Summary: Giving BitCoin a decentralized escrow would give it an advantage over all other exchange mediums, which might increase its adoption rate. Details follow.\nFor a decentralized currency, centralized escrows seem to be the norm for BitCoin today. An example:\nAlice wants to buy $5 USD worth of BitCoins from Bob, but neither Alice nor Bob fully trust the other, so they go to a site they both trust--say Mt. Gox. There they deposit their respective monies and there they have Mt. Gox make the exchange for them.\nNo offense to Mt. Gox (a site I like), but can we do without its escrow service?\nAn almost distributed alternative:\nCharlie, a trusted third-party, generates a BitCoin private key. Charlie then uses the Unix command split to split the private key in half--giving one half to Alice and one half to Bob. Bob deposits $5 USD worth of BitCoins into the split BitCoin account; Alice verifies the transaction using the public block; Alice sends $5 USD to Bob by PayPal; Bob verifies the PayPal transaction; Bob sends Alice his half of the split private key so Alice can access the BitCoins he deposited earlier.\n(For simplicity I omit part of the PayPal details like who pays the transaction fee and how long you should wait to avoid chargeback fraud. I also omit any incentive for Bob to perform the final step.)\nMore advanced almost-distributed examples can be made if we substitute something more sophisticated for the Unix command split. For example: a Shamir's secret sharing scheme implementation like ssss[1]. A utility like ssss allows Alice and Bob to appoint an arbiter in case they get in a disagreement.\nThe problem with all of this, of course, is that we must trust Charlie to not abuse the full copy of the private key he creates.\nThe ideal solution would be for Alice and Bob to each generate half of the private key on their own. I don't fully understand the math used in modern keypairs, but I doubt this is possible with the current algorithm.\nIs there an alternative way for Alice and Bob to each acquire half of a private key without giving the whole key to any party?\n-Dave\n[1] See: http://en.wikipedia.org/wiki/Shamir's_Secret_Sharing",
 		"a": "It's not implemented yet, but the network can support a transaction that requires two signatures. It's described here:\nhttp://bitcointalk.org/index.php?topic=750.0\nIt's absolutely safer than a straight payment without escrow, but not as good as a human arbitrated escrow, assuming you trust the human enough.\nIn this kind of escrow, a cheater can't win, but it's still possible for you to lose. It at least takes away the profit motive for cheating you. The seller is assured that the money is reserved for him, while the buyer retains the leverage that the seller hasn't been paid yet until completion.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 2167,
 		"alen": 603,
 		"len": 2770
@@ -5319,6 +5345,7 @@
 		"q": "That's cost per kilobyte, though, and a kilobyte can only hold ~9 TxIns, so 0.01 is not guaranteed to meet the requirement.",
 		"a": "True, the switch should be something more dynamic that pays per KB. It's harder to think of how to explain it.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 123,
 		"alen": 110,
 		"len": 233
@@ -5605,6 +5632,7 @@
 		"q": "Basically, bring it on. Let's encourage Wikileaks to use Bitcoins and I'm willing to face any risk or fallout from that act.",
 		"a": "No, don't \"bring it on\".\nThe project needs to grow gradually so the software can be strengthened along the way.\nI make this appeal to WikiLeaks not to try to use Bitcoin. Bitcoin is a small beta community in its infancy. You would not stand to get more than pocket change, and the heat you would bring would likely destroy us at this stage.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 124,
 		"alen": 340,
 		"len": 464
@@ -5649,6 +5677,7 @@
 		"q": "Got you now. Yes, keeping two chains synchronised is fraught with difficulty.",
 		"a": "Piling every proof-of-work quorum system in the world into one dataset doesn't scale.\nBitcoin and BitDNS can be used separately. Users shouldn't have to download all of both to use one or the other. BitDNS users may not want to download everything the next several unrelated networks decide to pile in either.\nThe networks need to have separate fates. BitDNS users might be completely liberal about adding any large data features since relatively few domain registrars are needed, while Bitcoin users might get increasingly tyrannical about limiting the size of the chain so it's easy for lots of users and small devices.\nFears about securely buying domains with Bitcoins are a red herring. It's easy to trade Bitcoins for other non-repudiable commodities.\nIf you're still worried about it, it's cryptographically possible to make a risk free trade. The two parties would set up transactions on both sides such that when they both sign the transactions, the second signer's signature triggers the release of both. The second signer can't release one without releasing the other.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 77,
 		"alen": 1078,
 		"len": 1155
@@ -5671,6 +5700,7 @@
 		"q": "OK so if there are going to be bitdnscoins (aka DCCs, DomainChain Coins) then they have to be useful for something. Otherwise every BitDNS miner is going to fill every block with his own domain name registrations, rather than replace one with someone else's registration in exchange for a transaction fee in a useless currency.\nThe rules have to be that you have to spend a certain amount of bitdnscoins/DCCs in order to register your names and/or do other BitDNS transactions. That's the only way to make this alternative currency desirable and valuable.\n(Well we could do like Bitcoin and say there would only ever be 22 million DCCs ever created, so they'd get valuable from scarcity just like bitcoins. But that seems weak.)",
 		"a": "I agree. All transactions, IP changes, renewals, etc. should have some fee that goes to the miners.\nYou might consider a certain amount of work to generate a domain, instead of a fixed total circulation. The work per domain could be on a schedule that grows with Moore's Law. That way the number of domains would grow with demand and the number of people using it.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 728,
 		"alen": 364,
 		"len": 1092
@@ -5957,6 +5987,7 @@
 		"q": "I think I initially misunderstood the blocks in that the hashes that we compute are independent of the address. Now, I believe that we are looking for something like sha256 (bitcoint address + amount (I am not sure whether the value is implicit, so this value might not be there) + <answer>) with some desired properties (of which the number of final zeros is an approximation), where + means some concatenation operator of bits.\nIf the computation is like that, _then_ it might work, but I don't see why someone cannot just only send you the worthless hashes (for you) and don't send those that are useful to you. By this mechanism they can bankrupt you. Anyway, I think it is a bad way to communicate with natural language only about these topics. Just write out the computations that you intend to do on the server and the client and then we can see whether it is a brilliant idea or a flawed one. Annotations on the computations as to which goal they intend to achieve is also useful for communication.\nForcing cooperation out of nodes is not easy.",
 		"a": "ribuck's description is spot on.\nPool operators can modify their getwork to take one additional parameter, the address to send your share to.\nThe easy way for the pool operator would be to wait until the next block is found and divy it up proportionally as:\nuser's near-hits/total near-hits from everyone\nThat would be easier and safer to start up. It also has the advantage that multiple hits from the same user can be combined into one transaction. A lot of your hits will usually be from the same people.\nThe instant gratification way would be to pay a fixed amount for each near-hit immediately, and the operator takes the risk from randomness of having more or less near-hits before a block is found.\nEither way, the user who submits the hit that solves the block should get an extra amount off the top, like 10 BTC.\nNew users wouldn't really even need the Bitcoin software. They could download a miner, create an account on mtgox or mybitcoin, enter their deposit address into the miner and point it at anyone's pool server. When the miner says it found something, a while later a few coins show up in their account.\nMiner writers better make sure they never false-positive near-hits. Users will depend on that to check if the pool operator is cheating them. If the miner wrongly says it found something, users will look in their account, not find anything, and get mad at the pool operator.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 1052,
 		"alen": 1397,
 		"len": 2449
@@ -6078,6 +6109,7 @@
 		"q": "Several months ago, around the time when the 0.3.9 bugs were found, I privately told Satoshi that I thought whitelisting acceptable transaction types was a better way to go, rather than blacklisting transaction types that we find out cause problems.\nThe danger is similar websites that try to blacklist <script> tags in HTML entered by users to prevent cross-site-scripting hacks. See http://ha.ckers.org/xss.html for a nice sampling of how creative hackers can be.\nI haven't asked Satoshi if the recent discussion of BitDNS putting extra data in the block chain swayed his opinion or if he woke up in the middle of the night and realized that a creative use of OP_SOMETHING might lead to an exploit. I don't think it matters; I'm still convinced that whitelisting acceptable transaction types is the right thing to do.\nAs for \"the above option was thrown out by the developers\" -- nothing has been thrown out! Again, I haven't talked to Satoshi, but I'm open to the idea of a third 'standard' transaction type that includes extra, arbitrary data. Lets have that discussion, implement it on the -testnet, poke at it, try to imagine all the possible ways it can be misused, try to estimate the benefits and costs... and if there's general consensus that it is a good idea, roll it into production.",
 		"a": "I came to agree with Gavin about whitelisting when I realized how quickly new transaction types can be added.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 1296,
 		"alen": 109,
 		"len": 1405
@@ -6089,6 +6121,7 @@
 		"q": "why not make it easier on everyone and just allow say, 64 or 128 bytes of random data in a transaction?",
 		"a": "That's already possible. <pubkey> OP_CHECKSIG. <pubkey> can be 33 to 120 bytes.\nI also support a third transaction type for timestamp hash sized arbitrary data. There's no point not having one since you can already do it anyway. It would tell nodes they don't need to bother to index it.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 103,
 		"alen": 287,
 		"len": 390
@@ -6111,6 +6144,7 @@
 		"q": "I'd like to hear some specific criticisms of the code. To me it looks like an impressive job, although I'd wish for more comments. Now I've mostly studied the init, main, script and a bit of net modules. This is some powerful machinery.",
 		"a": "That means a lot coming from you, Hal. Thanks.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 236,
 		"alen": 46,
 		"len": 282
@@ -6144,6 +6178,7 @@
 		"q": "This article is surprisingly balanced and accurate for a mainstream publication.\nPC World is a big deal. I am psycheless. Time to restore the Wikipedia article.",
 		"a": "It would have been nice to get this attention in any other context. WikiLeaks has kicked the hornet's nest, and the swarm is headed towards us.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 160,
 		"alen": 143,
 		"len": 303
@@ -6155,6 +6190,7 @@
 		"q": "We very, very much need such a system, but the way I understand your proposal, it does not seem to scale to the required size.\n\nFor transferable proof of work tokens to have value, they must have monetary value. To have monetary value, they must be transferred within a very large network - for example a file trading network akin to bittorrent.\n\nTo detect and reject a double spending event in a timely manner, one must have most past transactions of the coins in the transaction, which, naively implemented, requires each peer to have most past transactions, or most past transactions that occurred recently. If hundreds of millions of people are doing transactions, that is a lot of bandwidth - each must know all, or a substantial part thereof.",
 		"a": "Long before the network gets anywhere near as large as that, it would be safe for users to use Simplified Payment Verification (section 8) to check for double spending, which only requires having the chain of block headers, or about 12KB per day. Only people trying to create new coins would need to run network nodes. At first, most users would run network nodes, but as the network grows beyond a certain point, it would be left more and more to specialists with server farms of specialized hardware. A server farm would only need to have one node on the network and the rest of the LAN connects with that one node.\n\nThe bandwidth might not be as prohibitive as you think. A typical transaction would be about 400 bytes (ECC is nicely compact). Each transaction has to be broadcast twice, so lets say 1KB per transaction. Visa processed 37 billion transactions in FY2008, or an average of 100 million transactions per day. That many transactions would take 100GB of bandwidth, or the size of 12 DVD or 2 HD quality movies, or about $18 worth of bandwidth at current prices.\n\nIf the network were to get that big, it would take several years, and by then, sending 2 HD movies over the Internet would probably not seem like a big deal.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 748,
 		"alen": 1234,
 		"len": 1982
@@ -6166,6 +6202,7 @@
 		"q": "But they don't. Bad guys routinely control zombie farms of 100,000 machines or more. People I know who run a blacklist of spam sending zombies tell me they often see a million new zombies a day.\n\nThis is the same reason that hashcash can't work on today's Internet -- the good guys have vastly less computational firepower than the bad guys.",
 		"a": "Thanks for bringing up that point.\n\nI didn't really make that statement as strong as I could have. The requirement is that the good guys collectively have more CPU power than any single attacker.\n\nThere would be many smaller zombie farms that are not big enough to overpower the network, and they could still make money by generating bitcoins. The smaller farms are then the \"honest nodes\". (I need a better term than \"honest\") The more smaller farms resort to generating bitcoins, the higher the bar gets to overpower the network, making larger farms also too small to overpower it so that they may as well generate bitcoins too. According to the \"long tail\" theory, the small, medium and merely large farms put together should add up to a lot more than the biggest zombie farm.\n\nEven if a bad guy does overpower the network, it's not like he's instantly rich. All he can accomplish is to take back money he himself spent, like bouncing a check. To exploit it, he would have to buy something from a merchant, wait till it ships, then overpower the network and try to take his money back. I don't think he could make as much money trying to pull a carding scheme like that as he could by generating bitcoins. With a zombie farm that big, he could generate more bitcoins than everyone else combined.\n\nThe Bitcoin network might actually reduce spam by diverting zombie farms to generating bitcoins instead.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 341,
 		"alen": 1404,
 		"len": 1745
@@ -6177,6 +6214,7 @@
 		"q": "[Lengthy exposition of vulnerability of a systm to use-of-force monopolies ellided.]\n\nYou will not find a solution to political problems in cryptography.",
 		"a": "Yes, but we can win a major battle in the arms race and gain a new territory of freedom for several years.\n\nGovernments are good at cutting off the heads of a centrally controlled networks like Napster, but pure P2P networks like Gnutella and Tor seem to be holding their own.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 153,
 		"alen": 276,
 		"len": 429
@@ -6186,11 +6224,12 @@
 		"date": "2008-11-08 18:54:38",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014831.html",
 		"q": "the \"currency\" is inflationary at about 35% as that's how much faster computers get annually ... the inflation rate of 35% is almost guaranteed by the technology",
-		"a": "Increasing hardware speed is handled: \"To compensate for increasing hardware speed and varying interest in running nodes over time, the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour. If they're generated too fast, the difficulty increases.\"\n\nAs computers get faster and the total computing power applied to creating bitcoins increases, the difficulty increases proportionally to keep the total new production constant. Thus, it is known in advance how many new bitcoins will be created every year in the future.\n\nThe fact that new coins are produced means the money supply increases by a planned amount, but this does not necessarily result in inflation. If the supply of money increases at the same rate that the number of people using it increases, prices remain stable. If it does not increase as fast as demand, there will be deflation and early holders of money will see its value increase.\n\nCoins have to get initially distributed somehow, and a constant rate seems like the best formula.",
+		"a": "Increasing hardware speed is handled: \"To compensate for increasing hardware speed and varying interest in running nodes over time, the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour. If they're generated too fast, the difficulty increases.\" As computers get faster and the total computing power applied to creating bitcoins increases, the difficulty increases proportionally to keep the total new production constant. Thus, it is known in advance how many new bitcoins will be created every year in the future.\n\nThe fact that new coins are produced means the money supply increases by a planned amount, but this does not necessarily result in inflation. If the supply of money increases at the same rate that the number of people using it increases, prices remain stable. If it does not increase as fast as demand, there will be deflation and early holders of money will see its value increase.\n\nCoins have to get initially distributed somehow, and a constant rate seems like the best formula.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 161,
-		"alen": 1054,
-		"len": 1215
+		"alen": 1053,
+		"len": 1214
 	},
 	{
 		"id": 564,
@@ -6199,6 +6238,7 @@
 		"q": "it is mentioned that if a broadcast transaction does not reach all nodes, it is OK, as it will get into the block chain before long. How does this happen - what if the node that creates the \"next\" block (the first node to find the hashcash collision) did not hear about the transaction, and then a few more blocks get added also by nodes that did not hear about that transaction? Do all the nodes that did hear it keep that transaction around, hoping to incorporate it into a block once they get lucky enough to be the one which finds the next collision?",
 		"a": "Right, nodes keep transactions in their working set until they get into a block. If a transaction reaches 90% of nodes, then each time a new block is found, it has a 90% chance of being in it.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 554,
 		"alen": 192,
 		"len": 746
@@ -6210,6 +6250,7 @@
 		"q": "Or for example, what if a node is keeping two or more chains around as it waits to see which grows fastest, and a block comes in for chain A which would include a double-spend of a coin that is in chain B? Is that checked for or not? (This might happen if someone double-spent and two different sets of nodes heard about the two different transactions with the same coin.)",
 		"a": "That does not need to be checked for. The transaction in whichever branch ends up getting ahead becomes the valid one, the other is invalid. If someone tries to double spend like that, one and only one spend will always become valid, the others invalid.\n\nReceivers of transactions will normally need to hold transactions for perhaps an hour or more to allow time for this kind of possibility to be resolved. They can still re-spend the coins immediately, but they should wait before taking an action such as shipping goods.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 372,
 		"alen": 523,
 		"len": 895
@@ -6221,6 +6262,7 @@
 		"q": "I also don't understand exactly how double-spending, or cancelling transactions, is accomplished by a superior attacker who is able to muster more computing power than all the honest participants. I see that he can create new blocks and add them to create the longest chain, but how can he erase or add old transactions in the chain? As the attacker sends out his new blocks, aren't there consistency checks which honest nodes can perform, to make sure that nothing got erased? More explanation of this attack would be helpful, in order to judge the gains to an attacker from this, versus simply using his computing power to mint new coins honestly.",
 		"a": "The attacker isn't adding blocks to the end. He has to go back and redo the block his transaction is in and all the blocks after it, as well as any new blocks the network keeps adding to the end while he's doing that. He's rewriting history. Once his branch is longer, it becomes the new valid one.\n\nThis touches on a key point. Even though everyone present may see the shenanigans going on, there's no way to take advantage of that fact.\n\nIt is strictly necessary that the longest chain is always considered the valid one. Nodes that were present may remember that one branch was there first and got replaced by another, but there would be no way for them to convince those who were not present of this. We can't have subfactions of nodes that cling to one branch that they think was first, others that saw another branch first, and others that joined later and never saw what happened. The CPU power proof-of-work vote must have the final say. The only way for everyone to stay on the same page is to believe that the longest chain is always the valid one, no matter what.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 649,
 		"alen": 1074,
 		"len": 1723
@@ -6232,6 +6274,7 @@
 		"q": "As far as the spending transactions, what checks does the recipient of a coin have to perform? Does she need to go back through the coin's entire history of transfers, and make sure that every transaction on the list is indeed linked into the \"timestamp\" block chain? Or can she just do the latest one?",
 		"a": "The recipient just needs to verify it back to a depth that is sufficiently far back in the block chain, which will often only require a depth of 2 transactions. All transactions before that can be discarded.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 302,
 		"alen": 207,
 		"len": 509
@@ -6243,6 +6286,7 @@
 		"q": "Do the timestamp nodes check transactions, making sure that the previous transaction on a coin is in the chain, thereby enforcing the rule that all transactions in the chain represent valid coins?",
 		"a": "Right, exactly. When a node receives a block, it checks the signatures of every transaction in it against previous transactions in blocks. Blocks can only contain transactions that depend on valid transactions in previous blocks or the same block. Transaction C could depend on transaction B in the same block and B depends on transaction A in an earlier block.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 196,
 		"alen": 361,
 		"len": 557
@@ -6254,6 +6298,7 @@
 		"q": "Sorry about all the questions, but as I said this does seem to be a very promising and original idea, and I am looking forward to seeing how the concept is further developed. It would be helpful to see a more process oriented description of the idea, with concrete details of the data structures for the various objects (coins, blocks, transactions), the data which is included in messages, and algorithmic descriptions of the procedures for handling the various events which would occur in this system. You mentioned that you are working on an implementation, but I think a more formal, text description of the system would be a helpful next step.",
 		"a": "I appreciate your questions. I actually did this kind of backwards. I had to write all the code before I could convince myself that I could solve every problem, then I wrote the paper. I think I will be able to release the code sooner than I could write a detailed spec. You're already right about most of your assumptions where you filled in the blanks.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 648,
 		"alen": 354,
 		"len": 1002
@@ -6265,6 +6310,7 @@
 		"q": "The core concept is that lots of entities keep complete and consistent information as to who owns which bitcoins.\n\nBut maintaining consistency is tricky. It is not clear to me what happens when someone reports one transaction to one maintainer, and someone else transports another transaction to another maintainer. The transaction cannot be known to be valid until it has been incorporated into a globally shared view of all past transactions, and no one can know that a globally shared view of all past transactions is globally shared until after some time has passed, and after many new transactions have arrived.\n\nDid you explain how to do this, and it just passed over my head, or were you confident it could be done, and a bit vague as to the details?",
 		"a": "The proof-of-work chain is the solution to the synchronisation problem, and to knowing what the globally shared view is without having to trust anyone.\n\nA transaction will quickly propagate throughout the network, so if two versions of the same transaction were reported at close to the same time, the one with the head start would have a big advantage in reaching many more nodes first. Nodes will only accept the first one they see, refusing the second one to arrive, so the earlier transaction would have many more nodes working on incorporating it into the next proof-of-work. In effect, each node votes for its viewpoint of which transaction it saw first by including it in its proof-of-work effort.\n\nIf the transactions did come at exactly the same time and there was an even split, it's a toss up based on which gets into a proof-of-work first, and that decides which is valid.\n\nWhen a node finds a proof-of-work, the new block is propagated throughout the network and everyone adds it to the chain and starts working on the next block after it. Any nodes that had the other transaction will stop trying to include it in a block, since it's now invalid according to the accepted chain.\n\nThe proof-of-work chain is itself self-evident proof that it came from the globally shared view. Only the majority of the network together has enough CPU power to generate such a difficult chain of proof-of-work. Any user, upon receiving the proof-of-work chain, can see what the majority of the network has approved. Once a transaction is hashed into a link that's a few links back in the chain, it is firmly etched into the global history.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 757,
 		"alen": 1635,
 		"len": 2392
@@ -6276,6 +6322,7 @@
 		"q": "OK, suppose one node incorporates a bunch of transactions in its proof of work, all of them honest legitimate single spends and another node incorporates a different bunch of transactions in its proof of work, all of them equally honest legitimate single spends, and both proofs are generated at about the same time.\n\nWhat happens then?",
 		"a": "They both broadcast their blocks. All nodes receive them and keep both, but only work on the one they received first. We'll suppose exactly half received one first, half the other.\n\nIn a short time, all the transactions will finish propagating so that everyone has the full set. The nodes working on each side will be trying to add the transactions that are missing from their side. When the next proof-of-work is found, whichever previous block that node was working on, that branch becomes longer and the tie is broken. Whichever side it is, the new block will contain the other half of the transactions, so in either case, the branch will contain all transactions. Even in the unlikely event that a split happened twice in a row, both sides of the second split would contain the full set of transactions anyway.\n\nIt's not a problem if transactions have to wait one or a few extra cycles to get into a block.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 336,
 		"alen": 910,
 		"len": 1246
@@ -6287,6 +6334,7 @@
 		"q": "Furthermore, it cannot be made to work, as in the proposed system the work of tracking who owns what coins is paid for by seigniorage, which requires inflation.",
 		"a": "If you're having trouble with the inflation issue, it's easy to tweak it for transaction fees instead. It's as simple as this: let the output value from any transaction be 1 cent less than the input value. Either the client software automatically writes transactions for 1 cent more than the intended payment value, or it could come out of the payee's side. The incentive value when a node finds a proof-of-work for a block could be the total of the fees in the block.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 160,
 		"alen": 468,
 		"len": 628
@@ -6298,6 +6346,7 @@
 		"q": "So what happened to the coin that lost the race?\n\n... it is a bit harsh if the guy who came second is likely to lose his coin.",
 		"a": "When there are multiple double-spent versions of the same transaction, one and only one will become valid.\n\nThe receiver of a payment must wait an hour or so before believing that it's valid. The network will resolve any possible double-spend races by then.\n\nThe guy who received the double-spend that became invalid never thought he had it in the first place. His software would have shown the transaction go from \"unconfirmed\" to \"invalid\". If necessary, the UI can be made to hide transactions until they're sufficiently deep in the block chain.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 126,
 		"alen": 548,
 		"len": 674
@@ -6309,6 +6358,7 @@
 		"q": "Further, your description of events implies restrictions on timing and coin generation - that the entire network generates coins slowly compared to the time required for news of a new coin to flood the network",
 		"a": "Sorry if I didn't make that clear. The target time between blocks will probably be 10 minutes.\n\nEvery block includes its creation time. If the time is off by more than 36 hours, other nodes won't work on it. If the timespan over the last 6*24*30 blocks is less than 15 days, blocks are being generated too fast and the proof-of-work difficulty doubles. Everyone does the same calculation with the same chain data, so they all get the same result at the same link in the chain.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 209,
 		"alen": 476,
 		"len": 685
@@ -6320,6 +6370,7 @@
 		"q": "We want spenders to have certainty that their transaction is valid at the time it takes a spend to flood the network, not at the time it takes for branch races to be resolved.",
 		"a": "Instantant non-repudiability is not a feature, but it's still much faster than existing systems. Paper cheques can bounce up to a week or two later. Credit card transactions can be contested up to 60 to 180 days later. Bitcoin transactions can be sufficiently irreversible in an hour or two.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 175,
 		"alen": 291,
 		"len": 466
@@ -6331,6 +6382,7 @@
 		"q": "If one node is ignoring all spends that it does not care about, it suffers no adverse consequences.",
 		"a": "With the transaction fee based incentive system I recently posted, nodes would have an incentive to include all the paying transactions they receive.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 99,
 		"alen": 149,
 		"len": 248
@@ -6342,6 +6394,7 @@
 		"q": "It is not sufficient that everyone knows X. We also need everyone to know that everyone knows X, and that everyone knows that everyone knows that everyone knows X - which, as in the Byzantine Generals problem, is the classic hard problem of distributed data processing.",
 		"a": "The proof-of-work chain is a solution to the Byzantine Generals' Problem. I'll try to rephrase it in that context.\n\nA number of Byzantine Generals each have a computer and want to attack the King's wi-fi by brute forcing the password, which they've learned is a certain number of characters in length. Once they stimulate the network to generate a packet, they must crack the password within a limited time to break in and erase the logs, otherwise they will be discovered and get in trouble. They only have enough CPU power to crack it fast enough if a majority of them attack at the same time.\n\nThey don't particularly care when the attack will be, just that they all agree. It has been decided that anyone who feels like it will announce a time, and whatever time is heard first will be the official attack time. The problem is that the network is not instantaneous, and if two generals announce different attack times at close to the same time, some may hear one first and others hear the other first.\n\nThey use a proof-of-work chain to solve the problem. Once each general receives whatever attack time he hears first, he sets his computer to solve an extremely difficult proof-of-work problem that includes the attack time in its hash. The proof-of-work is so difficult, it's expected to take 10 minutes of them all working at once before one of them finds a solution. Once one of the generals finds a proof-of-work, he broadcasts it to the network, and everyone changes their current proof-of-work computation to include that proof-of-work in the hash they're working on. If anyone was working on a different attack time, they switch to this one, because its proof-of-work chain is now longer.\n\nAfter two hours, one attack time should be hashed by a chain of 12 proofs-of-work. Every general, just by verifying the difficulty of the proof-of-work chain, can estimate how much parallel CPU power per hour was expended on it and see that it must have required the majority of the computers to produce that much proof-of-work in the allotted time. They had to all have seen it because the proof-of-work is proof that they worked on it. If the CPU power exhibited by the proof-of-work chain is sufficient to crack the password, they can safely attack at the agreed time.\n\nThe proof-of-work chain is how all the synchronisation, distributed database and global view problems you've asked about are solved.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 269,
 		"alen": 2407,
 		"len": 2676
@@ -6350,12 +6403,13 @@
 		"id": 578,
 		"date": "2008-11-14 18:55:35",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014853.html",
-		"q": "I think it is necessary that nodes keep a separate pending-transaction list associated with each candidate chain. ... One might also ask ... how many candidate chains must a given node keep track of at one time, on average?",
+		"q": "I think it is necessary that nodes keep a separate pending-transaction list associated with each candidate chain.\n\n... One might also ask ... how many candidate chains must a given node keep track of at one time, on average?",
 		"a": "Fortunately, it's only necessary to keep a pending-transaction pool for the current best branch. When a new block arrives for the best branch, ConnectBlock removes the block's transactions from the pending-tx pool. If a different branch becomes longer, it calls DisconnectBlock on the main branch down to the fork, returning the block transactions to the pending-tx pool, and calls ConnectBlock on the new branch, sopping back up any transactions that were in both branches. It's expected that reorgs like this would be rare and shallow.\n\nWith this optimisation, candidate branches are not really any burden. They just sit on the disk and don't require attention unless they ever become the main chain.",
 		"skip": false,
-		"qlen": 223,
+		"favorite": true,
+		"qlen": 224,
 		"alen": 702,
-		"len": 925
+		"len": 926
 	},
 	{
 		"id": 579,
@@ -6364,6 +6418,7 @@
 		"q": "Or as James raised earlier, if the network broadcast is reliable but depends on a potentially slow flooding algorithm, how does that impact performance?",
 		"a": "Broadcasts will probably be almost completely reliable. TCP transmissions are rarely ever dropped these days, and the broadcast protocol has a retry mechanism to get the data from other nodes after a while. If broadcasts turn out to be slower in practice than expected, the target time between blocks may have to be increased to avoid wasting resources. We want blocks to usually propagate in much less time than it takes to generate them, otherwise nodes would spend too much time working on obsolete blocks.\n\nI'm planning to run an automated test with computers randomly sending payments to each other and randomly dropping packets.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 152,
 		"alen": 634,
 		"len": 786
@@ -6375,6 +6430,7 @@
 		"q": "3. The bitcoin system turns out to be socially useful and valuable, so that node operators feel that they are making a beneficial contribution to the world by their efforts (similar to the various \"@Home\" compute projects where people volunteer their compute resources for good causes).\n\nIn this case it seems to me that simple altruism can suffice to keep the network running properly.",
 		"a": "It's very attractive to the libertarian viewpoint if we can explain it properly. I'm better with code than with words though.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 386,
 		"alen": 125,
 		"len": 511
@@ -6383,279 +6439,278 @@
 		"id": 581,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
-		"q": "Okay.... I'm going to summarize this protocol as I understand it.\n\nI'm filling in some operational details that aren't in the paper\n\nby supplementing what you wrote with what my own \"design sense\"\n\ntells me are critical missing bits or \"obvious\" methodologies for\n\nuse.\n\nFirst, people spend computer power creating a pool of coins to use\n\nas money. Each coin is a proof-of-work meeting whatever criteria\n\nwere in effect for money at the time it was created. The time of\n\ncreation (and therefore the criteria) is checkable later because\n\npeople can see the emergence of this particular coin in the\n\ntransaction chain and track it through all its \"consensus view\"\n\nspends. (more later on coin creation tied to adding a link).\n\nWhen a coin is spent, the buyer and seller digitally sign a (blinded)\n\ntransaction record, and broadcast it to a bunch of nodes whose purpose\n\nis keeping track of consensus regarding coin ownership. If someone\n\ndouble spends, then the transaction record can be unblinded revealing\n\nthe identity of the cheater. This is done via a fairly standard cut-\n\nand-choose algorithm where the buyer responds to several challenges\n\nwith secret shares, and the seller then asks him to \"unblind\" and\n\nchecks all but one, verifying that they do contain secret shares any\n\ntwo of which are sufficient to identify the buyer. In this case the\n\nseller accepts the unblinded spend record as \"probably\" containing\n\na valid secret share.\n\nThe nodes keeping track of consensus regarding coin ownership are in\n\na loop where they are all trying to \"add a link\" to the longest chain\n\nthey've so far recieved. They have a pool of reported transactions\n\nwhich they've not yet seen in a \"consensus\" signed chain. I'm going\n\nto call this pool \"A\". They attempt to add a link to the chain by\n\nmoving everything from pool A into a pool \"L\" and using a CPU-\n\nintensive digital signature algorithm to sign the chain including\n\nthe new block L. This results in a chain extended by a block\n\ncontaining all the transaction records they had in pool L, plus\n\nthe node's digital signature. While they do this, new\n\ntransaction records continue to arrive and go into pool A again\n\nfor the next cycle of work.\n\nThey may also recieve chains as long as the one they're trying to\n\nextend while they work, in which the last few \"links\" are links\n\nthat are *not* in common with the chain on which they're working.\n\nThese they ignore. (? Do they ignore them? Under what\n\ncircumstances would these become necessary to ever look at again,\n\nbearing in mind that any longer chain based on them will include\n\nthem?)\n\nBut if they recieve a _longer_ chain while working, they\n\nimmediately check all the transactions in the new links to make\n\nsure it contains no double spends and that the \"work factors\" of\n\nall new links are appropriate. If it contains a double spend,\n\nthen they create a \"transaction\" which is a proof of double\n\nspending, add it to their pool A, broadcast it, and continue work.\n\nIf one of the \"new\" links has an inappropriate work factor (ie,\n\nsomeone didn't put enough CPU into it for it to be \"licit\"\n\naccording to the rules) a new \"transaction\" which is a proof\n\nof the protocol violation by the link-creating node is created,\n\nbroadcast, and added to pool A, and the chain is rejected. In\n\nthe case of no double spends and appropriate work factors for\n\nall links not yet seen, they accept the new chain as consensus.\n\nIf the new chain is accepted, then they give up on adding their\n\ncurrent link, dump all the transactions from pool L back into pool\n\nA (along with transactions they've recieved or created since\n\nstarting work), eliminate from pool A those transaction records\n\nwhich are already part of a link in the new chain, and start work\n\nagain trying to extend the new chain.\n\nIf they complete work on a chain extended with their new link, they\n\nbroadcast it and immediately start work on another new link with\n\nall the transactions that have accumulated in pool A since they\n\nbegan work.\n\nDo I understand it correctly?\n\nIs there a mechanism to make sure that the \"chain\" does not consist\n\nsolely of links added by just the 3 or 4 fastest nodes? 'Cause a\n\nbroadcast transaction record could easily miss those 3 or 4 nodes\n\nand if it does, and those nodes continue to dominate the chain, the\n\ntransaction might never get added.\n\nTo remedy this, you need to either ensure provable propagation of\n\ntransactions, or vary the work factor for a node depending on how\n\nmany links have been added since that node's most recent link.\n\nUnfortunately, both measures can be defeated by sock puppets.\n\nThis is probably the worst problem with your protocol as it\n\nstands right now; you need some central point to control the\n\nidentities (keys) of the nodes and prevent people from making\n\nnew sock puppets.\n\nProvable propagation would mean that When Bob accepts a new chain\n\nfrom Alice, he needs to make sure that Alice has (or gets) all\n\ntransactions in his \"A\" and \"L\" pools. He sends them, and\n\nAlice sends back a signed hash to prove she got them. Once\n\nAlice has recieved this block of transactions, if any subsequent\n\nchains including a link added by Alice do not include those\n\ntransactions at or before that link, then Bob should be able to\n\npublish the block he sent Alice, along with her signature, in a\n\ntransaction as proof that Alice violated protocol. Sock puppets\n\ndefeat this because Alice just signs subsequent chains using a\n\nnew key, pretending to be a different node.\n\nIf we go with varying the work factor depending on how many new\n\nlinks there are, then we're right back to domination by the 3\n\nor 4 fastest nodes, except now they're joined by 600 or so\n\nsock puppets which they use to avoid the work factor penalty.\n\nIf we solve the sock-puppet issue, or accept that there's a central\n\npoint controlling the generation of new keys, then generation of\n\ncoins should be tied to the act of successfully adding a block to\n\nthe \"consensus\" chain. This is simple to do; creation of a coin\n\nis a transaction, it gets added along with all the other transactions\n\nin the block. But you can only create one coin per link, and of\n\ncourse if your version of the chain isn't the one that gets accepted,\n\nthen in the \"accepted\" view you don't have the coin and can't spend\n\nit. This gives the people maintaining the consensus database a\n\nreason to spend CPU cycles, especially since the variance in work\n\nfactor by number of links added since their own last link (outlined\n\nabove) guarantees that everyone, not just the 3 or 4 fastest nodes,\n\noccasionally gets the opportunity to create a coin.\n\nAlso, the work requirement for adding a link to the chain should\n\nvary (again exponentially) with the number of links added to that\n\nchain in the previous week, causing the rate of coin generation\n\n(and therefore inflation) to be strictly controlled.\n\nYou need coin aggregation for this to scale. There needs to be\n\na \"provable\" transaction where someone retires ten single coins\n\nand creates a new coin with denomination ten, etc. This is not\n\ntoo hard, using the same infrastructure you've already got; it\n\nsimply becomes part of the chain, and when the chain is accepted\n\nconsensus, then everybody can see that it happened.\n\nBear",
-		"a": "I'll try and hurry up and release the sourcecode as soon as possible to serve as a reference to help clear up all these implementation questions.",
-		"skip": false,
-		"qlen": 7226,
-		"alen": 145,
-		"len": 7371
-	},
-	{
-		"id": 582,
-		"date": "2008-11-15 04:43:00",
-		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "When a coin is spent, the buyer and seller digitally sign a (blinded) transaction record.",
 		"a": "Only the buyer signs, and there's no blinding.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 89,
 		"alen": 46,
 		"len": 135
 	},
 	{
-		"id": 583,
+		"id": 582,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "If someone double spends, then the transaction record can be unblinded revealing the identity of the cheater.",
 		"a": "Identities are not used, and there's no reliance on recourse. It's all prevention.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 109,
 		"alen": 82,
 		"len": 191
 	},
 	{
-		"id": 584,
+		"id": 583,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "This is done via a fairly standard cut-and-choose algorithm where the buyer responds to several challenges with secret shares",
 		"a": "No challenges or secret shares. A basic transaction is just what you see in the figure in section 2. A signature (of the buyer) satisfying the public key of the previous transaction, and a new public key (of the seller) that must be satisfied to spend it the next time.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 125,
 		"alen": 269,
 		"len": 394
 	},
 	{
-		"id": 585,
+		"id": 584,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
-		"q": "They may also receive chains as long as the one they're trying to extend while they work, in which the last few \"links\" are links that are *not* in common with the chain on which they're working. These they ignore.",
+		"q": "They may also receive chains as long as the one they're trying to extend while they work, in which the last few \"links\" are links that are *not* in common with the chain on which they're working.\n\nThese they ignore.",
 		"a": "Right, if it's equal in length, ties are broken by keeping the earliest one received.",
 		"skip": false,
-		"qlen": 214,
+		"favorite": true,
+		"qlen": 215,
 		"alen": 85,
-		"len": 299
+		"len": 300
 	},
 	{
-		"id": 586,
+		"id": 585,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "If it contains a double spend, then they create a \"transaction\" which is a proof of double spending, add it to their pool A, broadcast it, and continue work.",
 		"a": "There's no need for reporting of \"proof of double spending\" like that. If the same chain contains both spends, then the block is invalid and rejected.\n\nSame if a block didn't have enough proof-of-work. That block is invalid and rejected. There's no need to circulate a report about it. Every node could see that and reject it before relaying it.\n\nIf there are two competing chains, each containing a different version of the same transaction, with one trying to give money to one person and the other trying to give the same money to someone else, resolving which of the spends is valid is what the whole proof-of-work chain is about.\n\nWe're not \"on the lookout\" for double spends to sound the alarm and catch the cheater. We merely adjudicate which one of the spends is valid. Receivers of transactions must wait a few blocks to make sure that resolution has had time to complete. Would be cheaters can try and simultaneously double-spend all they want, and all they accomplish is that within a few blocks, one of the spends becomes valid and the others become invalid. Any later double-spends are immediately rejected once there's already a spend in the main chain.\n\nEven if an earlier spend wasn't in the chain yet, if it was already in all the nodes' pools, then the second spend would be turned away by all those nodes that already have the first spend.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 157,
 		"alen": 1358,
 		"len": 1515
 	},
 	{
-		"id": 587,
+		"id": 586,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "If the new chain is accepted, then they give up on adding their current link, dump all the transactions from pool L back into pool A (along with transactions they've received or created since starting work), eliminate from pool A those transaction records which are already part of a link in the new chain, and start work again trying to extend the new chain.",
 		"a": "Right. They also refresh whenever a new transaction comes in, so L pretty much contains everything in A all the time.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 359,
 		"alen": 117,
 		"len": 476
 	},
 	{
-		"id": 588,
+		"id": 587,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "CPU-intensive digital signature algorithm to sign the chain including the new block L.",
 		"a": "It's a Hashcash style SHA-256 proof-of-work (partial pre-image of zero), not a signature.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 86,
 		"alen": 89,
 		"len": 175
 	},
 	{
-		"id": 589,
+		"id": 588,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "Is there a mechanism to make sure that the \"chain\" does not consist solely of links added by just the 3 or 4 fastest nodes? 'Cause a broadcast transaction record could easily miss those 3 or 4 nodes and if it does, and those nodes continue to dominate the chain, the transaction might never get added.",
 		"a": "If you're thinking of it as a CPU-intensive digital signing, then you may be thinking of a race to finish a long operation first and the fastest always winning.\n\nThe proof-of-work is a Hashcash style SHA-256 collision finding. It's a memoryless process where you do millions of hashes a second, with a small chance of finding one each time. The 3 or 4 fastest nodes' dominance would only be proportional to their share of the total CPU power. Anyone's chance of finding a solution at any time is proportional to their CPU power.\n\nThere will be transaction fees, so nodes will have an incentive to receive and include all the transactions they can. Nodes will eventually be compensated by transaction fees alone when the total coins created hits the pre-determined ceiling.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 301,
 		"alen": 772,
 		"len": 1073
 	},
 	{
-		"id": 590,
+		"id": 589,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "Also, the work requirement for adding a link to the chain should vary (again exponentially) with the number of links added to that chain in the previous week, causing the rate of coin generation (and therefore inflation) to be strictly controlled.",
 		"a": "Right.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 247,
 		"alen": 6,
 		"len": 253
 	},
 	{
-		"id": 591,
+		"id": 590,
 		"date": "2008-11-15 04:43:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html",
 		"q": "You need coin aggregation for this to scale. There needs to be a \"provable\" transaction where someone retires ten single coins and creates a new coin with denomination ten, etc.",
 		"a": "Every transaction is one of these. Section 9, Combining and Splitting Value.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 177,
 		"alen": 76,
 		"len": 253
 	},
 	{
-		"id": 592,
+		"id": 591,
 		"date": "2008-11-15 18:02:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014860.html",
 		"q": "One way to do this would be to have the person recieving the coin generate an asymmetric key pair, and then have half of it published with the transaction. In order to spend the coin later, s/he must demonstrate posession of the other half of the asymmetric key pair, probably by using it to sign the key provided by the new seller.",
-		"a": "Right, it's ECC digital signatures. A new key pair is used for every\n\ntransaction.\n\nIt's not pseudonymous in the sense of nyms identifying people, but it\n\nis at least a little pseudonymous in that the next action on a coin\n\ncan be identified as being from the owner of that coin.",
+		"a": "Right, it's ECC digital signatures. A new key pair is used for every transaction.\n\nIt's not pseudonymous in the sense of nyms identifying people, but it is at least a little pseudonymous in that the next action on a coin can be identified as being from the owner of that coin.",
 		"skip": false,
 		"qlen": 332,
-		"alen": 279,
-		"len": 611
+		"alen": 276,
+		"len": 608
+	},
+	{
+		"id": 592,
+		"date": "2008-11-15 18:02:00",
+		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014860.html",
+		"q": "Mmmm. I don't know if I'm comfortable with that. You're saying there's no effort to identify and exclude nodes that don't cooperate? I suspect this will lead to trouble and possible DOS attacks.",
+		"a": "There is no reliance on identifying anyone. As you've said, it's futile and can be trivially defeated with sock puppets.\n\nThe credential that establishes someone as real is the ability to supply CPU power.",
+		"skip": false,
+		"qlen": 194,
+		"alen": 205,
+		"len": 399
 	},
 	{
 		"id": 593,
 		"date": "2008-11-15 18:02:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014860.html",
-		"q": "Mmmm. I don't know if I'm comfortable with that. You're saying there's no effort to identify and exclude nodes that don't cooperate? I suspect this will lead to trouble and possible DOS attacks.",
-		"a": "There is no reliance on identifying anyone. As you've said, it's\n\nfutile and can be trivially defeated with sock puppets.\n\nThe credential that establishes someone as real is the ability to\n\nsupply CPU power.",
+		"q": "Until.... until what? How does anybody know when a transaction has become irrevocable? Is \"a few\" blocks three? Thirty? A hundred? Does it depend on the number of nodes? Is it logarithmic or linear in number of nodes?",
+		"a": "Section 11 calculates the worst case under attack. Typically, 5 or 10 blocks is enough for that. If you're selling something that doesn't merit a network-scale attack to steal it, in practice you could cut it closer.",
 		"skip": false,
-		"qlen": 194,
-		"alen": 207,
-		"len": 401
+		"qlen": 217,
+		"alen": 216,
+		"len": 433
 	},
 	{
 		"id": 594,
 		"date": "2008-11-15 18:02:00",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014860.html",
-		"q": "Until.... until what? How does anybody know when a transaction has become irrevocable? Is \"a few\" blocks three? Thirty? A hundred? Does it depend on the number of nodes? Is it logarithmic or linear in number of nodes?",
-		"a": "Section 11 calculates the worst case under attack. Typically, 5 or\n\n10 blocks is enough for that. If you're selling something that\n\ndoesn't merit a network-scale attack to steal it, in practice you\n\ncould cut it closer.",
+		"q": "But in the absence of identity, there's no downside to them if spends become invalid, if they've already received the goods they double-spent for (access to website, download, whatever). The merchants are left holding the bag with \"invalid\" coins, unless they wait that magical \"few blocks\" (and how can they know how many?) before treating the spender as having paid.\n\nThe consumers won't do this if they spend their coin and it takes an hour to clear before they can do what they spent their coin on.\n\nThe merchants won't do it if there's no way to charge back a customer when they find the that their coin is invalid because the customer has doublespent.",
+		"a": "This is a version 2 problem that I believe can be solved fairly satisfactorily for most applications.\n\nThe race is to spread your transaction on the network first. Think 6 degrees of freedom -- it spreads exponentially. It would only take something like 2 minutes for a transaction to spread widely enough that a competitor starting late would have little chance of grabbing very many nodes before the first one is overtaking the whole network.\n\nDuring those 2 minutes, the merchant's nodes can be watching for a double-spent transaction. The double-spender would not be able to blast his alternate transaction out to the world without the merchant getting it, so he has to wait before starting.\n\nIf the real transaction reaches 90% and the double-spent tx reaches 10%, the double-spender only gets a 10% chance of not paying, and 90% chance his money gets spent. For almost any type of goods, that's not going to be worth it for the scammer.\n\nInformation based goods like access to website or downloads are non-fencible. Nobody is going to be able to make a living off stealing access to websites or downloads. They can go to the file sharing networks to steal that. Most instant-access products aren't going to have a huge incentive to steal.\n\nIf a merchant actually has a problem with theft, they can make the customer wait 2 minutes, or wait for something in e-mail, which many already do. If they really want to optimize, and it's a large download, they could cancel the download in the middle if the transaction comes back double-spent. If it's website access, typically it wouldn't be a big deal to let the customer have access for 5 minutes and then cut off access if it's rejected. Many such sites have a free trial anyway.",
 		"skip": false,
-		"qlen": 217,
-		"alen": 219,
-		"len": 436
+		"qlen": 657,
+		"alen": 1732,
+		"len": 2389
 	},
 	{
 		"id": 595,
-		"date": "2008-11-15 18:02:00",
-		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014860.html",
-		"q": "But in the absence of identity, there's no downside to them if spends become invalid, if they've already received the goods they double-spent for (access to website, download, whatever). The merchants are left holding the bag with \"invalid\" coins, unless they wait that magical \"few blocks\" (and how can they know how many?) before treating the spender as having paid.\n\nThe consumers won't do this if they spend their coin and it takes an hour to clear before they can do what they spent their coin on. The merchants won't do it if there's no way to charge back a customer when they find the that their coin is invalid because the customer has doublespent.",
-		"a": "This is a version 2 problem that I believe can be solved fairly\n\nsatisfactorily for most applications.\n\nThe race is to spread your transaction on the network first. Think 6\n\ndegrees of freedom -- it spreads exponentially. It would only take\n\nsomething like 2 minutes for a transaction to spread widely enough\n\nthat a competitor starting late would have little chance of grabbing\n\nvery many nodes before the first one is overtaking the whole network.\n\nDuring those 2 minutes, the merchant's nodes can be watching for a\n\ndouble-spent transaction. The double-spender would not be able to\n\nblast his alternate transaction out to the world without the merchant\n\ngetting it, so he has to wait before starting.\n\nIf the real transaction reaches 90% and the double-spent tx reaches\n\n10%, the double-spender only gets a 10% chance of not paying, and 90%\n\nchance his money gets spent. For almost any type of goods, that's\n\nnot going to be worth it for the scammer.\n\nInformation based goods like access to website or downloads are\n\nnon-fencible. Nobody is going to be able to make a living off\n\nstealing access to websites or downloads. They can go to the file\n\nsharing networks to steal that. Most instant-access products aren't\n\ngoing to have a huge incentive to steal.\n\nIf a merchant actually has a problem with theft, they can make the\n\ncustomer wait 2 minutes, or wait for something in e-mail, which many\n\nalready do. If they really want to optimize, and it's a large\n\ndownload, they could cancel the download in the middle if the\n\ntransaction comes back double-spent. If it's website access,\n\ntypically it wouldn't be a big deal to let the customer have access\n\nfor 5 minutes and then cut off access if it's rejected. Many such\n\nsites have a free trial anyway.",
+		"date": "2008-11-17 17:24:43",
+		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014863.html",
+		"q": "This requires that we know, that is to say an honest well behaved peer whose communications and data storage is working well knows, what the current best branch is -",
+		"a": "I mean a node only needs the pending-tx pool for the best branch it has. The branch that it currently thinks is the best branch.\n\nThat's the branch it'll be trying to make a block out of, which is all it needs the pool for.",
 		"skip": false,
-		"qlen": 656,
-		"alen": 1754,
-		"len": 2410
+		"qlen": 165,
+		"alen": 223,
+		"len": 388
 	},
 	{
 		"id": 596,
 		"date": "2008-11-17 17:24:43",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014863.html",
-		"q": "This requires that we know, that is to say an honest well behaved peer whose communications and data storage is working well knows, what the current best branch is -",
-		"a": "I mean a node only needs the pending-tx pool for the best branch it\n\nhas. The branch that it currently thinks is the best branch.\n\nThat's the branch it'll be trying to make a block out of, which is\n\nall it needs the pool for.",
+		"q": "Rather than assuming that each message arrives at least once, we have to make a mechanism such that the information arrives even though conveyed by messages that frequently fail to arrive.",
+		"a": "I think I've got the peer networking broadcast mechanism covered.\n\nEach node sends its neighbours an inventory list of hashes of the new blocks and transactions it has. The neighbours request the items they don't have yet. If the item never comes through after a timeout, they request it from another neighbour that had it. Since all or most of the neighbours should eventually have each item, even if the coms get fumbled up with one, they can get it from any of the others, trying one at a time.\n\nThe inventory-request-data scheme introduces a little latency, but it ultimately helps speed more by keeping extra data blocks off the transmit queues and conserving bandwidth.",
 		"skip": false,
-		"qlen": 165,
-		"alen": 225,
-		"len": 390
+		"qlen": 188,
+		"alen": 675,
+		"len": 863
 	},
 	{
 		"id": 597,
 		"date": "2008-11-17 17:24:43",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014863.html",
-		"q": "Rather than assuming that each message arrives at least once, we have to make a mechanism such that the information arrives even though conveyed by messages that frequently fail to arrive.",
-		"a": "I think I've got the peer networking broadcast mechanism covered.\n\nEach node sends its neighbours an inventory list of hashes of the\n\nnew blocks and transactions it has. The neighbours request the\n\nitems they don't have yet. If the item never comes through after a\n\ntimeout, they request it from another neighbour that had it. Since\n\nall or most of the neighbours should eventually have each item,\n\neven if the coms get fumbled up with one, they can get it from any\n\nof the others, trying one at a time.\n\nThe inventory-request-data scheme introduces a little latency, but\n\nit ultimately helps speed more by keeping extra data blocks off the\n\ntransmit queues and conserving bandwidth.",
+		"q": "You have an outline and proposal for such a design, which is a big step forward, but the devil is in the little details.",
+		"a": "I believe I've worked through all those little details over the last year and a half while coding it, and there were a lot of them.\n\nThe functional details are not covered in the paper, but the sourcecode is coming soon. I sent you the main files.\n\n(available by request at the moment, full release soon)",
 		"skip": false,
-		"qlen": 188,
-		"alen": 683,
-		"len": 871
+		"qlen": 120,
+		"alen": 304,
+		"len": 424
 	},
 	{
 		"id": 598,
-		"date": "2008-11-17 17:24:43",
-		"src": "http://www.metzdowd.com/pipermail/cryptography/2008-November/014863.html",
-		"q": "You have an outline and proposal for such a design, which is a big step forward, but the devil is in the little details.",
-		"a": "I believe I've worked through all those little details over the\n\nlast year and a half while coding it, and there were a lot of them.\n\nThe functional details are not covered in the paper, but the\n\nsourcecode is coming soon. I sent you the main files.\n\n(available by request at the moment, full release soon)",
-		"skip": false,
-		"qlen": 120,
-		"alen": 306,
-		"len": 426
-	},
-	{
-		"id": 599,
 		"date": "2009-01-16 16:03:14",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2009-January/015014.html",
 		"q": "Yea, that was the primary feature that caught my eye. The real trick will be to get people to actually value the BitCoins so that they become currency.",
-		"a": "I would be surprised if 10 years from now we're not using\n\nelectronic currency in some way, now that we know a way to do it\n\nthat won't inevitably get dumbed down when the trusted third party\n\ngets cold feet.\n\nIt could get started in a narrow niche like reward points,\n\ndonation tokens, currency for a game or micropayments for adult\n\nsites. Initially it can be used in proof-of-work applications\n\nfor services that could almost be free but not quite.\n\nIt can already be used for pay-to-send e-mail. The send dialog is\n\nresizeable and you can enter as long of a message as you like.\n\nIt's sent directly when it connects. The recipient doubleclicks\n\non the transaction to see the full message. If someone famous is\n\ngetting more e-mail than they can read, but would still like to\n\nhave a way for fans to contact them, they could set up Bitcoin and\n\ngive out the IP address on their website. \"Send X bitcoins to my\n\npriority hotline at this IP and I'll read the message personally.\"\n\nSubscription sites that need some extra proof-of-work for their\n\nfree trial so it doesn't cannibalize subscriptions could charge\n\nbitcoins for the trial.\n\nIt might make sense just to get some in case it catches on. If\n\nenough people think the same way, that becomes a self fulfilling\n\nprophecy. Once it gets bootstrapped, there are so many\n\napplications if you could effortlessly pay a few cents to a\n\nwebsite as easily as dropping coins in a vending machine.",
+		"a": "I would be surprised if 10 years from now we're not using electronic currency in some way, now that we know a way to do it that won't inevitably get dumbed down when the trusted third party gets cold feet.\n\nIt could get started in a narrow niche like reward points, donation tokens, currency for a game or micropayments for adult sites. Initially it can be used in proof-of-work applications for services that could almost be free but not quite.\n\nIt can already be used for pay-to-send e-mail. The send dialog is resizeable and you can enter as long of a message as you like.\n\nIt's sent directly when it connects. The recipient doubleclicks on the transaction to see the full message. If someone famous is getting more e-mail than they can read, but would still like to have a way for fans to contact them, they could set up Bitcoin and give out the IP address on their website. \"Send X bitcoins to my priority hotline at this IP and I'll read the message personally.\" Subscription sites that need some extra proof-of-work for their free trial so it doesn't cannibalize subscriptions could charge bitcoins for the trial.\n\nIt might make sense just to get some in case it catches on. If enough people think the same way, that becomes a self fulfilling prophecy. Once it gets bootstrapped, there are so many applications if you could effortlessly pay a few cents to a website as easily as dropping coins in a vending machine.",
 		"skip": false,
 		"qlen": 151,
-		"alen": 1441,
-		"len": 1592
+		"alen": 1422,
+		"len": 1573
 	},
 	{
-		"id": 600,
+		"id": 599,
 		"date": "2009-01-25 15:47:10",
 		"src": "http://www.metzdowd.com/pipermail/cryptography/2009-January/015041.html",
 		"q": "If POW tokens do become useful, and especially if they become money, machines will no longer sit idle. Users will expect their computers to be earning them money (assuming the reward is greater than the cost to operate). A computer whose earnings are being stolen by a botnet will be more noticeable to its owner than is the case today, hence we might expect that in that world, users will work harder to maintain their computers and clean them of botnet infestations.",
-		"a": "there would be a profit motive for people to set up massive\n\nquantities of fake e-mail accounts to harvest POW tokens from\n\nspam. They'd essentially be reverse-spamming the spammers with\n\nautomated mailboxes that collect their POW and don't read the\n\nmessage. The ratio of fake mailboxes to real people could become\n\ntoo high for spam to be cost effective.\n\nThe process has the potential to establish the POW token's value\n\nin the first place, since spammers that don't have a botnet could\n\nbuy tokens from harvesters. While the buying back would\n\ntemporarily let more spam through, it would only hasten the\n\nself-defeating cycle leading to too many harvesters exploiting the\n\nspammers.\n\nInterestingly, one of the e-gold systems already has a form of\n\nspam called \"dusting\". Spammers send a tiny amount of gold dust\n\nin order to put a spam message in the transaction's comment field.\n\nIf the system let users configure the minimum payment they're\n\nwilling to receive, or at least the minimum that can have a\n\nmessage with it, users could set how much they're willing to get\n\npaid to receive spam.",
+		"a": "there would be a profit motive for people to set up massive quantities of fake e-mail accounts to harvest POW tokens from spam. They'd essentially be reverse-spamming the spammers with automated mailboxes that collect their POW and don't read the message. The ratio of fake mailboxes to real people could become too high for spam to be cost effective.\n\nThe process has the potential to establish the POW token's value in the first place, since spammers that don't have a botnet could buy tokens from harvesters. While the buying back would temporarily let more spam through, it would only hasten the self-defeating cycle leading to too many harvesters exploiting the spammers.\n\nInterestingly, one of the e-gold systems already has a form of spam called \"dusting\". Spammers send a tiny amount of gold dust in order to put a spam message in the transaction's comment field.\n\nIf the system let users configure the minimum payment they're willing to receive, or at least the minimum that can have a message with it, users could set how much they're willing to get paid to receive spam.",
 		"skip": false,
 		"qlen": 468,
-		"alen": 1096,
-		"len": 1564
+		"alen": 1081,
+		"len": 1549
 	},
 	{
-		"id": 601,
+		"id": 600,
 		"date": "2009-01-16 18:35:32",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21356305/",
 		"q": "Yea, that was the primary feature that caught my eye. The real trick will be to get people to actually value the BitCoins so that they become currency.",
-		"a": "I would be surprised if 10 years from now we're not using\n\nelectronic currency in some way, now that we know a way to do it\n\nthat won't inevitably get dumbed down when the trusted third party\n\ngets cold feet.\n\nIt could get started in a narrow niche like reward points,\n\ndonation tokens, currency for a game or micropayments for adult\n\nsites. Initially it can be used in proof-of-work applications\n\nfor services that could almost be free but not quite.\n\nIt can already be used for pay-to-send e-mail. The send dialog is\n\nresizeable and you can enter as long of a message as you like.\n\nIt's sent directly when it connects. The recipient doubleclicks\n\non the transaction to see the full message. If someone famous is\n\ngetting more e-mail than they can read, but would still like to\n\nhave a way for fans to contact them, they could set up Bitcoin and\n\ngive out the IP address on their website. \"Send X bitcoins to my\n\npriority hotline at this IP and I'll read the message personally.\"\n\nSubscription sites that need some extra proof-of-work for their\n\nfree trial so it doesn't cannibalize subscriptions could charge\n\nbitcoins for the trial.\n\nIt might make sense just to get some in case it catches on. If\n\nenough people think the same way, that becomes a self fulfilling\n\nprophecy. Once it gets bootstrapped, there are so many\n\napplications if you could effortlessly pay a few cents to a\n\nwebsite as easily as dropping coins in a vending machine.",
+		"a": "I would be surprised if 10 years from now we're not using electronic currency in some way, now that we know a way to do it that won't inevitably get dumbed down when the trusted third party gets cold feet.\n\nIt could get started in a narrow niche like reward points, donation tokens, currency for a game or micropayments for adult sites. Initially it can be used in proof-of-work applications for services that could almost be free but not quite.\n\nIt can already be used for pay-to-send e-mail. The send dialog is resizeable and you can enter as long of a message as you like.\n\nIt's sent directly when it connects. The recipient doubleclicks on the transaction to see the full message. If someone famous is getting more e-mail than they can read, but would still like to have a way for fans to contact them, they could set up Bitcoin and give out the IP address on their website. \"Send X bitcoins to my priority hotline at this IP and I'll read the message personally.\" Subscription sites that need some extra proof-of-work for their free trial so it doesn't cannibalize subscriptions could charge bitcoins for the trial.\n\nIt might make sense just to get some in case it catches on. If enough people think the same way, that becomes a self fulfilling prophecy. Once it gets bootstrapped, there are so many applications if you could effortlessly pay a few cents to a website as easily as dropping coins in a vending machine.",
 		"skip": false,
 		"qlen": 151,
-		"alen": 1441,
-		"len": 1592
+		"alen": 1422,
+		"len": 1573
 	},
 	{
-		"id": 602,
+		"id": 601,
 		"date": "2009-01-25 16:45:25",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21424626/",
 		"q": "I have had a couple of problems running bitcoin: is this an appropriate list for reporting them (with about 70kb of attachments)?",
-		"a": "What's the problem you're having?\n\nIf you send me your debug.log file directly (best not to send attachments\n\nto the list), I can take a look at what's happening.\n\nbitcoin-help at vistomail dot com",
+		"a": "What's the problem you're having? If you send me your debug.log file directly (best not to send attachments to the list), I can take a look at what's happening.\n\nbitcoin-help at vistomail dot com",
 		"skip": false,
 		"qlen": 129,
-		"alen": 197,
-		"len": 326
+		"alen": 195,
+		"len": 324
 	},
 	{
-		"id": 603,
+		"id": 602,
 		"date": "2009-02-22 17:47:52",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21646307/",
 		"q": "What's next?",
-		"a": "The next thing for v0.1.6 is to take advantage of multiple\n\nprocessors to generate blocks. Currently it only starts one\n\nthread. If you have a multi-core processor like a Core Duo or\n\nQuad this will double or quadruple your production.\n\nLater I want to add interfaces to make it really easy to integrate\n\ninto websites from any server side language.",
+		"a": "The next thing for v0.1.6 is to take advantage of multiple processors to generate blocks. Currently it only starts one thread. If you have a multi-core processor like a Core Duo or Quad this will double or quadruple your production.\n\nLater I want to add interfaces to make it really easy to integrate into websites from any server side language.",
 		"skip": false,
 		"qlen": 12,
-		"alen": 349,
-		"len": 361
+		"alen": 345,
+		"len": 357
+	},
+	{
+		"id": 603,
+		"date": "2009-03-04 16:59:12",
+		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
+		"q": "That sounds good. I'd also like to be able to run multiple coin/block generators on multiple machines, all behind a single NAT address. I haven't tried this yet so I don't know if it works on the current software.",
+		"a": "The current version will work fine. They'll each connect over the Internet, while incoming connections only come to the host that port 8333 is routed to.\n\nAs an optimisation, I'll make a switch \"-connect=1.2.3.4\" to make it only connect to a specific address. You could make your extra nodes connect to your primary, and only the primary connects over the Internet. It doesn't really matter for now, since the network would have to get huge before the bandwidth is anything more than trivial.",
+		"skip": false,
+		"qlen": 213,
+		"alen": 492,
+		"len": 705
 	},
 	{
 		"id": 604,
 		"date": "2009-03-04 16:59:12",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
-		"q": "That sounds good. I'd also like to be able to run multiple coin/block generators on multiple machines, all behind a single NAT address. I haven't tried this yet so I don't know if it works on the current software.",
-		"a": "The current version will work fine. They'll each connect over the\n\nInternet, while incoming connections only come to the host that\n\nport 8333 is routed to.\n\nAs an optimisation, I'll make a switch \"-connect=1.2.3.4\" to make\n\nit only connect to a specific address. You could make your extra\n\nnodes connect to your primary, and only the primary connects over\n\nthe Internet. It doesn't really matter for now, since the network\n\nwould have to get huge before the bandwidth is anything more than\n\ntrivial.",
+		"q": "BTW I don't remember if we talked about this, but the other day some people were mentioning secure timestamping. You want to be able to prove that a certain document existed at a certain time in the past.\n\nSeems to me that bitcoin's stack of blocks would be perfect for this.",
+		"a": "Indeed, Bitcoin is a distributed secure timestamp server for transactions. A few lines of code could create a transaction with an extra hash in it of anything that needs to be timestamped.\n\nI should add a command to timestamp a file that way.",
 		"skip": false,
-		"qlen": 213,
-		"alen": 499,
-		"len": 712
+		"qlen": 275,
+		"alen": 242,
+		"len": 517
 	},
 	{
 		"id": 605,
-		"date": "2009-03-04 16:59:12",
-		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
-		"q": "BTW I don't remember if we talked about this, but the other day some people were mentioning secure timestamping. You want to be able to prove that a certain document existed at a certain time in the past. Seems to me that bitcoin's stack of blocks would be perfect for this.",
-		"a": "Indeed, Bitcoin is a distributed secure timestamp server for\n\ntransactions. A few lines of code could create a transaction with\n\nan extra hash in it of anything that needs to be timestamped.\n\nI should add a command to timestamp a file that way.",
-		"skip": false,
-		"qlen": 274,
-		"alen": 244,
-		"len": 518
-	},
-	{
-		"id": 606,
 		"date": "2009-03-04 16:59:12",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
 		"q": "Right, and I'd like to see more of a library interface that could be called from programming or scripting languages, on the client side as well.",
@@ -6666,36 +6721,36 @@
 		"len": 152
 	},
 	{
-		"id": 607,
+		"id": 606,
 		"date": "2009-10-23 23:57:51",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "Do you Windows users experience occasional Bitcoin crashes? Lately Bitcoin running in wine-1.0.1 has been crashing frequently. I was just wondering whether this is a Wine issue or a Bitcoin issue.",
-		"a": "I haven't had any reports of crashes in v0.1.5. It's been rock solid\n\nfor me on Windows. I think it must be Wine related. If you get another\n\ncrash in Wine and it prints anything on the terminal, e-mail me and I\n\nmay be able to figure out what happened, maybe something I can work\n\naround. Martti and I have been working on a new version to release soon\n\nand it would be nice to get any Wine fixes in there.",
+		"a": "I haven't had any reports of crashes in v0.1.5. It's been rock solid for me on Windows. I think it must be Wine related. If you get another crash in Wine and it prints anything on the terminal, e-mail me and I may be able to figure out what happened, maybe something I can work around. Martti and I have been working on a new version to release soon and it would be nice to get any Wine fixes in there.",
 		"skip": false,
 		"qlen": 196,
-		"alen": 407,
-		"len": 603
+		"alen": 402,
+		"len": 598
+	},
+	{
+		"id": 607,
+		"date": "2009-10-23 23:57:51",
+		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
+		"q": "The following four lines print from the terminal when I start Bitcoin.\n\nfixme:toolhelp:CreateToolhelp32Snapshot Unimplemented: heap list snapshot fixme:toolhelp:Heap32ListFirst : stub fixme:toolhelp:CreateToolhelp32Snapshot Unimplemented: heap list snapshot fixme:toolhelp:Heap32ListFirst : stub",
+		"a": "Those don't look like anything to worry about. Probably functions unimplemented by Wine that are harmlessly stubbed out.",
+		"skip": false,
+		"qlen": 295,
+		"alen": 120,
+		"len": 415
 	},
 	{
 		"id": 608,
 		"date": "2009-10-23 23:57:51",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
-		"q": "The following four lines print from the terminal when I start Bitcoin. fixme:toolhelp:CreateToolhelp32Snapshot Unimplemented: heap list snapshot fixme:toolhelp:Heap32ListFirst : stub fixme:toolhelp:CreateToolhelp32Snapshot Unimplemented: heap list snapshot fixme:toolhelp:Heap32ListFirst : stub",
-		"a": "Those don't look like anything to worry about. Probably functions\n\nunimplemented by Wine that are harmlessly stubbed out.",
-		"skip": false,
-		"qlen": 294,
-		"alen": 121,
-		"len": 415
-	},
-	{
-		"id": 609,
-		"date": "2009-10-23 23:57:51",
-		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "I previously wasn't starting Bitcoin from the terminal, so I don't know what gets printed out when it crashes, but I'll reply with the results the next time it crashes.\n\nWhile Bitcoin first downloads previously completed blocks, the file debug.log grows grows to 17.4 MB and then stops growing. I imagine it will continue to grow as more bitcoins are completed.",
-		"a": "You can delete debug.log occasionally if you don't want to take the disk\n\nspace. It's just status messages that help with debugging.\n\nbitcoin.sourceforge.net looks fine now. Maybe sourceforge was doing\n\nsome maintenance.",
+		"a": "You can delete debug.log occasionally if you don't want to take the disk space. It's just status messages that help with debugging.\n\nbitcoin.sourceforge.net looks fine now. Maybe sourceforge was doing some maintenance.",
 		"skip": false,
 		"qlen": 361,
-		"alen": 220,
-		"len": 581
+		"alen": 218,
+		"len": 579
 	}
 ]

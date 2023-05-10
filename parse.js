@@ -1,6 +1,7 @@
 const fs = require('fs')
 const cheerio = require('cheerio')
 const overrides = require('./inputs/overrides.json')
+const favorites = require('./inputs/favorites.json')
 
 const QUOTE = '<|>'
 const SATOSHI = 'Satoshi Nakamoto'
@@ -49,10 +50,10 @@ const splitEmail = (email) => {
     if (!line) {
       // Empty quote lines are actually new lines
       buf += '\n\n'
-    } else if (inQuote) {
-      buf += ' ' + line
-    } else {
+    } else if (buf.slice(-1) === '.') {
       buf += '\n\n' + line
+    } else {
+      buf += ' ' + line
     }
   }
   if (buf) {
@@ -72,7 +73,8 @@ const parseEmails = () => {
 
     const [first, ...parts] = overrides[email.url]?.parts || splitEmail(email.text)
     if (first) {
-      const prev = emails.find(p => p.id === email.parent && p.sender !== SATOSHI)
+      const parent = overrides[email.url]?.prev || email.parent
+      const prev = emails.find(p => p.id === parent && p.sender !== SATOSHI)
       const prevParts = prev && splitEmail(prev.text)
       if (prevParts) {
         const q = prevParts.pop() || prevParts[0]
@@ -171,7 +173,8 @@ const shouldSkip = (qa) => {
 
 const qas = parsePosts().concat(parseEmails())
   .map(({ date, ...qa }, i) => ({
-    id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...qa, skip: shouldSkip(qa),
+    id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...qa,
+    skip: shouldSkip(qa), favorite: favorites.includes(qa.src) ? true : undefined,
   }))
   .sort((a, b) => a.date - b.date)
   .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
@@ -188,7 +191,7 @@ fs.writeFileSync('./data/qa.html', `
   <head />
   <body>
     ${qas.filter(qa => !qa.skip).map(i => `
-      <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a></p>
+      <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a>${i.favorite ? ' ⭐️' : ''}</p>
       <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
       <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
       <hr />
