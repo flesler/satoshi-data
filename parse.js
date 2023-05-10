@@ -1,7 +1,6 @@
 const fs = require('fs')
 const cheerio = require('cheerio')
 const overrides = require('./inputs/overrides.json')
-const favorites = require('./inputs/favorites.json')
 
 const QUOTE = '<|>'
 const SATOSHI = 'Satoshi Nakamoto'
@@ -174,7 +173,7 @@ const shouldSkip = (qa) => {
 const qas = parsePosts().concat(parseEmails())
   .map(({ date, ...qa }, i) => ({
     id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...qa,
-    skip: shouldSkip(qa), favorite: favorites.includes(qa.src) ? true : undefined,
+    skip: shouldSkip(qa), favorite: overrides[qa.src]?.favorite,
   }))
   .sort((a, b) => a.date - b.date)
   .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))

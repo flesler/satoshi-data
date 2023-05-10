@@ -6562,6 +6562,7 @@
 		"q": "One way to do this would be to have the person recieving the coin generate an asymmetric key pair, and then have half of it published with the transaction. In order to spend the coin later, s/he must demonstrate posession of the other half of the asymmetric key pair, probably by using it to sign the key provided by the new seller.",
 		"a": "Right, it's ECC digital signatures. A new key pair is used for every transaction.\n\nIt's not pseudonymous in the sense of nyms identifying people, but it is at least a little pseudonymous in that the next action on a coin can be identified as being from the owner of that coin.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 332,
 		"alen": 276,
 		"len": 608
@@ -6573,6 +6574,7 @@
 		"q": "Mmmm. I don't know if I'm comfortable with that. You're saying there's no effort to identify and exclude nodes that don't cooperate? I suspect this will lead to trouble and possible DOS attacks.",
 		"a": "There is no reliance on identifying anyone. As you've said, it's futile and can be trivially defeated with sock puppets.\n\nThe credential that establishes someone as real is the ability to supply CPU power.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 194,
 		"alen": 205,
 		"len": 399
@@ -6584,6 +6586,7 @@
 		"q": "Until.... until what? How does anybody know when a transaction has become irrevocable? Is \"a few\" blocks three? Thirty? A hundred? Does it depend on the number of nodes? Is it logarithmic or linear in number of nodes?",
 		"a": "Section 11 calculates the worst case under attack. Typically, 5 or 10 blocks is enough for that. If you're selling something that doesn't merit a network-scale attack to steal it, in practice you could cut it closer.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 217,
 		"alen": 216,
 		"len": 433
@@ -6595,6 +6598,7 @@
 		"q": "But in the absence of identity, there's no downside to them if spends become invalid, if they've already received the goods they double-spent for (access to website, download, whatever). The merchants are left holding the bag with \"invalid\" coins, unless they wait that magical \"few blocks\" (and how can they know how many?) before treating the spender as having paid.\n\nThe consumers won't do this if they spend their coin and it takes an hour to clear before they can do what they spent their coin on.\n\nThe merchants won't do it if there's no way to charge back a customer when they find the that their coin is invalid because the customer has doublespent.",
 		"a": "This is a version 2 problem that I believe can be solved fairly satisfactorily for most applications.\n\nThe race is to spread your transaction on the network first. Think 6 degrees of freedom -- it spreads exponentially. It would only take something like 2 minutes for a transaction to spread widely enough that a competitor starting late would have little chance of grabbing very many nodes before the first one is overtaking the whole network.\n\nDuring those 2 minutes, the merchant's nodes can be watching for a double-spent transaction. The double-spender would not be able to blast his alternate transaction out to the world without the merchant getting it, so he has to wait before starting.\n\nIf the real transaction reaches 90% and the double-spent tx reaches 10%, the double-spender only gets a 10% chance of not paying, and 90% chance his money gets spent. For almost any type of goods, that's not going to be worth it for the scammer.\n\nInformation based goods like access to website or downloads are non-fencible. Nobody is going to be able to make a living off stealing access to websites or downloads. They can go to the file sharing networks to steal that. Most instant-access products aren't going to have a huge incentive to steal.\n\nIf a merchant actually has a problem with theft, they can make the customer wait 2 minutes, or wait for something in e-mail, which many already do. If they really want to optimize, and it's a large download, they could cancel the download in the middle if the transaction comes back double-spent. If it's website access, typically it wouldn't be a big deal to let the customer have access for 5 minutes and then cut off access if it's rejected. Many such sites have a free trial anyway.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 657,
 		"alen": 1732,
 		"len": 2389
@@ -6606,6 +6610,7 @@
 		"q": "This requires that we know, that is to say an honest well behaved peer whose communications and data storage is working well knows, what the current best branch is -",
 		"a": "I mean a node only needs the pending-tx pool for the best branch it has. The branch that it currently thinks is the best branch.\n\nThat's the branch it'll be trying to make a block out of, which is all it needs the pool for.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 165,
 		"alen": 223,
 		"len": 388
@@ -6617,6 +6622,7 @@
 		"q": "Rather than assuming that each message arrives at least once, we have to make a mechanism such that the information arrives even though conveyed by messages that frequently fail to arrive.",
 		"a": "I think I've got the peer networking broadcast mechanism covered.\n\nEach node sends its neighbours an inventory list of hashes of the new blocks and transactions it has. The neighbours request the items they don't have yet. If the item never comes through after a timeout, they request it from another neighbour that had it. Since all or most of the neighbours should eventually have each item, even if the coms get fumbled up with one, they can get it from any of the others, trying one at a time.\n\nThe inventory-request-data scheme introduces a little latency, but it ultimately helps speed more by keeping extra data blocks off the transmit queues and conserving bandwidth.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 188,
 		"alen": 675,
 		"len": 863
@@ -6628,6 +6634,7 @@
 		"q": "You have an outline and proposal for such a design, which is a big step forward, but the devil is in the little details.",
 		"a": "I believe I've worked through all those little details over the last year and a half while coding it, and there were a lot of them.\n\nThe functional details are not covered in the paper, but the sourcecode is coming soon. I sent you the main files.\n\n(available by request at the moment, full release soon)",
 		"skip": false,
+		"favorite": true,
 		"qlen": 120,
 		"alen": 304,
 		"len": 424
@@ -6639,6 +6646,7 @@
 		"q": "Yea, that was the primary feature that caught my eye. The real trick will be to get people to actually value the BitCoins so that they become currency.",
 		"a": "I would be surprised if 10 years from now we're not using electronic currency in some way, now that we know a way to do it that won't inevitably get dumbed down when the trusted third party gets cold feet.\n\nIt could get started in a narrow niche like reward points, donation tokens, currency for a game or micropayments for adult sites. Initially it can be used in proof-of-work applications for services that could almost be free but not quite.\n\nIt can already be used for pay-to-send e-mail. The send dialog is resizeable and you can enter as long of a message as you like.\n\nIt's sent directly when it connects. The recipient doubleclicks on the transaction to see the full message. If someone famous is getting more e-mail than they can read, but would still like to have a way for fans to contact them, they could set up Bitcoin and give out the IP address on their website. \"Send X bitcoins to my priority hotline at this IP and I'll read the message personally.\" Subscription sites that need some extra proof-of-work for their free trial so it doesn't cannibalize subscriptions could charge bitcoins for the trial.\n\nIt might make sense just to get some in case it catches on. If enough people think the same way, that becomes a self fulfilling prophecy. Once it gets bootstrapped, there are so many applications if you could effortlessly pay a few cents to a website as easily as dropping coins in a vending machine.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 151,
 		"alen": 1422,
 		"len": 1573
@@ -6650,23 +6658,13 @@
 		"q": "If POW tokens do become useful, and especially if they become money, machines will no longer sit idle. Users will expect their computers to be earning them money (assuming the reward is greater than the cost to operate). A computer whose earnings are being stolen by a botnet will be more noticeable to its owner than is the case today, hence we might expect that in that world, users will work harder to maintain their computers and clean them of botnet infestations.",
 		"a": "there would be a profit motive for people to set up massive quantities of fake e-mail accounts to harvest POW tokens from spam. They'd essentially be reverse-spamming the spammers with automated mailboxes that collect their POW and don't read the message. The ratio of fake mailboxes to real people could become too high for spam to be cost effective.\n\nThe process has the potential to establish the POW token's value in the first place, since spammers that don't have a botnet could buy tokens from harvesters. While the buying back would temporarily let more spam through, it would only hasten the self-defeating cycle leading to too many harvesters exploiting the spammers.\n\nInterestingly, one of the e-gold systems already has a form of spam called \"dusting\". Spammers send a tiny amount of gold dust in order to put a spam message in the transaction's comment field.\n\nIf the system let users configure the minimum payment they're willing to receive, or at least the minimum that can have a message with it, users could set how much they're willing to get paid to receive spam.",
 		"skip": false,
+		"favorite": true,
 		"qlen": 468,
 		"alen": 1081,
 		"len": 1549
 	},
 	{
 		"id": 600,
-		"date": "2009-01-16 18:35:32",
-		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21356305/",
-		"q": "Yea, that was the primary feature that caught my eye. The real trick will be to get people to actually value the BitCoins so that they become currency.",
-		"a": "I would be surprised if 10 years from now we're not using electronic currency in some way, now that we know a way to do it that won't inevitably get dumbed down when the trusted third party gets cold feet.\n\nIt could get started in a narrow niche like reward points, donation tokens, currency for a game or micropayments for adult sites. Initially it can be used in proof-of-work applications for services that could almost be free but not quite.\n\nIt can already be used for pay-to-send e-mail. The send dialog is resizeable and you can enter as long of a message as you like.\n\nIt's sent directly when it connects. The recipient doubleclicks on the transaction to see the full message. If someone famous is getting more e-mail than they can read, but would still like to have a way for fans to contact them, they could set up Bitcoin and give out the IP address on their website. \"Send X bitcoins to my priority hotline at this IP and I'll read the message personally.\" Subscription sites that need some extra proof-of-work for their free trial so it doesn't cannibalize subscriptions could charge bitcoins for the trial.\n\nIt might make sense just to get some in case it catches on. If enough people think the same way, that becomes a self fulfilling prophecy. Once it gets bootstrapped, there are so many applications if you could effortlessly pay a few cents to a website as easily as dropping coins in a vending machine.",
-		"skip": false,
-		"qlen": 151,
-		"alen": 1422,
-		"len": 1573
-	},
-	{
-		"id": 601,
 		"date": "2009-01-25 16:45:25",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21424626/",
 		"q": "I have had a couple of problems running bitcoin: is this an appropriate list for reporting them (with about 70kb of attachments)?",
@@ -6677,7 +6675,7 @@
 		"len": 324
 	},
 	{
-		"id": 602,
+		"id": 601,
 		"date": "2009-02-22 17:47:52",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21646307/",
 		"q": "What's next?",
@@ -6688,7 +6686,7 @@
 		"len": 357
 	},
 	{
-		"id": 603,
+		"id": 602,
 		"date": "2009-03-04 16:59:12",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
 		"q": "That sounds good. I'd also like to be able to run multiple coin/block generators on multiple machines, all behind a single NAT address. I haven't tried this yet so I don't know if it works on the current software.",
@@ -6699,7 +6697,7 @@
 		"len": 705
 	},
 	{
-		"id": 604,
+		"id": 603,
 		"date": "2009-03-04 16:59:12",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
 		"q": "BTW I don't remember if we talked about this, but the other day some people were mentioning secure timestamping. You want to be able to prove that a certain document existed at a certain time in the past.\n\nSeems to me that bitcoin's stack of blocks would be perfect for this.",
@@ -6710,7 +6708,7 @@
 		"len": 517
 	},
 	{
-		"id": 605,
+		"id": 604,
 		"date": "2009-03-04 16:59:12",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
 		"q": "Right, and I'd like to see more of a library interface that could be called from programming or scripting languages, on the client side as well.",
@@ -6721,7 +6719,7 @@
 		"len": 152
 	},
 	{
-		"id": 606,
+		"id": 605,
 		"date": "2009-10-23 23:57:51",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "Do you Windows users experience occasional Bitcoin crashes? Lately Bitcoin running in wine-1.0.1 has been crashing frequently. I was just wondering whether this is a Wine issue or a Bitcoin issue.",
@@ -6732,7 +6730,7 @@
 		"len": 598
 	},
 	{
-		"id": 607,
+		"id": 606,
 		"date": "2009-10-23 23:57:51",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "The following four lines print from the terminal when I start Bitcoin.\n\nfixme:toolhelp:CreateToolhelp32Snapshot Unimplemented: heap list snapshot fixme:toolhelp:Heap32ListFirst : stub fixme:toolhelp:CreateToolhelp32Snapshot Unimplemented: heap list snapshot fixme:toolhelp:Heap32ListFirst : stub",
@@ -6743,7 +6741,7 @@
 		"len": 415
 	},
 	{
-		"id": 608,
+		"id": 607,
 		"date": "2009-10-23 23:57:51",
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "I previously wasn't starting Bitcoin from the terminal, so I don't know what gets printed out when it crashes, but I'll reply with the results the next time it crashes.\n\nWhile Bitcoin first downloads previously completed blocks, the file debug.log grows grows to 17.4 MB and then stops growing. I imagine it will continue to grow as more bitcoins are completed.",
