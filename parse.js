@@ -171,11 +171,12 @@ const shouldSkip = (qa) => {
 }
 
 const qas = parsePosts().concat(parseEmails())
-  .map(({ date, ...qa }, i) => ({
-    id: i + 1, date: new Date(date + ' UTC').toISOString().split('.')[0].replace('T', ' '), ...qa,
+  .map((qa) => ({
+    ...qa, date: new Date(qa.date + ' UTC').toISOString().split('.')[0].replace('T', ' '), 
     skip: shouldSkip(qa), favorite: overrides[qa.src]?.favorite,
   }))
-  .sort((a, b) => a.date - b.date)
+  .sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
+  .map((qa, i) => ({ id: i + 1, ...qa }))
   .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
   .map(qa => ({ ...qa, len: qa.qlen + qa.alen }))
 
