@@ -20,9 +20,9 @@ const splitEmail = (email) => {
     .split('\n')
     .map(l => l.trim())
   
-  const sig = lines.indexOf('---------------------------------------------------------------------')
-  if (sig !== -1) {
-    const len = sig - 1
+  const signature = lines.indexOf('---------------------------------------------------------------------')
+  if (signature !== -1) {
+    const len = signature - 1
     while (lines[len] === '\n') {
       len--
     }
@@ -164,12 +164,17 @@ const parsePosts = () => {
   return out
 }
 
+const getType = (qa) => {
+  const text = qa.q + qa.a
+}
+
 const qas = parsePosts().concat(parseEmails())
   .map((qa) => ({
     ...qa, date: new Date(qa.date + ' UTC').toISOString().split('.')[0].replace('T', ' '), 
-    type: overrides[qa.src]?.type,
+    type: overrides[qa.src]?.type || getType(qa),
   }))
   .sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
+  // .sort((a, b) => (a.q.length + a.a.length) - (b.q.length + b.a.length))
   .map((qa, i) => ({ id: i + 1, ...qa }))
   .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
   .map(qa => ({ ...qa, len: qa.qlen + qa.alen }))
@@ -182,14 +187,19 @@ const toHTML = (text) => {
 
 fs.writeFileSync('./data/qa.html', `
   <html>
-  <head><title>Q&As of Satoshi Nakamoto</title></head>
+  <head>
+    <title>Q&As of Satoshi Nakamoto</title>
+    <style type="text/css">
+      .ignore { display: none; }
+    </style>
+  </head>
   <body>
-    ${qas.filter(qa => qa.type !== 'ignore').map(i => `
+    ${qas.map(i => `<div class="${i.type || ''}">
       <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a>${i.type == 'favorite' ? ' ⭐️' : ''}</p>
       <p><b>User</b>${i.qlen ? ` (${i.qlen} chars)`: ''}: ${toHTML(i.q)}</p>
       <p><b>Satoshi</b>${i.alen ? ` (${i.alen} chars)`: ''}: ${toHTML(i.a)}</p>
       <hr />
-    `).join('')}
+    </div>`).join('')}
   </body>
   </html>
 `)
