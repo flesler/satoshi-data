@@ -485,6 +485,7 @@
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
 		"q": "That sounds good. I'd also like to be able to run multiple coin/block generators on multiple machines, all behind a single NAT address. I haven't tried this yet so I don't know if it works on the current software.",
 		"a": "The current version will work fine. They'll each connect over the Internet, while incoming connections only come to the host that port 8333 is routed to.\n\nAs an optimisation, I'll make a switch \"-connect=1.2.3.4\" to make it only connect to a specific address. You could make your extra nodes connect to your primary, and only the primary connects over the Internet. It doesn't really matter for now, since the network would have to get huge before the bandwidth is anything more than trivial.",
+		"type": "ignore",
 		"qlen": 213,
 		"alen": 492,
 		"len": 705
@@ -495,6 +496,7 @@
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
 		"q": "BTW I don't remember if we talked about this, but the other day some people were mentioning secure timestamping. You want to be able to prove that a certain document existed at a certain time in the past.\n\nSeems to me that bitcoin's stack of blocks would be perfect for this.",
 		"a": "Indeed, Bitcoin is a distributed secure timestamp server for transactions. A few lines of code could create a transaction with an extra hash in it of anything that needs to be timestamped.\n\nI should add a command to timestamp a file that way.",
+		"type": "ignore",
 		"qlen": 275,
 		"alen": 242,
 		"len": 517
@@ -505,6 +507,7 @@
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/21740046/",
 		"q": "Right, and I'd like to see more of a library interface that could be called from programming or scripting languages, on the client side as well.",
 		"a": "Exactly.",
+		"type": "ignore",
 		"qlen": 144,
 		"alen": 8,
 		"len": 152
@@ -515,6 +518,7 @@
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "Do you Windows users experience occasional Bitcoin crashes? Lately Bitcoin running in wine-1.0.1 has been crashing frequently. I was just wondering whether this is a Wine issue or a Bitcoin issue.",
 		"a": "I haven't had any reports of crashes in v0.1.5. It's been rock solid for me on Windows. I think it must be Wine related. If you get another crash in Wine and it prints anything on the terminal, e-mail me and I may be able to figure out what happened, maybe something I can work around. Martti and I have been working on a new version to release soon and it would be nice to get any Wine fixes in there.",
+		"type": "ignore",
 		"qlen": 196,
 		"alen": 402,
 		"len": 598
@@ -525,6 +529,7 @@
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "The following four lines print from the terminal when I start Bitcoin.\n\nfixme:toolhelp:CreateToolhelp32Snapshot Unimplemented: heap list snapshot fixme:toolhelp:Heap32ListFirst : stub fixme:toolhelp:CreateToolhelp32Snapshot Unimplemented: heap list snapshot fixme:toolhelp:Heap32ListFirst : stub",
 		"a": "Those don't look like anything to worry about. Probably functions unimplemented by Wine that are harmlessly stubbed out.",
+		"type": "ignore",
 		"qlen": 295,
 		"alen": 120,
 		"len": 415
@@ -535,6 +540,7 @@
 		"src": "https://sourceforge.net/p/bitcoin/mailman/message/23824064/",
 		"q": "I previously wasn't starting Bitcoin from the terminal, so I don't know what gets printed out when it crashes, but I'll reply with the results the next time it crashes.\n\nWhile Bitcoin first downloads previously completed blocks, the file debug.log grows grows to 17.4 MB and then stops growing. I imagine it will continue to grow as more bitcoins are completed.",
 		"a": "You can delete debug.log occasionally if you don't want to take the disk space. It's just status messages that help with debugging.\n\nbitcoin.sourceforge.net looks fine now. Maybe sourceforge was doing some maintenance.",
+		"type": "ignore",
 		"qlen": 361,
 		"alen": 218,
 		"len": 579
@@ -605,6 +611,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=9.msg37#msg37",
 		"q": "Can we get instructions or modifications to compile and install BitCoin on Linux? A command line version would be great.",
 		"a": "The Linux version is on its way. Martti's Linux port was merged into the main code branch and New Liberty Standard has been testing it. It'll be in the next release, version 0.2.\nCommand line is on the to-do list after 0.2.",
+		"type": "ignore",
 		"qlen": 120,
 		"alen": 223,
 		"len": 343
@@ -615,6 +622,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg41#msg41",
 		"q": "Hey,\nFirst off I must say that this is an amazing concept. I have been dreaming of a P2P money system for a LONG time.\nYou have my complete kudos and respect.\nI have a few suggestions:\n- When the bitcoin software establishes a connection with a peer (client TCP socket) have the client send the handshake string. Right now you have the server (server TCP socket) send the handshake. My reasons for this are anonymity of course. It is far too easy for ISPs to portscan clients and detect they are running this program.\n- Use some sort of encryption during the handshake (sort of goes with the statement/request above) to obfuscate what the software is during DPI (deep packet inspection). I am really thinking about people in non-free (as in freedom) countries such as China/Iran.\n- Some sort of an API is needed so that this system can be integrated with websites to provide instant-on services. A simple https receipt mechanism would do wonders. Have the client post each incoming payment to an https url with all of the relevant information and provide status updates. Also an outbound payment mechanism would be nice. So one could automate payments (and batch payments) outbound. Status could be returned via the https receipt interface.\n- Static port/Random port. Have a setting to randomly assign the port that it runs on. (also be able to set it statically for very restrictive firewalls).\n- UPnP support. Have the client automatically create the port forward on upstream routers. Enabled by default. Can be turned off in the options menu.\n- Ability to compile a headless (console only) install for *NIX systems. Also have the ability to just run as a network service. Perhaps with a telnet-able port for control (or even a unix socket would be ok).",
 		"a": "Helpful suggestions, thanks.",
+		"type": "ignore",
 		"qlen": 1755,
 		"alen": 28,
 		"len": 1783
@@ -625,6 +633,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg41#msg41",
 		"q": "- When the bitcoin software establishes a connection with a peer (client TCP socket) have the client send the handshake string. Right now you have the server (server TCP socket) send the handshake. My reasons for this are anonymity of course. It is far too easy for ISPs to portscan clients and detect they are running this program.",
 		"a": "That's a good idea. The side accepting the connection just needs to withhold from sending anything until it receives a valid handshake. Any portscan would only get a dead connection that doesn't volunteer to identify itself.",
+		"type": "ignore",
 		"qlen": 332,
 		"alen": 224,
 		"len": 556
@@ -635,6 +644,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg41#msg41",
 		"q": "- Use some sort of encryption during the handshake (sort of goes with the statement/request above) to obfuscate what the software is during DPI (deep packet inspection). I am really thinking about people in non-free (as in freedom) countries such as China/Iran.",
 		"a": "I have thought about eventually SSLing all the connections. I assume anything short of SSL would be pointless against DPI. Maybe a better more immediate solution is to connect through TOR, which will be possible with 0.2.",
+		"type": "ignore",
 		"qlen": 261,
 		"alen": 221,
 		"len": 482
@@ -645,6 +655,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg41#msg41",
 		"q": "- Some sort of an API is needed so that this system can be integrated with websites to provide instant-on services. A simple https receipt mechanism would do wonders. Have the client post each incoming payment to an https url with all of the relevant information and provide status updates. Also an outbound payment mechanism would be nice. So one could automate payments (and batch payments) outbound. Status could be returned via the https receipt interface.",
 		"a": "That's one of the main things on the agenda after 0.2.",
+		"type": "ignore",
 		"qlen": 460,
 		"alen": 54,
 		"len": 514
@@ -655,6 +666,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg41#msg41",
 		"q": "- Static port/Random port. Have a setting to randomly assign the port that it runs on. (also be able to set it statically for very restrictive firewalls).",
 		"a": "Yeah, the other stealth stuff would be kinda pointless if it's always the same port number.",
+		"type": "ignore",
 		"qlen": 154,
 		"alen": 91,
 		"len": 245
@@ -665,6 +677,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg41#msg41",
 		"q": "- UPnP support. Have the client automatically create the port forward on upstream routers. Enabled by default. Can be turned off in the options menu.",
 		"a": "I'm looking forward to trying UPnP. Do most P2P clients typically have UPnP enabled by default?",
+		"type": "ignore",
 		"qlen": 149,
 		"alen": 95,
 		"len": 244
@@ -675,6 +688,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg41#msg41",
 		"q": "- Ability to compile a headless (console only) install for *NIX systems. Also have the ability to just run as a network service. Perhaps with a telnet-able port for control (or even a unix socket would be ok).",
 		"a": "I'm still thinking about how best to structure the management interface. Maybe command line commands to communicate with the background daemon to query transactions received and initiate sending transfers. That would be more automation friendly. Or what about an http interface on some port other than 80 to manage it with a browser?",
+		"type": "ignore",
 		"qlen": 209,
 		"alen": 333,
 		"len": 542
@@ -685,6 +699,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg45#msg45",
 		"q": "Front ends can also be ran on clients with very low cpu power such as mobile phones.",
 		"a": "That's a good approach for mobile. Programmatic API used by PHP (any language) to present a web UI covers remote admin, mobile and any other client that can't be online all the time with a static IP. It would be like webmail. It would be easier for new users to get started if they only need to create an account on a website, not install software.",
+		"type": "ignore",
 		"qlen": 84,
 		"alen": 348,
 		"len": 432
@@ -695,6 +710,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg45#msg45",
 		"q": "The app could be pre-seeded before downloading. Pre-seeding would also cure the TOR+IRC problem. I know that people will want to run this system over I2P+TOR.",
 		"a": "Yeah, we can phase out IRC when there are enough static nodes to preprogram a seed list. Once you get seeded, you don't need IRC.",
+		"type": "ignore",
 		"qlen": 158,
 		"alen": 129,
 		"len": 287
@@ -705,6 +721,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg45#msg45",
 		"q": "Also you could pre-seed the blocks so they won't have to be downloaded upon initial run. (Downloading 28,000 blocks on a slower ADSL takes forever I couldn't imagine how long it would take when there are millions of blocks -- a lifetime).",
 		"a": "There were some issues in 0.1.5 where the initial block download could get bogged down. 0.2 has code to make sure it goes smoothly. It ought to take less than an hour, I think. I need to hurry up and get 0.2 out the door.\nThe blocks increase linearly, it'll be decades before it's millions. In theory, the block download time should top out 8 months from now when Moore's Law will be growing faster than the block chain.",
+		"type": "ignore",
 		"qlen": 238,
 		"alen": 420,
 		"len": 658
@@ -715,6 +732,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg45#msg45",
 		"q": "Can you give me CVS access or something? (If not, can I send you patches?) I'd like to help out.",
 		"a": "It's SVN on sourceforge. PM or e-mail me your sourceforge account and I'll give you access.",
+		"type": "ignore",
 		"qlen": 96,
 		"alen": 91,
 		"len": 187
@@ -725,6 +743,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg45#msg45",
 		"q": "I am mostly a Linux/BSD guy and I would like to lend my expertise in those areas.",
 		"a": "That's great because that's where I have less expertise. For instance, I haven't researched the best way to do the \"Start Bitcoin on system startup\" feature on Linux. On Windows, the option adds/removes an icon in the Startup folder.",
+		"type": "ignore",
 		"qlen": 81,
 		"alen": 233,
 		"len": 314
@@ -865,6 +884,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg50#msg50",
 		"q": "Okay, let me get registered on SF and get you my username. I haven't used SF in years so I'll have to familiarize myself. Will this give me access to the current branch you fellows are currently working on? (0.2)\nI have been trying to think of the options that will be needed for the backend process. I wonder which would be better: a long set of command line switches or a configuration file. Hmm...\nI have a lot of servers spread across the globe. If we can get to the point where we have a working backend process that will run on FreeBSD I can run always-on seeds.\nI really think that having the download package contain a daily seed snapshot will improve the bootstrapping. I have seen instances on new test installs here where the application will sit with 0 connections / 1 block. Upon inspecting the debug.log I find that the IRC server (freenode, I believe) claims I am already connected and refuses to let me seed the application. (Just an example).\nI think that a simple network monitor plugin for Nagios would be helpful as well. Something that can emulate a connecting client, and retrieve a valid status code from the backend process. I have a lot of ideas.\nIn any event, I would like to help. I have a lot of time and a project like this one is very exciting.\nThanks for letting me be a part of it.",
 		"a": "Right, the SVN has the almost-release-candidate 0.2 source, which can also be built and run on Linux. It hasn't been tested on FreeBSD.",
+		"type": "ignore",
 		"qlen": 1313,
 		"alen": 135,
 		"len": 1448
@@ -875,6 +895,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg50#msg50",
 		"q": "If we can get to the point where we have a working backend process that will run on FreeBSD I can run always-on seeds.",
 		"a": "That would be a big help. TOR users wouldn't have to worry about how to get seeded, and we wouldn't depend on IRC.\nIt can be run in a few simple modes without access to the UI if you don't mind a minimized window on the desktop. (0.1.5 doesn't have -min so it would be an open window)\nTo only run a seed:\nbitcoin -min -gen=0\nYou could sort of monitor it by looking at debug.log. To stop it, kill the process, the database won't mind.\nTo generate:\nbitcoin -min -gen\nTo get the generated bitcoins, you'd have to copy wallet.dat (with version 0.2) to a machine with a UI, swap in the wallet.dat, run bitcoin and transfer the coins to your main account. (With version 0.1.5 you'd have to copy the whole \"%appdata%/Bitcoin\" directory.) There is one caveat about copying wallet.dat: if you happened to kill the program at the exact moment that it generated a coin or received a payment, wallet.dat might not work by itself and you'd have to copy the whole directory.",
+		"type": "ignore",
 		"qlen": 118,
 		"alen": 960,
 		"len": 1078
@@ -885,6 +906,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg50#msg50",
 		"q": "I really think that having the download package contain a daily seed snapshot will improve the bootstrapping. I have seen instances on new test installs here where the application will sit with 0 connections / 1 block. Upon inspecting the debug.log I find that the IRC server (freenode, I believe) claims I am already connected and refuses to let me seed the application. (Just an example).",
 		"a": "I see, that would happen with multiple nodes using the same NAT or VPN or some ISP that funnels everyone through a few proxy servers. I just committed a fix to SVN for this. If it gets \"433\" name already in use (it was error 433, right?), it'll retry with a non-address random username.",
+		"type": "ignore",
 		"qlen": 390,
 		"alen": 286,
 		"len": 676
@@ -895,6 +917,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg50#msg50",
 		"q": "In any event, I would like to help. I have a lot of time and a project like this one is very exciting.",
 		"a": "That's great, any help is really appreciated!",
+		"type": "ignore",
 		"qlen": 102,
 		"alen": 45,
 		"len": 147
@@ -992,6 +1015,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=12.msg79#msg79",
 		"q": "Hi. I would like to second the headless/non-GUI mode for /*nix/i systems. It would be useful to be able to start the Bitcoin software from an initscript or one's ~/.bashrc (or equivalent) file and let it run in the background, silently cranking away.\nAlso, what would the feasibility of changing the location of the wallet.dat file be for the Win32 client? I ask this because I was playing around with the .zipped Windows Bitcoin client yesterday, and it struck me that it would make a good portable application. I was toying with the idea of decompressing it into a TrueCrypt volume on a USB drive so that it could, say, be taken on the road, run for a few hours, and then shut down just before the volume was unmounted, but it created the wallet.dat file in the C:\\Documents and Settingsame\\Application Data\\Bitcoin directory. In effect, using a portable version of Bitcoin to eventually grow a portable wallet.",
 		"a": "What you can currently do is set \"Minimize to the tray\" in options, then run it as \"bitcoin -min\" so it starts minimized. The only visible part will be a small (20x20) icon on the tray, which can be doubleclicked if you want to access the UI. Note: there's a bug with tray icons sometimes disappearing on 64-bit Karmic Koala, not sure if it's from 64-bit or Karmic, it was fine on 32-bit Jaunty.\nWe didn't have time to implement the \"Start Bitcoin on system startup\" feature on Linux in time for 0.2 so it's greyed out. I figured Linux people wouldn't mind doing that manually anyway. I guess they need to know about the -min switch to do it right.\nYou can locate the data directory where you want with the \"-datadir=<directory>\" switch. I know someone is already doing that to put it on a TrueCrypt USB drive.",
+		"type": "ignore",
 		"qlen": 913,
 		"alen": 810,
 		"len": 1723
@@ -1002,6 +1026,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=17.msg85#msg85",
 		"q": "Other nodes aren't going to know which IP you're sending to, your client just connects directly to it. Both IP's are fine as long as the connection routes to the right computer. Anyway, I'd use the inner address inside a network for simplicity.",
 		"a": "The transfer is immediate if you send by IP address. If you send by bitcoin address and the recipient isn't online at the time, it might take 30 minutes or more to see it.\nAlso, the recipient needs to be synced up with the block chain before it'll see the received transaction. That means the status bar at the bottom needs to say at least 33000 blocks, like \"x connections 33200 blocks x transactions\".",
+		"type": "ignore",
 		"qlen": 244,
 		"alen": 403,
 		"len": 647
@@ -1012,6 +1037,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=17.msg85#msg85",
 		"q": "The number of blocks of a transaction is the amount of new blocks that have been generated by the whole network after the transaction. Each new block in the chain means new coins to its creator. One \"generated\" -transaction in your transaction list means that you have generated one block. You're not the first one to find the concept of a \"block\" a bit confusing on the first sight.",
 		"a": "Would it be clearer if the status said \"x confirmations\", like:\n2/unconfirmed\n3/unconfirmed\n4/unconfirmed\n5/unconfirmed\n6 confirmations\n7 confirmations\n8 confirmations\nEach block essentially means another node has confirmed that it agrees with all transactions up to that point.",
+		"type": "ignore",
 		"qlen": 383,
 		"alen": 278,
 		"len": 661
@@ -1022,6 +1048,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=18.msg97#msg97",
 		"q": "Can bitcoin be compiled to run on 64 bit systems yet? -m64 seems to break the compile.\n(Not trying to nag or anything).\nOn a side node: I have noticed that the network is about 3x larger than normal now. I see more nodes!",
 		"a": "I haven't tried compiling 64-bit yet. 64-bit wouldn't make it any faster, since it uses 64-bit numbers in only a few places and SHA-256 is a 32-bit algorithm, but it may be convenient for those running a 64-bit OS. If I get a chance I'll try -m64 and see what the problem is.\nYou can run the 32-bit version on 64-bit Linux by installing ia32-libs. (sudo apt-get install ia32-libs) If we made a Debian package, it could automatically pull that in as a dependency.",
+		"type": "ignore",
 		"qlen": 221,
 		"alen": 462,
 		"len": 683
@@ -1052,6 +1079,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=27.msg156#msg156",
 		"q": "Lately when I've been trying to send coins, the following popups twice, then the application terminates.\nEXCEPTION: St13runtime_error\nSendMoney() : wtxNew.AcceptTransaction() failed\nc:\\Documents and Settingsame\bitcoin-0.2.0\bitcoin.exe in\nCMyApp::OnExceptionInMainLoop()\nWhen i restart bitcoin.exe, the transaction is showing as 0/unconfirmed. The status do not change even when the total block count increases.\nI'm running two instances of bitcoin in my home LAN, one at my desktop computer, and one in a virtual machine on my laptop, with the switch -connect=192.168.0.2 (ip of desktop computer).\nThis occurs when I send to my own bitcoin address, to my other computers bitcoin address and to an other bitcoin address not currently active anywhere. I'm not sending by ip.\nI've been moving wallets and index-files back and forth, could this have something to do with this?",
 		"a": "That is what happens if you copy wallet files around. If you copy your wallet file to a second computer, then they both think the money in the wallet is theirs. If one spends any of it, the other doesn't know those coins are already spent and would try to spend them again, and that's the error you would hit.\nNow that it's clear this is a key error message, it ought to be something more like \"the money appears to be already spent... this could happen if you used a copy of your wallet file on another computer.\"\nYou can move or backup your wallet file, but it needs to have only one \"lineage\" and only used in one place at a time. Any time you transfer money out of it, then you must no longer use any previous copies.\nThis brings up a good point. In the case of restoring a backup that may be from before you spent some coins, we need to add functionality to resync it to discover which coins have already been spent. This would not be hard to do, it just hasn't been implemented yet. I'll add it to the list. This would make it mostly repair the situation instead of giving that error message.",
+		"type": "ignore",
 		"qlen": 872,
 		"alen": 1098,
 		"len": 1970
@@ -1072,6 +1100,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=28.msg160#msg160",
 		"q": "Yes it will.\nImportance is relative. You can use the number of blocks to calculate some statistics. Also, if you press ctrl+[numpad+], you will see the serial number and hash of the blocks. (At least on windows).",
 		"a": "Where it says \"# blocks\" in the status column I'm changing it to say \"# confirmations\". That might be clearer.\nIf you doubleclick on the transaction you get a little more information.",
+		"type": "ignore",
 		"qlen": 212,
 		"alen": 183,
 		"len": 395
@@ -1092,6 +1121,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=29.msg172#msg172",
 		"q": "Satoshi, when we may expect the new command line-abled version of Bitcoin? Or is it possible to compile Bitcoin 0.2 in a way it can be used by command lines?",
 		"a": "That's the right way to do it as riX says. The software can generate a new bitcoin address whenever you need one for each payment. \"Please send X bc to [single-use bitcoin address] to complete your order\" When the server receives that amount to the bitcoin address, that could trigger it to automatically fulfil the order or e-mail the shop owner.\nAdding command line support is a high priority. It's just a matter of getting the time to code it.",
+		"type": "ignore",
 		"qlen": 157,
 		"alen": 446,
 		"len": 603
@@ -1123,6 +1153,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=35.msg220#msg220",
 		"q": "I wanted to document an issue I encountered when first installing and using the Bitcoin software.\nDespite a correct installation and port forward settings I noticed that Bitcoin was not generating any coins or 'blocks' despite having 20+ connections for the first 24hrs. The block count just remained at 0. After realizing that Bitcoin was not 'catching up' with the collective network block download or generation I opened up the Task Manager to investigate the issue further.\nI noticed that the bitcoin.exe process seemed to be 'fighting' for CPU usage against MsMpEng.exe (Microsoft Security Essentials). I hadn't noticed any system slowdown due to having a fairly high spec. PC. After adding bitcoin.exe and the appropriate program folder locations to Exclude 'Files and Locations' and 'Exclude Processes' - Bitcoin instantly started generating blocks and the CPU processes returned to normal.\nI did not have any virus alerts or even 'false positive' identifications for Bitcoin. I know that the software is 100% OK. I'm assuming that the 'Live Protection' engine in Microsoft Security Essentials just doesn't 'play well' with some aspect of the CPU hungry cycles used in 'block' generation.\nI have yet to do more testing, however I also encountered the same issue when using Comodo Internet Security (free version).\nThis is obviously going to be an issue for lots of new Bitcoin users who will perhaps be less 'tech savvy'. Has anyone else encountered any similar issues ?",
 		"a": "Thanks for that. Which version of Windows?",
+		"type": "ignore",
 		"qlen": 1477,
 		"alen": 42,
 		"len": 1519
@@ -1204,6 +1235,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=46.msg284#msg284",
 		"q": "First request:\nOptional connect to IP dialog.\nBitCoin connects to the network(of peers) by getting one of a number of IP's from IRC at present, once connected to a single peer other connections can be made, so if only 1 IP on the list are available then you can connect to the network & make connections to other IP's(this is my assumption, please correct me if I am wrong).\nThis is somewhat similar to how Tor works, when you first start it up it attempts to connect to a public list of IP's(public bridge nodes). This list being public is accessible to organisations that want to prevent the use of Tor(for example the Chinese or Iranian government). And so as a consequence these IP's are blocked, and you cannot connect from these countries.\nHowever there is the option to connect to the ip of a bridge (if you know one, a friend in a free country running Tor in bridge mode perhaps) and so this circumvents regime blocking attempts and is very robust.\nAdding this feature will allow Bitcoin to function despite regime efforts to prevent it.",
 		"a": "There are command line options:\nbitcoin -addnode=1.2.3.4 to tell bitcoin about a node to connect to\nbitcoin -connect=1.2.3.4 connect only to the specified node(s)\nYou can use more than one of these, for instance\nbitcoin -connect=(first to try) -connect=(next to try) ...\nYou can specify non-routable IPs with -connect like 192.168.x.x, so if you had a server farm and you wanted one server to connect to the world and the rest to connect to the one server, you could do that.\nIn particular, -addnode is needed if you're always going to connect through TOR, since the IRC server blocks all the TOR exit nodes. To connect through TOR, you could use:\nbitcoin -proxy=127.0.0.1:9050 -addnode=212.159.72.216",
+		"type": "ignore",
 		"qlen": 1045,
 		"alen": 701,
 		"len": 1746
@@ -1297,6 +1329,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=54.msg360#msg360",
 		"q": "Hello,\nwell the title says it all. I want to set up multiple bitcoin machines behind NAT.\nFor this it reason would be nice, if one could choose an other port than 8333, which I guess would have other nice side effects. Maybe someone uses this port for something else or maybe it isn't possible to set up port forwarding to this port for one reason or another.\nOr is there an other way one should go?",
 		"a": "Right now there isn't a port number setting to do that. It's a feature yet to be implemented. You can only set up your NAT to port-forward to one of the computers. (I said something earlier about NAT port translation, but that wouldn't work, other nodes wouldn't know to connect to that port)\nIf you want, as a small optimization, you could run the rest of your computers as:\nbitcoin -connect=<the IP of the first computer>\nso they get all their network communication from the first computer and don't all connect over the net individually for the same information. This saves bandwidth, although it doesn't use much bandwidth to begin with, so it wouldn't really matter unless you had tons of computers.\nFor redundancy in case the first computer goes down, you could have two that connect out and the rest connect to both of them. The first two are run normally, the rest are run like:\nbitcoin -connect=<IP1> -connect=<IP2>",
+		"type": "ignore",
 		"qlen": 399,
 		"alen": 924,
 		"len": 1323
@@ -1338,6 +1371,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=47.msg389#msg389",
 		"q": "My Dutch translation is almost finished. I will send it to sirius-m this week.",
 		"a": "I updated the SVN with changes to support translation. Translatable strings are all enclosed in _(\"\"), and we're using UTF-8 on all platforms.\nWhen the program runs, it looks in the directory of the EXE for the file: locale\\<langcode>\\LC_MESSAGES\bitcoin.mo\n<langcode> is the two letter code of the language your OS is set to, like \"de\" or \"nl\".\nOn Linux, it also looks for:\n/usr/share/locale/<langcode>/LC_MESSAGES/bitcoin.mo\n/usr/local/share/locale/<langcode>/LC_MESSAGES/bitcoin.mo\n(are there other standard places it should look on linux?)\nHere's a quick walkthrough using poedit to make a .po and .mo file:\n- Download the bitcoin sourcecode from SVN\n- In the trunk directory, mkdir locale\\<lang>\\LC_MESSAGES\n- In poedit, File->New catalog->Paths tab\n- Click the \"New item\" dotted rectangle button\n- Put \"../../..\" and MAKE SURE TO PRESS ENTER to add the path\n- Click OK\n- Save the file as \"bitcoin.po\" in the LC_MESSAGES directory you made\n- It should then scan the sourcecode and find about 170 strings\n- If it didn't find anything, check Catalog->Settings->Path tab, make sure the \"../../..\" was added\nWhen you're done translating, commit both bitcoin.po (the editable catalog file) and bitcoin.mo (compiled data used by the program).",
+		"type": "ignore",
 		"qlen": 78,
 		"alen": 1240,
 		"len": 1318
@@ -1431,6 +1465,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=63.msg482#msg482",
 		"q": "Will this requirement be removed sometime? I'd rather not have to deal with GTK.",
 		"a": "How much \"dealing with\" does GTK actually require? Is it just a matter of \"sudo apt-get install libgtk2.0-0\" and having some extra libraries sitting around? GTK doesn't have to do anything, just be there for bitcoin to link to when it loads up, have the gtk-init-check call fail because no GUI present, then it's done.\nIt saves us butchering everything with ifdefs and a separate compile and binary to use wxBase just to try to avoid linking GTK.",
+		"type": "ignore",
 		"qlen": 80,
 		"alen": 446,
 		"len": 526
@@ -1451,6 +1486,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=63.msg509#msg509",
 		"q": "This is strange... When I start Bitcoin as a daemon on my 64 bit Linux server, it eats up all the 250MB of remaining RAM, 700MB of swap and eventually crashes. On my 32 bit Ubuntu desktop, it works fine and stays at 15MB of memory usage. The server is running a 64 bit build of Bitcoin. Maybe there's something wrong with the build or something.",
 		"a": "When and how fast did memory usage increase? Right away, slowly over a long time, or starting at some later event?\nI have -daemon running on ubuntu 9.10 64-bit and memory usage is steady.\nIt has to be something about the difference on the server besides 64-bit. Maybe some malfunction from the lack of GUI. A memory leak debug tool could give a clue.",
+		"type": "ignore",
 		"qlen": 345,
 		"alen": 350,
 		"len": 695
@@ -1649,6 +1685,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=83.msg809#msg809",
 		"q": "Yes. Any built proxy implementation would be open source and automated bitcoin payments would be great.\nI will post the psiphon info. and links because the project has just moved from v1 to v2 and the implementations are very different.\nPsiphon is a free 'circumvention' tool and should remain so. However, I've run a private and personally updated / secured 1.6 version and do accept 'token' donations from some of my users.\n\"Psiphon is a web proxy designed to help Internet users securely bypass the content-filtering systems used to censor the internet. Psiphon was developed by the Citizen Lab at the University of Toronto.\nLicense: GNU General Public License\nSource code: http://psiphon.ca/download/psiphon-src-1.6.tar.gz\nhttp://wikipedia.org/wiki/Psiphon\nhttp://psiphon.ca/\nhttps://launchpad.net/psiphon\nPsiphon is a user-friendly, simple to administer, web-based proxy application. It allows users in regions with unrestricted Internet access to provide access to denied content to their friends, family, and associates in regions with restricted access.\nPlease contact the project leader if you're interested in helping us take Psiphon forward.\nNOTE: The Psiphon 1.x and 2.x series are essentially different products with different architectures. Psiphon 1.x is a light-weight web proxy designed to run on a home PC (MS Windows-based) with no central management component. With Psiphon 1.x, a user asks a friend to run a proxy and can then access blocked sites via his or her friend's Internet connection. The Psiphon 1.x source code is available here: https://code.launchpad.net/~psiphon-inc/psiphon/psiphon-1.6.\nThe new project is Psiphon 2.x, a centrally managed web proxy system deployed by Psiphon Inc. to provide censorship circumvention services.\"\nGreat source code here in reference to designing and building our own separate bitcoin style implementation. I'd grab the 1.6.tar.gz for your reference satoshi, before it becomes to 'historical'. It's also not that easy to compile the 1.6 version on Linux anymore.\nThe 1.6 Win32 version has now been removed from the original project website. I actually run my existing proxy service on a windows box, with additional security. I have the msi and documentation if anyone can't find it elsewhere or would like it for reference etc. I keep it up-to-date and secure from the following sources;\nSSL - http://www.slproweb.com/products/Win32OpenSSL.html\nVisual C++ 2008 Redistributables for msvcpXX.dll and msvcrXX.dll\nhttp://www.sqlite.org/download.html\nPrecompiled Binaries For Windows for sqlite3.dll\nJava and some flash support is always an issue though !\nI would be happy to work on and share contributions for a 'bitcoin' proxy software, but have limited time and developer experience myself. Maybe you should contact the psiphon developers for a separate v1.6 style implementation yourself satoshi ?\nI understand that the Tor project is also looking for a payment / incentive system for it's server operators.\nBitcoinFX",
 		"a": "Title changed.\nIt helps that we have someone with actual experience running a proxy service. Do you think Psiphon is the best one currently? (sometimes the one you run was the best when you started but you found better ones later)",
+		"type": "ignore",
 		"qlen": 2983,
 		"alen": 230,
 		"len": 3213
@@ -1783,6 +1820,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=145.msg1256#msg1256",
 		"q": "An optional parameter to specify the minimum number of blocks after that transaction (getallreceived 1 for current behavior, or just getallreceived, getallreceived 5 for the paranoid, getallreceived 0 for instant confirms)?",
 		"a": "Yeah, that actually is what it is. getallreceived 0 should do what you want. (now it's renamed to listreceivedbyaddress 0) The default is 1 confirmation, but I think in reality most digital goods and services can be 0 confirmations. Like you say, if you need more than 0 confirmations, you could show two numbers, unconfirmed and available balance, so they immediately see their transaction went through.\nlistreceivedbyaddress [minconf=1] [includeempty=false]\n[minconf] is the minimum number of confirmations before payments are included.\n[includeempty] whether to include addresses that haven't received any payments.\nReturns an array of objects containing:\n\"address\" : receiving address\n\"label\" : the label of the receiving address\n\"amount\" : total amount received by the address\n\"confirmations\" : number of confirmations of the most recent transaction included\nor listreceivedbylabel if you're labelling addresses with their username.\nSo far I've concentrated on functions for web merchants, not so much on stuff for remote management of headless coin generators yet.",
+		"type": "ignore",
 		"qlen": 223,
 		"alen": 1070,
 		"len": 1293
@@ -1823,6 +1861,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg1269#msg1269",
 		"q": "Here there is the italian translation of the software.\nThere can be some mistakes, but it's just ok for the first version\nI hope that someone will come to do something better.",
 		"a": "Hurray! We have our first language. I uploaded it to SVN to go in with the 0.3 release.",
+		"type": "ignore",
 		"qlen": 175,
 		"alen": 87,
 		"len": 262
@@ -1833,6 +1872,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=158.msg1322#msg1322",
 		"q": "I'm not sure what you mean by again (I'm not the developer).. anyway I'm just trying to explain why I don't think you should use it to accept payments. Sending payments to a hostname is not reliable for the reasons I said above, and the biggest problem is that there is no way to even know that the payment went to the wrong place, for the sender. There is a better (reliable) alternative using one time bitcoin addresses.\nWhat I was getting at is that there is no authentication and no way to know if the payment got there with internet address based transactions. I think the internet address based payments are only for testing locally. The option is there but I don't think it's suitable for using on the internet or any multi-user network.\nIf there was any real amount of internet address based transactions and tor users I would set up an exit node just to intercept any tor based payments.. I still may do it just to see if I can get any because it's just another way to make a few more bitcoins per day.\nI guess what I'm trying to say that it is the equivalent of leaving a pile of cash in your driveway with a rock on top of it to keep it from blowing away in the wind. Anyone can just go pick it up and so if you're a service provider you would not want to encourage your customers to pay you in that way, because it would just cause problems when the customer says they paid and the service provider says they didn't receive it. The only reason it's even possible to use on the internet right now is because unlike cash which has perceived value to a lot of people, bitcoins are like a pile of rocks to random internet users, they just walk by. If there are all these piles of bitcoins in everybody's driveway and people start figuring out that they're valuable, you can bet they'll start disappearing, so it's best not to put them there in the first place.\nLaszlo",
 		"a": "The current sending by IP is not very useful: it connects to the IP, so you'd like to use TOR for anonymity, but then it can totally be eavesdropped and man-in-the-middled.\nThe future plan for sending to an IP is to make it a bitcoin address plus IP, like:\n1auaDZCFYqaGx4FKS5WenNfurk2SkoDu4h<someseparatorcharacter>1.2.3.4\nor\n1auaDZCFYqaGx4FKS5WenNfurk2SkoDu4h<someseparatorcharacter>domain.com\nI need suggestions for the separator character. \":\" is a candidate, but IPv6 has : in it and that might get confusing. Something that's allowed in url parameters would be nice.\nI want to use SSL for the connection, using the bitcoin address' public key as the cert. You would be certain you're connected to who you thought, and safely encrypted. The bitcoin address would not be used for the transaction, only for authentication. A new generated bitcoin address would be sent through the SSL connection.\nSince it's authenticated, it would then be safe to allow the IP address to be a domain name. Some care taken that if a proxy is used, it uses socks4a instead of DNS lookup.",
+		"type": "ignore",
 		"qlen": 1875,
 		"alen": 1071,
 		"len": 2946
@@ -1853,6 +1893,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg1324#msg1324",
 		"q": "Here is the almost complete (93%) translation into Dutch.\nIt might contain some errors though.\nI can has credit now?",
 		"a": "I uploaded the 93% complete Dutch translation to SVN. Thanks!",
+		"type": "ignore",
 		"qlen": 116,
 		"alen": 61,
 		"len": 177
@@ -1915,6 +1956,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=163.msg1590#msg1590",
 		"q": "That's my process as well, although I apply a variety of patches to things before hand. And I have boost and I think libdb from Ubuntu's repos.",
 		"a": "Sorry, I didn't test compile on linux the last few revisions.\nReverted makefile.unix.",
+		"type": "ignore",
 		"qlen": 143,
 		"alen": 85,
 		"len": 228
@@ -1945,6 +1987,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg1600#msg1600",
 		"q": "lol!",
 		"a": "Thanks DataWraith! The German translation is uploaded to SVN.\nThis is great, we've already got 3 major languages.",
+		"type": "ignore",
 		"qlen": 4,
 		"alen": 113,
 		"len": 117
@@ -1955,6 +1998,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=184.msg1609#msg1609",
 		"q": "32 bit linux? Yea I can do that.",
 		"a": "I'm working on getting version 0.3 released as soon as I can. Just a last few things left to do. It's been a long time since 0.2 and we need to get a prebuilt bitcoind with command line and JSON-RPC available. This time we'll have both 32-bit and 64-bit linux binaries, and Laszlo is going to build a Mac OSX release. Plus, we'll include the German, Dutch and Italian translations by DataWraith, Xunie and Joozero (thanks you guys!).",
+		"type": "ignore",
 		"qlen": 32,
 		"alen": 433,
 		"len": 465
@@ -2028,6 +2072,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=149.msg1646#msg1646",
 		"q": "Bitcoin looks ugly in Ubuntu's new default theme. It seems that some, but not all of the theme settings are being picked up. The unselected file menu should have light text with a dark background, but it incorrectly has light text with a light background. They're similar enough that it's unreadable on my display. It should be fixed before the next stable release.",
 		"a": "This is now fixed in the SVN version.\n1) Menu bar default color.\n2) Balance bar not a different color.\n3) Background behind bitcoin address and balance now the same color as toolbar.\nI checked all the standard themes and it seems reasonable with all of them.\nUbuntu minimize,maximize,close buttons to the right:\ngconf-editor\napps->metacity->general\nbutton_layout=menu:minimize,maximize,close\nThey've got it awfully buried considering 9 out of 10 users are used to having it on the right.",
+		"type": "ignore",
 		"qlen": 365,
 		"alen": 487,
 		"len": 852
@@ -2058,6 +2103,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=43.msg1648#msg1648",
 		"q": "Thanks for clearing that up, fergalish!",
 		"a": "I integrated the hashmeter idea into the SVN version. It displays khash/s in the left section of the status bar.\nTwo new log messages:\n21/06/2010 01:23 hashmeter 2 CPUs 799 khash/s\n21/06/2010 01:23 generated 50.00\ngrep your debug.log for \"generated\" to see what you've generated, and grep for \"hashmeter\" to see the performance. On windows, use:\nfindstr \"hashmeter generated\" \"%appdata%\bitcoin\\debug.log\"\nI have the hashmeter messages once an hour. How often do you think it should be?",
+		"type": "ignore",
 		"qlen": 39,
 		"alen": 485,
 		"len": 524
@@ -2068,6 +2114,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=149.msg1653#msg1653",
 		"q": "Satoshi, that definitely made it look better for me, but now Bitcoin won't minimize to tray in Ubuntu 10.04. The proper check box is checked, but it just minimizes to my taskbar like always.",
 		"a": "On Ubuntu 10.04 it wouldn't remove the taskbar button cleanly, so I made it leave it there.\nBut now that you mention it, it's probably better to have the feature, even if it's messy, than not to have it, though it may confuse a few people when the taskbar button temporarily stays around but disappears if you click on it.\nUpdated SVN.\nThanks for testing.",
+		"type": "ignore",
 		"qlen": 190,
 		"alen": 355,
 		"len": 545
@@ -2088,6 +2135,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=149.msg1668#msg1668",
 		"q": "Yeah, r89 works as expected for me. It doesn't seem to have any problems creating or removing icons, but I'm using XFCE, so that might be the difference.\nIn addition, there's a difference between standard behaviour for tray icons in Windows and Linux. In most Linux apps, clicking the tray button while the app's window is open will cause it to close again. I personally like that better than the Windows default, where a single click does nothing once the main window is displayed. Is there any chance that feature might get added to the Linux version?",
 		"a": "It's too late now for feature changes to 0.3, but I'll add that to the post-0.3 to do list. I never would have noticed that if you hadn't pointed it out.",
+		"type": "ignore",
 		"qlen": 553,
 		"alen": 153,
 		"len": 706
@@ -2108,6 +2156,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1670#msg1670",
 		"q": "It would be nice if the listtransactions RPC method were finished before the next release, though.",
 		"a": "My fear is too many programmers would latch onto that for checking for received payments. It can never be reliable that way. The list/getreceivedbyaddress/label functions are the only way to do it reliably.\nWe shouldn't delay forever until every possible feature is done. There's always going to be one more thing to do.",
+		"type": "ignore",
 		"qlen": 98,
 		"alen": 320,
 		"len": 418
@@ -2118,6 +2167,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1675#msg1675",
 		"q": "EXCEPTION: 22DbRunRecoveryException\nDBENv::open: DB_RUNRECOVERY: Fatal error, run database recovery\nC:\\Program Files\\Bitcoin\bitcoin.exe in OnInit()",
 		"a": "What operating system?\nNormally when it does that it's because the directory where the data directory should go doesn't exist. See if the \"%appdata%\" directory exists.\nDo you get that error with 0.2 also? It's hard to see how you could get that with 0.3 and not with 0.2 since there's nothing different in that regard.",
+		"type": "ignore",
 		"qlen": 147,
 		"alen": 318,
 		"len": 465
@@ -2128,6 +2178,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1677#msg1677",
 		"q": "Windows 7 x64 ENG\n4 GB RAM\nIntel i7 860\nI was using the v0.2.10 build by laszlo before yours.",
 		"a": "davidonpda, were you also running laszlo's build previously?\nCheck if the \"%appdata%\" directory exists, and \"%appdata%\bitcoin\"\nrename \"%appdata%\bitcoin\" bitcoin2\ndoes it work then?",
+		"type": "ignore",
 		"qlen": 93,
 		"alen": 180,
 		"len": 273
@@ -2149,6 +2200,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1686#msg1686",
 		"q": "Yeah, 0.3.0 seems to have a performance increase over svn r84 with Laszlo's performance patch.",
 		"a": "Laszlo figured out that enabling some more optimisation increased performance about 20%, so 0.3 hashes 20% faster than 0.2.0, but I assume he used that in his own build.\n30khash increase to what total rate? (to figure the % increase)",
+		"type": "ignore",
 		"qlen": 94,
 		"alen": 233,
 		"len": 327
@@ -2159,6 +2211,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1748#msg1748",
 		"q": "Much faster than Laszlo's build for me. Went from 600-700khash/s to 1000-1100khash/s on my Intel Core 2 Duo E8500. From 700-800khash/s on a laptop i7 to ~1100khash/s.\nKeeping the \"Run Bitcoin\" option checked in the installer seems to run it with admin privileges on the first launch. (in Win7)",
 		"a": "Here's RC1 for linux for testing:\n(link removed, see below)\nIt contains both 32-bit and 64-bit binaries.\nRecent changes:\nbuild-unix.txt:\n- Added instructions for building wxBase, which is needed to compile bitcoind.\n- The package libboost-dev doesn't install anything anymore, you need to get libboost-all-dev.\n- Updated version numbers.\nmakefile.unix:\n- The libboost libraries have removed the \"-mt\" from their filenames in 1.40. If you're compiling with Boost 1.38 or lower, like on Ubuntu Karmic, you would need to change it back to boost_system-mt and boost_filesystem-mt.",
+		"type": "ignore",
 		"qlen": 293,
 		"alen": 576,
 		"len": 869
@@ -2169,6 +2222,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1760#msg1760",
 		"q": "Ubuntu 9.04 x86:\nvlad@vlad:~/bitcoin/bin/32$ ./bitcoind\n./bitcoind: /usr/lib/libstdc++.so.6: version `GLIBCXX_3.4.11' not found (required by ./bitcoind)\nAnybody know what Bitcoin needs?",
 		"a": "I don't know. Maybe someone with more Linux experience knows how to install the library it needs.\nI built it on Ubuntu 10.04. I hope that wasn't a mistake. Maybe it should have been built on an older version for more backward compatibility. Is this a problem on Linux, that if you build on the latest version, then it has trouble working on older versions? Is there any way I can downgrade to an older version of GCC on 10.04?\nThe 64-bit version shouldn't be any faster than the 32-bit version, but it would be great if someone could do a side-by-side comparison of the two linux versions and check. SHA-256 is a 32-bit algorithm and nothing in BitcoinMiner uses 64-bit at all.\nWe don't need to bother with a 64-bit version for Windows. 32-bit programs work on all versions of Windows. It's not like Linux where the 64-bit OS wants 64-bit programs.\nI'm also curious if it's a little faster on linux than windows.\nDo you think I should make the directories:\n/bin32/\n/bin64/\ninstead of\n/bin/32/\n/bin/64/",
+		"type": "ignore",
 		"qlen": 185,
 		"alen": 1001,
 		"len": 1186
@@ -2179,6 +2233,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1769#msg1769",
 		"q": "But look here:\n32-bit Linux version on Ubuntu 10.04\n4 cores: 2500 khash/s\n3 cores: 1900 khash/s\n2 cores: 1260 khash/s\n1 core: 630 khash/s\n64-bit Linux version on Ubuntu 10.04 (new measure)\n4 cores: 2880 khash/s\n3 cores: 2150 khash/s\n2 cores: 1450 khash/s\n1 core: 720 khash/s\n(Though I never created one coin, yet - but I don't let bitcoin run on 4 cores the whole day, not even on 1 core...)\n@Joozero - The Intel i7 860 is @ 2.8 Ghz, isn't it? My Phenom II is @ 3 Ghz, that's another important fact I think. I will try bitcoin on Windows 7 at the same machine later.\n32-bit Win version on Windows 7 64-bit\n4 cores: 2310 khash/s\n3 cores: 1740 khash/s\n2 cores: 1160 khash/s\n1 core: 580 khash/s",
 		"a": "Thanks virtualcoin, that's a perfect comparison.\nThe 8% speedup from 32-bit Windows (2310k) to 32-bit Linux (2500k) is probably from the newer version of GCC on Linux (4.4.3 vs 3.4.5).\nThe 15% speedup from 32-bit to 64-bit Linux is more of a mystery. The code is completely 32-bit.\nHmm, I think the 8 extra registers added by x86-64 must be what's helping. That would make a significant difference to SHA if it could hold most of the 16 state variables in registers.",
+		"type": "ignore",
 		"qlen": 691,
 		"alen": 466,
 		"len": 1157
@@ -2239,6 +2294,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=171.msg1815#msg1815",
 		"q": "Jago, do you have all the proper dependencies installed?",
 		"a": "The linux release candidate in the \"1.3 almost ready\" thread contains prebuilt bitcoind.",
+		"type": "ignore",
 		"qlen": 56,
 		"alen": 88,
 		"len": 144
@@ -2269,6 +2325,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=218.msg1828#msg1828",
 		"q": "Hmm, yeah, it's probably normal; I THOUGHT the default address was given an empty label; I'm wrong, they're given the label \"Your Address\".\nSo: ./bitcoind getaddressesbylabel \"Your Address\" should work.\nOr just generate a new address, either with or without a label:\n./bitcoind getnewaddress",
 		"a": "Welcome, Harry.\nI hadn't thought about starting out using bitcoind without using bitcoin first. I guess for now, this thread serves as the tutorial.\nThe focus for bitcoind so far has been more on backend support for websites. There's demand for things that would be nice for adminning headless generators like listgenerated. For the moment, you can grep the debug.log file for \"generated\" and \"hashmeter\" for some feedback. Generated blocks take about 24 hours before they're credited to your balance.",
+		"type": "ignore",
 		"qlen": 291,
 		"alen": 501,
 		"len": 792
@@ -2279,6 +2336,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=199.msg1834#msg1834",
 		"q": "I'm not sure why but I noticed that as well - my Win32 build was a lot slower than the linux/mac builds I did. I used MinGW and all that but maybe I made a mistake somewhere.. I probably used a different version of Berkeley DB than Satoshi too so that's why the logs weren't binary compatible.",
 		"a": "MinGW still only has good old stable 3.4.5. There's not much reason for them to update it.\nWhen I looked at the 3.4.5 compiled SHA disassembly, I couldn't see any room for improvement at all. I can't imagine how 8% more could be squeezed out of it. Is it possible Windows could have 8% more overhead? Not making system calls or anything, just plain busy computational code, could task switching and other housekeeping operations take away that much?",
+		"type": "ignore",
 		"qlen": 293,
 		"alen": 449,
 		"len": 742
@@ -2329,6 +2387,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=223.msg1929#msg1929",
 		"q": "BitTorrent clients can do hundreds of connections easily - this is why they end up killing those little embedded routers. It should be no problem for a regular IP router but the little embedded things are doing NAT so they're tracking state on all those connections and run out of memory.. also they're very slow SoC style computers so everything going through them suffers.\nTorrent clients generally have options for configuring a global maximum number of connections, maximum inbound and maximum outbound connections.\nI think it would be good to allow configuration of unlimited inbound/outbound connections for those who have the capability to do it, and provide a conservative default for those who are using NAT, tor, proxies, etc.",
 		"a": "I reduced max outbound connections from 15 to 8 in RC4.\n15 was way more than we needed for redundancy. 8 is still plenty of redundancy.\nAs the nodes upgrade to this version, this will cut in half the number of connections that inbound accepting nodes get.\nIf anyone wants more than 8 connections, they can open port 8333 on their firewall.",
+		"type": "ignore",
 		"qlen": 736,
 		"alen": 339,
 		"len": 1075
@@ -2399,6 +2458,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=241.msg2071#msg2071",
 		"q": "Not bad.\nAs far as anonymous internet connections go, prepaid phones aren't a bad choice either. They're cheap, nearly impossible to tie to the user, and can be destroyed when finished. Again, they can be bought in densely crowded shopping malls or walmarts.\nDont forget to use an anonymous method to pay for the VPS foreverdamaged. Perhaps a prepaid credit card also bought from a crowded location would do the trick.\nBy the way, I like to imagine that this user is in China and is trying to buy a book about freedom",
 		"a": "It's hard to imagine the Internet getting segmented airtight. It would have to be a country deliberately and totally cutting itself off from the rest of the world.\nAny node with access to both sides would automatically flow the block chain over, such as someone getting around the blockade with a dial-up modem or sat-phone. It would only take one node to do it. Anyone who wants to keep doing business would be motivated.\nIf the network is segmented and then recombines, any transactions in the shorter fork that were not also in the longer fork are released into the transaction pool again and are eligible to get into future blocks. Their number of confirmations would start over.\nIf anyone took advantage of the segmentation to double-spend, such that there are different spends of the same money on each side, then the double-spends in the shorter fork lose out and go to 0/unconfirmed and stay that way.\nIt wouldn't be easy to take advantage of the segmentation to double-spend. If it's impossible to communicate from one side to the other, how are you going to put a spend on each side? If there is a way, then probably someone else is also using it to flow the block chain over.\nYou would usually know whether you're in the smaller segment. For example, if your country cuts itself off from the rest of the world, the rest of the world is the larger segment. If you're in the smaller segment, you should assume nothing is confirmed.",
+		"type": "ignore",
 		"qlen": 517,
 		"alen": 1440,
 		"len": 1957
@@ -2451,6 +2511,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=327.msg2871#msg2871",
 		"q": "C:\\Windows\\System32\\cmd.exe /c start \"BitCoin\" /LOW /MIN \"C:\\Program Files\\Bitcoin\bitcoin.exe\"",
 		"a": "In Windows, you select the process in the task manager, right click, Set Priority. Set it to BelowNormal or Low. That shouldn't make a difference though.\nIf you turn off Generate Coins, does the CPU usage go flat? That would confirm that all the CPU time it's taking is generate, which is idle priority already.\nIt could be it's slow just because you have too many things running at once and you're out of memory. When you switch from one thing to another, it has to page it in from disk.",
+		"type": "ignore",
 		"qlen": 94,
 		"alen": 488,
 		"len": 582
@@ -2514,6 +2575,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=299.msg2908#msg2908",
 		"q": "One fairly simple workaround is to run bitcoind as a user other than root. Since bitcoin does not require root permissions it will run just fine and it won't be able to set a negative niceness (only root can do that). That will ensure that the highest priority bitcoind can use is 0 (normal).",
 		"a": "After it initially tries incorrectly to set itself to the lowest priority, the generate thread only changes its priority again temporarily when it finds a block. When you've found a block, you should want it to hurry up and broadcast it as soon a possible before someone else finds one and makes yours invalid. The generate thread only changes to higher priority for less than a second every few days.\nThere should be a 0.3.1 release for this soon. There are a few other issues we need to look at fixing in 0.3.1 before making a release.",
+		"type": "ignore",
 		"qlen": 292,
 		"alen": 537,
 		"len": 829
@@ -2524,6 +2586,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=299.msg2908#msg2908",
 		"q": "On a side note, I've tracked down the other GUI issue.\nThe \"minimize to tray instead of taskbar\" is what was eating up all the CPU on my system. After I turned this off, the issue was resolved with Runaway CPU.\nThis only seems to affect the 64 bit Client, as the 32 bit Clients I have don't seem to be affected by this.\nI did notice on the 64 bit Client, what happens is, it spawns multiple \"tray\" icons until X server finally kills over, so I guess I should submit that as a bug to somewhere?",
 		"a": "That's interesting. I know the minimize to tray on Ubuntu is very clunky, but I didn't know it had a CPU peg problem too. Anyone else able to reproduce this problem? We had this feature disabled on Linux before, but then it seemed better to have the imperfect UI than to lose the feature entirely. I'm thinking we should disable it again on Linux.",
+		"type": "ignore",
 		"qlen": 493,
 		"alen": 347,
 		"len": 840
@@ -2565,6 +2628,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=299.msg3008#msg3008",
 		"q": "Could you make it possible to reenable that feature with a startup switch or even compile flag? I like it a lot, and I don't have this issue.",
 		"a": "OK, the undocumented switch \"-minimizetotray\" which re-enables the option.\nI uploaded the change to SVN.",
+		"type": "ignore",
 		"qlen": 141,
 		"alen": 104,
 		"len": 245
@@ -2575,6 +2639,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=373.msg3150#msg3150",
 		"q": "http://bitcointalk.org/index.php?topic=316.0\nMaybe that thread helps.",
 		"a": "More directly, this:\nhttp://bitcointalk.org/index.php?topic=246.0\nI will be posting release candidate of 0.3.1 with this fix shortly. Please try that and let me know if it fixes the problem.",
+		"type": "ignore",
 		"qlen": 69,
 		"alen": 190,
 		"len": 259
@@ -2615,6 +2680,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=383.msg3221#msg3221",
 		"q": "on this end,\nhasn't helped.\nstill same symptoms, but can't set to belownormal. access is denied!!\nstrange,\nfirefox and windows explorer open quickly enough, bit laggy, but the likes of gomez doesn't!",
 		"a": "I don't think you have a particular problem, I think your system is laggy because you're running a lot of things at once and hitting the pagefile because memory is full. You confirmed when you shut off generation that your CPU drops to 0%, so the CPU usage is definitely all idle priority. There's nothing in the 0.3.1 that would affect these things.",
+		"type": "ignore",
 		"qlen": 199,
 		"alen": 350,
 		"len": 549
@@ -2625,6 +2691,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg3238#msg3238",
 		"q": "Ok here is the .po file for French. While I'm at it, I noted a couple of issues:\n1. The \"About\" box didn't take the translation into account, it still displays the english version to me, even though the rest of the software is using the translated strings, and the .po file contains the translation string of the \"About\" box message. Same problem with the \"Apply\" button in the Settings window.",
 		"a": "I need to give an updated .po file.",
+		"type": "ignore",
 		"qlen": 394,
 		"alen": 35,
 		"len": 429
@@ -2635,6 +2702,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg3238#msg3238",
 		"q": "2. If an transaction's description in the list of transaction in the main window contains a diacritical character (such as \"éàèç\"), it's not displayed. I suppose the string is not being properly handled as UTF8 somewhere.",
 		"a": "OK, this must be a problem somewhere, I'll have to take a look at it or one of the other devs can.",
+		"type": "ignore",
 		"qlen": 221,
 		"alen": 98,
 		"len": 319
@@ -2645,6 +2713,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg3238#msg3238",
 		"q": "4. About the .po file :\n- There are a few strings in the .po file that don't needs translation (ie: \"Bitcoin\"). Maybe those shouldn't be inside _(\"...\") ?\n- Others shouldn't be split. I can remember one message about transaction fee where the string is split in two to insert the fee value, where you could simply have put a %s. It makes the message harder to translate as I had to go in the source to find exactly what was going on.\n- Some strings have whitespace at the end or start, which necessity is very debatable, and it's easy to miss in PoEdit.",
 		"a": "Many of the strings are in code automatically generated from uiproject.fbp where nothing can be done about these things. I have a program I use to find all the spacing inconsistencies at the beginning and ending of strings in your .po file and manually fix them up before I upload them to SVN.",
+		"type": "ignore",
 		"qlen": 553,
 		"alen": 293,
 		"len": 846
@@ -2665,6 +2734,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=383.msg3295#msg3295",
 		"q": "On Windows, the priority of the Coin Generation is still net for normal. If you run BitCoin in Generate Coin mode, then load up something to eat up all the CPU (like CPU hog for example: http://www.microtask.ca/cpuhog.html) you'll see that both BitCoin and CPU hog share the CPU 50/50 instead of CPU Hog taking all the CPU and BitCoin running only on idle/low process. The khash/s is also reduced in half, so further evidence that the threads are not running in a lower than normal prioirty.",
 		"a": "I was not able to reproduce this. I have dual-proc, so I ran two memory hogs. Bitcoin got 0% of CPU according to the task manager. The khash/sec meter stayed stuck because it couldn't get any CPU to update it.\nDo you have dual-proc? Are you sure you weren't running a single processor hog?",
+		"type": "ignore",
 		"qlen": 491,
 		"alen": 289,
 		"len": 780
@@ -2685,6 +2755,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=383.msg3306#msg3306",
 		"q": "The listreceivedbyaddress and getreceivedbyaddress commands are duplicated in bincoind help. (Same in 0.3.0.)",
 		"a": "Yes a bug. It'll have to be fixed in the next version.",
+		"type": "ignore",
 		"qlen": 109,
 		"alen": 54,
 		"len": 163
@@ -2695,6 +2766,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=391.msg3308#msg3308",
 		"q": "In Windows, when opening the \"Send Coins\" or the \"Your Receiving Addresses\", I get the following message.\nClicking Cancel allows me to make it go away, and everything still works fine, but it is still a bit annoying.\nI am running BitCoin 0.3.0 on Windowx Vista SP2 x64.",
 		"a": "That's surprising that we've never heard of that before now.\nMaybe you're the first person to ever run it on Vista\nI have to guess it has something to do with your display color depth selection. e.g. 8-bit, 16-bit, 24-bit, 32-bit, what is it? Do you have a weird video card, display setup or running it on a tablet or mobile or something?",
+		"type": "ignore",
 		"qlen": 269,
 		"alen": 338,
 		"len": 607
@@ -2705,6 +2777,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=299.msg3309#msg3309",
 		"q": "I like it alot too, wished it work for me",
 		"a": "The fix for the thread priority level on linux is available in the 0.3.1 release candidate here:\nhttp://bitcointalk.org/index.php?topic=383.msg3198#msg3198",
+		"type": "ignore",
 		"qlen": 41,
 		"alen": 155,
 		"len": 196
@@ -2715,6 +2788,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=383.msg3319#msg3319",
 		"q": "I don't see either happening, although it did get put into the \"Startup\" folder. That is so Windows 95ish (just kidding..... Microsoft has so screwed this up that it isn't even funny). I would recommend the registry settings for a number of reasons including the fact that most software puts the startup in that location, even though I personally find the startup folder to be more attractive and how most software on Windows should behave.",
 		"a": "It could go either way. The Startup folder has the advantage that the end user can see it and manually remove it with the regular UI (not regedit) if they already blew away the Bitcoin directory and its uninstaller. Bitcoin will not relentlessly keep re-adding it if you delete it manually.\nOpenOffice is another example of something that puts its link in the Startup folder.",
+		"type": "ignore",
 		"qlen": 440,
 		"alen": 375,
 		"len": 815
@@ -2725,6 +2799,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=391.msg3323#msg3323",
 		"q": "in 120DPI mode.",
 		"a": "What is \"120DPI mode\"? Is that an actual setting somewhere? Sounds like an obscure enough candidate. I suppose it needs twice the resolution icon to fill the size of the upper left corner icon. Only one size is provided.",
+		"type": "ignore",
 		"qlen": 15,
 		"alen": 220,
 		"len": 235
@@ -2787,6 +2862,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=296.msg3495#msg3495",
 		"q": "I'll pledge my first hundred bitcoins to anyone who can post a 32-bit Fedora version. I'd pledge more, except I don't know how many I'll be able to generate. Perhaps other 32-bit Fedora users can add their pledges to mine.",
 		"a": "Please try the 0.3.1 release candidate, it should at least resolve the libcrypto dependency:\nhttp://bitcointalk.org/index.php?topic=383.0\nLet me know if that works.",
+		"type": "ignore",
 		"qlen": 222,
 		"alen": 164,
 		"len": 386
@@ -2797,6 +2873,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=303.msg3499#msg3499",
 		"q": "0/unconfirmed means that your client has seen the transaction\n1/unconfirmed means that your transaction has been included in 1 block, at this point you can be reasonably sure someone has picked up your transaction and it's now in the chain.\nas the number of confirmations increases, so does the confidence in the 'truth' of the transaction.\nThere is no way to cancel a transaction.\nIt is not possible with the current client to resend a transaction.",
 		"a": "Bitcoin automatically rebroadcasts your transactions if it receives new blocks that don't contain them. It may take about an hour to get rebroadcasted. It is relentless though. It will keep nagging the network forever until your transaction gets into a block.",
+		"type": "ignore",
 		"qlen": 449,
 		"alen": 259,
 		"len": 708
@@ -2872,6 +2949,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=383.msg3536#msg3536",
 		"q": "Anyone notice, that for Windows Clients anyway, when you connect a bunch of other clients to it manually (through the -connect option) that if you go over 8, the windows client ends up cutting out the \"outside world\" connections and stick with the original 8 or more internal machines thinking that it's the entire network?\nI never noticed this since I use a Linux client to funnel all my PCs to the outside world, but I tried it with a Windows client and noticed that at first, it had about 10 connections, then after adding another 50 clients internally that connect directly to it, the number would eventually drop down to just \"internal clients\" only.\nWhen this happens, the block count doesn't increment anymore, basically the Windows client has separated itself from \"the network\" and all the other clients all think that they are the entire network now. If I do a \"netstat -a -n\" on the windows client, I can see it's only connected to the Internal clients and the IRC bootstrap channel and basically doesn't to connect to anyone else on the outside world. You know it's happening because the block count starts to fall behind of what is really going on outside of your local network (Internet for the rest of the world)\nIt's kind of a self-collapsing loop? Doesn't seem to affect Linux clients though, they will happily connect to and be connected to about as many as it can handle. I could see this is kind of a DoS on windows clients if someone was evil enough.",
 		"a": "Good point. If you're going to have more than 8 LAN nodes connect to one gateway node, then you'd better have the gateway node set up so it can receive incoming connections. Otherwise, while the gateway node has 8 or more connections, it will not try to add any more outbound connections. As the outside nodes you're connected to come and go, it doesn't make new outbound connections to replace them. You'll be fine if you can accept incoming connections, then there will be plenty of others connecting to you.",
+		"type": "ignore",
 		"qlen": 1471,
 		"alen": 510,
 		"len": 1981
@@ -2932,6 +3010,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=383.msg3590#msg3590",
 		"q": "I think size (static binary is 8x as big in my case) is not the problem, but security.\nBoost, openssl and Berkeley DB are fairly common on unix systems (many things depend on them) and also Wxwidgets (the only argument is that bitcoin uses the current development branch and not the stable branch). Second, static linking doesn't mean you can always run it (in my case it tries to load libpng-1.2, which is not present on my system, libpng-1.4 is, and the static fails to load). Third, openssl hasn't been free of security issues, by statically compiling people keep using the insecure version even if their system provides an updated safe version.",
 		"a": "I uploaded windows 0.3.1 rc1 and linux 0.3.1 rc2 to SourceForge and updated the links on the homepage.\nYou don't need to update to 0.3.1 unless you had one of the problems listed in the first post. If you've got it working already, stay with 0.3.0.",
+		"type": "ignore",
 		"qlen": 648,
 		"alen": 248,
 		"len": 896
@@ -2942,6 +3021,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=128.msg3605#msg3605",
 		"q": "When I run bitcoin it becomes very sluggish, almost unusable. When I stop bitcoin everything goes ok again. Its running Ubuntu desktop 10.04 amd64 using ia32libs and the binary in bitcoin 0.20 tarball.",
 		"a": "0.3.1 fixes that, sets the generate threads to the lowest priority. Download links are on the homepage now.",
+		"type": "ignore",
 		"qlen": 201,
 		"alen": 107,
 		"len": 308
@@ -2952,6 +3032,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=432.msg3769#msg3769",
 		"q": "Check this out...\nI just installed 0.3.1 on two different machines and moved one bitpenny (0.01):\n-= Before the transfer =-\n[bitcoind@box1 ~]$ ~/bin/bitcoind getinfo\n{\n\"balance\" : 1.150000000000,\n\"blocks\" : 68717,\n\"connections\" : 6,\n\"proxy\" : \"\",\n\"generate\" : false,\n\"genproclimit\" : -1,\n\"difficulty\" : 181.5432893640505\n}\n[bitcoind@box2 ~]$ ~/bin/bitcoind getinfo\n{\n\"balance\" : 0.000000000000,\n\"blocks\" : 68717,\n\"connections\" : 22,\n\"proxy\" : \"\",\n\"generate\" : false,\n\"genproclimit\" : -1,\n\"difficulty\" : 181.5432893640505\n}\n-= AFTER the transfer =-\n[bitcoind@box1 ~]$ ~/bin/bitcoind getinfo\n{\n\"balance\" : 1.139999999999,\n\"blocks\" : 68717,\n\"connections\" : 10,\n\"proxy\" : \"\",\n\"generate\" : false,\n\"genproclimit\" : -1,\n\"difficulty\" : 181.5432893640505\n}\n[bitcoind@box2 ~]$ ~/bin/bitcoind getinfo\n{\n\"balance\" : 0.010000000000,\n\"blocks\" : 68717,\n\"connections\" : 20,\n\"proxy\" : \"\",\n\"generate\" : false,\n\"genproclimit\" : -1,\n\"difficulty\" : 181.5432893640505\n}\nI personally think it is a display problem, but I can't be sure.. strange, no?\nBoth machines are running FreeBSD 7.2/amd64.",
 		"a": "It must be a rounding error when getinfo converts to floating point to return the JSON-RPC result. The only place where it uses floating point to represent money is returning a value in JSON-RPC.\n1.139999999999 is longer than bitcoin can internally represent.\ninternally, it could only be:\n1.13999999 or\n1.14000000\n1.139999999999 is much much closer to 1.14000000 than 1.13999999, so it must be 1.14000000.\nThe code is this:\n(double)GetBalance() / (double)COIN.\n(I can't think of an easy way to fix it at the moment)",
+		"type": "ignore",
 		"qlen": 1071,
 		"alen": 516,
 		"len": 1587
@@ -3023,6 +3104,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=393.msg3828#msg3828",
 		"q": "Thanks Insti. I got the man page written. I documented all of the command line switches the program supports, not just the ones in the usage output given by \"bitcoin -h\". Any of the ones that do not appear in the usage output should have a comment in the man page file noting this (comment lines start with .\" which is a period then a double quote).\nI provided the update as a patch since I also made some changes to the sourcecode itself. If you want to install the man page first extract it from the diff file with the patch program and then copy the file \"bitcoin.1\" to section 1 of you man pages. On my Ubuntu systems the directory /usr/local/man/man1/ serves as a good place to keep it. Actually on my systems I put a symlink from there to the bitcoin/trunk/bitcoin.1 file so it stays up to date if it gets updated in SVN.\nI have also exported the man page using man2html and will post this to the wiki so people can reference it without having to install it on their systems, as well as for the underprivileged Windows users who have to forgo the true awesomeness of the man page system.\nAttached to this message you should find a zip file with the patch in it.\nThe wiki doesn't seem to be sending the registration e-mail so I can log in to edit, is there some problem with the server or something?\n-Buck",
 		"a": "I didn't realize you were going to document all the intentionally undocumented commands. They're unsupported and not intended to be used by users.\nAll the user-facing commands are listed in the -? help.",
+		"type": "ignore",
 		"qlen": 1310,
 		"alen": 202,
 		"len": 1512
@@ -3033,6 +3115,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=419.msg3830#msg3830",
 		"q": "Version 0.3 was supposed to reduce the number of outgoing connections on non-port forwarded clients from 15 to 8, but I don't think it really happened. I'm not positive if this is the case. Correct me if I'm wrong.",
 		"a": "In 0.3.0, the change to 8 only ended up in the Windows version, the other versions still had 15.\nPlease upgrade to 0.3.2, it's available now.",
+		"type": "ignore",
 		"qlen": 214,
 		"alen": 141,
 		"len": 355
@@ -3073,6 +3156,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=55.msg4008#msg4008",
 		"q": "I think you're misunderstanding the issue. My browser will always be able to go to 127.0.0.1 (barring some strange IE settings or a virus). If I type the address into the URL bar or click a link, it will work fine. However, it isn't possible to use Javascript to complete POST requests between domains (or ports on the same domain).",
 		"a": "That's what I thought too.",
+		"type": "ignore",
 		"qlen": 332,
 		"alen": 26,
 		"len": 358
@@ -3083,6 +3167,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=55.msg4008#msg4008",
 		"q": "Yeah, I meant to say that cross-domain javascript calls are forbidden, so you can't call 127.0.0.1 from a javascript that doesn't reside in 127.0.0.1. Come to think of it, it would be quite funny if browsers allowed malicious cross-domain javascript to change people's Facebook pages etc.",
 		"a": "Now I'm hearing a report that it IS possible for javascript to do a cross-domain POST request to 127.0.0.1. Not other domains, but just specifically to that one. Great...\nIf this is the case, then do not use the -server switch or bitcoind on a system where you do web browsing.\nI'll get started on adding the password field.",
+		"type": "ignore",
 		"qlen": 288,
 		"alen": 324,
 		"len": 612
@@ -3135,6 +3220,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=461.msg4169#msg4169",
 		"q": "I'm afraid I have to agree with laszlo here, using a certificate/keyfile would be far more secure. Saying that, thanks for adding some security to the JSON api",
 		"a": "Right, that is quite a bit better.\nCan you give me any examples of other stuff that does it that way? (and what the command line looks like)\nThe main change you're talking about here is instead of -rpcpw= when you start bitcoind, you'd use a switch that specifies a text file to go and read it from, right? (any ideas what I should name the switch?)",
+		"type": "ignore",
 		"qlen": 159,
 		"alen": 349,
 		"len": 508
@@ -3175,6 +3261,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=461.msg4577#msg4577",
 		"q": "If you're using another JSON-RPC client that you wrote you can take care to protect the password, but using the bitcoin binary as the client and passing the password on the command line has the same issue as starting the daemon with it. It's still visible to every user that way.\nSo both the server and the client mode invocation need to use the file and not accept the password on the command line. Generally programs like this refuse to start if the mode on the file isn't 600 or something like that, because that means other users can read it.",
 		"a": "Still need to know what's the most typical settings file format on Linux. Is there a standard file extension? I've never seen a settings file using JSON, and it doesn't look very human friendly with everything required to be in quotes. I think what I usually see is like:\n# comment\nsetting=value\nIs there a settings file thing in Boost?\nWhen you're using bitcoind to issue commands from the command line as a client, can we have it get the password from the settings file then too?\nGavin pointed out I forgot to increment the column of numbers in CommandLineRPC, so the current -rpcpw= implementation doesn't work right from the command line with non-string parameters. (JSON-RPC is fine) Still under construction.",
+		"type": "ignore",
 		"qlen": 546,
 		"alen": 714,
 		"len": 1260
@@ -3185,6 +3272,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=461.msg4646#msg4646",
 		"q": "You could do worse than using yaml for the settings",
 		"a": "I was researching config file formats, here's a comparison.\nYAML is massive. I'm not sure there's a lightweight easy to build library we can integrate into our project. Seems overkill.\nJSON is tempting and I'm inclined to like it, but two main sticking points:\n1) No comments! How can you have a config file where you can't comment out a line to disable it?\n2) Not very user friendly to have to \"quote\" all the strings, including the keys, and also have to remember the comma at the end of lines.\n{\n\"key\" : \"value\",\n}\nI suppose we could easily preprocess JSON reading the config file one line at a time, truncate the lines at any # character (and/or \"//\"?), concatenate them into a string and pass it to JSON, so you could go:\n# comment\n\"key\" : \"value\", # still have to remember the comma\n\"key2\" : \"value\", // comment like this or both\nBoost has boost::program_options.\nWe could read lines ourselves and feed them into a map<string, string> mapConfig.\nwhile (!eof)\nread line\nif '#' found, truncate line\nsplit line at first ':' -> key, value\nmapConfig.insert(key, value)\nIf we use the syntax:\n# comment\nkey : value\n...and don't allow whitespace indenting before the keys, I guess we would be a subset of YAML and could switch to YAML someday if we need more complexity.\nIf we go with self parsed, that doesn't mean we can't use JSON on particular parameter values as needed. If an option needs a list or more structured data, it could always parse its value as json:\nkey : [\"item1\", \"item2\", \"item3\"]\nAlthough it has to be all on one line then.\nI guess I'm leaning towards self parsed mapConfig:\n# comment\nkey : value",
+		"type": "ignore",
 		"qlen": 51,
 		"alen": 1616,
 		"len": 1667
@@ -3195,6 +3283,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=461.msg4758#msg4758",
 		"q": "I just did a quick survey of 20 .conf files in /etc on my debian system, and found:\n1 file used \"key value\"\n5 used \"key=value\"",
 		"a": "Thanks for that survey!\nI find \"key value\" a little unnatural. There ought to be a more definite separator between key and value that suggests assignment. The space people may just be getting lazy using their language's split function.\nkey=some full sentence with spaces in it. # seems more clear\nkey some full sentence with spaces in it. # than this\nAllright then, lets go with self-parsed mapConfig, syntax:\n# comment\nkey=value\nfile extension .conf. What's the filename, is it ~/.bitcoin/settings.conf or ~/.bitcoin/bitcoin.conf or what?\nI think we better strip whitespace at the beginning and end of the key and the value.\n# user who likes column formatted\nk = value\nkey = value\nlongerkey = this sentence would be this # \"this sentence would be this\"\nkey = value # guess this is ok too\nnextkey = value\nright = justified\nThe normal syntax should be \"key=value\", but you can't blame people for the occasional \"key = value\".",
+		"type": "ignore",
 		"qlen": 126,
 		"alen": 924,
 		"len": 1050
@@ -3246,6 +3335,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=461.msg5383#msg5383",
 		"q": "I strongly disagree; software should be secure by default, and running bitcoind without a password (or bitcoin -server) is definitely NOT secure.\nI just don't see somebody saying \"Man, Bitcoin sucks because I have to add a password to a configuration file before running it as a daemon.\" I can see somebody saying \"Man, Bitcoin sucks because I accidently ran it with the -server switch and somebody stole all my money.\"",
 		"a": "I don't think authentication should be disabled by default if there's no conf file or the config file doesn't contain \"rpcpassword\", but what if it contains \"rpcpassword=\"?\nI can see both points.\nWhat if the programmer can't figure out how to do HTTP authentication in their language (Fortran or whatever) or it's not even supported by their JSON-RPC library? Should they be able to explicitly disable the password requirement?\nOTOH, what if there's a template conf file, with\nrpcpassword= # fill in a password here\nThere are many systems that don't allow you to log in without a password. This forum, for instance. Gavin's point seems stronger.\nBTW, I haven't tested it, but I hope having rpcpassword= in the conf file is valid. It's only if you use -server or -daemon or bitcoind that it should fail with a warning. If it doesn't need the password, it should be fine. Is that right?",
+		"type": "ignore",
 		"qlen": 419,
 		"alen": 884,
 		"len": 1303
@@ -3256,6 +3346,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=528.msg5416#msg5416",
 		"q": "Alright, I know it hasn't been more than an hour since I last posted about this, but I decided to solve this problem myself.\nIf there's a better solution out there, I'd be glad to hear it, but here's my version 0.1 attempt to make this work:\nhttp://www.alloscomp.com/bitcoin/btcjsonrpc.pys\nLet me know if you like it, hate it, or see any obvious flaws with it. There's some getting started docs in the source, but here's the code of the test suite:\nfrom btcjsonrpc import Service\ns = Service()\nprint 'preparing getbalance; id:',s.getbalance() # Each call returns its ID so you can find it later in the results\nprint 'preparing getdifficulty; id:',s.getdifficulty()\nprint 'preparing listreceivedbyaddress; id:',s.listreceivedbyaddress(10000) # Call with a parameter\nprint 'preparing getbalance; id:',s.getbalance(id='getbalance 2') # You can also specify your own ID\nprint '\nexecuting call\nresults:'\nresults = s() # Get the results by calling the Service object\nfor id,value in results.iteritems():\nprint id,value\n# If you'd prefer to work directly with the JSON responses instead of a dict of IDs, then access the list Service.responses.\nprint '\njson responses'\nprint s.responses\nAnd here's the output, including the docstr:\n$ ./btcjsonrpc.py\nSocket-based, Bitcoin-compatible JSON-RPC v1.0 client.\nBy: Eric Swanson (http://www.alloscomp.com/bitcoin)\nVersion 0.1, July 21, 2010\nDon't use this for one-off request->response pairs. Use something like the reference python-jsonrpc library, or urllib2 + json. This client is hackish, but it works for me (and has sped up my JSON-RPC accesses tremendously).\nFor details of WHY exactly I felt the need to redo python-jsonrpc using a raw socket, check out the follow forum post: http://bitcointalk.org/index.php?topic=528.0\nUsage is fairly straightforward, and a code sample can be found below the library code (in the if __name__=='__main__' clause).\npreparing getbalance; id: jss-1\npreparing getdifficulty; id: jss-2\npreparing listreceivedbyaddress; id: jss-3\npreparing getbalance; id: getbalance 2\nexecuting call\njss-2 181.543289364\njss-3 []\ngetbalance 2 2345.94\njss-1 2345.94\njson responses\n[{u'id': u'jss-2', u'result': 181.54328936405051, u'error': None}, {u'id': u'jss-3', u'result': [], u'error': None}, {u'id': u'getbalance 2', u'result': 2345.9400000000001, u'error': None}, {u'id': u'jss-1', u'result': 2345.9400000000001, u'error': None}]",
 		"a": "Obviously it's a bug that it repeats the header.\nI was trying to follow the 1.0 spec: http://json-rpc.org/wiki/specification It called for multiple invocation.\nI think they mean it's like this, but I'm not sure:\n{\"method\": \"postMessage\", \"params\": [\"Hello all!\"], \"id\": 99}\n{\"method\": \"postMessage\", \"params\": [\"I have a question:\"], \"id\": 101}\n{\"result\": 1, \"error\": null, \"id\": 99}\n{\"result\": 1, \"error\": null, \"id\": 101}\nI can't remember where I think I saw that it's supposed to send back HTTP status 500 for an error reply. If it contains multiple responses and one is an error, I wonder if that makes the status 500 for the whole thing, I guess so. Maybe it should always return 200. I think someone sounded like the 500 might be causing a problem.\nThis probably gets fixed after 0.3.3. Until then, just use single invocation. I wonder if any JSON-RPC package even supports multiple invocation, probably not.\nIt would be nice if we could pin down better how multiple-invocation is supposed to work, if at all, before trying to fix it, and whether returning HTTP status 500 for error response is right.",
+		"type": "ignore",
 		"qlen": 2392,
 		"alen": 1107,
 		"len": 3499
@@ -3276,6 +3367,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=479.msg5432#msg5432",
 		"q": "chroot: won't protect you.\nRunning as a separate VM: I think will protect you. But I thought browsers wouldn't allow XMLHTTPRequests to \"localhost\" from web pages fetched from the web, so my advice would be to test it. See if you can talk to the Bitcoin daemon from another VM on the same machine by running \"bitcoind getinfo\" or \"bitcoin getinfo\" on the non-bitcoin-vm.",
 		"a": "The JSON-RPC HTTP authentication feature in 0.3.3 solves this problem.",
+		"type": "ignore",
 		"qlen": 370,
 		"alen": 70,
 		"len": 440
@@ -3358,6 +3450,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=461.msg5767#msg5767",
 		"q": "I found what appears to be a bug: with a long enough username and password combination, the base64 encoder in bitcoind produces authorization headers that look like this:\n...\nAuthorization: Basic YWJiYWJiYWFiYmE6aGVsbG93b3JsZGhlbGxvd29ybGRoZWxsb3dvcmxkaGVsbG93\nb3JsZGhlbGxvd29ybGRoZWxsb3dvcmxk\nIt inserts a newline every 64 characters, which obviously breaks the Authorization header, so commands like \"bitcoin getinfo\" fail. The server still works fine with properly behaving clients.\nThis can be solved by removing the newlines (and maybe '\n's) from result at the end of the Base64Encode function:\nresult.erase(std::remove(result.begin(), result.end(), '\n'), result.end());\nresult.erase(std::remove(result.begin(), result.end(), '\n'), result.end());",
 		"a": "+1 to you for having such a long password that you found this bug.\nUploaded to SVN as rev 110.",
+		"type": "ignore",
 		"qlen": 751,
 		"alen": 94,
 		"len": 845
@@ -3409,6 +3502,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=501.msg5920#msg5920",
 		"q": "Credit to tcatm for the caching part of the SHA context - this offers absolutely brilliant performance. Additionally, the Intel compiler really comes into its own here as its parallelisation abilities give a massive performance boost over Visual Studio.\nPerformance: 4700khash/s on 4 cores, I think that speaks for itself.\nI've included both the VS and Intel build, but there's really no comparison, the Intel build craps all over VS.",
 		"a": "Is that still starting from Crypto++? Lets get this into the main sourcecode.",
+		"type": "ignore",
 		"qlen": 434,
 		"alen": 77,
 		"len": 511
@@ -3419,6 +3513,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=572.msg5978#msg5978",
 		"q": "Crypto++ 5.6.0: http://www.cryptopp.com/\nCached SHA256: http://pastebin.com/rJAYZJ32 (although I'm pretty sure this is publically submitted elsewhere, I was linked to it on IRC)",
 		"a": "I added the cached SHA256 state idea to the SVN, rev 113. The speedup is about 70%. I credited it to tcatm based on your post in the x64 thread.\nI can compile the Crypto++ 5.6.0 ASM SHA code with MinGW but as soon as it runs it crashes. It says its for MASM (Microsoft's assembler) and the sample command line they give looks like Visual C++. Does it only work with the MSVC and Intel compilers?",
+		"type": "ignore",
 		"qlen": 177,
 		"alen": 395,
 		"len": 572
@@ -3439,6 +3534,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=572.msg6069#msg6069",
 		"q": "I was able to integrate the SHA256 functionality from Crypto++ 5.6.0 into Bitcoin. This is the fastest SHA256 yet using the SSE2 assembly code. Since Bitcoin was sending unaligned data to the block hash function, I had to change the MOVDQA instruction to MOVDQU.\nI think using the SHA256 functionality from Crypto++ 5.6.0 is the way forward right now.",
 		"a": "I added a subset of the Crypto++ 5.6.0 library to the SVN. I stripped it down to just SHA and 11 general dependency files. There shouldn't be any other crypto in there other than SHA.\nI aligned the data fields and it worked. The ASM SHA-256 is about 48% faster. The combined speedup is about 2.5x faster than version 0.3.3.\nI guess it's using SSE2. It automatically sets its build configuration at compile time based on the compiler environment.\nIt looks like it has some SSE2 detection at runtime, but it's hard to tell if it actually uses it to fall back if it's not available. I want the release builds to have SSE2. SSE2 has been around since the first Pentium 4. A Pentium 3 or older would be so slow, you'd be wasting your electricity trying to generate on it anyway.\nThis is SVN rev 114.",
+		"type": "ignore",
 		"qlen": 351,
 		"alen": 794,
 		"len": 1145
@@ -3449,6 +3545,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=572.msg6083#msg6083",
 		"q": "I've got some older machines (for the windows client and linux clients) to test with that don't support SSE2. Mainly if you try to run them, the program just crashes when I tried some of the experimental builds here, but I'll be glad to test some future official builds to see if the \"detect SSE2\" part works or the program goes belly up.",
 		"a": "OK, thanks. I'd also like to know if it runs fine as long as you don't turn on Generate. You'd think as long as it doesn't actually execute any SSE2 instructions, it would still load. At least Pentium 3's could run it without generating.",
+		"type": "ignore",
 		"qlen": 338,
 		"alen": 237,
 		"len": 575
@@ -3459,6 +3556,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=601.msg6268#msg6268",
 		"q": "Does it work if you specify the full path? e.g. -datadir=/home/psyvenrix/datadir2 ?",
 		"a": "It was able to reproduce this. The database doesn't like the relative path.\n\"bitcoind -datadir=./subdir getinfo\" works against a running daemon, but trying to start the daemon as \"bitcoind -datadir=./subdir\" gets that exception.\nI guess we should resolve the full path before passing it to the database.\nIt looks like you were the first one to ever use -datadir with a relative path.",
+		"type": "ignore",
 		"qlen": 83,
 		"alen": 383,
 		"len": 466
@@ -3523,6 +3621,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=626.msg6469#msg6469",
 		"q": "Yes, I've tested on Windows XP, 2003, and 7 all went through just fine. You'll enjoy the speed increase as well.\n[err, wait I guess, new version about to spawn]",
 		"a": "Haven't had time to update the SVN yet. Wait for 0.3.6, I'm building it now. You can shut down your node in the meantime.",
+		"type": "ignore",
 		"qlen": 160,
 		"alen": 121,
 		"len": 281
@@ -3533,6 +3632,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=626.msg6490#msg6490",
 		"q": "Tested the Windows build across XP, 2003, Vista, 7 (both 32 and 64bit builds), no issues installing or running client. So far so good, looking forward to the Linux client.",
 		"a": "0.3.6 Linux build is back to the old makefile.unix. It static links libjpeg so that shouldn't be a problem.\nIs that working better?\nIf you got 22DbRunRecoveryException and you've used someone else's build before, you may need to delete (or move the files somewhere else) database/log.000000*\nWindows and Linux users: if you got 0.3.5 you still need to upgrade to 0.3.6.",
+		"type": "ignore",
 		"qlen": 171,
 		"alen": 369,
 		"len": 540
@@ -3543,6 +3643,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=626.msg6502#msg6502",
 		"q": "sorry. I'm checked binaries on Debian GNU/Linux squeeze/sid",
 		"a": "\"./bitcoin: /lib64/libc.so.6: version `GLIBC_2.11' not found (required by ./bitcoin)\" isn't a new problem that started with 0.3.6 is it? This was built on the same OS installations as 0.3.0.\nUnfortunately I upgraded to Ubuntu 10.04 before 0.3.0. I will not upgrade anymore. I don't know when I might have time to reinstall to downgrade, but at least by not upgrading, it'll gradually fix itself.",
+		"type": "ignore",
 		"qlen": 59,
 		"alen": 395,
 		"len": 454
@@ -3573,6 +3674,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=612.msg6516#msg6516",
 		"q": "Sorry to post to my own post.\nOne possible solution would be to create a project on the OpenSUSE OBS platform http://wiki.meego.com/Build_Infrastructure .\nThis platform is an auto-builder anyone can use (by creating your own account and home area).\nYou can upload your project and *.spec (build descriptor) and it will build your distribution in the format of all the leading Linux distributions (OpenSUSE, CentOS/RHEL, Fedora, Ubuntu, ...). So there is no need for you to maintain them seperately it will do that for you.\nThe result will be a *.deb or *.rpm or whatever your platform uses.",
 		"a": "Yeah, acutely aware that I should have stayed on 9.04 or 9.10. It's a lot more work to downgrade than upgrade and I've been squeezed for time. Ubuntu is the most popular distro, so I'm staying with that.",
+		"type": "ignore",
 		"qlen": 590,
 		"alen": 203,
 		"len": 793
@@ -3605,6 +3707,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=611.msg6706#msg6706",
 		"q": "Here is 'listtransaction' version 7:\nhttp://gtf.org/garzik/bitcoin/patch.bitcoin-listtransactions\nThis adds the suggested txn_id field -- very nice suggestion, gavin! I wanted a unique transaction id, and now I have one",
 		"a": "What are you needing to use listtransactions for?\nThe reason I didn't implement listtransactions is I want to make sure web programmers don't use it. It would be very easy to latch onto that for watching for received payments. There is no reliable way to do it that way and make sure nothing can slip through the cracks. Until we have solid example code using getreceivedbyaddress and getreceivedbylabel to point to and say \"use this! use this! don't use listtransactions!\", I don't think we should implement listtransactions.\nWhen we do implement listtransactions, maybe one way to fight that is to make it all text. It should not break down the fields into e.g. comment, confirmations, credit, debit. It could be one pretty formatted string like \"0/unconfirmed 0:0:0 date comment debit 4 credit 0\" or something so it's hard for programmers to do the wrong thing and process it. It's only for viewing the status of your server. I guess that would be kinda annoying for web interfaces that would rather format it into html columns though.",
+		"type": "ignore",
 		"qlen": 219,
 		"alen": 1038,
 		"len": 1257
@@ -3626,6 +3729,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=626.msg6728#msg6728",
 		"q": "So that last command should simply be\nsudo apt-get install libboost1.37-dev",
 		"a": "Except that wouldn't work for boost 1.40+ (on Ubuntu 10.04), where you need to get libboost-all-dev.\nSeems they changed everything around in Boost recently, \"-mt\" and all that, makes it hard.\nBTW, I tried Boost 1.34 but it didn't have the boost.interprocess stuff.\nMac OSX version is available now. See bitcoin.org or the SourceForge link.",
+		"type": "ignore",
 		"qlen": 75,
 		"alen": 339,
 		"len": 414
@@ -3657,6 +3761,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=655.msg7057#msg7057",
 		"q": "Hey guys,\nMy linux machine (debian 5 stable, 32 bit) was running bitcoin 0.20 for months now. I upgraded it to 0.36 today and the GUI won't appear, however bitcoin is running and seems to use the CPU. Where is the GUI? It won't appear, but there are no errors in the console when I run bitcoin from xterm.",
 		"a": "Did it print anything to the console? Are you sure you didn't run \"bitcoind\"?\nTry version 0.3.7.",
+		"type": "ignore",
 		"qlen": 305,
 		"alen": 96,
 		"len": 401
@@ -3677,6 +3782,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=648.msg7084#msg7084",
 		"q": "Yes, since applying this patch I've generated 2 blocks.",
 		"a": "Is it 2x fast on AMD and 1/2 fast on Intel?",
+		"type": "ignore",
 		"qlen": 55,
 		"alen": 43,
 		"len": 98
@@ -3687,6 +3793,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=648.msg7084#msg7084",
 		"q": "Btw. Why are you using this alignup<16> function when __attribute__ ((aligned (16))) will tell the compiler to align at compiletime?",
 		"a": "Tried that, but it doesn't work for things on the stack. I ran some tests.\nIt doesn't even cause an error, it just doesn't align it.",
+		"type": "ignore",
 		"qlen": 132,
 		"alen": 132,
 		"len": 264
@@ -3707,6 +3814,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=454.msg7328#msg7328",
 		"q": "Is satoshi noWx patch in 0.3.7 already? Before that bitcoind required wx, and I never seen Satoshi announcing that it's in trunk",
 		"a": "Yes, 0.3.7 has it. It was in rev 112.",
+		"type": "ignore",
 		"qlen": 128,
 		"alen": 37,
 		"len": 165
@@ -3717,6 +3825,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=685.msg7331#msg7331",
 		"q": "I have successfully built it with 4.8, 4.7 never would but with 4.8 bitcoind locks up whenever it dumps the initial block download to disk.",
 		"a": "I urge you not to use BDB 4.8. The database/log0000* files will be incompatible if anyone uses your build and then goes back to the official build.",
+		"type": "ignore",
 		"qlen": 139,
 		"alen": 147,
 		"len": 286
@@ -3808,6 +3917,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=287.msg7687#msg7687",
 		"q": "I think the current system works fine. If someone wants to implement a micro-payment system then they will have to host enough nodes and contribute enough processing power to include their small transactions. I see no reason to require any node to accept or forward micro-payment transactions if said nodes does not wish to.\nThe real issue is that even a simple legitimate automated micro-payment system could overload bitcoin by introducing more transactions than the credit card system currently uses. The net result is that block sizes could become HUGE.\nIn my use case you have a P2P system where they pay for priority downloads. Assume you have a single \"torrent\" file with 100,000 people all seeding and downloading. That could easily generate 100,000 micro-payments per minute. Now clearly, the program would only have to use BTC in the event that upload != download between two clients.\nIt would be distributed and thus there would be no easy way to identify \"spam\" from legitimate usage. Even using my solution of transferring 1+ BTC at a time and giving change if the balance is greater than 0.01 could cause a transaction bloat writ large.\nI suspect that the \"cost\" of handing individual transactions may be low (.00001 BTC) but the cost of handling ALL of those little transactions from millions of users using automated payment negotiation/bidding systems would quickly make it impossible to even listen for all incoming transactions.\nThe only solution to this problem is to make broadcasting of a transaction \"non free\". Namely, if you want me to include it you have to pay me. The net (no pun intended) result is that each client would need to pay other clients to whom they even send their transaction, not just the individual who gets it in a block. In this way the laws of economics take over and no one gets a free ride on the transaction broadcast system.\nThe implication is that you may not even receive notice of payment until a node that you paid to receive your transaction and *attempt* to integrate it into a block manages to do so. This means that you would not even see 0/unconfirmed and that a transaction must make it into a block before anyone that wasn't paid to *attempt* to integrate it even knows it exists.\nThis structure would encourage pay-to-ip systems because that make the receiver of the payment responsible for paying to get it integrated. Either they run their own bitcoin generators *or* they pay to send the transaction to someone who is.",
 		"a": "Forgot to add the good part about micropayments. While I don't think Bitcoin is practical for smaller micropayments right now, it will eventually be as storage and bandwidth costs continue to fall. If Bitcoin catches on on a big scale, it may already be the case by that time. Another way they can become more practical is if I implement client-only mode and the number of network nodes consolidates into a smaller number of professional server farms. Whatever size micropayments you need will eventually be practical. I think in 5 or 10 years, the bandwidth and storage will seem trivial.\nI am not claiming that the network is impervious to DoS attack. I think most P2P networks can be DoS attacked in numerous ways. (On a side note, I read that the record companies would like to DoS all the file sharing networks, but they don't want to break the anti-hacking/anti-abuse laws.)\nIf we started getting DoS attacked with loads of wasted transactions back and forth, you would need to start paying a 0.01 minimum transaction fee. 0.1.5 actually had an option to set that, but I took it out to reduce confusion. Free transactions are nice and we can keep it that way if people don't abuse them.\nThat brings up the question: if there was a minimum 0.01 fee for each transaction, should we automatically add the fee if it's just the minimum 0.01? It would be awfully annoying to ask each time. If you have 50.00 and send 10.00, the recipient would get 10.00 and you'd have 39.99 left. I think it should just add it automatically. It's trivial compared to the fees many other types of services add automatically.",
+		"type": "ignore",
 		"qlen": 2484,
 		"alen": 1607,
 		"len": 4091
@@ -3818,6 +3928,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=287.msg7687#msg7687",
 		"q": "Does including more slow down your hashing rate?",
 		"a": "No, not at all.",
+		"type": "ignore",
 		"qlen": 48,
 		"alen": 15,
 		"len": 63
@@ -3888,6 +3999,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=711.msg7705#msg7705",
 		"q": "I cant figure out how to send a transaction to an ip address from bitcoind command line interface. Has the function been implemented yet? (linux 64 if it matters)",
 		"a": "It's not implemented.\nIt turned out nobody liked that mode of transfer anyway, so it hasn't had much development attention.",
+		"type": "ignore",
 		"qlen": 162,
 		"alen": 123,
 		"len": 285
@@ -3898,6 +4010,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=713.msg7706#msg7706",
 		"q": "The downside to a non \"broadcast\" system is that it makes it easier to double-spend and in fact your payment to generate would be a prime candidate for double spending.\nI am not sure that the system can stand such delays in the broadcast system. I suppose those worried about double spending would pay to have the transaction \"vetted\" by more nodes and those that can handle a loss would take the risk.",
 		"a": "I can't think of a way to implement that. All the transaction fees would be additional transactions. What about the transaction fees for the transaction fee's transaction?",
+		"type": "ignore",
 		"qlen": 402,
 		"alen": 171,
 		"len": 573
@@ -3982,6 +4095,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=753.msg8388#msg8388",
 		"q": "Yet another argument for cmake or similar.",
 		"a": "I found that SSE2 only added a slight 2% speedup, which didn't seem worth the incompatibility. I was trying to take the safer option.\nIt doesn't look to me like Crypto++ could be deciding whether to use SSE2 at runtime. There's one place where it detects SSE2 for deciding some block count parameter, but the SSE2 stuff is all #ifdef at compile time and I can't see how that would switch at runtime. Maybe I'm not looking in the right place.\nShould we enable SSE2 in all the makefiles? It seems like we must in case someone compiles with 64-bit.\nI will recompile the 64-bit part of the Linux 0.3.8 release.",
+		"type": "ignore",
 		"qlen": 42,
 		"alen": 606,
 		"len": 648
@@ -4002,6 +4116,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=753.msg8417#msg8417",
 		"q": "It's a fact.\nI intend to eventually sort out all building hassles and have a reliable build procedure across all win/unix 32/64-bit platform combinations.\nOn that note, I'm currently tackling x64 build for windows and notice that for 64-bit MSVC, the X86_SHA256_HashBlocks function is deferred to an external definition that is not present in the project. In the original CryptoPP library it seems to be in a separate asm module. I wonder how are people building x64 on windows, are they setting defines to use the C-source sha version?",
 		"a": "I uploaded 0.3.8.1 for Linux with re-built 64-bit. I ran a difficulty 1 test with it and it has generated blocks.\nhttp://bitcointalk.org/index.php?topic=765.0\nhttp://sourceforge.net/projects/bitcoin/files/Bitcoin/bitcoin-0.3.8/bitcoin-0.3.8.1-linux.tar.gz/download",
+		"type": "ignore",
 		"qlen": 536,
 		"alen": 264,
 		"len": 800
@@ -4188,6 +4303,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=691.msg8922#msg8922",
 		"q": "How would an attacker connect to both sides during this split in order to spend the coins? And if the attacker can do it, the likelihood that one or more honest nodes could bridge the divide is pretty good.",
 		"a": "True, there would probably be someone with a dial-up modem or satellite dish internet. Rarer would be someone who has both that and the wired internet that has the outage, but if it's a big enough segment to matter, out of a million people there's bound to be a multi-home geek.\nISP network cuts are just your local area. If you still have communication with the rest of your area, it would probably be something like 1/1000 of the world or less. Block generation in the segment would take several hours per block.\nI favour the plan to monitor if the frequency of blocks received drops too slow. That covers a large range of possibilities.",
+		"type": "ignore",
 		"qlen": 206,
 		"alen": 639,
 		"len": 845
@@ -4208,6 +4324,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=648.msg8929#msg8929",
 		"q": "My Core2Quad (Q6600) slowed down 50%, my i5 improved ~200%, thus I don't think what you state is accurate. Maybe starting at some specific Core2?",
 		"a": "That big of a difference in speed, by a factor of 4 or 6, feels like it's likely to be some quirky weak spot or instruction that the old chip is slow with. Unless it's a touted feature of the i5 that they made SSE2 six times faster.\nA quick summary:\nXeon Quad 41% slower\nCore 2 Duo 55% slower\nCore 2 Duo same (vess)\nCore 2 Quad 50% slower\nCore i5 200% faster (nelisky)\nCore i5 100% faster (vess)\nAMD Opteron 105% faster\naceat64:\nMy system went from ~7100 to ~4200.\nThis particular system has dual Intel Xeon Quad-Core CPUs (E5335) @ 2.00GHz.\nimpossible7:\non an Intel Core 2 Duo T7300 running x86_64 linux it was 55% slower compared to the stock version (r121)\nMy Core2Quad (Q6600) slowed down 50%,\nmy i5 improved ~200%,\nimpossible7:\non an AMD Opteron 2374 HE running x86_64 linux I got a 105% improvement (!)",
+		"type": "ignore",
 		"qlen": 145,
 		"alen": 808,
 		"len": 953
@@ -4270,6 +4387,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=648.msg9159#msg9159",
 		"q": "Looks like we're triggering a compiler bug in the tree optimizer. Can you try to compile it -O0?",
 		"a": "If you haven't already, try aligning thash. It might matter. Couldn't hurt.",
+		"type": "ignore",
 		"qlen": 96,
 		"alen": 75,
 		"len": 171
@@ -4280,6 +4398,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=648.msg9159#msg9159",
 		"q": "Looks like we're triggering a compiler bug in the tree optimizer. Can you try to compile it -O0?",
 		"a": "No help from -O0, same error.\nMinGW is GCC 3.4.5. Probably the problem.\nI'll see if I can get a newer version of MinGW.",
+		"type": "ignore",
 		"qlen": 96,
 		"alen": 119,
 		"len": 215
@@ -4321,6 +4440,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=820.msg9478#msg9478",
 		"q": "I did a quick test, will report back when I try it on more machines.\nPentium E5300 Dual-Core 2.6 GHz (2MB cache, FSB 800MHz)\nProcessor info: http://en.wikipedia.org/wiki/Wolfdale_%28microprocessor%29\nStock = 2261 khash/s\n4-way = 1103 khash/s (64 bit)\nPentium 4 - 3.0GHz (hyper-threading off) 1MB Cache, FSB 800MHz\nProcessor info: http://en.wikipedia.org/wiki/NetBurst_%28microarchitecture%29\nStock = 1024 khash/s (32 bit)\n4-way = 658 khash/s (32 bit)\nPentium 4 - 2.8GHz (hyper-threading off) 1MB Cache, FSB 800MHz\nProcessor info: http://en.wikipedia.org/wiki/NetBurst_%28microarchitecture%29\nStock = 917 khash/s (64 bit)\n4-way = 747 khash/s (64 bit)\nIf I didn't know better, I would say the key is the CPU cache size. Seems all the CPU that run slower have 2 MB or less onboard cache, where as the Core i5 starts with at least 3MB of onboard CPU cache.",
 		"a": "I hope someone can test an i5 or AMD to check that I built it right. I don't have either to test with.\nI'm also curious if it performs much worse on 32-bit linux vs 64-bit.",
+		"type": "ignore",
 		"qlen": 852,
 		"alen": 172,
 		"len": 1024
@@ -4331,6 +4451,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=820.msg9483#msg9483",
 		"q": "Where is the code for this? I'm on a CentOS 5.5 box and need to build it myself. Once I do that I will report back with linux 32-bit and 1MB cache Xeon.",
 		"a": "I just uploaded a quick build so testers can check if I built it right. (I don't have an i5 or AMD) If it checks out, I'll put together the full package and do all the release stuff.",
+		"type": "ignore",
 		"qlen": 152,
 		"alen": 182,
 		"len": 334
@@ -4393,6 +4514,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=823.msg9584#msg9584",
 		"q": "Cool, works for me!",
 		"a": "Starting at 67000 is perfect.\nYeah, at the moment you'll stop at 74638. It should start slowly creeping up as more nodes upgrade and generate.\nLinux build links below.\nThe Linux version includes tcatm's 4-way SSE2 SHA-256 that makes generating faster on i5 and AMD CPU's. Use the \"-4way\" switch to enable it and check if it's faster for you.\nDownload links:\nhttp://www.bitcoin.org/download/bitcoin-0.3.10-win32-setup.exe\nhttp://www.bitcoin.org/download/bitcoin-0.3.10-win32.zip\nhttp://www.bitcoin.org/download/bitcoin-0.3.10-linux.tar.gz\nSHA1 16645ec5fcdb35bc54bc7195309a1a81105242bb bitcoin-0.3.10-win32-setup.exe\nSHA1 4f35ad7711a38fe8c880c6c9beab430824c426d3 bitcoin-0.3.10-win32.zip\nSHA1 e3fda1ddb31b0d5c35156cacd80dee6ea6ae6423 bitcoin-0.3.10-linux.tar.gz",
+		"type": "ignore",
 		"qlen": 19,
 		"alen": 759,
 		"len": 778
@@ -4463,6 +4585,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=823.msg9648#msg9648",
 		"q": "That's great news! How did you figure that out, though? I was considering writing a client specially tailored to put itself out there and try to get as many people to connect as possible, then survey their versions and write out a log (in addition to all the normal bitcoin stuff).",
 		"a": "On Windows, findstr /c:\"version message\" debug.log\nIt looks like the bad chain was on block 74678 recently. Can't wait to overtake it.\nOn the stats at http://nullvoid.org/bitcoin/statistix.php there's been 5 blocks per hour in the last 3 hours. We had a difficulty adjustment about a day ago that should have put it back to 6 blocks per hour.",
+		"type": "ignore",
 		"qlen": 281,
 		"alen": 342,
 		"len": 623
@@ -4536,6 +4659,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=832.msg9754#msg9754",
 		"q": "Hmm, it seems I am missing something important - disconnecting transactions which are no longer part of the accepted block chain. I'm going to have to work on this a bit - the naive approach of simply blasting away all TXNs, then reconnecting things is far too slow, and hits the transaction memory limit.",
 		"a": "That's a difficult approach.\nWe need to cause a reorg, which will disconnect the invalid chain.\nThis is code that will rarely ever get tested, and is fairly intricate, so something simple and safe is best.\nHere's what I was thinking of. (I haven't tested this yet) It checks all the blocks in the main chain. If it finds a bad one, it sets all that chain's bnChainWork to 0 so it can't win best chain again, and it reduces best chain work to the fork level so any new block after the fork will cause a reorg. (It can't change pindexBest without actually doing a reorg)\nThis isn't perfect yet. It still needs to receive one valid block to trigger the reorg.\nIt would probably be possible to initiate an AddToBlockIndex or Reorganize after the check, but it would require a lot more careful attention. I probably should break out part of AddToBlockIndex that sets the new best block. I'll probably end up doing that instead of the code below.\nbool CTxDB::LoadBlockIndex()\n{\n...\n// Verify blocks in the main chain\nvector<CBlockIndex*> vChain;\nfor (CBlockIndex* pindex = pindexBest; pindex && pindex->pprev; pindex = pindex->pprev)\n{\nvChain.push_back(pindex);\nCBlock block;\nif (!block.ReadFromDisk(pindex))\nreturn error(\"LoadBlockIndex() : block.ReadFromDisk failed\");\nif (!block.CheckBlock())\n{\nbnBestChainWork = pindex->pprev->bnChainWork;\nforeach(CBlockIndex* pindex2, vChain)\npindex2->bnChainWork = 0;\n}\n}\nreturn true;\n}",
+		"type": "ignore",
 		"qlen": 305,
 		"alen": 1420,
 		"len": 1725
@@ -4596,6 +4720,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=850.msg10067#msg10067",
 		"q": "Better than XP",
 		"a": "Definitely. The old screenshots of 0.1 are very outdated.\nWindows Aero is a good choice. Windows is still the largest user group. Mind what's behind it for the transparent parts.\nWhat to have displayed in the transaction list? Not completely filled up with stuff, just a few things.",
+		"type": "ignore",
 		"qlen": 14,
 		"alen": 282,
 		"len": 296
@@ -4606,6 +4731,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=846.msg10076#msg10076",
 		"q": "Yes, but there are two points that you overlooked. First, the software transceiver ususally requires four of these chips. (two for receive and two for transmit, one does digital signal processing and the other does digital filtering of the raw signal. Said another way, one is the virtual mike/speaker and the other is a virtual tuner. Not all such software radio setups need four, however) So if a ham has four of these, all four could be programmed to this end. The other point is one that I didn't explicitly mention, one FPGA does not equal only one sha-256 processor. It is possible, even likely, that more than one such processor could be programmed into a single FPGA chip. These chips are fairly large so that they can 'virtualize' some pretty complex logic circuts, and a talented programmer could program one chip to be several sha-256 processors running in parrallel. All this, and his main CPU and GPU are still available if still more Kh/s are desired. Any hacker with the skills to program one or more GPU's in the same system to crunch hashes is already elite, and doing multiple sha-256 cores on a single FPGA would be child's play. And we already know that there is some elite talent within the Bitcoin community, some who desire to run it, and some who desire to break it.",
 		"a": "The performance numbers posted from a VIA C7's hardware SHA-256 weren't astronomical. Only in the 1500 khash/s range. If you think about it, just because it's implemented in hardware doesn't mean it's crazy fast. It still has to do all the steps. It's only if simplifying it down to single-purpose hardware makes it small enough to fit many in parallel. That's not necessarily easy or a given.",
+		"type": "ignore",
 		"qlen": 1290,
 		"alen": 393,
 		"len": 1683
@@ -4647,6 +4773,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=820.msg10281#msg10281",
 		"q": "Any non-Mac i5 love?\nWindows i5 64-bit got slower here.",
 		"a": "That's the first I've heard anyone say i5 was slower. Everyone else has said 4way was faster on i5. Moreso with hyperthreading enabled.",
+		"type": "ignore",
 		"qlen": 55,
 		"alen": 135,
 		"len": 190
@@ -4657,6 +4784,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=820.msg10281#msg10281",
 		"q": "And i5, at least on my macbookpro",
 		"a": "Good, so I take it that's a confirmation that it's working on Mac as well?\nLaszlo told me he did compile in the -4way stuff on Mac, so the -4way switch is also available to try on Mac. I don't think makefile.osx on SVN has it yet, just the built version.",
+		"type": "ignore",
 		"qlen": 33,
 		"alen": 254,
 		"len": 287
@@ -4667,6 +4795,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=862.msg10290#msg10290",
 		"q": "Yeah, I'm having similar results. I've been running a self-compiled Linux build on a machine with roughly the same khash and haven't generated a block since mid July. Of course, it was a _broken_ Linux build for a few weeks of that, but I'm running the latest SVN version now and still no luck.",
 		"a": "Make sure your computer's date and time are correct.",
+		"type": "ignore",
 		"qlen": 294,
 		"alen": 52,
 		"len": 346
@@ -4717,6 +4846,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=820.msg10720#msg10720",
 		"q": "The difference between new and older CPUs is pretty easy to explain.\nOlder microarchitectures have 64-bit mmx/sse execution units and split 128bit sse ops into 2 64bit microops.\nNewer archs have 128bit sse units.\nAMD K8: 2 64bit unitsintel Core/Core2: 3 64bit unitsAMD K10: 2 128bit unitsintel nehalem: 3 128bit unitsK10 = Opterons with 4 or more cores, Phenom, Phenom II, Athlon II\nnehalem = xeon 34xx/35xx/36xx/55xx/56xx/65xx/75xx, i3/i5/i7",
 		"a": "Thanks for clearing that up. I read the link someone posted about AMD making that change around 2007, but I didn't know what the story was for Intel.\nThere's no hope for Core/Core2 then. They only have half the SSE2 hardware.\nStrange that Intel has 3 128bit units, but AMD with 2 128bit units is the faster one.",
+		"type": "ignore",
 		"qlen": 442,
 		"alen": 311,
 		"len": 753
@@ -4737,6 +4867,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=820.msg11068#msg11068",
 		"q": "AMD K10: 2 128bit unitsintel nehalem: 3 128bit units",
 		"a": "This probably explains why hyperthreading increases performance with -4way. If three SSE2 units is excessive, then hyperthreading would help keep them all busy.",
+		"type": "ignore",
 		"qlen": 52,
 		"alen": 160,
 		"len": 212
@@ -4757,6 +4888,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=898.msg11150#msg11150",
 		"q": "That's not the point, if I'm diligent enough to change a source code I'm also diligent enough to apply a -disablesafety switch which is much easier, the issue here is default behavior of the official client. Many people are going to just notice there is a new version, download and install it never realizing this new remote control was inserted there.\nSaying that they can examine the source code or that it was openly discussed on the forum is like Facebook saying \"but we have an option to delete your account, it's in terms of service, section 76, line 346, under link named so-appalling-that-nobody-would-ever-click-it, then on page 2, just solve the capcha, confirm the dialog, that will disable your account and if you do not log in in a week it will be deleted\". In short ... nobody actually does it ... that's how badware behaves and I do not want for Bitcoin to be badware.\nIf there is a remote safety disable function every user who has it enabled should consciously enable it knowing what it does. This can be easily accomplished by presenting a dialog urging user to enable it while explaining what it does in a GUI client and presenting a warning accomplishing the same task when daemon is run. Simple, efficient and everybody is happy. That's how software that respects its users and is working for them should behave. I'm sure most people would enable it when understanding what it does ... but sneaking this feature in without making sure the user specifically wants it there is making decisions for the user, I do not like decisions being made for me\nI'm aware of this because I read the forums but what in the future? (And what about people who do not read forums) Will there be another \"feature\" inserted and I'm not going to be even notified, explained what it does and asked if I want it enabled? I do not like that if you ask me ... I want to know what software on my CPU does, if it doesn't make reasonable effort to inform me of that and assure that I'm aware of it's behavior I would consider it badware.\nThat's at least my perspective ... and the fix is extremely easy",
 		"a": "It can't do arbitrary actions remotely. Maybe some of you are responding to other posters who suggested the alert system should do more?\nIf there is an alert, the following json-rpc methods return an error:\nsendtoaddress\ngetbalance\ngetreceivedbyaddress\ngetreceivedbylabel\nlistreceivedbyaddress\nlistreceivedbylabel\nThe remaining 14 methods function as normal.\nI believe the safer option should be enabled by default. If you want your server to keep trading and ignore an alert saying the money its receiving might be like the money from the overflow bug, then you can use the switch and not blame anyone else if you lose your money.\nWorst case if you leave alerts enabled, your site stops trading until you upgrade or add the -disablesafemode switch.\nGetting surprised by some temporary down time when your node would otherwise be at risk is better than getting surprised by a thief draining all your inventory.\nSomeday when we haven't found any new bugs for a long time and it has been thoroughly security reviewed without finding anything, this can be scaled back. I'm not arguing that this is the permanent way of things forever. It's still beta software.",
+		"type": "ignore",
 		"qlen": 2095,
 		"alen": 1157,
 		"len": 3252
@@ -4787,6 +4919,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=898.msg11158#msg11158",
 		"q": "So what kind of warning do admins get from bitcoind? Is there something we can grep from debug.log? Or will rpc calls raise some specific error? Is there a way to locally force this to happen, for unittesting services?",
 		"a": "getinfo has a new field that shows any alert messages or other errors that would be displayed on the status bar.\nThe rpc methods return a json-rpc error with the error description \"Safe mode: \" followed by additional text specified by the alert.\nI added the switch \"-testsafemode\" for you. SVN rev 145.\nThis stuff is very new and may still be subject to change.",
+		"type": "ignore",
 		"qlen": 218,
 		"alen": 361,
 		"len": 579
@@ -4797,6 +4930,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=898.msg11158#msg11158",
 		"q": "I just discovered http://www.bitcoin.org/wiki/doku.php?id=man_page and don't see any reference to -disablesafemode. Perhaps it should be added! Also others liek -4way should be added as well.",
 		"a": "Many switches are intentionally undocumented, like if their functionality is still under construction or I haven't settled on their name yet, or just test code not intended for release.\n-4way should eventually be replaced by an auto-detect.",
+		"type": "ignore",
 		"qlen": 191,
 		"alen": 240,
 		"len": 431
@@ -4903,6 +5037,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=921.msg11350#msg11350",
 		"q": "I think you misunderstand what mmap does? mmap / CreateFileMapping does not read a file into heap memory: http://en.wikipedia.org/wiki/Mmap",
 		"a": "I doubt there's an mmap(2) on Windows. I'd rather call an existing file copy function than make and test my own.",
+		"type": "ignore",
 		"qlen": 139,
 		"alen": 112,
 		"len": 251
@@ -4913,6 +5048,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=921.msg11350#msg11350",
 		"q": "But if you are already using features from boost::filesystem you can use copy_file from that. I just think that, if not already required for something else, it's a tad overkill.",
 		"a": "Thanks. I thought it would be in there somewhere.\nWe already use boost::filesystem in a dozen places. It's not a new added dependency. It gives us a lot of portable stuff that we would otherwise have to have a #ifdef for each OS and test everywhere.",
+		"type": "ignore",
 		"qlen": 177,
 		"alen": 249,
 		"len": 426
@@ -4977,6 +5113,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=941.msg11505#msg11505",
 		"q": "The \"About\" dialog still shows 0.3.10.1 beta.",
 		"a": "What OS? I ran the Windows and 64-bit Linux version and checked the about dialog.\nThe Mac version is still 0.3.10.1.",
+		"type": "ignore",
 		"qlen": 45,
 		"alen": 116,
 		"len": 161
@@ -4987,6 +5124,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=941.msg11505#msg11505",
 		"q": "iirc, it is possible to specify -march on a per-function basis using some gcc __attribute__. That way, only the function in question would be optimized, and if the user doesn't specify -4way, everything else should be ok.",
 		"a": "I updated the first post to be more specific. Only the -4way code is compiled this way.",
+		"type": "ignore",
 		"qlen": 221,
 		"alen": 87,
 		"len": 308
@@ -5090,6 +5228,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=955.msg12248#msg12248",
 		"q": "AMD X3 @2.8ghz\n->stock client\n~3800khs ~150Watt",
 		"a": "Did you try -4way?",
+		"type": "ignore",
 		"qlen": 47,
 		"alen": 18,
 		"len": 65
@@ -5100,6 +5239,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=955.msg12248#msg12248",
 		"q": "How many hashes can I expect with a 24 core machine? I have a quad-core generating 4,300 hashes-per-second, so I am estimating a 24-core machine could mine bitcoins at 25,000 hashes-per-second.",
 		"a": "AMD Phenom (I think 4-core) CPUs are doing about 11,000khps with -4way, about 100% speedup. 24 cores should get 66,000khps. AMD is the best choice because it has the best SSE2 implementation. (or maybe because tcatm had an AMD and optimised his code for that)\nThere's been so much else to do that I haven't had time to make -4way automatic. For now you still have to do it manually.\nhttp://bitcointalk.org/index.php?topic=820.0",
+		"type": "ignore",
 		"qlen": 193,
 		"alen": 427,
 		"len": 620
@@ -5151,6 +5291,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=920.msg12484#msg12484",
 		"q": "DB_PRIVATE enables a few optimizations by making the assumption that only one process will access the db4 database. Notably, this flag enables db4 to use pthreads-style mutex locking rather than heavy, operating-system-provided flock and shared memory. Ref: DB_ENV->open documentation.\nThe general motivation is that db4 databases can be safely accessed in parallel with bitcoin client, assuming (a) DB_PRIVATE is removed and (b) bitcoin properly uses db4 transactions. db4 transactions may even be employed to wrap around non-db4 data such as blk0001.dat, if the code is properly architected.",
 		"a": "Trying it without the DB_PRIVATE flag in rev 153. We need to keep an eye on what's different.\nOn Windows at least, it creates six __db.001 - __db.006 files with sizes from 24K to 4MB. It doesn't delete them on exit, it just leaves them behind.\nThe docs say it uses memory mapped files. I assume they have the same file permissions as the database files, so the same user access restrictions apply.\nTests on Windows private LAN download of 78500 blocks:\nwith DB_PRIVATE 20 minutes 51 seconds\nwithout DB_PRIVATE 20 minutes 51 seconds\nI wasn't expecting them to come out exactly the same.",
+		"type": "ignore",
 		"qlen": 593,
 		"alen": 585,
 		"len": 1178
@@ -5171,6 +5312,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1023.msg13201#msg13201",
 		"q": "I have an unusual configuration: on my headless gateway there is bitcoind running and on my desktop standart bitcoin is running (both Linux OpenSuSE, gateway 11.1, desktop 11.3, bitcoin 0.3.12 both). TCP port 8333 forwarded on gateway to the desktop (so gateway client can't has incoming connections). I don't know why but when I start desktop client after gateway's one the desktop client can't connect and flickers between 0 and 2 connections for a long time. Eventually it may connect but while it can't the memory leaks badly. About 200Kb/sec (each 0-2 change). It may not be noticed if the client connects instantly but in my case it doesn't. If I start first the desktop and then the headless client (after the desktop one has connected) everything is fine and no leaks (or they are little enough). I guess there is unfreed memory in bootstrap function or somewhere in the bootstrap process.",
 		"a": "Bouncing between 0 and 2 connections could be if it's connecting to itself. Are you using the \"-connect\" switch?\nDid you compile it or is this a release build, and what version?\nI'm not sure how the 200Kb/sec, since it waits at least a half second between connection attempts. How fast is it flickering between 0 and 2 connections? Faster than twice a second?\nThe wait function on linux is:\ninline void Sleep(int64 n)\n{\nboost::thread::sleep(boost::get_system_time() + boost::posix_time::milliseconds(n));\n}\nIf that doesn't work right, then it would be possible for it to spin through the loop as fast as it can.",
+		"type": "ignore",
 		"qlen": 897,
 		"alen": 611,
 		"len": 1508
@@ -5222,6 +5364,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=994.msg13829#msg13829",
 		"q": "The current threshold is 200KB per block, or about 1000 transactions per block. I think it should be lowered to 50KB per block. That would still be more than 100 times the average transactions per block.",
 		"a": "I implemented this change in SVN rev 157.\nThe reason I previously made it so high was to allow very large transactions without hitting the transaction fee. The threshold was around 26,000 BTC for transactions made of 50 BTC generated coins. Even though it was 100 times easier to generate back then, only a few people ever encountered the fee at that level. The new threshold puts it at around 11,000 BTC for sending generated coins. It would mostly only be reached with generated bitcoins. If you bought your bitcoins, they'll be denominated in larger transactions and won't be anywhere near the fee limit, unless you bought them in several hundred separate transactions. Even if you do reach the fee level, you only have to pay it once to bundle your little transactions together.",
+		"type": "favorite",
 		"qlen": 203,
 		"alen": 782,
 		"len": 985
@@ -5293,6 +5436,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1306.msg14714#msg14714",
 		"q": "ok, so i built a modified bitcoind, with the addition of 'pcoin->GetDepthInMainChain() < 1' to both SelectCoins and GetBalance.\nMy 'stock client' balance shows as 131.00139787, and my modified client balance shows as 130.92112098, so i have about 0.08xx of \"bad\" bitcoins' worth of transactions in my wallet.\nSo I guess now, all i need to do is create another wallet, and then send all the \"good coins\" from my old wallet to my new one (or, i guess... i could just use the same wallet, since my bitcoind won't try to send the bad coins, i can just ignore them....)\nBut yes, I hope the modifications as described by jgarzik (being configurable with cli switches/checkboxes) do make it into mainline - because otherwise it's too easy to 'poison' people's wallets with bogus transactions.",
 		"a": "As you figured out, the root problem is we shouldn't be counting or spending transactions until they have at least 1 confirmation. 0/unconfirmed transactions are very much second class citizens. At most, they are advice that something has been received, but counting them as balance or spending them is premature.\nI made changes so they show up in lighter print, with the credit amount in square brackets like [+1.23], and the amount not counted towards your balance and not available for spending. This doesn't apply to transactions you sent, which you implicitly trust, since you wrote them.\nI didn't make it (+1.23) because parenthesis in accounting means negative. I hope square brackets is different enough to be clear what is meant.\nThe JSON-RPC interface can still see 0/unconfirmed if it wants by specifying 0 confirmations.\nI uploaded the changes to SVN rev 158. I will post a 0.3.13 RC shortly.\nIf you have any of these transactions in your wallet, do not send any payments until you've upgraded to 0.3.13, which will be coming soon.\nIf you've already sent any of these transactions, or you're the creator of them, then use theymos' patch or make the following change and use it to send your clean transactions to a new wallet to clean things up.\nif (pcoin->GetDepthInMainChain() < 1 && pcoin->GetDebit() <= 0)\ncontinue;\nif (pcoin->GetDepthInMainChain() < 1)\ncontinue;",
+		"type": "ignore",
 		"qlen": 785,
 		"alen": 1378,
 		"len": 2163
@@ -5334,6 +5478,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1291.msg14736#msg14736",
 		"q": "Hey all...Thanks for all the feedback\nThe ssh method is great. However, all the machines are windows machines so i'd have to do an install on all of them. Better than writing a proxy app for sure though...\nI saw the entry from a few weeks ago about the -rpcallowip switch. I'll compile my own version if i have to. That said, i'd prefer to have an official release. Anyone have an idea when the next version would be posted?\nAs far as the MITM attack possibility, this only presents a problem if the network i'm exposing to is not trusted. Or is there some other effect i'm missing?",
 		"a": "It can be safe if you're using it over your own LAN, like if you have multiple servers at a location that talk to each other.\n0.3.13 RC1 is available for Windows:\nhttp://www.bitcoin.org/download/bitcoin-0.3.13-rc1-win32-setup.exe",
+		"type": "ignore",
 		"qlen": 582,
 		"alen": 229,
 		"len": 811
@@ -5354,6 +5499,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1327.msg15102#msg15102",
 		"q": "That's nice, however the automatic 4way detection is not working on my Gentoo AMD 64 version client.\nI still have to add the \"-4way\" switch.",
 		"a": "Forgot to say, I suspected the detect might not work on 64-bit AMD. I found it hard to believe but AMD reports a different model number in 64-bit mode.\nCould you grep CPUID your debug.log and tell me what it says? (and anyone else with 64-bit AMD) And what AMD chip do you have?\nDo all AMDs that support 64-bit have the better SSE2 hardware also?",
+		"type": "ignore",
 		"qlen": 140,
 		"alen": 346,
 		"len": 486
@@ -5385,6 +5531,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1327.msg15136#msg15136",
 		"q": "ArtForz is already running with no fees, and he has 20-30% of the network's CPU power. The person who originally sent the broken transactions deleted his wallet, though, and the network has forgotten these historical transactions, so any transactions based on this won't confirm.",
 		"a": "Transactions aren't accepted or displayed as 0/unconfirmed until your node has a path of transactions back to the block chain.\nAny transactions in your wallet also have bundled with them all unrecorded transactions required to reach the block chain. If you have a transaction that is displayed as 0/unconfirmed, then you have all the previous unrecorded transactions it depends on and you will also rebroadcast those transactions when you rebroadcast yours.\nIf a no-fee block has already been generated and hasn't helped, then I need to look at what's wrong. It's a part of code that doesn't get much use. They should be recorded in the wallets of everyone who has a transaction depending on them.",
+		"type": "ignore",
 		"qlen": 279,
 		"alen": 697,
 		"len": 976
@@ -5395,6 +5542,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1327.msg15136#msg15136",
 		"q": "The person who originally sent the broken transactions deleted his wallet",
 		"a": "Sigh... why delete a wallet instead of moving it aside and keeping the old copy just in case? You should never delete a wallet.",
+		"type": "ignore",
 		"qlen": 73,
 		"alen": 127,
 		"len": 200
@@ -5405,6 +5553,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1327.msg15136#msg15136",
 		"q": "It's running. Should find a block within 3 hours.",
 		"a": "It may take a while to collect re-broadcast transactions. It'll help if you can accept inbound connections so you'll be listening to more nodes. Even if you find a block in 3 hours, keep it running continuously for a few days at least.",
+		"type": "ignore",
 		"qlen": 49,
 		"alen": 235,
 		"len": 284
@@ -5435,6 +5584,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1327.msg15147#msg15147",
 		"q": "Will that be enough ?:\ncat /proc/cpuinfo\nprocessor : 0\nvendor_id : AuthenticAMD\ncpu family : 16\nmodel : 2\nmodel name : AMD Phenom(tm) 9850 Quad-Core Processor\nstepping : 3\ncpu MHz : 2508.353\ncache size : 512 KB\nphysical id : 0\nsiblings : 4\ncore id : 0\ncpu cores : 4\napicid : 0\ninitial apicid : 0\nfpu : yes\nfpu_exception : yes\ncpuid level : 5\nwp : yes\nflags : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nonstop_tsc extd_apicid pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs npt lbrv svm_lock\nbogomips : 5018.72\nTLB size : 1024 4K pages\nclflush size : 64\ncache_alignment : 64\naddress sizes : 48 bits physical, 48 bits virtual\npower management: ts ttp tm stc 100mhzsteps hwpstate\nAlso, i have just found out how to do the cpuid thingy:\nCPUID 444d4163 family 16, model 2, stepping 3, fUseSSE2=0",
 		"a": "ShadowOfHarbringer, is yours faster with -4way?\nIf it is, then I'm thinking that any AMD that supports 64-bit has 128-bit SSE2.\nThe specialbuild version I posted here looks for model 4 or higher. If yours is faster with -4way, then I should change it to always use SSE2 with any AMD with 64-bit.",
+		"type": "ignore",
 		"qlen": 994,
 		"alen": 295,
 		"len": 1289
@@ -5456,6 +5606,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1327.msg15167#msg15167",
 		"q": "The command line switches are listed in \"bitcoind -?\" instead of \"bitcoind help\". You are still right tho, those options are missing from \"-?\" too.",
 		"a": "Make sure you keep your node online so it'll keep rebroadcasting transaction b412a0. It haven't seen it rebroadcast since 29/09/2010 16:41.",
+		"type": "ignore",
 		"qlen": 147,
 		"alen": 139,
 		"len": 286
@@ -5466,6 +5617,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg15176#msg15176",
 		"q": "Maybe you should pm sirius-m directly.\nBut please first make sure that the translation is correct now, because I guess he won't be happy if we disturb him twice for a translation, especially with this language !",
 		"a": "Thanks eurekafag, Russian translation added to SVN rev 160.",
+		"type": "ignore",
 		"qlen": 211,
 		"alen": 59,
 		"len": 270
@@ -5497,6 +5649,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg15660#msg15660",
 		"q": "Shame on me, I haven't know about this useful tool before. Thanks for the clear explanation I've updated the translation according to rev160. How often should I review and update the translation? That's not a problem to do this for every revision but I don't want to spam this topic with translations every 2-3 days. Maybe it's good to make an announce that new release is coming in a few days so translators could update their files in time?",
 		"a": "poedit reorganised the file for some reason. I re-ran update from sources and it put it back in the original order so it's fine now. Did you run it on a drive where files aren't sorted alphabetically, like a FAT drive or USB flash drive?\nStrings aren't added or changed very often. It's months before enough changes build up.\nI uploaded the changes.\nThis Windows build has the Russian translation in it:\nhttp://www.bitcoin.org/download/bitcoin-0.3.13.2-win32-setup.exe",
+		"type": "ignore",
 		"qlen": 442,
 		"alen": 468,
 		"len": 910
@@ -5507,6 +5660,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1306.msg15672#msg15672",
 		"q": "So in .13 1 confirm is good enough to pay someone with, but it takes 6 to display \"confirmed\" in the GUI. This is inconsistant. This coin is good enough to pay you with but not good enough for me to accept? I don't know the logic behind the 6, but whatever it is, if its only used to decide which word to display, then is it really representing anything at all?",
 		"a": "That's going to be more of a SelectCoins thing.\nSVN rev 161 has a refinement to recursively determine if your own unconfirmed transactions can be spent. This is needed because you should be able to spend your own change right away.\nThe new recursive determination is: 0/unconfirmed can be spent if it's yours and all its dependencies are either in a block or also yours.\nHere's a Windows build:\nhttp://www.bitcoin.org/download/bitcoin-0.3.13.2-win32-setup.exe\nThis version is an improvement if you already had a 0/unconfirmed transaction and might have already spent it. If you were the original creator of a 0/unconfirmed transaction, you still need theymos' patch instead.",
+		"type": "ignore",
 		"qlen": 361,
 		"alen": 674,
 		"len": 1035
@@ -5537,6 +5691,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg17965#msg17965",
 		"q": "Strange enough. I ran it on my usual XFS and new untranslated strings appeared on top. Is the order so important? I guess it's not for the program and for translators because when one use poedit he can always check what the particular string belongs to. By the way, there are some similar lines that possibly may be replaced by one. They are very close by meaning and differs only by 1-2 words. Just a suggestion of course.",
 		"a": "The order matters not to the program, but it matters to me maintaining it. If it jumbles the order of the .po file then I can't diff for changes. I have to update all 7 translation files when I change the English text in the program, and it's easier when they're all in the same order.\nI can still put it back into normal order by making poedit rescan it.\nIt is normal that untranslated strings are shown on top.",
+		"type": "ignore",
 		"qlen": 423,
 		"alen": 412,
 		"len": 835
@@ -5547,6 +5702,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=151.msg17965#msg17965",
 		"q": "By the way, there are some similar lines that possibly may be replaced by one. They are very close by meaning and differs only by 1-2 words. Just a suggestion of course.",
 		"a": "I know, but not easily without complicating the sourcecode.",
+		"type": "ignore",
 		"qlen": 169,
 		"alen": 59,
 		"len": 228
@@ -5587,6 +5743,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1540.msg18246#msg18246",
 		"q": "Fault Module Name: mingwm10.dll",
 		"a": "This is the important clue. I believe it's saying it crashed in that. Maybe there are other versions of it to try. mingwm10.dll is just a simple placeholder thing that satisfies some callback requirement for multithreaded apps.\nIs anyone else running OK on Windows 64-bit?",
+		"type": "ignore",
 		"qlen": 31,
 		"alen": 272,
 		"len": 303
@@ -5607,6 +5764,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=665.msg18349#msg18349",
 		"q": "Yeah, it is quite obvious. I suffer for over optimization obsession syndrome I feel that as data flows only inside the application there's no need to register transactions and put that 'extra load' on the system, but quite frankly the extra load is perfectly ignorable, and the transactions help keep everything tidy. Are you planning to do anything on this regard? I'm sure I can find my way around to do it myself, it will just take time, but I don't want to duplicate any work though.",
 		"a": "I have the beginning of something like this. It's mostly like what Gavin described.\nSome more rpc interface:\nmove <fromaccount> <toaccount> <amount>\nMove from one internal account to another. I think blank account name (\"\") will be your default account. If you sell something to a user, you could do move \"theiraccount\" \"\" 123.45.\nIs \"move\" the best name for this? I shied away from \"transfer\" because that sounds too close to sending a transaction.\nI'm thinking a new function getaccountaddress instead of overloading getnewaddress:\ngetaccountaddress <account>\nGives you an address allocated from getnewaddress <account>. It'll keep giving the same address until something is received on the address, then it allocates a new address. (It automatically does what the sample code I posted some time ago did)\nWould these commands make it possible in simple cases to implement your website without needing a database of your own?",
+		"type": "ignore",
 		"qlen": 487,
 		"alen": 926,
 		"len": 1413
@@ -5617,6 +5775,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=665.msg18508#msg18508",
 		"q": "use -datadir and change the port on the source code and then use a different dir and port for every bitcoin instance",
 		"a": "Here's some pseudocode of how you would use the account based commands. It sure makes website integration a lot easier.\nprint \"send to \" + getaccountaddress(username) + \" to fund your account\"\nprint \"balance: \" + getbalance(username, 0)\nprint \"available balance: \" + getbalance(username, 6)\n// if you make a sale, move the money out of their account\nmove(username, \"\", amount, 6)\n// withdrawal\nsendfrom(username, bitcoinaddress, amount, 6)",
+		"type": "ignore",
 		"qlen": 116,
 		"alen": 439,
 		"len": 555
@@ -5627,6 +5786,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1540.msg18511#msg18511",
 		"q": "Ok good to know others are able to run it ok.\nUnfortunately bitcoin is not a critical application for me and need to spend my time on other things. If however there is a debugging build of the application which can provide line numbers for the crashed code (0xc0000005 - ACCESS VIOLATION) then I'd be happy to run it to identify the line causing the problem.",
 		"a": "The only thing I can think of is to see if there are other versions of mingwm10.dll you can get. mingwm10.dll is a tiny little DLL that came with the MinGW compiler that you need when you build for multi-thread. I don't know exactly what it does, but it probably just says something like \"yes Windows, see I'm in a DLL like you insisted.\"\nThe end of your debug.log file might show the last thing it was doing before it crashed.",
+		"type": "ignore",
 		"qlen": 358,
 		"alen": 427,
 		"len": 785
@@ -5707,6 +5867,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1334.msg23097#msg23097",
 		"q": "updated to SVN 186",
 		"a": "Thanks m0mchil for keeping up on the updates!\nGPU miners, please upgrade as soon as possible to shut down the free transaction abuse! This version has the new priority-based limit on free transaction spam.",
+		"type": "ignore",
 		"qlen": 18,
 		"alen": 205,
 		"len": 223
@@ -5717,6 +5878,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1334.msg23097#msg23097",
 		"q": "Just updated to SVN 181 and fixed getwork patch to wait 60 seconds between rebuilding the block with new transactions. This is actually the behavior of the original client, was forgotten in the patch by mistake. Fixes heavy CPU usage on every getwork request (this became obvious with recent heavy transaction spam). Please upgrade.",
 		"a": "Before SVN 184, compiling transactions into a block used an n^2 algorithm. The new efficient single-pass algorithm is orders of magnitude quicker. (O(n) vs O(n^2)/2 algorithm, n=200 maybe 10 to 100 times quicker)",
+		"type": "ignore",
 		"qlen": 332,
 		"alen": 212,
 		"len": 544
@@ -5727,6 +5889,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1901.msg23891#msg23891",
 		"q": "I understand the use case for external miners, but I rather like the all-in-one approach. Will I still be able to compile in my own mining code? I really enjoyed the revamped interface you introduced some time ago, and would very much like to keep on using it.",
 		"a": "It's not an exact drop-in replacement. I wanted to clean up the interface a little. It only requires a few changes.\nScanHash_ functions aren't going away. BTW, the interface of this is designed to mirror the parameters of that (midstate, data, hash1).",
+		"type": "ignore",
 		"qlen": 260,
 		"alen": 251,
 		"len": 511
@@ -5757,6 +5920,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1334.msg24101#msg24101",
 		"q": "Hi m0mchil, firstly thank you for your work. Is there any way to include getwork patch into official client? I'm using bitcoin on old centos server and compiling is pain here!",
 		"a": "A revised version of getwork is now in the official client, but the miners need to be updated a little to use it.",
+		"type": "ignore",
 		"qlen": 175,
 		"alen": 113,
 		"len": 288
@@ -5849,6 +6013,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1931.msg25138#msg25138",
 		"q": "My understanding was that the client already did a blockchain recheck upon startup if the index was missing. I did this when I first started, and it sure seemed like it was marching through the chain. Doesn't it require an index to function anyway? Why would it assume that the blockchain was valid upon startup? Anyone could have edited it. The genesis block is encoded into the client, isn't it? That and the blockchain checkpoints are the only parts that are assumed correct, or am I wrong? There is no good reason to prevent a blockchain download via other methods. In a future with the bitcoin network running close to it's capacity, downloading the entire blockchain over the P2P network will be harmful.\nEven a chain that has already been pruned of it's merkle trees should be able to be verified from the start, otherwise what good is using a merkle tree at all?",
 		"a": "Despite everything else said, the current next step is:",
+		"type": "ignore",
 		"qlen": 870,
 		"alen": 55,
 		"len": 925
@@ -5859,6 +6024,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1931.msg25138#msg25138",
 		"q": "Someone should experiment with different Berkeley DB settings and see if there's something that makes the download substantially faster. If something substantial is discovered, then we can work out the particulars.",
 		"a": "In particular, I suspect that more read caching might help a lot.",
+		"type": "ignore",
 		"qlen": 214,
 		"alen": 65,
 		"len": 279
@@ -5869,6 +6035,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1931.msg25138#msg25138",
 		"q": "Another new user on IRC, Linux this time, was downloading at a rate of 1 block every 4 seconds -- estimated total download time around 4 days.",
 		"a": "Then something more specific was wrong. That's not due to normal initial download time. Without more details, it can't be diagnosed. If it was due to slow download, did it speed up after 10-20 minutes when the next block broadcast should have made it switch to a faster source? debug.log might have clues. How fast is their Internet connection? Was it steadily slow, or just slow down at one point?",
+		"type": "ignore",
 		"qlen": 142,
 		"alen": 398,
 		"len": 540
@@ -5879,6 +6046,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1931.msg25138#msg25138",
 		"q": "We have the hashes for genesis block through block 74000 hardcoded (compiled) into bitcoin, so there's no reason why we shouldn't be able to automatically download a compressed zipfile of the block database from anywhere, unpack it, verify it, and start running.",
 		"a": "The 74000 checkpoint is not enough to protect you, and does nothing if the download is already past 74000. -checkblocks does more, but is still easily defeated. You still must trust the supplier of the zipfile.\nIf there was a \"verify it\" step, that would take as long as the current normal initial download, in which it is the indexing, not the data download, that is the bottleneck.",
+		"type": "ignore",
 		"qlen": 262,
 		"alen": 383,
 		"len": 645
@@ -5889,6 +6057,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1931.msg25138#msg25138",
 		"q": "Presumably at some point there will be a lightweight client that only downloads block headers, but there will still be hundreds of thousands of those...",
 		"a": "80 bytes per header and no indexing work. Might take 1 minute.",
+		"type": "ignore",
 		"qlen": 152,
 		"alen": 62,
 		"len": 214
@@ -5899,6 +6068,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1931.msg25138#msg25138",
 		"q": "uncompressed data using a protocol (bitcoin P2P) that wasn't designed for bulk data transfer.",
 		"a": "The data is mostly hashes and keys and signatures that are uncompressible.\nThe speed of initial download is not a reflection of the bulk data transfer rate of the protocol. The gating factor is the indexing while it downloads.",
+		"type": "ignore",
 		"qlen": 93,
 		"alen": 226,
 		"len": 319
@@ -5909,6 +6079,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1986.msg25154#msg25154",
 		"q": "Will it be synchronized automatically?",
 		"a": "Very much not. Using multiple copies of wallet.dat is not recommended or supported, in fact all of Bitcoin is designed to defeat that. Both copies will get screwed up.\nIf you're trying to consolidate your generated coins into one wallet, a better solution now is to run getwork miners on the additional systems. jgarzik has a CPU miner, and it supports tcatm's 4-way SSE2, so on Windows it's up to twice as fast as the built-in SHA if you have an AMD or recent Intel (core 3, 5 or 7).\nNew demonstration CPU miner available:\nhttp://bitcointalk.org/index.php?topic=1925.0",
+		"type": "ignore",
 		"qlen": 38,
 		"alen": 569,
 		"len": 607
@@ -5963,6 +6134,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=2007.msg25799#msg25799",
 		"q": "Bitcoin version 3.17.1 beta\nDefault data directory /home/david/.bitcoin\nBound to port 8333\nbitcoin server starting\nLoading addresses...\ndbenv.open strLogDir=/home/david/.bitcoin/database strErrorFile=/home/david/.bitcoin/db.log\nLoaded 5017 addresses\naddresses 122ms\nLoading block index...\nLoadBlockIndex(): hashBestChain=00000000000013587f18 height=94571\nblock index 1294ms\nLoading wallet...\n************************\nEXCEPTION: NSt8ios_base7failureE\nCDataStream::read() : end of data\nbitcoin in AppInit()\nterminate called after throwing an instance of 'std::ios_base::failure'\n************************\nEXCEPTION: NSt8ios_base7failureE\nCDataStream::read() : end of data\nbitcoin in AppInit()\nwhat(): CDataStream::read() : end of data",
 		"a": "What was this wallet used with? An early accounts patch or git build?\nIt's while loading the wallet. I assume it must be in this:\nelse if (strType == \"acentry\")\n{\nstring strAccount;\nssKey >> strAccount;\nuint64 nNumber;\nssKey >> nNumber;\nif (nNumber > nAccountingEntryNumber)\nnAccountingEntryNumber = nNumber;\n}\nYou could check that with this:\nelse if (strType == \"acentry\")\n{\nstring strAccount;\nassert(!ssKey.empty());\nssKey >> strAccount;\nuint64 nNumber;\nif (ssKey.size() != 8 )\nprintf(\"***** %s %d\n\", strAccount.c_str(), ssKey.size());\nassert(ssKey.empty() == false);\nssKey >> nNumber;\nif (nNumber > nAccountingEntryNumber)\nnAccountingEntryNumber = nNumber;\n}\nWas there an interim version of accounts on git at some point that had just (\"acentry\", \"account\") for the key?\nIf you have gdb, you could run it in gdb and do a backtrace.\ngdb --args bitcoin ...\nrun\n(wait for exception)\nbt",
+		"type": "ignore",
 		"qlen": 731,
 		"alen": 885,
 		"len": 1616
@@ -5973,6 +6145,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1931.msg26016#msg26016",
 		"q": "I timed two runs with clean data directories (no contents), -noirc, -addnode=10.10.10.1, Linux 64-bit. Hardware: SATA SSD\nMainline, no patches:\n32 minutes to download 94660 blocks.\nMainline + TxnBegin/TxnCommit in AddToBlockIndex():\n25 minutes to download 94660 blocks.",
 		"a": "That's a good optimisation. I'll add that next time I update SVN.\nMore generally, we could also consider this:\ndbenv.set_lk_max_objects(10000);\ndbenv.set_errfile(fopen(strErrorFile.c_str(), \"a\")); /// debug\ndbenv.set_flags(DB_AUTO_COMMIT, 1);\n+ dbenv.set_flags(DB_TXN_NOSYNC, 1);\nret = dbenv.open(strDataDir.c_str(),\nDB_CREATE |\nDB_INIT_LOCK |\nDB_INIT_LOG |\nWe would then rely on dbenv.txn_checkpoint(0, 0, 0) in CDB::Close() to flush after wallet writes.",
+		"type": "ignore",
 		"qlen": 269,
 		"alen": 455,
 		"len": 724
@@ -5994,6 +6167,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=2151.msg28228#msg28228",
 		"q": "Surely since the WalletTx are added sequentially to the wallet, we can assume that older txid's appear earlier in the wallet?\nThen it's simply trivial to do a linear lookup and then continue on spitting out the txid's after that one.\nCan anyone confirm this?",
 		"a": "It's not safe to use listtransactions this way.\nI know I've been criticized for being reluctant about listtransactions. Let me explain my reluctance.\nTransactions are dynamic. Past transactions can become unconfirmed, go away and come back, become invalid and disappear, or be replaced by a different double-spend. Their date can change, their order can change.\nProgrammers are naturally inclined to want to use listtransactions like this: feed me the new transactions since I last asked, and I'll keep my own tally or static record of them. This will seem to work in all regular use, but if you use the amounts for anything, it is highly exploitable:\n1) How do you know if a past transaction becomes invalid and disappears?\n2) When there's a block-chain reorg, it would be easy to double-count transactions when they get confirmed again.\n3) A transaction can be replaced by a double-spend with a different txid. You would count both spends.\nThe model where you assume you only need to see new transactions because you've already seen previous transactions is not true. Old transactions can change at any time.\nAny time you take an action based on payment amounts received, you always need to go back to bitcoin and ask for a current balance total (or use move or sendfrom), and be ready for the possibility that it can go down.\nNow that we have the Accounts feature making it easier to do it the right way, we're better prepared to have listtransactions.",
+		"type": "ignore",
 		"qlen": 258,
 		"alen": 1455,
 		"len": 1713
@@ -6004,6 +6178,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=2151.msg28292#msg28292",
 		"q": "At some point, a website or person accepting a transaction must take this risk. It is unavoidable, whether you use listreceivedbyaddress or listtransactions. This is why listtransactions reluctance seems so unusual.\nAlmost every exchange or website accepting bitcoins achieves a binary decisionpoint, where the transaction is accepted, and goods are shipped or money is exchanged. After that binary decisionpoint, even if the block chain is reorg'd or transactions disappear, there is nothing the website can do but take a loss (or pursue a refund outside of bitcoin).\nFrom the website's point of view, there is zero effective difference between 'listtransactions 6' and 'listreceivedbyaddress 6', because the end result to the website operator is the same: the goods have been shipped / order accepted / money exchanged.",
 		"a": "Then how do you cope with the issues I listed in the message you quoted?",
+		"type": "ignore",
 		"qlen": 821,
 		"alen": 72,
 		"len": 893
@@ -6014,6 +6189,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=2151.msg28313#msg28313",
 		"q": "So it would be a design problem in the developper's app, not a problem inherent to listtransactions. What you're saying is: if listtransactions is used without care, it can be dangerous. OK, but many programmatic tools have traps too. For example, programming with threads is full of design traps. That doesn't mean that that tool shouldn't be made available to developpers, but that the documentation must warn strongly about those traps.\nMy point: let's make listtransactions available, but document it precisely, like any API, and explain the design mistakes that shouldn't be made when using it.",
 		"a": "I'm not talking about the normal risk for a given minconf level, I'm talking about additional pitfalls from listtransactions when used this way.",
+		"type": "ignore",
 		"qlen": 599,
 		"alen": 144,
 		"len": 743
@@ -6024,6 +6200,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=2151.msg28313#msg28313",
 		"q": "2) When there's a block-chain reorg, it would be easy to double-count transactions when they get confirmed again.",
 		"a": "The OP's example of listtransactions <account> [count=10] [txid] seems to imply and it would be very easy for programmers to assume that if they pass in the last txid of the previous call to listtransactions, they will never see the same transaction more than once, which is not the case. It would be very easy to double-count payments if you don't maintain your own persistent map or dictionary to track which txid's you've already accepted.\nIt doesn't seem right to have a function that seems tailor made to be used a certain obvious way, and that way is a non-obvious trap.",
+		"type": "ignore",
 		"qlen": 113,
 		"alen": 576,
 		"len": 689
@@ -6034,6 +6211,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=2151.msg28313#msg28313",
 		"q": "listtransactions does not add anything to this problem, beyond that which is already vulnerable through listreceivedbyaddress.",
 		"a": "Suppose both spends are to the same address. getreceivedbyaddress would always count only one or the other spend at any given time, never both.\nUsing listtransactions, it would be very easy to count both. You see the first spend, you count it. You see the second spend, you count it. Total is double counted.",
+		"type": "ignore",
 		"qlen": 126,
 		"alen": 308,
 		"len": 434
