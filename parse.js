@@ -105,6 +105,7 @@ const splitPost = (html) => {
     // Clear a weird white-space
     .replace(/ /g, ' ')
     .replace(/  +/g, ' ')
+    // Unify apostrophes
     .replace(/\\u([a-z0-9]{4})/g, (_, code) => {
       if (!ACCEPTED_UNICODES.includes(code)) {
         return ''
@@ -112,6 +113,7 @@ const splitPost = (html) => {
       // FIXME: There are 2 ocurrences of a \u0000ame replacement, now yields "ame" at the end
       return String.fromCharCode(parseInt(code, 16))
     })
+    .replace(/`(s|t|ve|d)/g, '\'$1')
     .replace(/\bedit: ?|\[edit\]|\/edit/ig, '')
     .split('\n').map(p => p.trim()).filter(p =>
       !!p &&

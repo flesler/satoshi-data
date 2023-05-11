@@ -9,7 +9,7 @@
       "What files need to be backed up for not losing my \"money\"? Only the wallet.dat or the whole Bitcoin AppData directory ?",
       "Version 0.1.5: backup the whole %appdata%\\Bitcoin directory.\nVersion 0.2: you can backup just wallet.dat.",
 
-      "Isn`t it possible to multiply a wallet and use it on different machines? This way you would double your money without doing anything for it.\nAre there security measures for this case?",
+      "Isn't it possible to multiply a wallet and use it on different machines? This way you would double your money without doing anything for it.\nAre there security measures for this case?",
       "Nope. The whole design is all about preventing that from working.",
 
       "When someone loses his wallet, will there be a way to recreate the lost coins in the system ? Else the 21 million maximum will not be correct.\n(I mean not to recover the lost coins for one person, but if all the 21mio coins were created, and someone loses his wallet with 1mio coins, will the the others be able to create these 1mio coins now or are they totally lost for the bitcoin network?)",
@@ -18,16 +18,16 @@
       "I have read that there currently are about 130k blocks out there. At my pc it only shows me about 24k. Is there something wrong or is this a normal behaviour ?",
       "It's currently 29,296 blocks. The circulation is the number of blocks times 50, so the current circulation is 1,464,800 bc.\nIf you only have 24k blocks, it must not have finished the initial block download. Exit bitcoin and start it again. Version 0.2 is better/faster at the initial block download.",
     
-      "I`m afraid I didn`t understand everything about the bitcoin creation. How many coins are created by a machine in 24h in average?",
+      "I`m afraid I didn't understand everything about the bitcoin creation. How many coins are created by a machine in 24h in average?",
       "Typically a few hundred right now. It's easy now but it'll get harder as the network grows.",
     
       "I know that port 8333 should be forwarded to the bitcoin-running machine. Now I ask myself if this goes for the TCP or the UDP.\nAnd is this port required for generating coins? Or only for payment transactions?",
       "Good question, it's TCP. The website needs to be updated to say TCP port 8333.\nThe port forwarding is so other nodes can connect to you, so it helps you stay connected because you are able to be connected with more nodes. You also need it to receive payments by IP address.",
     
-      "I`ve seen that the source code for bitcoin is open for everybody. Can this be an actual danger? If the code is manipulated people can create more bitcoins than others, can`t they? This would be a massive leak of security.",
+      "I've seen that the source code for bitcoin is open for everybody. Can this be an actual danger? If the code is manipulated people can create more bitcoins than others, can't they? This would be a massive leak of security.",
       "No, the other nodes won't accept that.\nBeing open source means anyone can independently review the code. If it was closed source, nobody could verify the security. I think it's essential for a program of this nature to be open source.",
     
-      "I`ve seen a formula to calculate the coins that will be created in a certain amount of time. It had something to do with the maximum cpu speed and the availabe. Can`t find it anymore, so I`m asking you to explain me the coin creating. Do slow machines produce as much coins as high-end ones?",
+      "I've seen a formula to calculate the coins that will be created in a certain amount of time. It had something to do with the maximum cpu speed and the availabe. Can't find it anymore, so I`m asking you to explain me the coin creating. Do slow machines produce as much coins as high-end ones?",
       "Slower machines produce fewer coins. It's proportional to CPU speed.",
     
       "Are there any other exchanging systems or potential payment partners except for new liberty standard?",
