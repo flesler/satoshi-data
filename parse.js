@@ -172,14 +172,14 @@ const getType = (qa) => {
 
 const qas = parsePosts().concat(parseEmails())
   .map((qa) => ({
-    ...qa, date: new Date(qa.date + ' UTC').toISOString().split('.')[0].replace('T', ' '), 
-    type: overrides[qa.src]?.type || getType(qa),
+    type: overrides[qa.src]?.type || getType(qa), ...qa,
+    date: new Date(qa.date + ' UTC').toISOString().split('.')[0].replace('T', ' '), 
   }))
   .sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
   // .sort((a, b) => (a.q.length + a.a.length) - (b.q.length + b.a.length))
   .map((qa, i) => ({ id: i + 1, ...qa }))
-  .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
-  .map(qa => ({ ...qa, len: qa.qlen + qa.alen }))
+  // .map(qa => ({ ...qa, qlen: qa.q.length, alen: qa.a.length }))
+  // .map(qa => ({ ...qa, len: qa.qlen + qa.alen }))
 
 fs.writeFileSync('./data/qa.json', JSON.stringify(qas, null, '\t'))
 
