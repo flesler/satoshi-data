@@ -10,7 +10,6 @@ const IGNORE_EMAIL = ['>>', 'From:', ' wrote:', ' writes:']
 const IGNORE_POST = ['Greetings,', 'foobar', 'Posted:', 'Re: ', 'Regards,', '-------------']
 // The rest are ignored
 const ACCEPTED_UNICODES = ['0e3f', '00e9', '00e0', '00e8', '00e7']
-const IS_CODE = /\b(const|char|\w+\.cpp|\w+\.h|getpid|addr|wxWidgets|ansi|htop|fprintf|stdout)\b/
 
 const splitEmail = (email) => {
   if (!email) {
@@ -103,7 +102,6 @@ const splitPost = (html) => {
     $(e).text(QUOTE + $(e).text() + QUOTE)
   })
   return $.text()
-    .replace(/EDIT: ?/g, '')
     // Clear a weird white-space
     .replace(/ /g, ' ')
     .replace(/  +/g, ' ')
@@ -114,6 +112,7 @@ const splitPost = (html) => {
       // FIXME: There are 2 ocurrences of a \u0000ame replacement, now yields "ame" at the end
       return String.fromCharCode(parseInt(code, 16))
     })
+    .replace(/\bedit: ?|\[edit\]|\/edit/ig, '')
     .split('\n').map(p => p.trim()).filter(p =>
       !!p &&
       !IGNORE_LINES.includes(p) &&
@@ -165,18 +164,10 @@ const parsePosts = () => {
   return out
 }
 
-const getType = (qa) => {
-  // Ignore Q&A's that are too technical
-  if (IS_CODE.test(qa.q + qa.a)) {
-    // TODO: Ignore if too long?
-    return 'ignore'
-  }
-}
-
 const qas = parsePosts().concat(parseEmails())
   .map((qa) => ({
     ...qa, date: new Date(qa.date + ' UTC').toISOString().split('.')[0].replace('T', ' '), 
-    type: overrides[qa.src]?.type || getType(qa),
+    type: overrides[qa.src]?.type,
   }))
   .sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
   .map((qa, i) => ({ id: i + 1, ...qa }))
