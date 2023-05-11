@@ -1,6 +1,7 @@
 {
-  "name": "satoshi",
+  "name": "satoshi-data",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "parse.js",
   "scripts": {
@@ -8,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flesler/satoshi.git"
+    "url": "git+https://github.com/flesler/satoshi-data.git"
   },
   "author": "Ariel Flesler",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/flesler/satoshi/issues"
+    "url": "https://github.com/flesler/satoshi-data/issues"
   },
-  "homepage": "https://github.com/flesler/satoshi#readme",
+  "homepage": "https://github.com/flesler/satoshi-data#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.12"
   }

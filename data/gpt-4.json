@@ -1,0 +1,121 @@
+[
+  {
+    "a": "I've developed a new open source P2P e-cash system called Bitcoin. It's completely decentralized, with no central server or trusted parties, because everything is based on crypto proof instead of trust. Give it a try, or take a look at the screenshots and design paper:\n\n\n\nDownload Bitcoin v0.1 at http://www.bitcoin.org\n\n\n\nThe root problem with conventional currency is all the trust that's required to make it work. The central bank must be trusted not to debase the currency, but the history of fiat currencies is full of breaches of that trust. Banks must be trusted to hold our money and transfer it electronically, but they lend it out in waves of credit bubbles with barely a fraction in reserve. We have to trust them with our privacy, trust them not to let identity thieves drain our accounts. Their massive overhead costs make micropayments impossible.\n\n\n\nA generation ago, multi-user time-sharing computer systems had a similar problem. Before strong encryption, users had to rely on password protection to secure their files, placing trust in the system administrator to keep their information private. Privacy could always be overridden by the admin based on his judgment call weighing the principle of privacy against other concerns, or at the behest of his superiors. Then strong encryption became available to the masses, and trust was no longer required. Data could be secured in a way that was physically impossible for others to access, no matter for what reason, no matter how good the excuse, no matter what.\n\n\n\nIt's time we had the same thing for money. With e-currency based on cryptographic proof, without the need to trust a third party middleman, money can be secure and transactions effortless.\n\n\n\nOne of the fundamental building blocks for such a system is digital signatures. A digital coin contains the public key of its owner. To transfer it, the owner signs the coin together with the public key of the next owner. Anyone can check the signatures to verify the chain of ownership. It works well to secure ownership, but leaves one big problem unsolved: double-spending. Any owner could try to re-spend an already spent coin by signing it again to another owner. The usual solution is for a trusted company with a central database to check for double-spending, but that just gets back to the trust model. In its central position, the company can override the users, and the fees needed to support the company make micropayments impractical.\n\n\n\nBitcoin's solution is to use a peer-to-peer network to check for double-spending. In a nutshell, the network works like a distributed timestamp server, stamping the first transaction to spend a coin. It takes advantage of the nature of information being easy to spread but hard to stifle. For details on how it works, see the design paper at http://www.bitcoin.org/bitcoin.pdf\n\n\n\nThe result is a distributed system with no single point of failure. Users hold the crypto keys to their own money and transact directly with each other, with the help of the P2P network to check for double-spending."
+  },
+  {
+    "q": "What is Bitcoin?",
+    "a": "Bitcoin is an open-source, peer-to-peer electronic cash system. It's completely decentralized, meaning there's no central server or trusted parties involved."
+  },
+  {
+    "q": "How is Bitcoin different from conventional currency?",
+    "a": "Conventional currency requires trust in central banks and financial institutions to function, while Bitcoin is based on cryptographic proof, removing the need for trust. Bitcoin aims to address issues like debasement of currency, privacy breaches, and the inability to support micropayments that can be associated with traditional banking systems."
+  },
+  {
+    "q": "How does Bitcoin offer better privacy than traditional banking systems?",
+    "a": "Bitcoin uses strong encryption, which ensures that data could be secured in a way that is physically impossible for others to access, regardless of the reason or excuse. This is different from traditional banking systems, where privacy could be overridden by administrators."
+  },
+  {
+    "q": "What is the main technological innovation behind Bitcoin?",
+    "a": "One of the main technological innovations behind Bitcoin is the use of digital signatures and public keys to secure ownership of digital coins. Additionally, Bitcoin uses a peer-to-peer network to prevent double-spending of coins without needing a central authority."
+  },
+  {
+    "q": "What is double-spending and how does Bitcoin prevent it?",
+    "a": "Double-spending is a potential flaw in a digital cash scheme where a user could spend a single digital coin more than once. Bitcoin prevents double-spending by using a peer-to-peer network that works like a distributed timestamp server, which stamps the first transaction to spend a coin."
+  },
+  {
+    "q": "How does Bitcoin maintain a distributed system with no single point of failure?",
+    "a": "Bitcoin users hold the cryptographic keys to their own money and transact directly with each other. The peer-to-peer network helps check for double-spending, which ensures that there is no single point of failure."
+  },
+  {
+    "q": "Where can the Bitcoin software be downloaded?",
+    "a": "The Bitcoin software, version 0.1, can be downloaded from the official website, http://www.bitcoin.org."
+  },
+  {
+    "q": "Where can I find more details about how Bitcoin works?",
+    "a": "More details about how Bitcoin works can be found in the design paper at http://www.bitcoin.org/bitcoin.pdf."
+  },
+  {
+    "q": "What does it mean that Bitcoin is open source?",
+    "a": "Being open source means that Bitcoin's source code is available for anyone to view, modify, and distribute. This promotes transparency and allows for community input and improvements."
+  }, 
+    {
+    "q": "What are the implications of Bitcoin being a peer-to-peer (P2P) system?",
+    "a": "As a P2P system, Bitcoin operates without a central authority. Transactions take place directly between users without an intermediary. This decentralization is a key feature of the system."
+  },
+  {
+    "q": "How does Bitcoin utilize cryptographic proof?",
+    "a": "Bitcoin utilizes cryptographic proof in several ways, most notably in the transaction process. To transfer Bitcoin, the current owner signs the coin using their private key along with the public key of the next owner. This creates a digital signature that verifies the owner's identity and prevents unauthorized use. Additionally, cryptographic proof is used in the mining process to verify and add new transactions to the blockchain."
+  },
+  {
+    "q": "What are micropayments and why are they impossible with conventional banking systems?",
+    "a": "Micropayments are small financial transactions, often less than a dollar. They are typically impractical in conventional banking systems due to high transaction fees, but Bitcoin's decentralized system makes them more feasible."
+  },
+  {
+    "q": "How does Bitcoin address the issue of trust needed in conventional currency systems?",
+    "a": "Bitcoin addresses the issue of trust by using a decentralized, cryptographic proof-based system. This removes the need for a central authority or trusted parties, allowing users to control their own money and transactions."
+  },
+  {
+    "q": "What is the role of digital signatures in the Bitcoin system?",
+    "a": "Digital signatures are a key part of the Bitcoin system. They are used to verify the identity of the parties in a transaction and secure the ownership of bitcoins. They also prevent double-spending by ensuring a coin can't be spent twice."
+  },
+  {
+    "q": "What is the role of a distributed timestamp server in the Bitcoin system?",
+    "a": "A distributed timestamp server plays a crucial role in preventing double-spending in the Bitcoin system. It timestamps transactions, marking the first transaction to spend a coin, which makes it impossible to spend the same coin twice."
+  },
+  {
+    "q": "Can Bitcoin be regulated by any central authority?",
+    "a": "No, Bitcoin is designed to operate without a central authority. It's a decentralized system where users hold the crypto keys to their own money and transact directly with each other. As such, it's not subject to regulation by any single central authority. However, individual countries can and have introduced regulations regarding the use and trading of Bitcoin within their jurisdiction."
+  },
+    {
+    "q": "What is the new system developed?",
+    "a": "A new open source P2P e-cash system called Bitcoin."
+  },
+  {
+    "q": "What is the key characteristic of Bitcoin?",
+    "a": "It's completely decentralized, with no central server or trusted parties, because everything is based on crypto proof instead of trust."
+  },
+  {
+    "q": "Where can Bitcoin v0.1 be downloaded?",
+    "a": "At http://www.bitcoin.org"
+  },
+  {
+    "q": "What is the root problem with conventional currency?",
+    "a": "The root problem with conventional currency is all the trust that's required to make it work."
+  },
+  {
+    "q": "What breaches of trust have occurred in the history of fiat currencies?",
+    "a": "The central bank must be trusted not to debase the currency, but there have been breaches of that trust. Banks must also be trusted to hold our money and transfer it electronically, but they lend it out in waves of credit bubbles with barely a fraction in reserve."
+  },
+  {
+    "q": "What issue did multi-user time-sharing computer systems face a generation ago?",
+    "a": "Before strong encryption, users had to rely on password protection to secure their files, placing trust in the system administrator to keep their information private."
+  },
+  {
+    "q": "What changed when strong encryption became available?",
+    "a": "Trust was no longer required. Data could be secured in a way that was physically impossible for others to access, no matter for what reason, no matter how good the excuse, no matter what."
+  },
+  {
+    "q": "What is the goal for money?",
+    "a": "It's time we had the same thing for money. With e-currency based on cryptographic proof, without the need to trust a third party middleman, money can be secure and transactions effortless."
+  },
+  {
+    "q": "What is a fundamental building block for such a system?",
+    "a": "One of the fundamental building blocks for such a system is digital signatures."
+  },
+  {
+    "q": "What is the problem that remains unsolved with digital signatures?",
+    "a": "The problem that remains unsolved with digital signatures is double-spending. Any owner could try to re-spend an already spent coin by signing it again to another owner."
+  },
+  {
+    "q": "How does Bitcoin solve the double-spending problem?",
+    "a": "Bitcoin's solution is to use a peer-to-peer network to check for double-spending."
+  },
+  {
+    "q": "How does the peer-to-peer network work?",
+    "a": "The network works like a distributed timestamp server, stamping the first transaction to spend a coin."
+  },
+  {
+    "q": "What is the result of Bitcoin's solution?",
+    "a": "The result is a distributed system with no single point of failure. Users hold the crypto keys to their own money and transact directly with each other, with the help of the P2P network to check for double-spending."
+  }
+]
