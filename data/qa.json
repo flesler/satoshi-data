@@ -1174,6 +1174,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=22.msg223#msg223",
 		"q": "OK thanks riX.\nSo, once Bitcoin has connected to at least one node then the -connect option will eliminate the 6667 warnings.\nIs Bitcoin using any kind of 'peer exchange' or DHT because this still does not seem to prevent the constant Tor 'exit' warnings and therefore Tor's requirement to try a new 'exit' node for connection. (which is problematic ! For Tor anyway, not Bitcoin ) This is really what I meant by \"However, Bitcoin must try to connect with all nodes to check its not missing any blocks ?\" I just communicated it incorrectly.\nI2P would seem to be a much easier solution to implement to increase a Bitcoins users anonymity.\nhttp://forum.i2p2.de/viewtopic.php?t=3946&sid=213e3cd998db98c4511675ecbba17af4\nI'm also testing JonDonym http://anonymous-proxy-servers.net/ (only the paid services support socks !) However, they do accept paysafecards which can currently be brought in exchange for Bitcoins.",
 		"a": "When using proxy port 9050, it will only make one attempt to connect to IRC, then give up, since it knows it will probably always fail because IRC servers ban all the TOR exit nodes. If you're using another port, it would assume it might be a regular old normal proxy and would keep retrying IRC at longer and longer intervals. You should not use Polipo or Privoxy as those are http filters and caches that would corrupt Bitcoin's messages if they make any changes. Bitcoin might be trying to overcome it by reconnecting. You should use port 9050.\nAs riX says, the \"is giving Tor only an IP address. Apps that do DNS...\" warnings are nothing to worry about. Bitcoin doesn't use DNS at all in proxy mode.\nSince Bitcoin can't get through to IRC through Tor, it doesn't know which nodes are currently online, so it has to try all the recently seen nodes. It tries to conserve connection attempts as much as possible, but also people want it to connect quickly when they start it up and reconnect quickly if disconnected. It uses an algorithm where it tries an IP less and less frequently the longer ago it was successful connected. For example, for a node it saw 24 hours ago, it would wait 5 hours between connection attempts. Once it has at least 2 connections, it won't try anything over a week old, and 5 connections it won't try anything over 24 hours old.",
+		"type": "ignore",
 		"qlen": 913,
 		"alen": 1358,
 		"len": 2271
@@ -1382,6 +1383,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=58.msg413#msg413",
 		"q": "Is there some hard-coded maximum limit for the amount of connections? I see 45 connections atm. It's been growing nicely in the last months. Just can't get that many coins anymore...",
 		"a": "Nodes stop trying to initiate connections once they have 15. If you can accept incoming connections, then you can get well above that from nodes connecting to you, otherwise you max out at 15.\nI don't know if there's any reason to have 15 connections. Maybe it should be 10.\nSince nodes that can only connect out are probably at or near 15 most of the time now, you should level off to an equilibrium. 45 suggests a ratio of 3 out-only nodes to every 1 in-accepting node.\nThe number of connections won't be a good gauge of the size of the network any more. Someone should periodically IRC to the bitcoin channel on chat.freenode.net and count the number of users. That gives you the total count of network nodes (except TOR nodes).\nBlock generation is again running ahead of pace. We're in for another big step up in difficulty at the next adjustment in about 5 days.",
+		"type": "ignore",
 		"qlen": 182,
 		"alen": 867,
 		"len": 1049
@@ -2052,6 +2054,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=84.msg1619#msg1619",
 		"q": "I think the way eMule handles bootstrapping for its KAD-network is pretty close to optimal:\nThe list of known peers is stored in a file (nodes.dat), and every client maintains a list of known nodes in that file (sorted by longest uptime, I think -- that's an intrinsic property of Kademlia, but still a good idea). The released client should be accompanied by such a file that contains the addresses of a few reliable peers on static IP addresses, from which a new client can then get more addresses to connect to (and hence store in its own file).\nIf the \"seed list\" gets out of date, or the server is shut down or something, you can just ask *anyone* in the network to publish his nodes-file (on rapidshare, say), and voila, you've got a fresh list of IPs you can connect to.",
 		"a": "The SVN version now uses IRC first and if that fails it falls back to a hardcoded list of seed nodes. There are enough seed nodes now that many of them should still be up by the time of the next release. It only briefly connects to a seed node to get the address list and then disconnects, so your connections drop back to zero for while. At that point, be patient. It's only slow to get connected the first time.\nThis means TOR users won't need to -addnode anymore, it'll get connected automatically.",
+		"type": "ignore",
 		"qlen": 777,
 		"alen": 501,
 		"len": 1278
@@ -2244,6 +2247,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=215.msg1779#msg1779",
 		"q": "I'm connected now.",
 		"a": "We need more details about what happened MadHatter.\nBoth 0.2 and 0.3 have a backup way of getting connected without IRC, it's just slower to get connected.\n0.2 can find other nodes without IRC if it's ever been connected before, but a new install can't discover the network for the first time without IRC.\n0.3 can also seed without IRC. It can operate entirely without IRC if it needs to, but it's better having IRC for redundancy.",
+		"type": "ignore",
 		"qlen": 18,
 		"alen": 431,
 		"len": 449
@@ -2254,6 +2258,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=84.msg1781#msg1781",
 		"q": "I run an IRC server you can use, it's fairly stable but it's not on redundant connections or anything. It is only two servers right now but we don't mess with it or anything, it just runs.\nMy box is a dedicated irc server:\n2:28PM up 838 days, 20:54, 1 user, load averages: 0.06, 0.08, 0.08\nYou can use irc.lfnet.org to connect.",
 		"a": "This seems like a good idea.\nWhat does everyone think, should we make the switch for 0.3?",
+		"type": "ignore",
 		"qlen": 327,
 		"alen": 89,
 		"len": 416
@@ -2264,6 +2269,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=215.msg1797#msg1797",
 		"q": "Oh so with all that being said, you guys are all welcome to IRC on irc.lfnet.org. It is a small network that me and a couple of guys run.. we don't have services or k-lines or anything like that.",
 		"a": "Freenode is too visible, right in the middle of where all those users and moderators are hanging out. Laszlo's option is a much better fit for us.\nI made 0.3.0.RC2 available that uses irc.lfnet.org instead of freenode if you want to start switching over:\nhttp://bitcointalk.org/index.php?topic=199.msg1787#msg1787",
+		"type": "ignore",
 		"qlen": 195,
 		"alen": 313,
 		"len": 508
@@ -2347,6 +2353,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=202.msg1838#msg1838",
 		"q": "Amal, I admit: I got you wrong!\nI am just afraid that digital currencies will not stay legal for long because the government has not control over it. (The day they make it illegal, you should open a bottle of champagne, because that's the sign that bitcoin is a success.)\nSo at that point, they will also shut down your registry. And all the people who gave their address to that agency will get into trouble.\nIf there is a major flaw discovered in Bitcoin and there is no sufficient time to swap to a different system, I assume there is nothing you can do about a loss of your wealth.\nStill, let's suppose YOU have discovered a way to produce an unlimited amount of coins. Your goal would be to profit from that secret AS LONG AS POSSIBLE. So even people that have the power to cheat wouldn't want a collapse of the digital fiat currency. And before the collapse of the old currency they would change their fake money for a better currency. But I am afraid that also goes for the so called \"real\" money. But.. somebody who has the brains to fool the algorithm of the digital currency at least gets a reward for his genius. In our paper fiat money system in the contrary, people who have access to the \"printing press\" of the government / central bank get rewarded for being just plain assholes.",
 		"a": "Here's an answer to a similar question about how to recover from a major meltdown.\nhttps://www.bitcoin.org/smf/index.php?topic=191.msg1585#msg1585",
+		"type": "ignore",
 		"qlen": 1295,
 		"alen": 146,
 		"len": 1441
@@ -2428,6 +2435,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=84.msg2010#msg2010",
 		"q": "Maybe we should have an option dialog that allows you to choose the IRC server and channel you connect to?",
 		"a": "Everybody needs to connect to the same IRC server and channel so they can find each other.",
+		"type": "ignore",
 		"qlen": 106,
 		"alen": 90,
 		"len": 196
@@ -2438,6 +2446,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=84.msg2010#msg2010",
 		"q": "You may want to leave Freenode in as a fallback server -- if his server doesn't work, use Freenode's.",
 		"a": "It might not be good if we suddenly rushed freenode with a ton of users all at once.\nThe fallback is our own seed system.\nirc.lfnet.org is pretty old and has impressive uptime. I think it's going to be fine.\nWe could take IRC out at some point if we want, but I'd rather ease into it and just test our own seed system as a backup for now, and I really like the complementary redundant attributes of the two different systems.",
+		"type": "ignore",
 		"qlen": 101,
 		"alen": 425,
 		"len": 526
@@ -2480,6 +2489,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=240.msg2132#msg2132",
 		"q": "I second this, however I don't think block generation time should be changed. I think it should be identical to the production network. This, for example, would allow testers to try to subvert the system by creating nodes with particularly low latency, and keep the results applicable to the real network.\nGreat idea Gavin!",
 		"a": "I'll start thinking about how to do this.\nAt the moment, you can kind of use -connect. You can use -connect to make it connect to local computers on your LAN, like -connect=192.168.0.100. If you start it out blank and don't let it connect to the main network, the difficulty is still at the original low difficulty. If you've port-forwarded though, then outside nodes might still connect inward to you.\nWith -connect it still uses IRC, do you think it shouldn't get on IRC when you're telling it to only connect to specific nodes with -connect? The main scenario for -connect is where you have a server farm, with two connected to the network and the rest connected to the first two. In that case, you wouldn't want the -connect computers on IRC.\nvoid ThreadIRCSeed(void* parg)\n{\nif (mapArgs.count(\"-connect\"))\nreturn;",
+		"type": "ignore",
 		"qlen": 323,
 		"alen": 818,
 		"len": 1141
@@ -2618,6 +2628,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=286.msg2947#msg2947",
 		"q": "I second the DHT idea for maintaining a client list - we can't have millions of people relying upon an IRC channel, etc. As far as the scaling issue goes, the issue is not at all HDD space, its network bandwidth. Everyone is forgetting, its not bytes_per_transaction*transactions, which is the number everyone is using. That number, as everyone has said, is fully manageable. No, the number we're interested in is bytes_per_transaction * transactions * number_of_clients * total_hops_beyond_first_between_all_clients_combined\nTHIS is the amount of bandwidth which the protocol for BTC consumes as the network scales. We're not just talking about sending one copy of each transaction to each client - we're talking about multiple clients broadcasting potentially redundant data to one another, and doing it across numerous hops, meaning numerous rebroadcasts. Much larger number, much more difficult to handle. However, it is manageable, just not in the current incarnation of network handling in the client.\nPerhaps in the \"popular\" phase, BTC chains could be broken up by region, similar to the purviews of domain name authorities now - and there could be an alternative protocol for transactions across these regional boundaries? This would help the raw numbers of the problem, and also cut down on latency and related issues. Not that I think this is an excellent solution - but P2P flooding across all active clients is obviously out barring some massive breakthrough in quantum computing or whatnot.",
 		"a": "The design outlines a lightweight client that does not need the full block chain. In the design PDF it's called Simplified Payment Verification. The lightweight client can send and receive transactions, it just can't generate blocks. It does not need to trust a node to verify payments, it can still verify them itself.\nThe lightweight client is not implemented yet, but the plan is to implement it when it's needed. For now, everyone just runs a full network node.\nI anticipate there will never be more than 100K nodes, probably less. It will reach an equilibrium where it's not worth it for more nodes to join in. The rest will be lightweight clients, which could be millions.\nAt equilibrium size, many nodes will be server farms with one or two network nodes that feed the rest of the farm over a LAN.",
+		"type": "ignore",
 		"qlen": 1504,
 		"alen": 804,
 		"len": 2308
@@ -3146,6 +3157,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=393.msg3999#msg3999",
 		"q": "I wondered if they were not really meant to be public facing. I think they are useful to have documented though, at least for now. If the program accepts it as valid input it should be documented. You can either add a notice to the commands in the man-page that are experimental, or just remove them. In my opinion it makes more sense to label them experimental so people know they might change, but can use them if they need to. I would just add the following to the beginning of each of the commands in the makefile:\nBUnsupported - Behaviour may change in future versions\fR\nThe \fB switches on bold text and the \fR switches back to regular. This way people can use the program to its fullest potential during the development stages. Too much documentation is never a bad thing, especially for an open source project. Since people can see the code they will find these calls anyway and use them whether you want them to or not. If they are documented and marked as volatile then people can at least make an informed choice on whether or not they want to use them.\nFor example, just at the moment someone in IRC is making use of the -printblock command to generate statistics about the block chain that might help us understand the program better (as in how it performs in the real world). Although the output of this command may change in the future, and therefore we shouldn't be building complex frameworks around it, it is nice to know it exists if you need something done as a quick hack. Also because the program is open source, if someone comes to depend on a certain command line switch they can maintain it. Eventually what you thought was just a temporary debugging tool make end up being one of the most widely used switches available.\n-Buck",
 		"a": "They're only intended for intrepid programmers who read the sourcecode.",
+		"type": "ignore",
 		"qlen": 1751,
 		"alen": 71,
 		"len": 1822
@@ -4346,6 +4358,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=691.msg9041#msg9041",
 		"q": "But there will be no irc server to bootstrap from.",
 		"a": "Which doesn't matter because you can't access sourceforge to download the software either.\nIf you've ever been connected before, you don't need IRC to bootstrap anymore. Even if you haven't, you can bootstrap from seed nodes. IRC is completely redundant since 0.3.0.",
+		"type": "ignore",
 		"qlen": 50,
 		"alen": 266,
 		"len": 316
@@ -5671,6 +5684,7 @@
 		"src": "https://bitcointalk.org/index.php?topic=1375.msg15682#msg15682",
 		"q": "Seeding from Tor is a snap. There are 7 .onion nodes that can provide IPs. I'd also just switch the IRC stuff off with '-noirc' to speed it up.\nSee https://www.bitcoin.org/smf/index.php?topic=59.msg14635#msg14635",
 		"a": "Maybe you were just unlucky to have an exit node without reverse lookup.\nThe IRC server's response doesn't look like it was disconnecting you for that. It's supposed to go IRC SENDING: NICK after that, and it doesn't so it gets timed out.\nI see the problem. The IRC code is looking for various phrases to see when the server is ready to receive your NICK, but it's not looking for that particular phrase. I'll fix it.\nI don't know if it's really required to wait for the server to finish looking up hostname before sending nick.\nHow long did it take to get connected with TOR the first time, having to use the seed nodes?",
+		"type": "ignore",
 		"qlen": 212,
 		"alen": 621,
 		"len": 833
