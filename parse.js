@@ -188,20 +188,25 @@ const toHTML = (text) => {
 }
 
 fs.writeFileSync('./data/qa.html', `
-  <html>
+<html>
   <head>
     <title>Q&As of Satoshi Nakamoto</title>
     <style type="text/css">
-      .ignore { display: none; }
+      body { margin: 0; }
+      .qa { border-bottom: 1px solid black; padding: 10px; }
+      .ignore { background-color: #EEE; opacity: 0.7; }
+      .ignore::before { content: "❌"; }
+      .hide-ignore .ignore { display: none; }
+      .favorite { background-color: lightyellow; }
+      .favorite::before { content: "⭐️"; }
+      p { margin: 10px 0 0 0; }
     </style>
   </head>
-  <body>
-    ${qas.map(i => `<div class="${i.type || ''}">
-      <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a>${i.type == 'favorite' ? ' ⭐️' : ''}</p>
-      <p><b>User</b>${i.qlen ? ` (${i.qlen} chars)`: ''}: ${toHTML(i.q)}</p>
-      <p><b>Satoshi</b>${i.alen ? ` (${i.alen} chars)`: ''}: ${toHTML(i.a)}</p>
-      <hr />
+  <body class="hide-ignore">
+    ${qas.map(i => `<div class="qa ${i.type || ''}">
+      <a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a>
+      <p><b>User</b> (${i.q.length} chars): ${toHTML(i.q)}</p>
+      <p><b>Satoshi</b> (${i.a.length} chars): ${toHTML(i.a)}</p>
     </div>`).join('')}
   </body>
-  </html>
-`)
+</html>`.replace(/  /g, '\t'))
