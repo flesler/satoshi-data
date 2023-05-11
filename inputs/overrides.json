@@ -101,13 +101,8 @@
  
   "http://www.metzdowd.com/pipermail/cryptography/2008-November/014858.html": { "prev": -1, "type": "favorite" },
   
-  "http://p2pfoundation.ning.com/xn/detail/2003008:Comment:52186": {
-    "parts": []
-  },
-
-  "https://sourceforge.net/p/bitcoin/mailman/message/21356305/": {
-    "parts": []
-  },
+  "http://p2pfoundation.ning.com/xn/detail/2003008:Comment:52186": { "parts": [] },
+  "https://sourceforge.net/p/bitcoin/mailman/message/21356305/": { "parts": [] },
 
   "https://bitcointalk.org/index.php?topic=2188.msg29259#msg29259": { "type": "favorite" },
   "https://bitcointalk.org/index.php?topic=43.msg376#msg376": { "type": "favorite" },

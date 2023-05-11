@@ -191,12 +191,12 @@ const toHTML = (text) => {
 
 fs.writeFileSync('./data/qa.html', `
   <html>
-  <head />
+  <head><title>Q&As of Satoshi Nakamoto</title></head>
   <body>
     ${qas.filter(qa => qa.type !== 'ignore').map(i => `
       <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a>${i.type == 'favorite' ? ' ⭐️' : ''}</p>
-      <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
-      <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
+      <p><b>User</b>${i.qlen ? ` (${i.qlen} chars)`: ''}: ${toHTML(i.q)}</p>
+      <p><b>Satoshi</b>${i.alen ? ` (${i.alen} chars)`: ''}: ${toHTML(i.a)}</p>
       <hr />
     `).join('')}
   </body>
