@@ -155,6 +155,7 @@ const parsePosts = () => {
       }
     }
     for (let j = 0; j < parts.length; j += 2) {
+      // It only happens with one where Satoshi puts a quote of himself as a response
       if (parts[j + 1]) {
         out.push({ date: post.date, src: post.url, q: parts[j], a: parts[j + 1] })
       }
@@ -164,16 +165,18 @@ const parsePosts = () => {
   return out
 }
 
-const shouldSkip = (qa) => {
+const getType = (qa) => {
   // Ignore Q&A's that are too technical
-  return IS_CODE.test(qa.q + qa.a)
-  // TODO: Skip if too long?
+  if (IS_CODE.test(qa.q + qa.a)) {
+    // TODO: Ignore if too long?
+    return 'ignore'
+  }
 }
 
 const qas = parsePosts().concat(parseEmails())
   .map((qa) => ({
     ...qa, date: new Date(qa.date + ' UTC').toISOString().split('.')[0].replace('T', ' '), 
-    skip: shouldSkip(qa), favorite: overrides[qa.src]?.favorite,
+    type: overrides[qa.src]?.type || getType(qa),
   }))
   .sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
   .map((qa, i) => ({ id: i + 1, ...qa }))
@@ -190,8 +193,8 @@ fs.writeFileSync('./data/qa.html', `
   <html>
   <head />
   <body>
-    ${qas.filter(qa => !qa.skip).map(i => `
-      <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a>${i.favorite ? ' ⭐️' : ''}</p>
+    ${qas.filter(qa => qa.type !== 'ignore').map(i => `
+      <p><a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a>${i.type == 'favorite' ? ' ⭐️' : ''}</p>
       <p><b>User</b> (${i.qlen} chars): ${toHTML(i.q)}</p>
       <p><b>Satoshi</b> (${i.alen} chars): ${toHTML(i.a)}</p>
       <hr />
