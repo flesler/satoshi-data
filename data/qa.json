@@ -2443,6 +2443,7 @@
 	},
 	{
 		"id": 322,
+		"type": "ignore",
 		"date": "2010-07-25 15:29:52",
 		"src": "https://bitcointalk.org/index.php?topic=567.msg5698#msg5698",
 		"q": "No.",
@@ -2712,9 +2713,10 @@
 	},
 	{
 		"id": 357,
+		"type": "ignore",
 		"date": "2010-08-02 18:02:20",
 		"src": "https://bitcointalk.org/index.php?topic=660.msg7068#msg7068",
-		"q": "The first 5 minutes I used bitcoin about a three weeks ago I generated a block straight away and haven't generated another since. I think it's purely based on luck. Using the OSX client here.",
+		"q": "Hardware\nMacBook Pro 2.4 GHz Intel Core 2 Duo (Model 4,1)\n2 GB 667 MHz DDR2 SDRAM\nSoftware\nMac OS X 10.6.4 Snow Leopard\nBitcoin 0.3.7 (according to Bitcoin >> About)\nProblems\nPreferences: the preferences I have tried all have zero effect as far as I can tell. \"Minimize to the tray instead of the taskbar\" & \"Minimize to the tray on close\" do nothing (including effecting the cpu usage...see below). Start Bitcoin on system startup is grayed out although I have added it manually to my login items. I have not tried \"Limit coin generation to 'x' processors\" or \"Connect through socks4 proxy:\", but I can only guess that these options are not working either.\nA friend just explained what a \"nice process\" is. Sorry.\nCrash On Close: about ever other time I attempt to close Bitcoin using Bitcoin >> Quit the app crashes rather than closing like a friendly app should.\nCoin Generation: frankly I am trusting that this is NOT a bug, but just bad luck. I have been running the app for a few weeks now with zero generation. Again, I assume this is bad luck, but considering the other problems I wanted to mention it in case others were noticing this that were using my setup as well.\n-----------\nIf there are any known solution to these problems or if there is anything I can do to help sort them out please let me know. Thanks!",
 		"a": "\"Minimize to the tray instead of the taskbar\" & \"Minimize to the tray on close\" must not be implemented yet on the Mac. We should grey them out in the next version."
 	},
 	{
@@ -3353,6 +3355,7 @@
 	},
 	{
 		"id": 443,
+		"type": "ignore",
 		"date": "2010-08-16 17:06:27",
 		"src": "https://bitcointalk.org/index.php?topic=837.msg9774#msg9774",
 		"q": "+1",
@@ -4131,7 +4134,7 @@
 		"id": 546,
 		"date": "2010-10-23 19:02:57",
 		"src": "https://bitcointalk.org/index.php?topic=1545.msg18250#msg18250",
-		"q": "Yeah, I'm curious of that too.",
+		"q": "I also wonder if the message has to be taken into account for the hash computation. Not doing so would allow to delete it later.\nI very much don't like this idea of a message. Since it is not necessary to the protocol, I'm not sure if it would be easy to find a place where it really fits. I'm not a programmer though. I'd be curious to have Satoshi's thought on this.",
 		"a": "ECDSA can't encrypt messages, only sign signatures.\nIt would be unwise to have permanently recorded plaintext messages for everyone to see. It would be an accident waiting to happen.\nIf there's going to be a message system, it should be a separate system parallel to the bitcoin network. Messages should not be recorded in the block chain. The messages could be signed with the bitcoin address keypairs to prove who they're from."
 	},
 	{
