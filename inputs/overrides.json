@@ -1,4 +1,63 @@
 {
+	"http://p2pfoundation.ning.com/forum/topics/bitcoin-open-source": {
+		"type": "gpt-4",
+		"parts": [
+			"",
+
+			"What is the main issue with conventional currency or money?",
+			"The root problem with conventional currency is all the trust that's required to make it work. The central bank must be trusted not to debase the currency. The history of fiat currencies is full of breaches of that trust",
+		
+			"What is the issue with banks holding our money and managing electronic transfers?",
+			"Banks must be trusted to hold our money and transfer it electronically, but they lend it out in waves of credit bubbles with barely a fraction in reserve",
+		
+			"What do we risk when trusting banks with our money and privacy?",
+			"We have to trust them with our privacy, trust them not to let identity thieves drain our accounts",
+		
+			"What problem do the overhead costs of banks cause?",
+			"Their massive overhead costs make micropayments impossible",
+		
+			"What advantage does encryption provide in relation to descentralization and privacy?",
+			"Before strong encryption, Users had to rely on password protection to secure their files, placing trust in the system administrator to keep their information private. Privacy could always be overridden by the admin based on his judgment call ... Then strong encryption became available to the masses, and trust was no longer required",
+		
+			"What is the key feature of Bitcoin as money that makes it different from conventional currency systems?",
+			"It's completely decentralized, with no central server or trusted parties, because everything is based on crypto proof instead of trust",
+
+			"How is Bitcoin different from conventional currencies and payment networks?",
+			"With e-currency based on cryptographic proof, without the need to trust a third party middleman, money can be secure and transactions effortless",
+
+			"What is a major disadvantage of the traditional model of preventing double-spending?",
+			"The usual solution is for a trusted company with a central database to check for double-spending, but that just gets back to the trust model. In its central position, the company can override the users",
+
+			"How does Bitcoin address the problem of double-spending?",
+			"The network works like a distributed timestamp server, stamping the first transaction to spend a coin. It takes advantage of the nature of information being easy to spread but hard to stifle. For details on how it works, see the design paper at http://www.bitcoin.org/bitcoin.pdf",
+
+			"What does the Bitcoin system achieve by operating the way it does?",
+			"The result is a distributed system with no single point of failure. Users hold the crypto keys to their own money and transact directly with each other, with the help of the P2P network to check for double-spending"
+		]
+	},
+
+	"http://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html": {
+		"type": "gpt-4",
+		"parts": [
+			"",
+
+			"What are the main properties of Bitcoin?",
+			"Double-spending is prevented with a peer-to-peer network. No mint or other trusted parties. Participants can be anonymous. New coins are made from Hashcash style proof-of-work. The proof-of-work for new coin generation also powers the network to prevent double-spending.",
+
+			"Why aren't digital signatures enough for a payment network?",
+			"Digital signatures provide part of the solution, but the main benefits are lost if a trusted party is still required to prevent double-spending.",
+
+			"What function does the network perform in terms of transactions?",
+			"The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.",
+
+			"How does the control of hashing power affect the security of the network?",
+			"As long as honest nodes control the most CPU power on the network, they can generate the longest chain and outpace any attackers.",
+
+			"How does message broadcasting work in this system?",
+			"Messages are broadcasted on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone."
+		]
+	},
+
 	"https://bitcointalk.org/index.php?topic=13.msg46#msg46": {
 		"parts": [
 			"",
@@ -90,6 +149,15 @@
 			"ECDSA can't encrypt messages, only sign signatures.\nIt would be unwise to have permanently recorded plaintext messages for everyone to see. It would be an accident waiting to happen.\nIf there's going to be a message system, it should be a separate system parallel to the bitcoin network. Messages should not be recorded in the block chain. The messages could be signed with the bitcoin address keypairs to prove who they're from."
 		]
 	},
+
+  "https://bitcointalk.org/index.php?topic=286.msg2947#msg2947": {
+    "parts": [
+      "",
+
+      "What can be done if the block chain becomes very large?",
+		  "The design outlines a lightweight client that does not need the full block chain. In the design PDF it's called Simplified Payment Verification. The lightweight client can send and receive transactions, it just can't generate blocks. It does not need to trust a node to verify payments, it can still verify them itself.\nThe lightweight client is not implemented yet, but the plan is to implement it when it's needed. For now, everyone just runs a full network node.\nI anticipate there will never be more than 100K nodes, probably less. It will reach an equilibrium where it's not worth it for more nodes to join in. The rest will be lightweight clients, which could be millions.\nAt equilibrium size, many nodes will be server farms with one or two network nodes that feed the rest of the farm over a LAN."
+    ]
+  },
 
 	"https://bitcointalk.org/index.php?topic=191.msg1585#msg1585": { "prev": 4, "type": "favorite" },
 
@@ -376,7 +444,6 @@
 	"https://bitcointalk.org/index.php?topic=215.msg1797#msg1797": { "type": "ignore" },
 	"https://bitcointalk.org/index.php?topic=84.msg2010#msg2010": { "type": "ignore" },
 	"https://bitcointalk.org/index.php?topic=240.msg2132#msg2132": { "type": "ignore" },
-	"https://bitcointalk.org/index.php?topic=286.msg2947#msg2947": { "type": "ignore" },
 	"https://bitcointalk.org/index.php?topic=393.msg3999#msg3999": { "type": "ignore" },
 	"https://bitcointalk.org/index.php?topic=691.msg9041#msg9041": { "type": "ignore" },
 	"https://bitcointalk.org/index.php?topic=1375.msg15682#msg15682": { "type": "ignore" },
