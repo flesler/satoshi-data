@@ -3111,7 +3111,7 @@
 		"id": 409,
 		"date": "2010-08-11 00:14:22",
 		"src": "https://bitcointalk.org/index.php?topic=770.msg8637#msg8637",
-		"q": "Interesting idea to revisit! Thanks. Hadn't thought of them in a while.",
+		"q": "You also don't have to prove to the notary that you have X BTC in your account to spend.\nAlthough I was recently reading about Zero-knowledge proofs if you could use something like that to prove that your account had X BTC in it without revealing anything else it might be what you're looking for.\nI'm just worried what you want is theoretically impossible.",
 		"a": "This is a very interesting topic. If a solution was found, a much better, easier, more convenient implementation of Bitcoin would be possible.\nOriginally, a coin can be just a chain of signatures. With a timestamp service, the old ones could be dropped eventually before there's too much backtrace fan-out, or coins could be kept individually or in denominations. It's the need to check for the absence of double-spends that requires global knowledge of all transactions.\nThe challenge is, how do you prove that no other spends exist? It seems a node must know about all transactions to be able to verify that. If it only knows the hash of the in/outpoints, it can't check the signatures to see if an outpoint has been spent before. Do you have any ideas on this?\nIt's hard to think of how to apply zero-knowledge-proofs in this case.\nWe're trying to prove the absence of something, which seems to require knowing about all and checking that the something isn't included."
 	},
 	{
@@ -3580,6 +3580,7 @@
 	},
 	{
 		"id": 472,
+		"type": "ignore",
 		"date": "2010-08-22 22:51:00",
 		"src": "https://bitcointalk.org/index.php?topic=873.msg10715#msg10715",
 		"q": "mizeryderia, you just copied and pasted satoshis post without adding any value.\nYou could have tried to address the points he raised, or at least put up a note explaining why this page was on the wiki and what you wanted people to do with it.",
@@ -3838,6 +3839,7 @@
 	},
 	{
 		"id": 506,
+		"type": "ignore",
 		"date": "2010-09-06 21:41:06",
 		"src": "https://bitcointalk.org/index.php?topic=960.msg12132#msg12132",
 		"q": "\"Please check that your computer's date and time are correct. If your clock is wrong Bitcoin will not work properly.\"",
