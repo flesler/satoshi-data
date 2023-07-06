@@ -201,32 +201,4 @@ const qas = parsePosts().concat(parseEmails())
   .sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
   .map((qa, i) => ({ id: i + 1, ...qa }))
 
-fs.writeFileSync('./data/qa.json', JSON.stringify(qas, null, '\t'))
-
-const toHTML = (text: string) => {
-  return text.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, BR)
-}
-
-fs.writeFileSync('./data/qa.html', `
-<html>
-  <head>
-    <title>Q&As of Satoshi Nakamoto</title>
-    <style type="text/css">
-      body { margin: 0; }
-      .qa { border-bottom: 1px solid black; padding: 10px; }
-      .ignore { background-color: #EEE; opacity: 0.7; }
-      .ignore::before { content: "❌"; }
-      .hide-ignore .ignore { display: none; }
-      .favorite { background-color: lightyellow; }
-      .favorite::before { content: "⭐️"; }
-      p { margin: 10px 0 0 0; }
-    </style>
-  </head>
-  <body class="hide-ignore">
-    ${qas.map(i => `<div class="qa ${i.type || ''}">
-      <a id="${i.id}" href="#${i.id}">#${i.id}</a> - ${i.date} - <a href="${i.src}">${i.src}</a>
-      <p><b>User</b> (${i.q.length} chars): ${toHTML(i.q)}</p>
-      <p><b>Satoshi</b> (${i.a.length} chars): ${toHTML(i.a)}</p>
-    </div>`).join('')}
-  </body>
-</html>`.replace(/  /g, '\t'))
+fs.writeFileSync('./public/qa.json', JSON.stringify(qas, null, '\t'))
