@@ -2,11 +2,11 @@
   "name": "satoshi-data",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "Curated dataset of Satoshi Nakamoto responding to users",
   "main": "parse.js",
   "scripts": {
     "start": "ts-node parse.ts",
-    "serve": "serve public"
+    "serve": "serve docs"
   },
   "repository": {
     "type": "git",

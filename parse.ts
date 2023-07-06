@@ -201,4 +201,4 @@ const qas = parsePosts().concat(parseEmails())
   .sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
   .map((qa, i) => ({ id: i + 1, ...qa }))
 
-fs.writeFileSync('./public/qa.json', JSON.stringify(qas, null, '\t'))
+fs.writeFileSync('./docs/qa.json', JSON.stringify(qas, null, '\t'))
