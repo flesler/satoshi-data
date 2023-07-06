@@ -48,7 +48,7 @@ const splitEmail = (email: string | undefined) => {
     .replace(/> >/g, '>>')
     .split('\n')
     .map(l => l.trim())
-  
+
   const signature = lines.indexOf('---------------------------------------------------------------------')
   if (signature !== -1) {
     let len = signature - 1
@@ -114,7 +114,7 @@ const parseEmails = () => {
       }
     }
   }
-  
+
   return out
 }
 
@@ -167,7 +167,7 @@ const parsePosts = () => {
       delete post.satoshi_id
       continue
     }
-    
+
     const [first, ...parts] = overrides[post.url]?.parts || splitPost(post.content)
     if (first) {
       // Should be using nested_level for some, but seems like Satoshi replied without nesting correctly (?)
@@ -189,14 +189,14 @@ const parsePosts = () => {
       }
     }
   }
-  
+
   return out
 }
 
 const qas = parsePosts().concat(parseEmails())
   .map((qa) => ({
     type: overrides[qa.src]?.type, ...qa,
-    date: new Date(qa.date + ' UTC').toISOString().split('.')[0].replace('T', ' '), 
+    date: new Date(qa.date + ' UTC').toISOString().split('.')[0].replace('T', ' '),
   }))
   .sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0)
   .map((qa, i) => ({ id: i + 1, ...qa }))
