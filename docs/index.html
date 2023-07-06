@@ -2,22 +2,29 @@
 <html>
   <head>
     <title>Q&As of Satoshi Nakamoto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type="text/css">
-      body { margin: 0; }
+      html, body { margin: 0; width: 100%; }
+      #qas { padding-top: 20px; }
       .qa { border-bottom: 1px solid black; padding: 10px; }
       .ignore { background-color: #EEE; opacity: 0.7; }
       .ignore::before { content: "❌"; }
-      .hide-ignored .ignore { display: none; }
       .favorite { background-color: lightyellow; }
       .favorite::before { content: "⭐️"; }
       .gpt-4::before { content: "🤖"; }
+
+      #top-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 2; text-align: center; background: white; padding: 5px 0; }
+      .hide-ignored .ignore { display: none; }
+      .only-favorites .qa:not(.favorite) { display: none; }
       p { margin: 10px 0 0 0; }
     </style>
   </head>
-  <body class="hide-ignored">
-    <label id="toggle-ignored">
-      <input type="checkbox" /> Show Ignored
-    </label>
+  <body>
+    <div id="top-bar">
+      <label><input type="radio" name="visibility" id="hide-ignored" checked="checked" /> Hide ignored</label>
+      <label><input type="radio" name="visibility" id="show-ignored" /> Show ignored</label>
+      <label><input type="radio" name="visibility" id="only-favorites" /> Only favorites</label>
+    </div>
     <div id="qas"></div>
     <script type="text/javascript">
       const xhr = new XMLHttpRequest()
@@ -40,11 +47,12 @@
         </div>`).join('')
         document.getElementById('qas').innerHTML = html
       }
-
-      document.getElementById('toggle-ignored').onclick = (e) => {
-        const check = e.currentTarget.querySelector('input')
-        document.body.className = check.checked ? '' : 'hide-ignored'
+      const updateVisibility = () => {
+        const radios = document.querySelectorAll('input[name=visibility]')
+        document.body.className = [].find.call(radios, r => r.checked).id
       }
+      updateVisibility()
+      document.getElementById('top-bar').onclick = updateVisibility
     </script>
   </body>
 </html>
